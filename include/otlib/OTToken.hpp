@@ -287,7 +287,7 @@ public:
 	inline	const OTASCIIArmor & GetSpendable() const { return m_ascSpendable; }
 	inline	void SetSpendable(const OTASCIIArmor & theArmor) { m_ascSpendable.Set(theArmor); }
 
-	EXPORT	bool GetSpendableString(OTNym_or_SymmetricKey theOwner, OTString & theString) const; // todo potentially return OTPassword here instead of OTString (more secure.)
+	EXPORT	bool GetSpendableString(OTNym_or_SymmetricKey theOwner, OTString & theString) const; // todo potentially return OT::Password here instead of OTString (more secure.)
 
 	inline	OTToken::tokenState GetState() const { return m_State; }
 	// ------------------------------------------------------------------------

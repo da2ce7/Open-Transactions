@@ -38,215 +38,27 @@ public class OTPassword : global::System.IDisposable {
     }
   }
 
-  public OTPassword.BlockSize m_theBlockSize {
-    get {
-      OTPassword.BlockSize ret = (OTPassword.BlockSize)otapiPINVOKE.OTPassword_m_theBlockSize_get(swigCPtr);
-      return ret;
-    } 
-  }
-
-  public bool isPassword() {
-    bool ret = otapiPINVOKE.OTPassword_isPassword(swigCPtr);
-    return ret;
-  }
-
-  public SWIGTYPE_p_unsigned_char getPassword_uint8() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_getPassword_uint8(swigCPtr);
-    SWIGTYPE_p_unsigned_char ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_unsigned_char(cPtr, false);
-    return ret;
-  }
-
-  public string getPassword() {
-    string ret = otapiPINVOKE.OTPassword_getPassword(swigCPtr);
-    return ret;
-  }
-
-  public SWIGTYPE_p_unsigned_char getPasswordWritable() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_getPasswordWritable(swigCPtr);
-    SWIGTYPE_p_unsigned_char ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_unsigned_char(cPtr, false);
-    return ret;
-  }
-
-  public string getPasswordWritable_char() {
-    string ret = otapiPINVOKE.OTPassword_getPasswordWritable_char(swigCPtr);
-    return ret;
-  }
-
-  public int setPassword(string szInput, int nInputSize) {
-    int ret = otapiPINVOKE.OTPassword_setPassword(swigCPtr, szInput, nInputSize);
-    return ret;
-  }
-
-  public int setPassword_uint8(SWIGTYPE_p_unsigned_char szInput, uint nInputSize) {
-    int ret = otapiPINVOKE.OTPassword_setPassword_uint8(swigCPtr, SWIGTYPE_p_unsigned_char.getCPtr(szInput), nInputSize);
-    return ret;
-  }
-
-  public bool addChar(byte theChar) {
-    bool ret = otapiPINVOKE.OTPassword_addChar(swigCPtr, theChar);
-    return ret;
-  }
-
-  public int randomizePassword(uint nNewSize) {
-    int ret = otapiPINVOKE.OTPassword_randomizePassword__SWIG_0(swigCPtr, nNewSize);
-    return ret;
-  }
-
-  public int randomizePassword() {
-    int ret = otapiPINVOKE.OTPassword_randomizePassword__SWIG_1(swigCPtr);
-    return ret;
-  }
-
-  public static bool randomizePassword_uint8(SWIGTYPE_p_unsigned_char szDestination, uint nNewSize) {
-    bool ret = otapiPINVOKE.OTPassword_randomizePassword_uint8(SWIGTYPE_p_unsigned_char.getCPtr(szDestination), nNewSize);
-    return ret;
-  }
-
-  public static bool randomizePassword(string szDestination, uint nNewSize) {
-    bool ret = otapiPINVOKE.OTPassword_randomizePassword__SWIG_2(szDestination, nNewSize);
-    return ret;
-  }
-
-  public bool isMemory() {
-    bool ret = otapiPINVOKE.OTPassword_isMemory(swigCPtr);
-    return ret;
-  }
-
-  public SWIGTYPE_p_void getMemory() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_getMemory(swigCPtr);
-    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
-    return ret;
-  }
-
-  public SWIGTYPE_p_unsigned_char getMemory_uint8() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_getMemory_uint8(swigCPtr);
-    SWIGTYPE_p_unsigned_char ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_unsigned_char(cPtr, false);
-    return ret;
-  }
-
-  public SWIGTYPE_p_void getMemoryWritable() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_getMemoryWritable(swigCPtr);
-    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
-    return ret;
-  }
-
-  public int setMemory(SWIGTYPE_p_void vInput, uint nInputSize) {
-    int ret = otapiPINVOKE.OTPassword_setMemory(swigCPtr, SWIGTYPE_p_void.getCPtr(vInput), nInputSize);
-    return ret;
-  }
-
-  public int addMemory(SWIGTYPE_p_void vAppend, uint nAppendSize) {
-    int ret = otapiPINVOKE.OTPassword_addMemory(swigCPtr, SWIGTYPE_p_void.getCPtr(vAppend), nAppendSize);
-    return ret;
-  }
-
-  public int randomizeMemory(uint nNewSize) {
-    int ret = otapiPINVOKE.OTPassword_randomizeMemory__SWIG_0(swigCPtr, nNewSize);
-    return ret;
-  }
-
-  public int randomizeMemory() {
-    int ret = otapiPINVOKE.OTPassword_randomizeMemory__SWIG_1(swigCPtr);
-    return ret;
-  }
-
-  public static bool randomizeMemory_uint8(SWIGTYPE_p_unsigned_char szDestination, uint nNewSize) {
-    bool ret = otapiPINVOKE.OTPassword_randomizeMemory_uint8(SWIGTYPE_p_unsigned_char.getCPtr(szDestination), nNewSize);
-    return ret;
-  }
-
-  public static bool randomizeMemory(SWIGTYPE_p_void szDestination, uint nNewSize) {
-    bool ret = otapiPINVOKE.OTPassword_randomizeMemory__SWIG_2(SWIGTYPE_p_void.getCPtr(szDestination), nNewSize);
-    return ret;
-  }
-
-  public uint getBlockSize() {
-    uint ret = otapiPINVOKE.OTPassword_getBlockSize(swigCPtr);
-    return ret;
-  }
-
-  public bool Compare(OTPassword rhs) {
-    bool ret = otapiPINVOKE.OTPassword_Compare(swigCPtr, OTPassword.getCPtr(rhs));
+  public static bool randomizeData(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t vData) {
+    bool ret = otapiPINVOKE.OTPassword_randomizeData(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t.getCPtr(vData));
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public uint getPasswordSize() {
-    uint ret = otapiPINVOKE.OTPassword_getPasswordSize(swigCPtr);
+  public static bool randomizeMemory(SWIGTYPE_p_void pMemory, uint theSize) {
+    bool ret = otapiPINVOKE.OTPassword_randomizeMemory(SWIGTYPE_p_void.getCPtr(pMemory), theSize);
     return ret;
   }
 
-  public uint getMemorySize() {
-    uint ret = otapiPINVOKE.OTPassword_getMemorySize(swigCPtr);
-    return ret;
+  public static void zeroMemory(SWIGTYPE_p_void pMemory, uint theSize) {
+    otapiPINVOKE.OTPassword_zeroMemory(SWIGTYPE_p_void.getCPtr(pMemory), theSize);
   }
 
-  public void zeroMemory() {
-    otapiPINVOKE.OTPassword_zeroMemory__SWIG_0(swigCPtr);
-  }
-
-  public static void zeroMemory(SWIGTYPE_p_unsigned_char szMemory, uint theSize) {
-    otapiPINVOKE.OTPassword_zeroMemory__SWIG_1(SWIGTYPE_p_unsigned_char.getCPtr(szMemory), theSize);
-  }
-
-  public static void zeroMemory(SWIGTYPE_p_void vMemory, uint theSize) {
-    otapiPINVOKE.OTPassword_zeroMemory__SWIG_2(SWIGTYPE_p_void.getCPtr(vMemory), theSize);
-  }
-
-  public static SWIGTYPE_p_void safe_memcpy(SWIGTYPE_p_void dest, uint dest_size, SWIGTYPE_p_void src, uint src_length, bool bZeroSource) {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_safe_memcpy__SWIG_0(SWIGTYPE_p_void.getCPtr(dest), dest_size, SWIGTYPE_p_void.getCPtr(src), src_length, bZeroSource);
-    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
-    return ret;
-  }
-
-  public static SWIGTYPE_p_void safe_memcpy(SWIGTYPE_p_void dest, uint dest_size, SWIGTYPE_p_void src, uint src_length) {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_safe_memcpy__SWIG_1(SWIGTYPE_p_void.getCPtr(dest), dest_size, SWIGTYPE_p_void.getCPtr(src), src_length);
-    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
-    return ret;
-  }
-
-  public static OTPassword CreateTextBuffer() {
-    global::System.IntPtr cPtr = otapiPINVOKE.OTPassword_CreateTextBuffer();
-    OTPassword ret = (cPtr == global::System.IntPtr.Zero) ? null : new OTPassword(cPtr, false);
-    return ret;
-  }
-
-  public bool SetSize(uint uSize) {
-    bool ret = otapiPINVOKE.OTPassword_SetSize(swigCPtr, uSize);
-    return ret;
-  }
-
-  public OTPassword(OTPassword.BlockSize theBlockSize) : this(otapiPINVOKE.new_OTPassword__SWIG_0((int)theBlockSize), true) {
-  }
-
-  public OTPassword() : this(otapiPINVOKE.new_OTPassword__SWIG_1(), true) {
-  }
-
-  public OTPassword(OTPassword rhs) : this(otapiPINVOKE.new_OTPassword__SWIG_2(OTPassword.getCPtr(rhs)), true) {
+  public static void copyMemory(SWIGTYPE_p_void pIn, uint nIn, SWIGTYPE_p_void pOut, SWIGTYPE_p_size_t nOut) {
+    otapiPINVOKE.OTPassword_copyMemory(SWIGTYPE_p_void.getCPtr(pIn), nIn, SWIGTYPE_p_void.getCPtr(pOut), SWIGTYPE_p_size_t.getCPtr(nOut));
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public OTPassword(string szInput, uint nInputSize, OTPassword.BlockSize theBlockSize) : this(otapiPINVOKE.new_OTPassword__SWIG_3(szInput, nInputSize, (int)theBlockSize), true) {
-  }
-
-  public OTPassword(string szInput, uint nInputSize) : this(otapiPINVOKE.new_OTPassword__SWIG_4(szInput, nInputSize), true) {
-  }
-
-  public OTPassword(SWIGTYPE_p_unsigned_char szInput, uint nInputSize, OTPassword.BlockSize theBlockSize) : this(otapiPINVOKE.new_OTPassword__SWIG_5(SWIGTYPE_p_unsigned_char.getCPtr(szInput), nInputSize, (int)theBlockSize), true) {
-  }
-
-  public OTPassword(SWIGTYPE_p_unsigned_char szInput, uint nInputSize) : this(otapiPINVOKE.new_OTPassword__SWIG_6(SWIGTYPE_p_unsigned_char.getCPtr(szInput), nInputSize), true) {
-  }
-
-  public OTPassword(SWIGTYPE_p_void vInput, uint nInputSize, OTPassword.BlockSize theBlockSize) : this(otapiPINVOKE.new_OTPassword__SWIG_7(SWIGTYPE_p_void.getCPtr(vInput), nInputSize, (int)theBlockSize), true) {
-  }
-
-  public OTPassword(SWIGTYPE_p_void vInput, uint nInputSize) : this(otapiPINVOKE.new_OTPassword__SWIG_8(SWIGTYPE_p_void.getCPtr(vInput), nInputSize), true) {
-  }
-
-  public enum BlockSize {
-    DEFAULT_SIZE = 128,
-    LARGER_SIZE = 32767
+  public OTPassword() : this(otapiPINVOKE.new_OTPassword(), true) {
   }
 
 }

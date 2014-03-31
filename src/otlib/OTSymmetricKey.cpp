@@ -138,7 +138,6 @@
 #include <OTIdentifier.hpp>
 #include <OTEnvelope.hpp>
 #include <OTASCIIArmor.hpp>
-#include <OTPassword.hpp>
 #include <OTAsymmetricKey.hpp>
 
 extern "C"
@@ -182,7 +181,7 @@ void OTSymmetricKey::GetIdentifier(OTString & strIdentifier) const
 
 // ------------------------------------------------------------------------
 
-// Generates this OTSymmetricKey based on an OTPassword. The generated key is
+// Generates this OTSymmetricKey based on an OT::Password. The generated key is 
 // stored in encrypted form, based on a derived key from that password.
 //
 
@@ -193,10 +192,10 @@ void OTSymmetricKey::GetIdentifier(OTString & strIdentifier) const
 
 // ppDerivedKey: CALLER RESPONSIBLE TO DELETE.  (optional arg.)
 //
-bool OTSymmetricKey::GenerateKey(const
-                 OTPassword & thePassphrase,
-                 OTPassword ** ppDerivedKey/*=NULL*/)  // Output. If you want, I can pass this back to you.
-{
+bool OTSymmetricKey::GenerateKey(const 
+                 OT::Password & thePassphrase,
+                 OT::Password ** ppDerivedKey/*=NULL*/)  // Output. If you want, I can pass this back to you.
+{    
     OT_ASSERT(m_uIterationCount > 1000);
     OT_ASSERT(!m_bIsGenerated);
 //  OT_ASSERT(thePassphrase.isPassword());
@@ -222,11 +221,11 @@ bool OTSymmetricKey::GenerateKey(const
     // Generate actual key (a randomized memory space.)
     // We will use the derived key for encrypting the actual key.
     //
-    OTPassword  theActualKey;
-
+    OT::BinaryPassword  theActualKey;
+    
 	{
-		int32_t nRes = theActualKey.randomizeMemory(OTCryptoConfig::SymmetricKeySize()); if (0 > nRes) { OT_FAIL; }
-		uint32_t uRes = static_cast<uint32_t>(nRes); // we need an uint32_t value.
+		int32_t nRes = theActualKey.randomize(OTCryptoConfig::SymmetricKeySize()); if (0 > nRes) { OT_FAIL; }
+		uint32_t uRes = static_cast<uint32_t>(nRes); // we need an unsigned value.
 
 		if (OTCryptoConfig::SymmetricKeySize() != uRes)
 		{
@@ -239,11 +238,11 @@ bool OTSymmetricKey::GenerateKey(const
     // -------------------------------------------------------------------------------------------------
     // Generate derived key from passphrase.
     //
-    OTCleanup<OTPassword> theDerivedAngel;
+    OTCleanup<OT::Password> theDerivedAngel;
     // ------------------------
-
-    OTPassword * pDerivedKey = this->CalculateNewDerivedKeyFromPassphrase(thePassphrase); // asserts already.
-
+    
+    OT::Password * pDerivedKey = this->CalculateNewDerivedKeyFromPassphrase(thePassphrase); // asserts already.
+    
     if (NULL != ppDerivedKey) // A pointerpointer was passed in... (caller will be responsible then, to delete.)
     {
         *ppDerivedKey = pDerivedKey;
@@ -266,8 +265,8 @@ bool OTSymmetricKey::GenerateKey(const
     //
     const bool bEncryptedKey = OTCrypto::It()->Encrypt(*pDerivedKey,  // pDerivedKey is a symmetric key, in clear form. Used for encrypting theActualKey.
                                                        // -------------------------------
-                                                       reinterpret_cast<const char *>(theActualKey.getMemory_uint8()), // This is the Plaintext that's being encrypted.
-                                                       static_cast<uint32_t>(theActualKey.getMemorySize()),
+                                                       reinterpret_cast<const char *>(theActualKey.getMemoryConst().first), // This is the Plaintext that's being encrypted.
+                                                       static_cast<uint32_t>(theActualKey.getMemoryConst().second),
                                                        // -------------------------------
                                                        m_dataIV, // generated above.
                                                        // -------------------------------
@@ -281,7 +280,7 @@ bool OTSymmetricKey::GenerateKey(const
 }
 
 
-bool OTSymmetricKey::GenerateHashCheck(const OTPassword & thePassphrase)
+bool OTSymmetricKey::GenerateHashCheck(const OT::Password & thePassphrase)
 {
     OT_ASSERT(m_uIterationCount > 1000);
 
@@ -299,8 +298,8 @@ bool OTSymmetricKey::GenerateHashCheck(const OTPassword & thePassphrase)
 
 	OT_ASSERT(this->m_dataHashCheck.IsEmpty());
 
-	OTPassword * pDerivedKey = this->CalculateNewDerivedKeyFromPassphrase(thePassphrase); // asserts already.
-
+	OT::Password * pDerivedKey = this->CalculateNewDerivedKeyFromPassphrase(thePassphrase); // asserts already.
+    
     if (NULL == pDerivedKey) // A pointerpointer was passed in... (caller will be responsible then, to delete.)
     {
 		OTLog::vError("%s: failed to calculate derived key",__FUNCTION__);
@@ -317,7 +316,7 @@ bool OTSymmetricKey::GenerateHashCheck(const OTPassword & thePassphrase)
     return true;
 }
 
-bool OTSymmetricKey::ReGenerateHashCheck(const OTPassword & thePassphrase)
+bool OTSymmetricKey::ReGenerateHashCheck(const OT::Password & thePassphrase)
 {
 	if (!this->HasHashCheck())
 	{
@@ -353,16 +352,16 @@ bool OTSymmetricKey::ReGenerateHashCheck(const OTPassword & thePassphrase)
     3. (Use the decrypted symmetric key to decrypt the ciphertext.)
  */
 
-// Done:  add a "get Key" function which takes the OTPassword, generates the derived key using salt already on
+// Done:  add a "get Key" function which takes the OT::Password, generates the derived key using salt already on
 // OTSymmetricKey object, then decrypts the encrypted symmetric key (using derived key) and returns clear symmetric
-// key back as another OTPassword object.
+// key back as another OT::Password object.
 
 
 
 // Assumes key is already generated. Tries to get the raw clear key from its encrypted form, via
 // its passphrase being used to derive a key for that purpose.
 //
-// If returns true, theRawKeyOutput will contain the decrypted symmetric key, in an OTPassword object.
+// If returns true, theRawKeyOutput will contain the decrypted symmetric key, in an OT::Password object.
 // Otherwise returns false if failure.
 //
 
@@ -373,12 +372,12 @@ bool OTSymmetricKey::ReGenerateHashCheck(const OTPassword & thePassphrase)
 //
 // CALLER IS RESPONSIBLE TO DELETE.
 //
-OTPassword * OTSymmetricKey::CalculateDerivedKeyFromPassphrase(const OTPassword & thePassphrase,
+OT::Password * OTSymmetricKey::CalculateDerivedKeyFromPassphrase(const OT::Password & thePassphrase,
                                                                const bool bCheckForHashCheck /*= true*/) const
 {
 //  OT_ASSERT(m_bIsGenerated);
 //  OT_ASSERT(thePassphrase.isPassword());
-	OTPassword * pDerivedKey = NULL;
+	OT::Password * pDerivedKey = NULL;
 
 	OTPayload tmpDataHashCheck = this->m_dataHashCheck;
 
@@ -405,15 +404,15 @@ OTPassword * OTSymmetricKey::CalculateDerivedKeyFromPassphrase(const OTPassword 
     return pDerivedKey; // can be null
 }
 
-OTPassword * OTSymmetricKey::CalculateNewDerivedKeyFromPassphrase(const OTPassword & thePassphrase)
+OT::Password * OTSymmetricKey::CalculateNewDerivedKeyFromPassphrase(const OT::Password & thePassphrase)
 {
 //  OT_ASSERT(m_bIsGenerated);
 //  OT_ASSERT(thePassphrase.isPassword());
-	OTPassword * pDerivedKey = NULL;
+	OT::Password * pDerivedKey = NULL;
 
 	if (!this->HasHashCheck())
 	{
-		this->m_dataHashCheck.zeroMemory();
+        this->m_dataHashCheck.Release();
 
 		pDerivedKey = OTCrypto::It()->DeriveNewKey(thePassphrase, this->m_dataSalt, this->m_uIterationCount, this->m_dataHashCheck);
 	}
@@ -437,18 +436,18 @@ OTPassword * OTSymmetricKey::CalculateNewDerivedKeyFromPassphrase(const OTPasswo
 // encrypted form, via its passphrase being used to derive a key for that purpose.
 //
 bool OTSymmetricKey::GetRawKeyFromPassphrase(const
-                                             OTPassword & thePassphrase,
-                                             OTPassword & theRawKeyOutput,
-                                             OTPassword * pDerivedKey/*=NULL*/) const // Optionally pass this, to save me the step.
-{
+                                             OT::Password & thePassphrase, 
+                                             OT::Password & theRawKeyOutput,
+                                             OT::Password * pDerivedKey/*=NULL*/) const // Optionally pass this, to save me the step.
+{    
     OT_ASSERT(m_bIsGenerated);
 //  OT_ASSERT(thePassphrase.isPassword());
-    // -------------------------------------------------------------------------------------------------
-    OTCleanup<OTPassword> theDerivedAngel;
+    // -------------------------------------------------------------------------------------------------    
+    OTCleanup<OT::Password> theDerivedAngel;
     // ------------------------
     if (NULL == pDerivedKey)
     {
-        // todo, security: Do we have to create all these OTPassword objects on the stack, just
+        // todo, security: Do we have to create all these OT::Password objects on the stack, just
         // as a general practice? In which case I can't use this factory how I'm using it now...
         //
 
@@ -471,13 +470,12 @@ bool OTSymmetricKey::GetRawKeyFromPassphrase(const
 
 // Assumes key is already generated. Tries to get the raw clear key from its encrypted form, via a derived key.
 //
-// If returns true, theRawKeyOutput will contain the decrypted symmetric key, in an OTPassword object.
+// If returns true, theRawKeyOutput will contain the decrypted symmetric key, in an OT::Password object.
 // Otherwise returns false if failure.
 //
-bool OTSymmetricKey::GetRawKeyFromDerivedKey(const OTPassword & theDerivedKey, OTPassword & theRawKeyOutput) const
+bool OTSymmetricKey::GetRawKeyFromDerivedKey(const OT::Password & theDerivedKey, OT::Password & theRawKeyOutput) const
 {
     OT_ASSERT(m_bIsGenerated);
-    OT_ASSERT(theDerivedKey.isMemory());
     // -------------------------------------------------------------------------------------------------
     const char * szFunc = "OTSymmetricKey::GetRawKeyFromDerivedKey";
     // -------------------------------------------------------------------------------------------------
@@ -500,8 +498,8 @@ bool OTSymmetricKey::GetRawKeyFromDerivedKey(const OTPassword & theDerivedKey, O
                                                        // -------------------------------
                                                        m_dataIV, // Created when *this symmetric key was generated. Both are already stored.
                                                        // -------------------------------
-                                                       theRawKeyOutput); // OUTPUT. (Recovered plaintext of symmetric key.) You can pass OTPassword& OR OTPayload& here (either will work.)
-
+                                                       &theRawKeyOutput); // OUTPUT. (Recovered plaintext of symmetric key.) You can pass OT::Password& OR OTPayload& here (either will work.)
+    
     OTLog::vOutput(2, "%s: (End) attempt to recover actual key using derived key...\n", szFunc);
     return bDecryptedKey;
 }
@@ -518,12 +516,12 @@ bool OTSymmetricKey::GetRawKeyFromDerivedKey(const OTPassword & theDerivedKey, O
 
 
 //static  NOTE: this version circumvents the master key.
-OTPassword * OTSymmetricKey::GetPassphraseFromUser(const OTString * pstrDisplay/*=NULL*/,
-                                                   const bool       bAskTwice  /*=false*/) // returns a text OTPassword, or NULL.
+OT::Password * OTSymmetricKey::GetPassphraseFromUser(const OTString * pstrDisplay/*=NULL*/,
+                                                   const bool       bAskTwice  /*=false*/) // returns a text OT::Password, or NULL.
 {
     // Caller MUST delete!
     // ---------------------------------------------------
-    OTPassword * pPassUserInput = OTPassword::CreateTextBuffer(); // already asserts.
+    OT::StringPassword thePassUserInput;
 //  pPassUserInput->zeroMemory(); // This was causing the password to come out blank.
     //
     // Below this point, pPassUserInput must be returned, or deleted. (Or it will leak.)
@@ -532,21 +530,26 @@ OTPassword * OTSymmetricKey::GetPassphraseFromUser(const OTString * pstrDisplay/
     OTPasswordData  thePWData((NULL == pstrDisplay) ? szDisplay : pstrDisplay->Get());
     thePWData.setUsingOldSystem(); // So the cached key doesn't interfere, since this is for a plain symmetric key.
     // -----------------------------------------------
-    const int32_t nCallback = souped_up_pass_cb(pPassUserInput->getPasswordWritable_char(),
-                                            pPassUserInput->getBlockSize(),
+    char * passBuf = static_cast<char *>(thePassUserInput.getMemory().first);
+    const int32_t nCallback = souped_up_pass_cb(passBuf,
+                                            thePassUserInput.getMemory().second,
                                             bAskTwice ? 1 : 0,
                                             static_cast<void *>(&thePWData));
-    const uint32_t uCallback = static_cast<uint32_t>(nCallback);
+
+    thePassUserInput.resize(nCallback);
+
+    OT::Password * pPass = new OT::BinaryPassword(thePassUserInput);
+
     if ((nCallback > 0) &&// Success retrieving the passphrase from the user.
-        pPassUserInput->SetSize(uCallback))
+        pPass->length())
     {
 //      OTLog::vOutput(0, "%s: Retrieved passphrase (blocksize %d, actual size %d) from user: %s\n", __FUNCTION__,
 //                     pPassUserInput->getBlockSize(), nCallback, pPassUserInput->getPassword());
-        return pPassUserInput; // Caller MUST delete!
+        return pPass; // Caller MUST delete!
     }
     else
     {
-        delete pPassUserInput; pPassUserInput = NULL;
+        delete pPass; pPass = NULL;
         OTLog::vOutput(0, "%s: Sorry, unable to retrieve passphrase from user. (Failure.)\n", __FUNCTION__);
     }
 
@@ -558,11 +561,11 @@ OTPassword * OTSymmetricKey::GetPassphraseFromUser(const OTString * pstrDisplay/
 //static
 bool OTSymmetricKey::CreateNewKey(      OTString   & strOutput,
                                   const OTString   * pstrDisplay   /*=NULL*/,
-                                  const OTPassword * pAlreadyHavePW/*=NULL*/)
+                                  const OT::Password * pAlreadyHavePW/*=NULL*/)
 {
-    OTPassword * pPassUserInput = NULL;
-    OTCleanup<OTPassword> thePWAngel;
-
+    OT::Password * pPassUserInput = NULL;
+    OTCleanup<OT::Password> thePWAngel;
+    
     if (NULL == pAlreadyHavePW)
     {
         const char *    szDisplay = "Creating new symmetric key.";
@@ -572,7 +575,7 @@ bool OTSymmetricKey::CreateNewKey(      OTString   & strOutput,
         thePWAngel.SetCleanupTargetPointer(pPassUserInput); // may be NULL.
     }
     else
-        pPassUserInput = const_cast<OTPassword *>(pAlreadyHavePW);
+        pPassUserInput = const_cast<OT::Password *>(pAlreadyHavePW);
     // -----------------------------------------------
     bool bSuccess = false;
 
@@ -606,7 +609,7 @@ bool OTSymmetricKey::Encrypt(const OTString   & strKey,
                                    OTString   & strOutput,
                              const OTString   * pstrDisplay   /*=NULL*/,
                              const bool         bBookends     /*=true*/,
-                             const OTPassword * pAlreadyHavePW/*=NULL*/)
+                             const OT::Password * pAlreadyHavePW/*=NULL*/)
 {
     if (!strKey.Exists() || !strPlaintext.Exists())
     {
@@ -642,7 +645,7 @@ bool OTSymmetricKey::Encrypt(const OTSymmetricKey & theKey,
                                    OTString       & strOutput,
                              const OTString       * pstrDisplay    /*=NULL*/,
                              const bool             bBookends      /*=true*/,
-                             const OTPassword     * pAlreadyHavePW /*=NULL*/)
+                             const OT::Password     * pAlreadyHavePW /*=NULL*/)
 {
     if (!theKey.IsGenerated())
     {
@@ -660,9 +663,9 @@ bool OTSymmetricKey::Encrypt(const OTSymmetricKey & theKey,
     // -----------------------------------
     // By this point, we know we have a plaintext and a symmetric Key.
     //
-    OTPassword * pPassUserInput = NULL;
-    OTCleanup<OTPassword> thePWAngel;
-
+    OT::Password * pPassUserInput = NULL;
+    OTCleanup<OT::Password> thePWAngel;
+    
     if (NULL == pAlreadyHavePW)
     {
         const char *    szDisplay = "Password-protecting a plaintext.";
@@ -672,7 +675,7 @@ bool OTSymmetricKey::Encrypt(const OTSymmetricKey & theKey,
         thePWAngel.SetCleanupTargetPointer(pPassUserInput); // may be NULL.
     }
     else
-        pPassUserInput = const_cast<OTPassword *>(pAlreadyHavePW);
+        pPassUserInput = const_cast<OT::Password *>(pAlreadyHavePW);
     // -----------------------------------------------
     OTASCIIArmor ascOutput;
     bool bSuccess = false;
@@ -719,8 +722,8 @@ bool OTSymmetricKey::Decrypt(const OTString   & strKey,
                                    OTString   & strCiphertext,
                                    OTString   & strOutput,
                              const OTString   * pstrDisplay   /*=NULL*/,
-                             const OTPassword * pAlreadyHavePW/*=NULL*/)
-{
+                             const OT::Password * pAlreadyHavePW/*=NULL*/)
+{    
     // -----------------------------------
     if (!strKey.Exists())
     {
@@ -754,7 +757,7 @@ bool OTSymmetricKey::Decrypt(const OTSymmetricKey & theKey,
                                    OTString       & strCiphertext,
                                    OTString       & strOutput,
                              const OTString       * pstrDisplay   /*=NULL*/,
-                             const OTPassword     * pAlreadyHavePW/*=NULL*/)
+                             const OT::Password     * pAlreadyHavePW/*=NULL*/)
 {
     if (!theKey.IsGenerated())
     {
@@ -775,9 +778,9 @@ bool OTSymmetricKey::Decrypt(const OTSymmetricKey & theKey,
 	// -------------------------------------------------
     // By this point, we know we have a ciphertext envelope and a symmetric Key.
     //
-    OTPassword * pPassUserInput = NULL;
-    OTCleanup<OTPassword> thePWAngel;
-
+    OT::Password * pPassUserInput = NULL;
+    OTCleanup<OT::Password> thePWAngel;
+    
     if (NULL == pAlreadyHavePW)
     {
         const char *    szDisplay = "Decrypting a password-protected ciphertext.";
@@ -787,7 +790,7 @@ bool OTSymmetricKey::Decrypt(const OTSymmetricKey & theKey,
         thePWAngel.SetCleanupTargetPointer(pPassUserInput); // may be NULL.
     }
     else
-        pPassUserInput = const_cast<OTPassword *>(pAlreadyHavePW);
+        pPassUserInput = const_cast<OT::Password *>(pAlreadyHavePW);
     // -----------------------------------------------
     bool  bSuccess  = false;
     // -----------------------------------------------
@@ -957,287 +960,129 @@ bool OTSymmetricKey::SerializeTo(OTPayload & theOutput) const
 //
 bool OTSymmetricKey::SerializeFrom(OTPayload & theInput)
 {
-    const char * szFunc = "OTSymmetricKey::SerializeFrom";
-
-    uint32_t  nRead  = 0;
-
-    // ****************************************************************************
-    //
-    // Read network-order "is generated" flag. (convert to host order)
-    //
-    uint16_t  n_is_generated = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_is_generated),
-                                       static_cast<uint32_t>(sizeof(n_is_generated)))))
-	{
-		OTLog::vError("%s: Error reading n_is_generated.\n", szFunc);
-		return false;
-	}
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-    //
-    uint16_t host_is_generated = static_cast<uint16_t>(ntohs(static_cast<uint16_t>(n_is_generated)));
-
-    if (1 == host_is_generated)
-        m_bIsGenerated = true;
-    else if (0 == host_is_generated)
-        m_bIsGenerated = false;
-    else
+    // Is Generated (Network Order); 
+    //    
     {
-        OTLog::vError("%s: Error: host_is_generated, Bad value: %d. (Expected 0 or 1.)\n",
-                      szFunc, static_cast<int32_t>(host_is_generated));
-        return false;
-    }
-    // ****************************************************************************
+        uint16_t  n_is_generated = 0;
 
-    OTLog::vOutput(5, "%s: is_generated: %d \n",
-                   __FUNCTION__,
-                   static_cast<int32_t>(host_is_generated)
-                   );
+        if (!theInput.OTfreadNetwork(n_is_generated)){
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "n_is_generated");
+            return false;
+        }
 
-    // ****************************************************************************
-    //
-    // Read network-order "key size in bits". (convert to host order)
-    //
-    uint16_t  n_key_size_bits = 0;
+        if (0 != n_is_generated && 1 != n_is_generated) {
+            OTLog::vError("%s: Error: host_is_generated, Bad value: %d. (Expected 0 or 1.)\n",
+                __FUNCTION__, static_cast<int32_t>(n_is_generated));
+            return false;
+        }
 
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_key_size_bits),
-                                       static_cast<uint32_t>(sizeof(n_key_size_bits)))))
-	{
-		OTLog::vError("%s: Error reading n_key_size_bits.\n", szFunc);
-		return false;
-	}
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    m_nKeySize = static_cast<uint16_t>(ntohs(n_key_size_bits));
-
-    OTLog::vOutput(5, "%s: key_size_bits: %d \n",
-                   __FUNCTION__,
-                   static_cast<int32_t>(m_nKeySize)
-                   );
-
-
-    // ****************************************************************************
-
-
-
-    // ****************************************************************************
-    //
-    // Read network-order "iteration count". (convert to host order)
-    //
-    uint32_t  n_iteration_count = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_iteration_count),
-                                       static_cast<uint32_t>(sizeof(n_iteration_count)))))
-	{
-		OTLog::vError("%s: Error reading n_iteration_count.\n", szFunc);
-		return false;
-	}
-    OT_ASSERT(nRead == static_cast<uint32_t>(sizeof(n_iteration_count)));
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    m_uIterationCount = static_cast<uint32_t>(ntohl(n_iteration_count));
-
-    OTLog::vOutput(5, "%s: iteration_count: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(m_uIterationCount)
-                   );
-
-    // ****************************************************************************
-
-
-    // ****************************************************************************
-    //
-    // Read network-order "salt size". (convert to host order)
-    //
-    uint32_t  n_salt_size = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_salt_size),
-                                       static_cast<uint32_t>(sizeof(n_salt_size)))))
-	{
-		OTLog::vError("%s: Error reading n_salt_size.\n", szFunc);
-		return false;
-	}
-    OT_ASSERT(nRead == static_cast<uint32_t>(sizeof(n_salt_size)));
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    const uint32_t lSaltSize = static_cast<uint32_t>(ntohl(static_cast<uint32_t>(n_salt_size)));
-
-    OTLog::vOutput(5, "%s: salt_size value: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(lSaltSize)
-                   );
-
-	// ----------------------------------------------------------------------------
-    //
-    // Then read the Salt itself.
-    //
-    m_dataSalt.SetPayloadSize(lSaltSize);
-
-    if (0 == (nRead = theInput.OTfread(static_cast<uint8_t*>(const_cast<void *>(m_dataSalt.GetPayloadPointer())),
-                                       static_cast<uint32_t>(lSaltSize))))
-    {
-        OTLog::vError("%s: Error reading salt for symmetric key.\n", szFunc);
-        return false;
-    }
-    OTLog::vOutput(5, "%s: salt length actually read: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(nRead)
-                   );
-    OT_ASSERT(nRead == static_cast<uint32_t>(lSaltSize));
-    // ****************************************************************************
-
-
-    // ****************************************************************************
-    //
-    // Read network-order "IV size". (convert to host order)
-    //
-    uint32_t  n_iv_size = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_iv_size),
-                                       static_cast<uint32_t>(sizeof(n_iv_size)))))
-	{
-		OTLog::vError("%s: Error reading n_iv_size.\n", szFunc);
-		return false;
-	}
-
-    OT_ASSERT(nRead == static_cast<uint32_t>(sizeof(n_iv_size)));
-
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    const uint32_t lIVSize = ntohl(n_iv_size);
-
-    OTLog::vOutput(5, "%s: iv_size value: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(lIVSize)
-                   );
-
-	// ----------------------------------------------------------------------------
-    //
-    // Then read the IV itself.
-    //
-    m_dataIV.SetPayloadSize(lIVSize);
-
-    if (0 == (nRead = theInput.OTfread(static_cast<uint8_t*>(const_cast<void *>(m_dataIV.GetPayloadPointer())),
-                                       static_cast<uint32_t>(lIVSize))))
-    {
-        OTLog::vError("%s: Error reading IV for symmetric key.\n", szFunc);
-        return false;
+        m_bIsGenerated = (0 == n_is_generated) ? false : true;
     }
 
-    OTLog::vOutput(5, "%s: iv length actually read: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(nRead)
-                   );
 
-    OT_ASSERT(nRead == static_cast<uint32_t>(lIVSize));
-    // ****************************************************************************
-
-
-
-    // ****************************************************************************
+    // Key Size in Bits (Network Order)
     //
-    // Read network-order "encrypted key size". (convert to host order)
-    //
-    uint32_t  n_enc_key_size = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_enc_key_size),
-                                       static_cast<uint32_t>(sizeof(n_enc_key_size)))))
-	{
-		OTLog::vError("%s: Error reading n_enc_key_size.\n", szFunc);
-		return false;
-	}
-    OT_ASSERT(nRead == static_cast<uint32_t>(sizeof(n_enc_key_size)));
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    const uint32_t lEncKeySize = ntohl(n_enc_key_size);
-
-    OTLog::vOutput(5, "%s: enc_key_size value: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(lEncKeySize)
-                   );
-
-	// ----------------------------------------------------------------------------
-    //
-    // Then read the Encrypted Key itself.
-    //
-    m_dataEncryptedKey.SetPayloadSize(lEncKeySize);
-
-    if (0 == (nRead = theInput.OTfread(static_cast<uint8_t*>(const_cast<void *>(m_dataEncryptedKey.GetPayloadPointer())),
-                                       static_cast<uint32_t>(lEncKeySize))))
     {
-        OTLog::vError("%s: Error reading encrypted symmetric key.\n", szFunc);
-        return false;
+        uint16_t n_key_size_bits = 0;
+
+        if (!theInput.OTfreadNetwork(n_key_size_bits)){
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "n_key_size_bits");
+            return false;
+        }
+        m_nKeySize = n_key_size_bits;
     }
 
-    OTLog::vOutput(5, "%s: encrypted key length actually read: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(nRead)
-                   );
 
-    OT_ASSERT(nRead == static_cast<uint32_t>(lEncKeySize));
-    // ****************************************************************************
-
-
-
-
-    // ****************************************************************************
+    // Iteration Count (Network Order)
     //
-    // Read network-order "hash check size". (convert to host order)
-    //
-    uint32_t  n_hash_check_size = 0;
-
-    if (0 == (nRead = theInput.OTfread(reinterpret_cast<uint8_t*>(&n_hash_check_size),
-                                       static_cast<uint32_t>(sizeof(n_hash_check_size)))))
-	{
-		OTLog::vError("%s: Error reading n_hash_check_size.\n", szFunc);
-		OTLog::vError("%s: Looks like we don't have a hash check yet! (will make one)\n", szFunc);
-		m_bHasHashCheck = false;
-		return false;
-	}
-    OT_ASSERT(nRead == static_cast<uint32_t>(sizeof(n_hash_check_size)));
-    // ----------------------------------------------------------------------------
-	// convert from network to HOST endian.
-
-    const uint32_t lHashCheckSize = ntohl(n_hash_check_size);
-
-    OTLog::vOutput(5, "%s: hash_check_size value: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(lHashCheckSize)
-                   );
-
-	// ----------------------------------------------------------------------------
-    //
-    // Then read the Hashcheck itself.
-    //
-	m_dataHashCheck.SetPayloadSize(lHashCheckSize);
-
-    if (0 == (nRead = theInput.OTfread(static_cast<uint8_t*>(const_cast<void *>(m_dataHashCheck.GetPayloadPointer())),
-                                       static_cast<uint32_t>(lHashCheckSize))))
     {
-        OTLog::vError("%s: Error reading hash check data.\n", szFunc);
-        return false;
+        uint32_t  n_iteration_count = 0;
+
+        if (!theInput.OTfreadNetwork(n_iteration_count)){
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "n_iteration_count");
+            return false;
+        }
+        m_uIterationCount = n_iteration_count;
     }
 
-    OTLog::vOutput(5, "%s: hash check data actually read: %lld \n",
-                   __FUNCTION__,
-                   static_cast<int64_t>(nRead)
-                   );
 
-    OT_ASSERT(nRead == static_cast<uint32_t>(lHashCheckSize));
+    // Salt
+    //
+    {
+        uint32_t size = 0;
 
-	m_bHasHashCheck = !m_dataHashCheck.IsEmpty();
+        if (!theInput.OTfreadNetwork(size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "size");
+            return false;
+        }
+        m_dataSalt.SetPayloadSize(size);
+
+        if (!theInput.OTfreadData(const_cast<void *>(m_dataSalt.GetPayloadPointer()), size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "Salt");
+            return false;
+        }
+    }
+
+
+    // IV
+    //    
+    {
+        uint32_t size = 0;
+
+        if (!theInput.OTfreadNetwork(size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "size");
+            return false;
+        }
+        m_dataIV.SetPayloadSize(size);
+
+        if (!theInput.OTfreadData(const_cast<void *>(m_dataIV.GetPayloadPointer()), size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "IV");
+            return false;
+        }
+    }
+
+    // Encrypted Key
+    //
+    {
+        uint32_t size = 0;
+
+        if (!theInput.OTfreadNetwork(size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "size");
+            return false;
+        }
+        m_dataEncryptedKey.SetPayloadSize(size);
+
+        if (!theInput.OTfreadData(const_cast<void *>(m_dataEncryptedKey.GetPayloadPointer()), size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "Encrypted Key");
+            return false;
+        }
+    }
+
+
+    // Hash Check
+    //
+    {
+        uint32_t size = 0;
+
+        if (!theInput.OTfreadNetwork(size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "size");
+            OTLog::vError("%s: Looks like we don't have a hash check yet! (will make one)\n", __FUNCTION__);
+            m_bHasHashCheck = false;
+            return false;
+        }
+        m_dataHashCheck.SetPayloadSize(size);
+
+        if (!theInput.OTfreadData(const_cast<void *>(m_dataHashCheck.GetPayloadPointer()), size)) {
+            OTLog::vError("%s: Error: %s not found", __FUNCTION__, "Hash Check");
+            return false;
+        }
+        else {
+           // m_bHasHashCheck = true;
+        }
+    }
+
 
     // ****************************************************************************
-
-
-
-
 
     return true;
 }
@@ -1268,7 +1113,7 @@ OTSymmetricKey::OTSymmetricKey()
 
 // ------------------------------------------------------------------------
 
-OTSymmetricKey::OTSymmetricKey(const OTPassword & thePassword)
+OTSymmetricKey::OTSymmetricKey(const OT::Password & thePassword)
 :   m_bIsGenerated(false),
     m_bHasHashCheck(false),
     m_nKeySize(OTCryptoConfig::SymmetricKeySize() * 8), // 128 (in bits)

@@ -17,6 +17,15 @@ public class otapi implements otapiConstants {
     return new imaxdiv_t(otapiJNI.imaxdiv(numer, denom), true);
   }
 
+  public static SWIGTYPE_p_void _SecureAllocateVoid(long _Count, long _Size) {
+    long cPtr = otapiJNI._SecureAllocateVoid(_Count, _Size);
+    return (cPtr == 0) ? null : new SWIGTYPE_p_void(cPtr, false);
+  }
+
+  public static void _SecureDeallocateVoid(long _Count, long _Size, SWIGTYPE_p_void _Ptr) {
+    otapiJNI._SecureDeallocateVoid(_Count, _Size, SWIGTYPE_p_void.getCPtr(_Ptr));
+  }
+
   public static int OT_CLI_GetArgsCount(String str_Args) {
     return otapiJNI.OT_CLI_GetArgsCount(str_Args);
   }

@@ -246,7 +246,7 @@ const OTAsymmetricKey & OTKeypair::GetPrivateKey() const
 
 // ---------------------------------------------------------------
 
-bool OTKeypair::SaveCertToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTKeypair::SaveCertToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeyPublic);
     // ---------------------------------------------------------------
@@ -261,7 +261,7 @@ bool OTKeypair::SaveCertToString(OTString & strOutput, const OTString * pstrReas
 }
 // ---------------------------------------------------------------
 
-bool OTKeypair::SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTKeypair::SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeyPrivate);
     // ---------------------------------------------------------------
@@ -276,7 +276,7 @@ bool OTKeypair::SavePrivateKeyToString(OTString & strOutput, const OTString * ps
 }
 // ------------------------------------------------
 
-bool OTKeypair::SaveCertAndPrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTKeypair::SaveCertAndPrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     OTString strCert, strPrivateKey;
     
@@ -290,7 +290,7 @@ bool OTKeypair::SaveCertAndPrivateKeyToString(OTString & strOutput, const OTStri
 }
 // ------------------------------------------------
 
-bool OTKeypair::LoadCertAndPrivateKeyFromString(const OTString & strInput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTKeypair::LoadCertAndPrivateKeyFromString(const OTString & strInput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
 	// ---------------------------------------------------------------
     OT_ASSERT(strInput.Exists());
@@ -331,7 +331,7 @@ bool OTKeypair::LoadCertAndPrivateKeyFromString(const OTString & strInput, const
 
 bool OTKeypair::SaveAndReloadBothKeysFromTempFile(      OTString   * pstrOutputCert/*=NULL*/,
                                                   const OTString   * pstrReason/*=NULL*/,
-                                                        OTPassword * pImportPassword/*=NULL*/)
+                                                        OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeyPrivate);
     OT_ASSERT(NULL != m_pkeyPublic);
@@ -365,7 +365,7 @@ bool OTKeypair::SaveAndReloadBothKeysFromTempFile(      OTString   * pstrOutputC
 // ---------------------------------------------------------------
 // Load from local storage.
 bool OTKeypair::LoadPrivateKey(const OTString & strFoldername,
-                               const OTString & strFilename, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+                               const OTString & strFilename, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeyPrivate);
     // ---------------------------------------------------------------
@@ -388,7 +388,7 @@ bool OTKeypair::LoadPublicKey (const OTString & strFoldername,
 bool OTKeypair::LoadPrivateKeyFromCertString(const OTString & strCert,
                                              bool bEscaped/*=true*/,
                                              const OTString * pstrReason/*=NULL*/,
-                                             OTPassword * pImportPassword/*=NULL*/)
+                                             OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeyPrivate);
     // ---------------------------------------------------------------
@@ -400,7 +400,7 @@ bool OTKeypair::LoadPrivateKeyFromCertString(const OTString & strCert,
 //
 bool OTKeypair::LoadPublicKeyFromCertString(const OTString   & strCert, bool bEscaped/*=true*/,
                                             const OTString   * pstrReason/*=NULL*/,
-                                                  OTPassword * pImportPassword/*=NULL*/) // DOES handle bookends, AND escapes.
+                                                  OT::Password * pImportPassword/*=NULL*/) // DOES handle bookends, AND escapes.
 {
     OT_ASSERT(NULL != m_pkeyPublic);
     // ---------------------------------------------------------------
@@ -410,7 +410,7 @@ bool OTKeypair::LoadPublicKeyFromCertString(const OTString   & strCert, bool bEs
 bool OTKeypair::LoadPublicKeyFromCertFile(const OTString   & strFoldername,
                                           const OTString   & strFilename,
                                           const OTString   * pstrReason/*=NULL*/,
-                                                OTPassword * pImportPassword/*=NULL*/) // DOES handle bookends.
+                                                OT::Password * pImportPassword/*=NULL*/) // DOES handle bookends.
 {
     OT_ASSERT(NULL != m_pkeyPublic);
     // ---------------------------------------------------------------
@@ -449,7 +449,7 @@ bool OTKeypair::MakeNewKeypair(int32_t nBits/*=1024*/)
 bool OTKeypair::LoadBothKeysFromCertFile(const OTString   & strFoldername,
                                          const OTString   & strFilename,
                                          const OTString   * pstrReason/*=NULL*/,
-                                               OTPassword * pImportPassword/*=NULL*/)
+                                               OT::Password * pImportPassword/*=NULL*/)
 {
     const char * szFunc = "OTKeypair::LoadBothKeysFromCertFile";
     // -------------------------------------
@@ -698,7 +698,7 @@ bool OTSubcredential::SetPublicContents(const mapOfStrings & mapPublic)
 
 //virtual
 bool OTSubcredential::SetPrivateContents(const mapOfStrings & mapPrivate,
-                                               OTPassword   * pImportPassword/*=NULL*/) // if not NULL, it means to use this password by default.)
+                                               OT::Password   * pImportPassword/*=NULL*/) // if not NULL, it means to use this password by default.)
 {
     m_mapPrivateInfo  = mapPrivate;
     return true;
@@ -2130,7 +2130,7 @@ bool OTKeyCredential::SetPublicContents(const mapOfStrings & mapPublic)
 
 //virtual
 bool OTKeyCredential::SetPrivateContents(const mapOfStrings & mapPrivate,
-                                               OTPassword   * pImportPassword/*=NULL*/) // if not NULL, it means to use this password by default.
+                                               OT::Password   * pImportPassword/*=NULL*/) // if not NULL, it means to use this password by default.
 {
     // -------------------------------------------------
     if (mapPrivate.size() != 3)
@@ -2408,7 +2408,7 @@ OTCredential * OTCredential::LoadMasterFromString(const OTString & strInput,
                                                   const OTString & strNymID, // Caller is responsible to delete, in both CreateMaster and LoadMaster.
                                                   const OTString & strMasterCredID,
                                                   OTPasswordData * pPWData/*=NULL*/,
-                                                  OTPassword     * pImportPassword/*=NULL*/)
+                                                  OT::Password     * pImportPassword/*=NULL*/)
 {
     OTCredential * pCredential = new OTCredential;
     OTCleanup<OTCredential> theCredentialAngel(pCredential);
@@ -2515,7 +2515,7 @@ void OTSubcredential::CalculateContractID(OTIdentifier & newID)
 
 // Used when importing/exporting a Nym to/from the wallet.
 //
-bool OTKeypair::ReEncrypt(OTPassword & theExportPassword, bool bImporting, OTString & strOutput)
+bool OTKeypair::ReEncrypt(OT::Password & theExportPassword, bool bImporting, OTString & strOutput)
 {
     // --------------------------------------
     OT_ASSERT(NULL != m_pkeyPublic );
@@ -2583,7 +2583,7 @@ bool OTKeypair::ReEncrypt(OTPassword & theExportPassword, bool bImporting, OTStr
 
 // ---------------------------------------------------------------------------------
 
-bool OTKeyCredential::ReEncryptKeys(OTPassword & theExportPassword, bool bImporting)
+bool OTKeyCredential::ReEncryptKeys(OT::Password & theExportPassword, bool bImporting)
 {
     OTString strSign, strAuth, strEncr;
     // ----------------------------------------
@@ -2664,7 +2664,7 @@ bool OTKeyCredential::ReEncryptKeys(OTPassword & theExportPassword, bool bImport
 // the private credentials, since the private info is being re-encrypted, and re-sign
 // them all. Joy. 
 //
-bool OTCredential::ReEncryptPrivateCredentials(OTPassword & theExportPassword, bool bImporting)
+bool OTCredential::ReEncryptPrivateCredentials(OT::Password & theExportPassword, bool bImporting)
 {
     if (m_Masterkey.GetPrivateMap().size() > 0)
     {
@@ -2897,7 +2897,7 @@ bool OTCredential::Load_MasterFromString(const OTString & strInput,
                                          const OTString & strNymID,
                                          const OTString & strMasterCredID,
                                          OTPasswordData * pPWData/*=NULL*/,
-                                         OTPassword     * pImportPassword/*=NULL*/)
+                                         OT::Password     * pImportPassword/*=NULL*/)
 {
     m_strNymID          = strNymID;
     m_strMasterCredID   = strMasterCredID;
@@ -3021,7 +3021,7 @@ void OTKeyCredential::SetMetadata()
 
 // ---------------------------------------------------------------------------------
 
-bool OTCredential::LoadSubkeyFromString(const OTString & strInput, const OTString & strSubID, OTPassword * pImportPassword/*=NULL*/)
+bool OTCredential::LoadSubkeyFromString(const OTString & strInput, const OTString & strSubID, OT::Password * pImportPassword/*=NULL*/)
 {
     // Make sure it's not already there.
     //
@@ -3104,7 +3104,7 @@ bool OTCredential::LoadSubkey(const OTString & strSubID)
 }
 // ---------------------------------------------------------------------------------
 
-bool OTCredential::LoadSubcredentialFromString(const OTString & strInput, const OTString & strSubID, OTPassword * pImportPassword/*=NULL*/)
+bool OTCredential::LoadSubcredentialFromString(const OTString & strInput, const OTString & strSubID, OT::Password * pImportPassword/*=NULL*/)
 {
     // Make sure it's not already there.
     //

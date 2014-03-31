@@ -141,6 +141,12 @@
 
 #include <string>
 
+namespace OpenTransactions {
+    class Password;
+}
+
+namespace OT = OpenTransactions;
+
 // It's better to turn-on one of these, by using the Makefile,
 // instead of hardcoding it here, which is entirely unnecessary.
 //
@@ -154,7 +160,6 @@
 //#define OT_KEYRING_FLATFILE 1
 
 class OTString;
-class OTPassword;
 
 class OTKeyring
 {
@@ -195,12 +200,12 @@ public:
     //
     // INTERFACE:
     //
-EXPORT    static bool StoreSecret(    const OTString      & strUser,
-                                      const OTPassword    & thePassword,
+EXPORT    static bool StoreSecret(    const OTString      & strUser, 
+                                      const OT::Password    & thePassword,
                                       const std::string   & str_display);
-
-EXPORT    static bool RetrieveSecret( const OTString      & strUser,
-                                            OTPassword    & thePassword,
+    
+EXPORT    static bool RetrieveSecret( const OTString      & strUser, 
+                                            OT::Password    & thePassword,
                                       const std::string   & str_display);
 
 EXPORT    static bool DeleteSecret(   const OTString      & strUser,
@@ -208,12 +213,12 @@ EXPORT    static bool DeleteSecret(   const OTString      & strUser,
 private:
     // -------------------------------------------------------
 #if defined(OT_KEYRING_WINDOWS) && defined(_WIN32)
-EXPORT    static bool Windows_StoreSecret(    const OTString      & strUser,
-                                              const OTPassword    & thePassword,
+EXPORT    static bool Windows_StoreSecret(    const OTString      & strUser, 
+                                              const OT::Password    & thePassword,
                                               const std::string   & str_display);
-
-EXPORT    static bool Windows_RetrieveSecret( const OTString      & strUser,
-                                                    OTPassword    & thePassword,
+    
+EXPORT    static bool Windows_RetrieveSecret( const OTString      & strUser, 
+                                                    OT::Password    & thePassword,
                                               const std::string   & str_display);
 
 EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
@@ -221,12 +226,12 @@ EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
 //#endif
     // -------------------------------------------------------
 #elif defined(OT_KEYRING_MAC) && defined(__APPLE__)
-    static bool Mac_StoreSecret(    const OTString      & strUser,
-                                    const OTPassword    & thePassword,
+    static bool Mac_StoreSecret(    const OTString      & strUser, 
+                                    const OT::Password    & thePassword,
                                     const std::string   & str_display);
-
-    static bool Mac_RetrieveSecret( const OTString      & strUser,
-                                          OTPassword    & thePassword,
+    
+    static bool Mac_RetrieveSecret( const OTString      & strUser, 
+                                          OT::Password    & thePassword,
                                     const std::string   & str_display);
 
     static bool Mac_DeleteSecret(   const OTString      & strUser,
@@ -235,11 +240,11 @@ EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
     // -------------------------------------------------------
 #elif defined(OT_KEYRING_IOS) && defined(__APPLE__)
     static bool IOS_StoreSecret(    const OTString      & strUser,
-                                    const OTPassword    & thePassword,
+                                    const OT::Password    & thePassword,
                                     const std::string   & str_display);
 
     static bool IOS_RetrieveSecret( const OTString      & strUser,
-                                          OTPassword    & thePassword,
+                                          OT::Password    & thePassword,
                                     const std::string   & str_display);
 
     static bool IOS_DeleteSecret(   const OTString      & strUser,
@@ -247,12 +252,12 @@ EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
 //#endif
     // -------------------------------------------------------
 #elif defined(OT_KEYRING_GNOME)
-    static bool Gnome_StoreSecret(   const OTString     & strUser,
-                                     const OTPassword   & thePassword,
+    static bool Gnome_StoreSecret(   const OTString     & strUser, 
+                                     const OT::Password   & thePassword,
                                      const std::string  & str_display);
-
-    static bool Gnome_RetrieveSecret(const OTString     & strUser,
-                                           OTPassword   & thePassword,
+    
+    static bool Gnome_RetrieveSecret(const OTString     & strUser, 
+                                           OT::Password   & thePassword,
                                      const std::string  & str_display); // unused
 
     static bool Gnome_DeleteSecret(  const OTString     & strUser,
@@ -264,11 +269,11 @@ EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
     static KApplication    * s_pApp;
     // -------------------------------------
     static bool KWallet_StoreSecret(   const OTString     & strUser,
-                                       const OTPassword   & thePassword,
+                                       const OT::Password   & thePassword,
                                        const std::string  & str_display);
 
     static bool KWallet_RetrieveSecret(const OTString     & strUser,
-                                             OTPassword   & thePassword,
+                                             OT::Password   & thePassword,
                                        const std::string  & str_display);
 
     static bool KWallet_DeleteSecret(  const OTString     & strUser,
@@ -277,11 +282,11 @@ EXPORT    static bool Windows_DeleteSecret(   const OTString      & strUser,
 #elif defined(OT_KEYRING_FLATFILE)  // Do not use! Unsafe! For testing only!
     // -------------------------------------
     static bool FlatFile_StoreSecret(   const OTString     & strUser,
-                                        const OTPassword   & thePassword,
+                                        const OT::Password   & thePassword,
                                         const std::string  & str_display);
 
     static bool FlatFile_RetrieveSecret(const OTString     & strUser,
-                                              OTPassword   & thePassword,
+                                              OT::Password   & thePassword,
                                         const std::string  & str_display);
 
     static bool FlatFile_DeleteSecret(  const OTString     & strUser,

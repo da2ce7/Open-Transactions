@@ -597,25 +597,25 @@ bool OTToken::RecordTokenAsSpent(OTString & theCleartextToken)
 
 
 //OTSymmetricKey:
-//static bool CreateNewKey(OTString & strOutput, const OTString * pstrDisplay=NULL, const OTPassword * pAlreadyHavePW=NULL);
+//static bool CreateNewKey(OTString & strOutput, const OTString * pstrDisplay=NULL, const OT::Password * pAlreadyHavePW=NULL);
 //
 //static bool Encrypt(const OTString & strKey,
 //                    const OTString & strPlaintext, OTString & strOutput, const OTString * pstrDisplay=NULL,
-//                    const bool       bBookends=true, const OTPassword * pAlreadyHavePW=NULL);
+//                    const bool       bBookends=true, const OT::Password * pAlreadyHavePW=NULL);
 //
 //static bool Decrypt(const OTString & strKey, OTString & strCiphertext,
-//                    OTString & strOutput, const OTString * pstrDisplay=NULL, const OTPassword * pAlreadyHavePW=NULL);
+//                    OTString & strOutput, const OTString * pstrDisplay=NULL, const OT::Password * pAlreadyHavePW=NULL);
 
 
 //OTEnvelope:
-//bool Encrypt(const OTString & theInput,        OTSymmetricKey & theKey, const OTPassword & thePassword);
-//bool Decrypt(      OTString & theOutput, const OTSymmetricKey & theKey, const OTPassword & thePassword);
+//bool Encrypt(const OTString & theInput,        OTSymmetricKey & theKey, const OT::Password & thePassword);
+//bool Decrypt(      OTString & theOutput, const OTSymmetricKey & theKey, const OT::Password & thePassword);
 
 //OTNym_or_SymmetricKey:
 // ---------------------------------
 //const OTPseudonym    * GetNym()      const { return m_pNym;      }
 //const OTSymmetricKey * GetKey()      const { return m_pKey;      }
-//const OTPassword     * GetPassword() const { return m_pPassword; } // for symmetric key (optional)
+//const OT::Password     * GetPassword() const { return m_pPassword; } // for symmetric key (optional)
 // ---------------------------------
 //bool  IsNym()       const { return (NULL != m_pNym);      }
 //bool  IsKey()       const { return (NULL != m_pKey);      }
@@ -626,7 +626,7 @@ bool OTToken::RecordTokenAsSpent(OTString & theCleartextToken)
  NOTE: OTNym_or_SymmetricKey is passed in here as a reference.
  Normally, you might pass in a Nym, or a SymmetricKey, and OTNym_or_SymmetricKey
  is able to construct itself from either one. This can be convenient. However, if
- you don't use an OTPassword when you construct the OTNym_or_SymmetricKey, and it needs
+ you don't use an OT::Password when you construct the OTNym_or_SymmetricKey, and it needs
  one internally for its symmetric key, then it will create one and store it, and delete it
  upon destruction. 
  Therefore it can be useful to pass the SAME OTNym_or_SymmetricKey into a function multiple

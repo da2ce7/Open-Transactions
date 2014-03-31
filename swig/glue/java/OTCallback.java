@@ -55,12 +55,12 @@ public class OTCallback {
     otapiJNI.OTCallback_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
-  public void runOne(String szDisplay, OTPassword theOutput) {
-    if (getClass() == OTCallback.class) otapiJNI.OTCallback_runOne(swigCPtr, this, szDisplay, OTPassword.getCPtr(theOutput), theOutput); else otapiJNI.OTCallback_runOneSwigExplicitOTCallback(swigCPtr, this, szDisplay, OTPassword.getCPtr(theOutput), theOutput);
+  public void runOne(String strDisplay, StringPassword theOutput) {
+    if (getClass() == OTCallback.class) otapiJNI.OTCallback_runOne(swigCPtr, this, strDisplay, StringPassword.getCPtr(theOutput), theOutput); else otapiJNI.OTCallback_runOneSwigExplicitOTCallback(swigCPtr, this, strDisplay, StringPassword.getCPtr(theOutput), theOutput);
   }
 
-  public void runTwo(String szDisplay, OTPassword theOutput) {
-    if (getClass() == OTCallback.class) otapiJNI.OTCallback_runTwo(swigCPtr, this, szDisplay, OTPassword.getCPtr(theOutput), theOutput); else otapiJNI.OTCallback_runTwoSwigExplicitOTCallback(swigCPtr, this, szDisplay, OTPassword.getCPtr(theOutput), theOutput);
+  public void runTwo(String strDisplay, StringPassword theOutput) {
+    if (getClass() == OTCallback.class) otapiJNI.OTCallback_runTwo(swigCPtr, this, strDisplay, StringPassword.getCPtr(theOutput), theOutput); else otapiJNI.OTCallback_runTwoSwigExplicitOTCallback(swigCPtr, this, strDisplay, StringPassword.getCPtr(theOutput), theOutput);
   }
 
 }

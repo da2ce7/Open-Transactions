@@ -472,722 +472,930 @@ void
 
 
 
-#pragma dynimport _wrap_DEFAULT_SIZE_OTPassword _wrap_DEFAULT_SIZE_OTPassword ""
-#pragma cgo_import_static _wrap_DEFAULT_SIZE_OTPassword
-extern void (*_wrap_DEFAULT_SIZE_OTPassword)(void*);
-static void (*x_wrap_DEFAULT_SIZE_OTPassword)(void*) = _wrap_DEFAULT_SIZE_OTPassword;
+#pragma dynimport _wrap__SecureAllocateVoid _wrap__SecureAllocateVoid ""
+#pragma cgo_import_static _wrap__SecureAllocateVoid
+extern void (*_wrap__SecureAllocateVoid)(void*);
+static void (*x_wrap__SecureAllocateVoid)(void*) = _wrap__SecureAllocateVoid;
 
 void
-·_swig_getOTPassword_DEFAULT_SIZE_OTPassword(struct {
+·X_SecureAllocateVoid(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap__SecureAllocateVoid, &p);
+}
+
+
+
+#pragma dynimport _wrap__SecureDeallocateVoid _wrap__SecureDeallocateVoid ""
+#pragma cgo_import_static _wrap__SecureDeallocateVoid
+extern void (*_wrap__SecureDeallocateVoid)(void*);
+static void (*x_wrap__SecureDeallocateVoid)(void*) = _wrap__SecureDeallocateVoid;
+
+void
+·_swig_wrap__SecureDeallocateVoid(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap__SecureDeallocateVoid, &p);
+}
+
+
+
+#pragma dynimport _wrap_STRING_Password _wrap_STRING_Password ""
+#pragma cgo_import_static _wrap_STRING_Password
+extern void (*_wrap_STRING_Password)(void*);
+static void (*x_wrap_STRING_Password)(void*) = _wrap_STRING_Password;
+
+void
+·_swig_getPassword_STRING_Password(struct {
   uint8 x[SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_DEFAULT_SIZE_OTPassword, &p);
+  runtime·cgocall(x_wrap_STRING_Password, &p);
 }
 
 
 
-#pragma dynimport _wrap_LARGER_SIZE_OTPassword _wrap_LARGER_SIZE_OTPassword ""
-#pragma cgo_import_static _wrap_LARGER_SIZE_OTPassword
-extern void (*_wrap_LARGER_SIZE_OTPassword)(void*);
-static void (*x_wrap_LARGER_SIZE_OTPassword)(void*) = _wrap_LARGER_SIZE_OTPassword;
+#pragma dynimport _wrap_BINARY_Password _wrap_BINARY_Password ""
+#pragma cgo_import_static _wrap_BINARY_Password
+extern void (*_wrap_BINARY_Password)(void*);
+static void (*x_wrap_BINARY_Password)(void*) = _wrap_BINARY_Password;
 
 void
-·_swig_getOTPassword_LARGER_SIZE_OTPassword(struct {
+·_swig_getPassword_BINARY_Password(struct {
   uint8 x[SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_LARGER_SIZE_OTPassword, &p);
+  runtime·cgocall(x_wrap_BINARY_Password, &p);
 }
 
 
 
-#pragma dynimport _wrap_OTPassword_m_theBlockSize_get _wrap_OTPassword_m_theBlockSize_get ""
-#pragma cgo_import_static _wrap_OTPassword_m_theBlockSize_get
-extern void (*_wrap_OTPassword_m_theBlockSize_get)(void*);
-static void (*x_wrap_OTPassword_m_theBlockSize_get)(void*) = _wrap_OTPassword_m_theBlockSize_get;
+#pragma dynimport _wrap_Password_getType _wrap_Password_getType ""
+#pragma cgo_import_static _wrap_Password_getType
+extern void (*_wrap_Password_getType)(void*);
+static void (*x_wrap_Password_getType)(void*) = _wrap_Password_getType;
 
 void
-·_swig_wrap_OTPassword_m_theBlockSize_get(struct {
+·_swig_wrap_Password_getType(struct {
   uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_OTPassword_m_theBlockSize_get, &p);
+  runtime·cgocall(x_wrap_Password_getType, &p);
 }
 
 
 
-#pragma dynimport _wrap_OTPassword_isPassword _wrap_OTPassword_isPassword ""
-#pragma cgo_import_static _wrap_OTPassword_isPassword
-extern void (*_wrap_OTPassword_isPassword)(void*);
-static void (*x_wrap_OTPassword_isPassword)(void*) = _wrap_OTPassword_isPassword;
+#pragma dynimport _wrap_Password_getData _wrap_Password_getData ""
+#pragma cgo_import_static _wrap_Password_getData
+extern void (*_wrap_Password_getData)(void*);
+static void (*x_wrap_Password_getData)(void*) = _wrap_Password_getData;
 
 void
-·_swig_wrap_OTPassword_isPassword(struct {
+·_swig_wrap_Password_getData(struct {
   uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_OTPassword_isPassword, &p);
+  runtime·cgocall(x_wrap_Password_getData, &p);
 }
 
 
 
-#pragma dynimport _wrap_OTPassword_getPassword_uint8 _wrap_OTPassword_getPassword_uint8 ""
-#pragma cgo_import_static _wrap_OTPassword_getPassword_uint8
-extern void (*_wrap_OTPassword_getPassword_uint8)(void*);
-static void (*x_wrap_OTPassword_getPassword_uint8)(void*) = _wrap_OTPassword_getPassword_uint8;
+#pragma dynimport _wrap_delete_Password _wrap_delete_Password ""
+#pragma cgo_import_static _wrap_delete_Password
+extern void (*_wrap_delete_Password)(void*);
+static void (*x_wrap_delete_Password)(void*) = _wrap_delete_Password;
 
 void
-·_swig_wrap_OTPassword_getPassword_uint8(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getPassword_uint8, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getPassword _wrap_OTPassword_getPassword ""
-#pragma cgo_import_static _wrap_OTPassword_getPassword
-extern void (*_wrap_OTPassword_getPassword)(void*);
-static void (*x_wrap_OTPassword_getPassword)(void*) = _wrap_OTPassword_getPassword;
-
-void
-·_swig_wrap_OTPassword_getPassword(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getPassword, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getPasswordWritable _wrap_OTPassword_getPasswordWritable ""
-#pragma cgo_import_static _wrap_OTPassword_getPasswordWritable
-extern void (*_wrap_OTPassword_getPasswordWritable)(void*);
-static void (*x_wrap_OTPassword_getPasswordWritable)(void*) = _wrap_OTPassword_getPasswordWritable;
-
-void
-·_swig_wrap_OTPassword_getPasswordWritable(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getPasswordWritable, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getPasswordWritable_char _wrap_OTPassword_getPasswordWritable_char ""
-#pragma cgo_import_static _wrap_OTPassword_getPasswordWritable_char
-extern void (*_wrap_OTPassword_getPasswordWritable_char)(void*);
-static void (*x_wrap_OTPassword_getPasswordWritable_char)(void*) = _wrap_OTPassword_getPasswordWritable_char;
-
-void
-·_swig_wrap_OTPassword_getPasswordWritable_char(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getPasswordWritable_char, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_setPassword _wrap_OTPassword_setPassword ""
-#pragma cgo_import_static _wrap_OTPassword_setPassword
-extern void (*_wrap_OTPassword_setPassword)(void*);
-static void (*x_wrap_OTPassword_setPassword)(void*) = _wrap_OTPassword_setPassword;
-
-void
-·_swig_wrap_OTPassword_setPassword(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_setPassword, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_setPassword_uint8 _wrap_OTPassword_setPassword_uint8 ""
-#pragma cgo_import_static _wrap_OTPassword_setPassword_uint8
-extern void (*_wrap_OTPassword_setPassword_uint8)(void*);
-static void (*x_wrap_OTPassword_setPassword_uint8)(void*) = _wrap_OTPassword_setPassword_uint8;
-
-void
-·_swig_wrap_OTPassword_setPassword_uint8(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_setPassword_uint8, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_addChar _wrap_OTPassword_addChar ""
-#pragma cgo_import_static _wrap_OTPassword_addChar
-extern void (*_wrap_OTPassword_addChar)(void*);
-static void (*x_wrap_OTPassword_addChar)(void*) = _wrap_OTPassword_addChar;
-
-void
-·_swig_wrap_OTPassword_addChar(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_addChar, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizePassword__SWIG_0 _wrap_OTPassword_randomizePassword__SWIG_0 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizePassword__SWIG_0
-extern void (*_wrap_OTPassword_randomizePassword__SWIG_0)(void*);
-static void (*x_wrap_OTPassword_randomizePassword__SWIG_0)(void*) = _wrap_OTPassword_randomizePassword__SWIG_0;
-
-void
-·_swig_wrap_OTPassword_randomizePassword__SWIG_0(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizePassword__SWIG_0, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizePassword__SWIG_1 _wrap_OTPassword_randomizePassword__SWIG_1 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizePassword__SWIG_1
-extern void (*_wrap_OTPassword_randomizePassword__SWIG_1)(void*);
-static void (*x_wrap_OTPassword_randomizePassword__SWIG_1)(void*) = _wrap_OTPassword_randomizePassword__SWIG_1;
-
-void
-·_swig_wrap_OTPassword_randomizePassword__SWIG_1(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizePassword__SWIG_1, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizePassword_uint8 _wrap_OTPassword_randomizePassword_uint8 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizePassword_uint8
-extern void (*_wrap_OTPassword_randomizePassword_uint8)(void*);
-static void (*x_wrap_OTPassword_randomizePassword_uint8)(void*) = _wrap_OTPassword_randomizePassword_uint8;
-
-void
-·OTPasswordRandomizePassword_uint8(struct {
-  uint8 x[(2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizePassword_uint8, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizePassword__SWIG_2 _wrap_OTPassword_randomizePassword__SWIG_2 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizePassword__SWIG_2
-extern void (*_wrap_OTPassword_randomizePassword__SWIG_2)(void*);
-static void (*x_wrap_OTPassword_randomizePassword__SWIG_2)(void*) = _wrap_OTPassword_randomizePassword__SWIG_2;
-
-void
-·OTPasswordRandomizePassword__SWIG_2(struct {
-  uint8 x[(2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizePassword__SWIG_2, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_isMemory _wrap_OTPassword_isMemory ""
-#pragma cgo_import_static _wrap_OTPassword_isMemory
-extern void (*_wrap_OTPassword_isMemory)(void*);
-static void (*x_wrap_OTPassword_isMemory)(void*) = _wrap_OTPassword_isMemory;
-
-void
-·_swig_wrap_OTPassword_isMemory(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_isMemory, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getMemory _wrap_OTPassword_getMemory ""
-#pragma cgo_import_static _wrap_OTPassword_getMemory
-extern void (*_wrap_OTPassword_getMemory)(void*);
-static void (*x_wrap_OTPassword_getMemory)(void*) = _wrap_OTPassword_getMemory;
-
-void
-·_swig_wrap_OTPassword_getMemory(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getMemory, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getMemory_uint8 _wrap_OTPassword_getMemory_uint8 ""
-#pragma cgo_import_static _wrap_OTPassword_getMemory_uint8
-extern void (*_wrap_OTPassword_getMemory_uint8)(void*);
-static void (*x_wrap_OTPassword_getMemory_uint8)(void*) = _wrap_OTPassword_getMemory_uint8;
-
-void
-·_swig_wrap_OTPassword_getMemory_uint8(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getMemory_uint8, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getMemoryWritable _wrap_OTPassword_getMemoryWritable ""
-#pragma cgo_import_static _wrap_OTPassword_getMemoryWritable
-extern void (*_wrap_OTPassword_getMemoryWritable)(void*);
-static void (*x_wrap_OTPassword_getMemoryWritable)(void*) = _wrap_OTPassword_getMemoryWritable;
-
-void
-·_swig_wrap_OTPassword_getMemoryWritable(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getMemoryWritable, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_setMemory _wrap_OTPassword_setMemory ""
-#pragma cgo_import_static _wrap_OTPassword_setMemory
-extern void (*_wrap_OTPassword_setMemory)(void*);
-static void (*x_wrap_OTPassword_setMemory)(void*) = _wrap_OTPassword_setMemory;
-
-void
-·_swig_wrap_OTPassword_setMemory(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_setMemory, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_addMemory _wrap_OTPassword_addMemory ""
-#pragma cgo_import_static _wrap_OTPassword_addMemory
-extern void (*_wrap_OTPassword_addMemory)(void*);
-static void (*x_wrap_OTPassword_addMemory)(void*) = _wrap_OTPassword_addMemory;
-
-void
-·_swig_wrap_OTPassword_addMemory(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_addMemory, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizeMemory__SWIG_0 _wrap_OTPassword_randomizeMemory__SWIG_0 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizeMemory__SWIG_0
-extern void (*_wrap_OTPassword_randomizeMemory__SWIG_0)(void*);
-static void (*x_wrap_OTPassword_randomizeMemory__SWIG_0)(void*) = _wrap_OTPassword_randomizeMemory__SWIG_0;
-
-void
-·_swig_wrap_OTPassword_randomizeMemory__SWIG_0(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizeMemory__SWIG_0, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizeMemory__SWIG_1 _wrap_OTPassword_randomizeMemory__SWIG_1 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizeMemory__SWIG_1
-extern void (*_wrap_OTPassword_randomizeMemory__SWIG_1)(void*);
-static void (*x_wrap_OTPassword_randomizeMemory__SWIG_1)(void*) = _wrap_OTPassword_randomizeMemory__SWIG_1;
-
-void
-·_swig_wrap_OTPassword_randomizeMemory__SWIG_1(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizeMemory__SWIG_1, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizeMemory_uint8 _wrap_OTPassword_randomizeMemory_uint8 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizeMemory_uint8
-extern void (*_wrap_OTPassword_randomizeMemory_uint8)(void*);
-static void (*x_wrap_OTPassword_randomizeMemory_uint8)(void*) = _wrap_OTPassword_randomizeMemory_uint8;
-
-void
-·OTPasswordRandomizeMemory_uint8(struct {
-  uint8 x[(2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizeMemory_uint8, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_randomizeMemory__SWIG_2 _wrap_OTPassword_randomizeMemory__SWIG_2 ""
-#pragma cgo_import_static _wrap_OTPassword_randomizeMemory__SWIG_2
-extern void (*_wrap_OTPassword_randomizeMemory__SWIG_2)(void*);
-static void (*x_wrap_OTPassword_randomizeMemory__SWIG_2)(void*) = _wrap_OTPassword_randomizeMemory__SWIG_2;
-
-void
-·OTPasswordRandomizeMemory__SWIG_2(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_randomizeMemory__SWIG_2, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getBlockSize _wrap_OTPassword_getBlockSize ""
-#pragma cgo_import_static _wrap_OTPassword_getBlockSize
-extern void (*_wrap_OTPassword_getBlockSize)(void*);
-static void (*x_wrap_OTPassword_getBlockSize)(void*) = _wrap_OTPassword_getBlockSize;
-
-void
-·_swig_wrap_OTPassword_getBlockSize(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getBlockSize, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_Compare _wrap_OTPassword_Compare ""
-#pragma cgo_import_static _wrap_OTPassword_Compare
-extern void (*_wrap_OTPassword_Compare)(void*);
-static void (*x_wrap_OTPassword_Compare)(void*) = _wrap_OTPassword_Compare;
-
-void
-·_swig_wrap_OTPassword_Compare(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_Compare, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getPasswordSize _wrap_OTPassword_getPasswordSize ""
-#pragma cgo_import_static _wrap_OTPassword_getPasswordSize
-extern void (*_wrap_OTPassword_getPasswordSize)(void*);
-static void (*x_wrap_OTPassword_getPasswordSize)(void*) = _wrap_OTPassword_getPasswordSize;
-
-void
-·_swig_wrap_OTPassword_getPasswordSize(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getPasswordSize, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_getMemorySize _wrap_OTPassword_getMemorySize ""
-#pragma cgo_import_static _wrap_OTPassword_getMemorySize
-extern void (*_wrap_OTPassword_getMemorySize)(void*);
-static void (*x_wrap_OTPassword_getMemorySize)(void*) = _wrap_OTPassword_getMemorySize;
-
-void
-·_swig_wrap_OTPassword_getMemorySize(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_getMemorySize, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_zeroMemory__SWIG_0 _wrap_OTPassword_zeroMemory__SWIG_0 ""
-#pragma cgo_import_static _wrap_OTPassword_zeroMemory__SWIG_0
-extern void (*_wrap_OTPassword_zeroMemory__SWIG_0)(void*);
-static void (*x_wrap_OTPassword_zeroMemory__SWIG_0)(void*) = _wrap_OTPassword_zeroMemory__SWIG_0;
-
-void
-·_swig_wrap_OTPassword_zeroMemory__SWIG_0(struct {
+·_swig_wrap_delete_Password(struct {
   uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_OTPassword_zeroMemory__SWIG_0, &p);
+  runtime·cgocall(x_wrap_delete_Password, &p);
 }
 
 
 
-#pragma dynimport _wrap_OTPassword_zeroMemory__SWIG_1 _wrap_OTPassword_zeroMemory__SWIG_1 ""
-#pragma cgo_import_static _wrap_OTPassword_zeroMemory__SWIG_1
-extern void (*_wrap_OTPassword_zeroMemory__SWIG_1)(void*);
-static void (*x_wrap_OTPassword_zeroMemory__SWIG_1)(void*) = _wrap_OTPassword_zeroMemory__SWIG_1;
+#pragma dynimport _wrap_Password_getMemory__SWIG_0 _wrap_Password_getMemory__SWIG_0 ""
+#pragma cgo_import_static _wrap_Password_getMemory__SWIG_0
+extern void (*_wrap_Password_getMemory__SWIG_0)(void*);
+static void (*x_wrap_Password_getMemory__SWIG_0)(void*) = _wrap_Password_getMemory__SWIG_0;
 
 void
-·_swig_wrap_OTPassword_zeroMemory__SWIG_1(struct {
-  uint8 x[(2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_zeroMemory__SWIG_1, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_zeroMemory__SWIG_2 _wrap_OTPassword_zeroMemory__SWIG_2 ""
-#pragma cgo_import_static _wrap_OTPassword_zeroMemory__SWIG_2
-extern void (*_wrap_OTPassword_zeroMemory__SWIG_2)(void*);
-static void (*x_wrap_OTPassword_zeroMemory__SWIG_2)(void*) = _wrap_OTPassword_zeroMemory__SWIG_2;
-
-void
-·_swig_wrap_OTPassword_zeroMemory__SWIG_2(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_zeroMemory__SWIG_2, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_safe_memcpy__SWIG_0 _wrap_OTPassword_safe_memcpy__SWIG_0 ""
-#pragma cgo_import_static _wrap_OTPassword_safe_memcpy__SWIG_0
-extern void (*_wrap_OTPassword_safe_memcpy__SWIG_0)(void*);
-static void (*x_wrap_OTPassword_safe_memcpy__SWIG_0)(void*) = _wrap_OTPassword_safe_memcpy__SWIG_0;
-
-void
-·OTPasswordSafe_memcpy__SWIG_0(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_safe_memcpy__SWIG_0, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_safe_memcpy__SWIG_1 _wrap_OTPassword_safe_memcpy__SWIG_1 ""
-#pragma cgo_import_static _wrap_OTPassword_safe_memcpy__SWIG_1
-extern void (*_wrap_OTPassword_safe_memcpy__SWIG_1)(void*);
-static void (*x_wrap_OTPassword_safe_memcpy__SWIG_1)(void*) = _wrap_OTPassword_safe_memcpy__SWIG_1;
-
-void
-·OTPasswordSafe_memcpy__SWIG_1(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_safe_memcpy__SWIG_1, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_CreateTextBuffer _wrap_OTPassword_CreateTextBuffer ""
-#pragma cgo_import_static _wrap_OTPassword_CreateTextBuffer
-extern void (*_wrap_OTPassword_CreateTextBuffer)(void*);
-static void (*x_wrap_OTPassword_CreateTextBuffer)(void*) = _wrap_OTPassword_CreateTextBuffer;
-
-void
-·_swig_wrap_OTPassword_CreateTextBuffer(struct {
-  uint8 x[SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_CreateTextBuffer, &p);
-}
-
-
-
-#pragma dynimport _wrap_OTPassword_SetSize _wrap_OTPassword_SetSize ""
-#pragma cgo_import_static _wrap_OTPassword_SetSize
-extern void (*_wrap_OTPassword_SetSize)(void*);
-static void (*x_wrap_OTPassword_SetSize)(void*) = _wrap_OTPassword_SetSize;
-
-void
-·_swig_wrap_OTPassword_SetSize(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_OTPassword_SetSize, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_0 _wrap_new_OTPassword__SWIG_0 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_0
-extern void (*_wrap_new_OTPassword__SWIG_0)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_0)(void*) = _wrap_new_OTPassword__SWIG_0;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_0(struct {
+·_swig_wrap_Password_getMemory__SWIG_0(struct {
   uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_0, &p);
+  runtime·cgocall(x_wrap_Password_getMemory__SWIG_0, &p);
 }
 
 
 
-#pragma dynimport _wrap_new_OTPassword__SWIG_1 _wrap_new_OTPassword__SWIG_1 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_1
-extern void (*_wrap_new_OTPassword__SWIG_1)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_1)(void*) = _wrap_new_OTPassword__SWIG_1;
+#pragma dynimport _wrap_Password_getMemory__SWIG_1 _wrap_Password_getMemory__SWIG_1 ""
+#pragma cgo_import_static _wrap_Password_getMemory__SWIG_1
+extern void (*_wrap_Password_getMemory__SWIG_1)(void*);
+static void (*x_wrap_Password_getMemory__SWIG_1)(void*) = _wrap_Password_getMemory__SWIG_1;
 
 void
-·_swig_wrap_new_OTPassword__SWIG_1(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_1, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_2 _wrap_new_OTPassword__SWIG_2 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_2
-extern void (*_wrap_new_OTPassword__SWIG_2)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_2)(void*) = _wrap_new_OTPassword__SWIG_2;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_2(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_2, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_3 _wrap_new_OTPassword__SWIG_3 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_3
-extern void (*_wrap_new_OTPassword__SWIG_3)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_3)(void*) = _wrap_new_OTPassword__SWIG_3;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_3(struct {
-  uint8 x[SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_3, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_4 _wrap_new_OTPassword__SWIG_4 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_4
-extern void (*_wrap_new_OTPassword__SWIG_4)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_4)(void*) = _wrap_new_OTPassword__SWIG_4;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_4(struct {
-  uint8 x[SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_4, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_5 _wrap_new_OTPassword__SWIG_5 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_5
-extern void (*_wrap_new_OTPassword__SWIG_5)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_5)(void*) = _wrap_new_OTPassword__SWIG_5;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_5(struct {
-  uint8 x[SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_5, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_6 _wrap_new_OTPassword__SWIG_6 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_6
-extern void (*_wrap_new_OTPassword__SWIG_6)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_6)(void*) = _wrap_new_OTPassword__SWIG_6;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_6(struct {
-  uint8 x[SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_6, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_7 _wrap_new_OTPassword__SWIG_7 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_7
-extern void (*_wrap_new_OTPassword__SWIG_7)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_7)(void*) = _wrap_new_OTPassword__SWIG_7;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_7(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
-} p)
-
-{
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_7, &p);
-}
-
-
-
-#pragma dynimport _wrap_new_OTPassword__SWIG_8 _wrap_new_OTPassword__SWIG_8 ""
-#pragma cgo_import_static _wrap_new_OTPassword__SWIG_8
-extern void (*_wrap_new_OTPassword__SWIG_8)(void*);
-static void (*x_wrap_new_OTPassword__SWIG_8)(void*) = _wrap_new_OTPassword__SWIG_8;
-
-void
-·_swig_wrap_new_OTPassword__SWIG_8(struct {
+·_swig_wrap_Password_getMemory__SWIG_1(struct {
   uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
 } p)
 
 {
-  runtime·cgocall(x_wrap_new_OTPassword__SWIG_8, &p);
+  runtime·cgocall(x_wrap_Password_getMemory__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_getMemoryConst__SWIG_0 _wrap_Password_getMemoryConst__SWIG_0 ""
+#pragma cgo_import_static _wrap_Password_getMemoryConst__SWIG_0
+extern void (*_wrap_Password_getMemoryConst__SWIG_0)(void*);
+static void (*x_wrap_Password_getMemoryConst__SWIG_0)(void*) = _wrap_Password_getMemoryConst__SWIG_0;
+
+void
+·_swig_wrap_Password_getMemoryConst__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_getMemoryConst__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_getMemoryConst__SWIG_1 _wrap_Password_getMemoryConst__SWIG_1 ""
+#pragma cgo_import_static _wrap_Password_getMemoryConst__SWIG_1
+extern void (*_wrap_Password_getMemoryConst__SWIG_1)(void*);
+static void (*x_wrap_Password_getMemoryConst__SWIG_1)(void*) = _wrap_Password_getMemoryConst__SWIG_1;
+
+void
+·_swig_wrap_Password_getMemoryConst__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_getMemoryConst__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_length _wrap_Password_length ""
+#pragma cgo_import_static _wrap_Password_length
+extern void (*_wrap_Password_length)(void*);
+static void (*x_wrap_Password_length)(void*) = _wrap_Password_length;
+
+void
+·_swig_wrap_Password_length(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_length, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_resize _wrap_Password_resize ""
+#pragma cgo_import_static _wrap_Password_resize
+extern void (*_wrap_Password_resize)(void*);
+static void (*x_wrap_Password_resize)(void*) = _wrap_Password_resize;
+
+void
+·_swig_wrap_Password_resize(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_resize, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_zero _wrap_Password_zero ""
+#pragma cgo_import_static _wrap_Password_zero
+extern void (*_wrap_Password_zero)(void*);
+static void (*x_wrap_Password_zero)(void*) = _wrap_Password_zero;
+
+void
+·_swig_wrap_Password_zero(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_zero, &p);
+}
+
+
+
+#pragma dynimport _wrap_Password_randomize _wrap_Password_randomize ""
+#pragma cgo_import_static _wrap_Password_randomize
+extern void (*_wrap_Password_randomize)(void*);
+static void (*x_wrap_Password_randomize)(void*) = _wrap_Password_randomize;
+
+void
+·_swig_wrap_Password_randomize(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_Password_randomize, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_StringPassword__SWIG_0 _wrap_new_StringPassword__SWIG_0 ""
+#pragma cgo_import_static _wrap_new_StringPassword__SWIG_0
+extern void (*_wrap_new_StringPassword__SWIG_0)(void*);
+static void (*x_wrap_new_StringPassword__SWIG_0)(void*) = _wrap_new_StringPassword__SWIG_0;
+
+void
+·_swig_wrap_new_StringPassword__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_StringPassword__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_StringPassword__SWIG_1 _wrap_new_StringPassword__SWIG_1 ""
+#pragma cgo_import_static _wrap_new_StringPassword__SWIG_1
+extern void (*_wrap_new_StringPassword__SWIG_1)(void*);
+static void (*x_wrap_new_StringPassword__SWIG_1)(void*) = _wrap_new_StringPassword__SWIG_1;
+
+void
+·_swig_wrap_new_StringPassword__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_StringPassword__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_StringPassword__SWIG_2 _wrap_new_StringPassword__SWIG_2 ""
+#pragma cgo_import_static _wrap_new_StringPassword__SWIG_2
+extern void (*_wrap_new_StringPassword__SWIG_2)(void*);
+static void (*x_wrap_new_StringPassword__SWIG_2)(void*) = _wrap_new_StringPassword__SWIG_2;
+
+void
+·_swig_wrap_new_StringPassword__SWIG_2(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_StringPassword__SWIG_2, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getCopy _wrap_StringPassword_getCopy ""
+#pragma cgo_import_static _wrap_StringPassword_getCopy
+extern void (*_wrap_StringPassword_getCopy)(void*);
+static void (*x_wrap_StringPassword_getCopy)(void*) = _wrap_StringPassword_getCopy;
+
+void
+·_swig_wrap_StringPassword_getCopy(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getCopy, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getChars _wrap_StringPassword_getChars ""
+#pragma cgo_import_static _wrap_StringPassword_getChars
+extern void (*_wrap_StringPassword_getChars)(void*);
+static void (*x_wrap_StringPassword_getChars)(void*) = _wrap_StringPassword_getChars;
+
+void
+·_swig_wrap_StringPassword_getChars(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getChars, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_length _wrap_StringPassword_length ""
+#pragma cgo_import_static _wrap_StringPassword_length
+extern void (*_wrap_StringPassword_length)(void*);
+static void (*x_wrap_StringPassword_length)(void*) = _wrap_StringPassword_length;
+
+void
+·_swig_wrap_StringPassword_length(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_length, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_resize _wrap_StringPassword_resize ""
+#pragma cgo_import_static _wrap_StringPassword_resize
+extern void (*_wrap_StringPassword_resize)(void*);
+static void (*x_wrap_StringPassword_resize)(void*) = _wrap_StringPassword_resize;
+
+void
+·_swig_wrap_StringPassword_resize(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_resize, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_zero _wrap_StringPassword_zero ""
+#pragma cgo_import_static _wrap_StringPassword_zero
+extern void (*_wrap_StringPassword_zero)(void*);
+static void (*x_wrap_StringPassword_zero)(void*) = _wrap_StringPassword_zero;
+
+void
+·_swig_wrap_StringPassword_zero(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_zero, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_randomize__SWIG_0 _wrap_StringPassword_randomize__SWIG_0 ""
+#pragma cgo_import_static _wrap_StringPassword_randomize__SWIG_0
+extern void (*_wrap_StringPassword_randomize__SWIG_0)(void*);
+static void (*x_wrap_StringPassword_randomize__SWIG_0)(void*) = _wrap_StringPassword_randomize__SWIG_0;
+
+void
+·_swig_wrap_StringPassword_randomize__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_randomize__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_randomize__SWIG_1 _wrap_StringPassword_randomize__SWIG_1 ""
+#pragma cgo_import_static _wrap_StringPassword_randomize__SWIG_1
+extern void (*_wrap_StringPassword_randomize__SWIG_1)(void*);
+static void (*x_wrap_StringPassword_randomize__SWIG_1)(void*) = _wrap_StringPassword_randomize__SWIG_1;
+
+void
+·_swig_wrap_StringPassword_randomize__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_randomize__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_delete_StringPassword _wrap_delete_StringPassword ""
+#pragma cgo_import_static _wrap_delete_StringPassword
+extern void (*_wrap_delete_StringPassword)(void*);
+static void (*x_wrap_delete_StringPassword)(void*) = _wrap_delete_StringPassword;
+
+void
+·_swig_wrap_delete_StringPassword(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_delete_StringPassword, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getType _wrap_StringPassword_getType ""
+#pragma cgo_import_static _wrap_StringPassword_getType
+extern void (*_wrap_StringPassword_getType)(void*);
+static void (*x_wrap_StringPassword_getType)(void*) = _wrap_StringPassword_getType;
+
+void
+·_swig_wrap_StringPassword_getType(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getType, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getData _wrap_StringPassword_getData ""
+#pragma cgo_import_static _wrap_StringPassword_getData
+extern void (*_wrap_StringPassword_getData)(void*);
+static void (*x_wrap_StringPassword_getData)(void*) = _wrap_StringPassword_getData;
+
+void
+·_swig_wrap_StringPassword_getData(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getData, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getMemory__SWIG_0 _wrap_StringPassword_getMemory__SWIG_0 ""
+#pragma cgo_import_static _wrap_StringPassword_getMemory__SWIG_0
+extern void (*_wrap_StringPassword_getMemory__SWIG_0)(void*);
+static void (*x_wrap_StringPassword_getMemory__SWIG_0)(void*) = _wrap_StringPassword_getMemory__SWIG_0;
+
+void
+·_swig_wrap_StringPassword_getMemory__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getMemory__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getMemory__SWIG_1 _wrap_StringPassword_getMemory__SWIG_1 ""
+#pragma cgo_import_static _wrap_StringPassword_getMemory__SWIG_1
+extern void (*_wrap_StringPassword_getMemory__SWIG_1)(void*);
+static void (*x_wrap_StringPassword_getMemory__SWIG_1)(void*) = _wrap_StringPassword_getMemory__SWIG_1;
+
+void
+·_swig_wrap_StringPassword_getMemory__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getMemory__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getMemoryConst__SWIG_0 _wrap_StringPassword_getMemoryConst__SWIG_0 ""
+#pragma cgo_import_static _wrap_StringPassword_getMemoryConst__SWIG_0
+extern void (*_wrap_StringPassword_getMemoryConst__SWIG_0)(void*);
+static void (*x_wrap_StringPassword_getMemoryConst__SWIG_0)(void*) = _wrap_StringPassword_getMemoryConst__SWIG_0;
+
+void
+·_swig_wrap_StringPassword_getMemoryConst__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getMemoryConst__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_StringPassword_getMemoryConst__SWIG_1 _wrap_StringPassword_getMemoryConst__SWIG_1 ""
+#pragma cgo_import_static _wrap_StringPassword_getMemoryConst__SWIG_1
+extern void (*_wrap_StringPassword_getMemoryConst__SWIG_1)(void*);
+static void (*x_wrap_StringPassword_getMemoryConst__SWIG_1)(void*) = _wrap_StringPassword_getMemoryConst__SWIG_1;
+
+void
+·_swig_wrap_StringPassword_getMemoryConst__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_StringPassword_getMemoryConst__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_BinaryPassword__SWIG_0 _wrap_new_BinaryPassword__SWIG_0 ""
+#pragma cgo_import_static _wrap_new_BinaryPassword__SWIG_0
+extern void (*_wrap_new_BinaryPassword__SWIG_0)(void*);
+static void (*x_wrap_new_BinaryPassword__SWIG_0)(void*) = _wrap_new_BinaryPassword__SWIG_0;
+
+void
+·_swig_wrap_new_BinaryPassword__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_BinaryPassword__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_BinaryPassword__SWIG_1 _wrap_new_BinaryPassword__SWIG_1 ""
+#pragma cgo_import_static _wrap_new_BinaryPassword__SWIG_1
+extern void (*_wrap_new_BinaryPassword__SWIG_1)(void*);
+static void (*x_wrap_new_BinaryPassword__SWIG_1)(void*) = _wrap_new_BinaryPassword__SWIG_1;
+
+void
+·_swig_wrap_new_BinaryPassword__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_BinaryPassword__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getCopy _wrap_BinaryPassword_getCopy ""
+#pragma cgo_import_static _wrap_BinaryPassword_getCopy
+extern void (*_wrap_BinaryPassword_getCopy)(void*);
+static void (*x_wrap_BinaryPassword_getCopy)(void*) = _wrap_BinaryPassword_getCopy;
+
+void
+·_swig_wrap_BinaryPassword_getCopy(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getCopy, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_BinaryPassword__SWIG_2 _wrap_new_BinaryPassword__SWIG_2 ""
+#pragma cgo_import_static _wrap_new_BinaryPassword__SWIG_2
+extern void (*_wrap_new_BinaryPassword__SWIG_2)(void*);
+static void (*x_wrap_new_BinaryPassword__SWIG_2)(void*) = _wrap_new_BinaryPassword__SWIG_2;
+
+void
+·_swig_wrap_new_BinaryPassword__SWIG_2(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_BinaryPassword__SWIG_2, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_append _wrap_BinaryPassword_append ""
+#pragma cgo_import_static _wrap_BinaryPassword_append
+extern void (*_wrap_BinaryPassword_append)(void*);
+static void (*x_wrap_BinaryPassword_append)(void*) = _wrap_BinaryPassword_append;
+
+void
+·_swig_wrap_BinaryPassword_append(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_append, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemoryCopy__SWIG_0 _wrap_BinaryPassword_getMemoryCopy__SWIG_0 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemoryCopy__SWIG_0
+extern void (*_wrap_BinaryPassword_getMemoryCopy__SWIG_0)(void*);
+static void (*x_wrap_BinaryPassword_getMemoryCopy__SWIG_0)(void*) = _wrap_BinaryPassword_getMemoryCopy__SWIG_0;
+
+void
+·_swig_wrap_BinaryPassword_getMemoryCopy__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemoryCopy__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemoryCopy__SWIG_1 _wrap_BinaryPassword_getMemoryCopy__SWIG_1 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemoryCopy__SWIG_1
+extern void (*_wrap_BinaryPassword_getMemoryCopy__SWIG_1)(void*);
+static void (*x_wrap_BinaryPassword_getMemoryCopy__SWIG_1)(void*) = _wrap_BinaryPassword_getMemoryCopy__SWIG_1;
+
+void
+·_swig_wrap_BinaryPassword_getMemoryCopy__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemoryCopy__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemoryCopyOnto _wrap_BinaryPassword_getMemoryCopyOnto ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemoryCopyOnto
+extern void (*_wrap_BinaryPassword_getMemoryCopyOnto)(void*);
+static void (*x_wrap_BinaryPassword_getMemoryCopyOnto)(void*) = _wrap_BinaryPassword_getMemoryCopyOnto;
+
+void
+·_swig_wrap_BinaryPassword_getMemoryCopyOnto(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemoryCopyOnto, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_toString _wrap_BinaryPassword_toString ""
+#pragma cgo_import_static _wrap_BinaryPassword_toString
+extern void (*_wrap_BinaryPassword_toString)(void*);
+static void (*x_wrap_BinaryPassword_toString)(void*) = _wrap_BinaryPassword_toString;
+
+void
+·_swig_wrap_BinaryPassword_toString(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_toString, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_length _wrap_BinaryPassword_length ""
+#pragma cgo_import_static _wrap_BinaryPassword_length
+extern void (*_wrap_BinaryPassword_length)(void*);
+static void (*x_wrap_BinaryPassword_length)(void*) = _wrap_BinaryPassword_length;
+
+void
+·_swig_wrap_BinaryPassword_length(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_length, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_resize _wrap_BinaryPassword_resize ""
+#pragma cgo_import_static _wrap_BinaryPassword_resize
+extern void (*_wrap_BinaryPassword_resize)(void*);
+static void (*x_wrap_BinaryPassword_resize)(void*) = _wrap_BinaryPassword_resize;
+
+void
+·_swig_wrap_BinaryPassword_resize(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_resize, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_zero _wrap_BinaryPassword_zero ""
+#pragma cgo_import_static _wrap_BinaryPassword_zero
+extern void (*_wrap_BinaryPassword_zero)(void*);
+static void (*x_wrap_BinaryPassword_zero)(void*) = _wrap_BinaryPassword_zero;
+
+void
+·_swig_wrap_BinaryPassword_zero(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_zero, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_randomize__SWIG_0 _wrap_BinaryPassword_randomize__SWIG_0 ""
+#pragma cgo_import_static _wrap_BinaryPassword_randomize__SWIG_0
+extern void (*_wrap_BinaryPassword_randomize__SWIG_0)(void*);
+static void (*x_wrap_BinaryPassword_randomize__SWIG_0)(void*) = _wrap_BinaryPassword_randomize__SWIG_0;
+
+void
+·_swig_wrap_BinaryPassword_randomize__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_randomize__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_randomize__SWIG_1 _wrap_BinaryPassword_randomize__SWIG_1 ""
+#pragma cgo_import_static _wrap_BinaryPassword_randomize__SWIG_1
+extern void (*_wrap_BinaryPassword_randomize__SWIG_1)(void*);
+static void (*x_wrap_BinaryPassword_randomize__SWIG_1)(void*) = _wrap_BinaryPassword_randomize__SWIG_1;
+
+void
+·_swig_wrap_BinaryPassword_randomize__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_randomize__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_delete_BinaryPassword _wrap_delete_BinaryPassword ""
+#pragma cgo_import_static _wrap_delete_BinaryPassword
+extern void (*_wrap_delete_BinaryPassword)(void*);
+static void (*x_wrap_delete_BinaryPassword)(void*) = _wrap_delete_BinaryPassword;
+
+void
+·_swig_wrap_delete_BinaryPassword(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_delete_BinaryPassword, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getType _wrap_BinaryPassword_getType ""
+#pragma cgo_import_static _wrap_BinaryPassword_getType
+extern void (*_wrap_BinaryPassword_getType)(void*);
+static void (*x_wrap_BinaryPassword_getType)(void*) = _wrap_BinaryPassword_getType;
+
+void
+·_swig_wrap_BinaryPassword_getType(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getType, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getData _wrap_BinaryPassword_getData ""
+#pragma cgo_import_static _wrap_BinaryPassword_getData
+extern void (*_wrap_BinaryPassword_getData)(void*);
+static void (*x_wrap_BinaryPassword_getData)(void*) = _wrap_BinaryPassword_getData;
+
+void
+·_swig_wrap_BinaryPassword_getData(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getData, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemory__SWIG_0 _wrap_BinaryPassword_getMemory__SWIG_0 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemory__SWIG_0
+extern void (*_wrap_BinaryPassword_getMemory__SWIG_0)(void*);
+static void (*x_wrap_BinaryPassword_getMemory__SWIG_0)(void*) = _wrap_BinaryPassword_getMemory__SWIG_0;
+
+void
+·_swig_wrap_BinaryPassword_getMemory__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemory__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemory__SWIG_1 _wrap_BinaryPassword_getMemory__SWIG_1 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemory__SWIG_1
+extern void (*_wrap_BinaryPassword_getMemory__SWIG_1)(void*);
+static void (*x_wrap_BinaryPassword_getMemory__SWIG_1)(void*) = _wrap_BinaryPassword_getMemory__SWIG_1;
+
+void
+·_swig_wrap_BinaryPassword_getMemory__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemory__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemoryConst__SWIG_0 _wrap_BinaryPassword_getMemoryConst__SWIG_0 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemoryConst__SWIG_0
+extern void (*_wrap_BinaryPassword_getMemoryConst__SWIG_0)(void*);
+static void (*x_wrap_BinaryPassword_getMemoryConst__SWIG_0)(void*) = _wrap_BinaryPassword_getMemoryConst__SWIG_0;
+
+void
+·_swig_wrap_BinaryPassword_getMemoryConst__SWIG_0(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemoryConst__SWIG_0, &p);
+}
+
+
+
+#pragma dynimport _wrap_BinaryPassword_getMemoryConst__SWIG_1 _wrap_BinaryPassword_getMemoryConst__SWIG_1 ""
+#pragma cgo_import_static _wrap_BinaryPassword_getMemoryConst__SWIG_1
+extern void (*_wrap_BinaryPassword_getMemoryConst__SWIG_1)(void*);
+static void (*x_wrap_BinaryPassword_getMemoryConst__SWIG_1)(void*) = _wrap_BinaryPassword_getMemoryConst__SWIG_1;
+
+void
+·_swig_wrap_BinaryPassword_getMemoryConst__SWIG_1(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_BinaryPassword_getMemoryConst__SWIG_1, &p);
+}
+
+
+
+#pragma dynimport _wrap_OTPassword_randomizeData _wrap_OTPassword_randomizeData ""
+#pragma cgo_import_static _wrap_OTPassword_randomizeData
+extern void (*_wrap_OTPassword_randomizeData)(void*);
+static void (*x_wrap_OTPassword_randomizeData)(void*) = _wrap_OTPassword_randomizeData;
+
+void
+·_swig_wrap_OTPassword_randomizeData(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_OTPassword_randomizeData, &p);
+}
+
+
+
+#pragma dynimport _wrap_OTPassword_randomizeMemory _wrap_OTPassword_randomizeMemory ""
+#pragma cgo_import_static _wrap_OTPassword_randomizeMemory
+extern void (*_wrap_OTPassword_randomizeMemory)(void*);
+static void (*x_wrap_OTPassword_randomizeMemory)(void*) = _wrap_OTPassword_randomizeMemory;
+
+void
+·OTPasswordRandomizeMemory(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_OTPassword_randomizeMemory, &p);
+}
+
+
+
+#pragma dynimport _wrap_OTPassword_zeroMemory _wrap_OTPassword_zeroMemory ""
+#pragma cgo_import_static _wrap_OTPassword_zeroMemory
+extern void (*_wrap_OTPassword_zeroMemory)(void*);
+static void (*x_wrap_OTPassword_zeroMemory)(void*) = _wrap_OTPassword_zeroMemory;
+
+void
+·_swig_wrap_OTPassword_zeroMemory(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_OTPassword_zeroMemory, &p);
+}
+
+
+
+#pragma dynimport _wrap_OTPassword_copyMemory _wrap_OTPassword_copyMemory ""
+#pragma cgo_import_static _wrap_OTPassword_copyMemory
+extern void (*_wrap_OTPassword_copyMemory)(void*);
+static void (*x_wrap_OTPassword_copyMemory)(void*) = _wrap_OTPassword_copyMemory;
+
+void
+·_swig_wrap_OTPassword_copyMemory(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_OTPassword_copyMemory, &p);
+}
+
+
+
+#pragma dynimport _wrap_new_OTPassword _wrap_new_OTPassword ""
+#pragma cgo_import_static _wrap_new_OTPassword
+extern void (*_wrap_new_OTPassword)(void*);
+static void (*x_wrap_new_OTPassword)(void*) = _wrap_new_OTPassword;
+
+void
+·_swig_wrap_new_OTPassword(struct {
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE];
+} p)
+
+{
+  runtime·cgocall(x_wrap_new_OTPassword, &p);
 }
 
 
@@ -1453,7 +1661,7 @@ static void (*x_wrap_OTCaller_SetDisplay)(void*) = _wrap_OTCaller_SetDisplay;
 
 void
 ·_swig_wrap_OTCaller_SetDisplay(struct {
-  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE) + SWIG_PARM_SIZE];
+  uint8 x[SWIG_PARM_SIZE + SWIG_PARM_SIZE + (2 * SWIG_PARM_SIZE)];
 } p)
 
 {

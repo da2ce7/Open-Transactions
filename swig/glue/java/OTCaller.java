@@ -39,8 +39,8 @@ public class OTCaller {
     this(otapiJNI.new_OTCaller(), true);
   }
 
-  public boolean GetPassword(OTPassword theOutput) {
-    return otapiJNI.OTCaller_GetPassword(swigCPtr, this, OTPassword.getCPtr(theOutput), theOutput);
+  public boolean GetPassword(Password theOutput) {
+    return otapiJNI.OTCaller_GetPassword(swigCPtr, this, Password.getCPtr(theOutput), theOutput);
   }
 
   public void ZeroOutPassword() {
@@ -51,8 +51,8 @@ public class OTCaller {
     return otapiJNI.OTCaller_GetDisplay(swigCPtr, this);
   }
 
-  public void SetDisplay(String szDisplay, int nLength) {
-    otapiJNI.OTCaller_SetDisplay(swigCPtr, this, szDisplay, nLength);
+  public void SetDisplay(String strDisplay) {
+    otapiJNI.OTCaller_SetDisplay(swigCPtr, this, strDisplay);
   }
 
   public void delCallback() {

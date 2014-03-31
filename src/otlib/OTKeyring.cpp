@@ -239,9 +239,9 @@ extern "C"
 // Windows DPAPI
 //
 
-//static
-bool OTKeyring::Windows_StoreSecret(const OTString    & strUser,
-                                    const OTPassword  & thePassword,
+//static 
+bool OTKeyring::Windows_StoreSecret(const OTString    & strUser, 
+                                    const OT::Password  & thePassword,
                                     const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -311,9 +311,9 @@ bool OTKeyring::Windows_StoreSecret(const OTString    & strUser,
 }
 
 
-//static
-bool OTKeyring::Windows_RetrieveSecret(const OTString    & strUser,
-                                             OTPassword  & thePassword,
+//static 
+bool OTKeyring::Windows_RetrieveSecret(const OTString    & strUser, 
+                                             OT::Password  & thePassword,
                                        const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -532,9 +532,9 @@ OSStatus OTMacKeychain::ItemFreeContent(SecKeychainAttributeList * attrList, voi
 
 // ------------------------------------------------------------------------
 
-//static
-bool OTKeyring::Mac_StoreSecret(const OTString    & strUser,
-                                const OTPassword  & thePassword,
+//static 
+bool OTKeyring::Mac_StoreSecret(const OTString    & strUser, 
+                                const OT::Password  & thePassword,
                                 const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -564,9 +564,9 @@ bool OTKeyring::Mac_StoreSecret(const OTString    & strUser,
     return true;
 }
 
-//static
-bool OTKeyring::Mac_RetrieveSecret(const OTString    & strUser,
-                                         OTPassword  & thePassword,
+//static 
+bool OTKeyring::Mac_RetrieveSecret(const OTString    & strUser, 
+                                         OT::Password  & thePassword,
                                    const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -670,7 +670,7 @@ bool OTKeyring::Mac_DeleteSecret(const OTString    & strUser,
 
 //static
 bool OTKeyring::IOS_StoreSecret(const OTString    & strUser,
-                                const OTPassword  & thePassword,
+                                const OT::Password  & thePassword,
                                 const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -700,7 +700,7 @@ bool OTKeyring::IOS_StoreSecret(const OTString    & strUser,
 
 //static
 bool OTKeyring::IOS_RetrieveSecret(const OTString    & strUser,
-                                         OTPassword  & thePassword,
+                                         OT::Password  & thePassword,
                                    const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -776,9 +776,9 @@ bool OTKeyring::IOS_DeleteSecret(const OTString    & strUser,
 //        port:       An integer describing the network port to used to connect to the server.
 //
 
-//static
-bool OTKeyring::Gnome_StoreSecret(const OTString    & strUser,
-                                  const OTPassword  & thePassword,
+//static 
+bool OTKeyring::Gnome_StoreSecret(const OTString    & strUser, 
+                                  const OT::Password  & thePassword,
                                   const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -839,9 +839,10 @@ bool OTKeyring::Gnome_StoreSecret(const OTString    & strUser,
 	GNOME_KEYRING_RESULT_NO_MATCH
 } GnomeKeyringResult;
  */
-//static
-bool OTKeyring::Gnome_RetrieveSecret(const OTString    & strUser,
-                                           OTPassword  & thePassword,
+
+//static 
+bool OTKeyring::Gnome_RetrieveSecret(const OTString    & strUser, 
+                                           OT::Password  & thePassword,
                                      const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -1092,9 +1093,9 @@ KWallet::Wallet * OTKeyring::OpenKWallet()
 
 // -----------------------
 
-//static
-bool OTKeyring::KWallet_StoreSecret(const OTString    & strUser,
-                                    const OTPassword  & thePassword,
+//static 
+bool OTKeyring::KWallet_StoreSecret(const OTString    & strUser, 
+                                    const OT::Password  & thePassword,
                                     const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -1136,9 +1137,9 @@ bool OTKeyring::KWallet_StoreSecret(const OTString    & strUser,
     return false;
 }
 
-//static
-bool OTKeyring::KWallet_RetrieveSecret(const OTString    & strUser,
-                                             OTPassword  & thePassword,
+//static 
+bool OTKeyring::KWallet_RetrieveSecret(const OTString    & strUser, 
+                                             OT::Password  & thePassword,
                                        const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -1254,7 +1255,7 @@ const char * OTKeyring::FlatFile_GetPasswordFolder()
 
 //static
 bool OTKeyring::FlatFile_StoreSecret(const OTString    & strUser,
-                                     const OTPassword  & thePassword,
+                                     const OT::Password  & thePassword,
                                      const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -1288,9 +1289,9 @@ bool OTKeyring::FlatFile_StoreSecret(const OTString    & strUser,
 }
 
 
-//static
-bool OTKeyring::FlatFile_RetrieveSecret(const OTString    & strUser,
-                                              OTPassword  & thePassword,
+//static 
+bool OTKeyring::FlatFile_RetrieveSecret(const OTString    & strUser, 
+                                              OT::Password  & thePassword,
                                         const std::string & str_display)
 {
     OT_ASSERT(strUser.Exists());
@@ -1394,9 +1395,9 @@ bool OTKeyring::FlatFile_DeleteSecret(const OTString    & strUser,
 
 
 
-//static
-bool OTKeyring::StoreSecret(const OTString    & strUser,
-                            const OTPassword  & thePassword,
+//static 
+bool OTKeyring::StoreSecret(const OTString    & strUser, 
+                            const OT::Password  & thePassword,
                             const std::string & str_display)
 {
     if (OTCachedKey::It()->IsUsingSystemKeyring())
@@ -1421,9 +1422,9 @@ bool OTKeyring::StoreSecret(const OTString    & strUser,
     return false;
 }
 
-//static
-bool OTKeyring::RetrieveSecret(const OTString    & strUser,
-                                     OTPassword  & thePassword,
+//static 
+bool OTKeyring::RetrieveSecret(const OTString    & strUser, 
+                                     OT::Password  & thePassword,
                                const std::string & str_display)
 {
     if (OTCachedKey::It()->IsUsingSystemKeyring())

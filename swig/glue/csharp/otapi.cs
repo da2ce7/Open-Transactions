@@ -19,6 +19,16 @@ public class otapi {
     return ret;
   }
 
+  public static SWIGTYPE_p_void _SecureAllocateVoid(uint _Count, uint _Size) {
+    global::System.IntPtr cPtr = otapiPINVOKE._SecureAllocateVoid(_Count, _Size);
+    SWIGTYPE_p_void ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_void(cPtr, false);
+    return ret;
+  }
+
+  public static void _SecureDeallocateVoid(uint _Count, uint _Size, SWIGTYPE_p_void _Ptr) {
+    otapiPINVOKE._SecureDeallocateVoid(_Count, _Size, SWIGTYPE_p_void.getCPtr(_Ptr));
+  }
+
   public static int OT_CLI_GetArgsCount(string str_Args) {
     int ret = otapiPINVOKE.OT_CLI_GetArgsCount(str_Args);
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
@@ -333,13 +343,8 @@ public class otapi {
     return ret;
   }
 
-  public static readonly string OT_PW_DISPLAY = otapiPINVOKE.OT_PW_DISPLAY_get();
   public static readonly int OTPASSWORD_BLOCKSIZE = otapiPINVOKE.OTPASSWORD_BLOCKSIZE_get();
-  public static readonly int OTPASSWORD_MEMSIZE = otapiPINVOKE.OTPASSWORD_MEMSIZE_get();
-  public static readonly int OT_LARGE_BLOCKSIZE = otapiPINVOKE.OT_LARGE_BLOCKSIZE_get();
-  public static readonly int OT_LARGE_MEMSIZE = otapiPINVOKE.OT_LARGE_MEMSIZE_get();
-  public static readonly int OT_DEFAULT_BLOCKSIZE = otapiPINVOKE.OT_DEFAULT_BLOCKSIZE_get();
-  public static readonly int OT_DEFAULT_MEMSIZE = otapiPINVOKE.OT_DEFAULT_MEMSIZE_get();
+  public static readonly string OT_PW_DISPLAY = otapiPINVOKE.OT_PW_DISPLAY_get();
 }
 
 }

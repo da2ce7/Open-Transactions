@@ -553,31 +553,31 @@ SwigDirector_OTCallback::~SwigDirector_OTCallback() {
 }
 
 
-void SwigDirector_OTCallback::runOne(char const *szDisplay, OTPassword &theOutput) {
-  char * jszDisplay = 0 ;
+void SwigDirector_OTCallback::runOne(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
+  char * jstrDisplay = 0 ;
   void * jtheOutput = 0 ;
   
   if (!swig_callbackrunOne) {
-    OTCallback::runOne(szDisplay,theOutput);
+    OTCallback::runOne(strDisplay,theOutput);
     return;
   } else {
-    jszDisplay = SWIG_csharp_string_callback((const char *)szDisplay); 
-    jtheOutput = (OTPassword *) &theOutput; 
-    swig_callbackrunOne(jszDisplay, jtheOutput);
+    jstrDisplay = SWIG_csharp_string_callback((&strDisplay)->c_str()); 
+    jtheOutput = (OpenTransactions::StringPassword *) &theOutput; 
+    swig_callbackrunOne(jstrDisplay, jtheOutput);
   }
 }
 
-void SwigDirector_OTCallback::runTwo(char const *szDisplay, OTPassword &theOutput) {
-  char * jszDisplay = 0 ;
+void SwigDirector_OTCallback::runTwo(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
+  char * jstrDisplay = 0 ;
   void * jtheOutput = 0 ;
   
   if (!swig_callbackrunTwo) {
-    OTCallback::runTwo(szDisplay,theOutput);
+    OTCallback::runTwo(strDisplay,theOutput);
     return;
   } else {
-    jszDisplay = SWIG_csharp_string_callback((const char *)szDisplay); 
-    jtheOutput = (OTPassword *) &theOutput; 
-    swig_callbackrunTwo(jszDisplay, jtheOutput);
+    jstrDisplay = SWIG_csharp_string_callback((&strDisplay)->c_str()); 
+    jtheOutput = (OpenTransactions::StringPassword *) &theOutput; 
+    swig_callbackrunTwo(jstrDisplay, jtheOutput);
   }
 }
 
@@ -1337,13 +1337,29 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_MapStringString(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_OT_PW_DISPLAY_get() {
-  char * jresult ;
-  char *result = 0 ;
+SWIGEXPORT void * SWIGSTDCALL CSharp__SecureAllocateVoid(unsigned long jarg1, unsigned long jarg2) {
+  void * jresult ;
+  size_t arg1 ;
+  size_t arg2 ;
+  void *result = 0 ;
   
-  result = (char *)("Enter master passphrase for wallet.");
-  jresult = SWIG_csharp_string_callback((const char *)result); 
+  arg1 = (size_t)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (void *)_SecureAllocateVoid(arg1,arg2);
+  jresult = (void *)result; 
   return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp__SecureDeallocateVoid(unsigned long jarg1, unsigned long jarg2, void * jarg3) {
+  size_t arg1 ;
+  size_t arg2 ;
+  void *arg3 = (void *) 0 ;
+  
+  arg1 = (size_t)jarg1; 
+  arg2 = (size_t)jarg2; 
+  arg3 = (void *)jarg3; 
+  _SecureDeallocateVoid(arg1,arg2,arg3);
 }
 
 
@@ -1357,629 +1373,535 @@ SWIGEXPORT int SWIGSTDCALL CSharp_OTPASSWORD_BLOCKSIZE_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPASSWORD_MEMSIZE_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_Password_getType(void * jarg1) {
   int jresult ;
-  int result;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  OpenTransactions::Password::TYPE result;
   
-  result = (int)(129);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OT_LARGE_BLOCKSIZE_get() {
-  int jresult ;
-  int result;
-  
-  result = (int)(32767);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OT_LARGE_MEMSIZE_get() {
-  int jresult ;
-  int result;
-  
-  result = (int)(32768);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OT_DEFAULT_BLOCKSIZE_get() {
-  int jresult ;
-  int result;
-  
-  result = (int)(128);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OT_DEFAULT_MEMSIZE_get() {
-  int jresult ;
-  int result;
-  
-  result = (int)(129);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_m_theBlockSize_get(void * jarg1) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  OTPassword::BlockSize result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (OTPassword::BlockSize)(OTPassword::BlockSize) ((arg1)->m_theBlockSize);
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  result = (OpenTransactions::Password::TYPE)((OpenTransactions::Password const *)arg1)->getType();
   jresult = (int)result; 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_isPassword(void * jarg1) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  bool result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (bool)((OTPassword const *)arg1)->isPassword();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_getPassword_uint8(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Password_getData(void * jarg1) {
   void * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t *result = 0 ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  SecureDataVector *result = 0 ;
   
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint8_t *)((OTPassword const *)arg1)->getPassword_uint8();
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  result = (SecureDataVector *) &((OpenTransactions::Password const *)arg1)->getData();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_OTPassword_getPassword(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Password(void * jarg1) {
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Password_getMemory__SWIG_0(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  VoidPointerPair result;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  result = (arg1)->getMemory();
+  jresult = new VoidPointerPair((const VoidPointerPair &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Password_getMemory__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  arg2 = (void **)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "void *& type is null", 0);
+    return ;
+  } 
+  arg3 = (size_t *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "size_t & type is null", 0);
+    return ;
+  } 
+  (arg1)->getMemory(*arg2,*arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Password_getMemoryConst__SWIG_0(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  ConstVoidPointerPair result;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  result = ((OpenTransactions::Password const *)arg1)->getMemoryConst();
+  jresult = new ConstVoidPointerPair((const ConstVoidPointerPair &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Password_getMemoryConst__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  arg2 = (void **)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "void const *& type is null", 0);
+    return ;
+  } 
+  arg3 = (size_t *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "size_t & type is null", 0);
+    return ;
+  } 
+  ((OpenTransactions::Password const *)arg1)->getMemoryConst((void const *&)*arg2,*arg3);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_Password_length(void * jarg1) {
+  unsigned long jresult ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  size_t result;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  result = ((OpenTransactions::Password const *)arg1)->length();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Password_resize(void * jarg1, unsigned long jarg2) {
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  size_t arg2 ;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  (arg1)->resize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Password_zero(void * jarg1) {
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  (arg1)->zero();
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Password_randomize(void * jarg1, unsigned long jarg2) {
+  unsigned int jresult ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  size_t arg2 ;
+  bool result;
+  
+  arg1 = (OpenTransactions::Password *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (bool)(arg1)->randomize(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_StringPassword__SWIG_0() {
+  void * jresult ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_StringPassword__SWIG_1(void * jarg1) {
+  void * jresult ;
+  SecureString *arg1 = 0 ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  arg1 = (SecureString *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "SecureString const & type is null", 0);
+    return 0;
+  } 
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword((SecureString const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_StringPassword__SWIG_2(void * jarg1) {
+  void * jresult ;
+  SecureDataVector *arg1 = 0 ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  arg1 = (SecureDataVector *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "SecureDataVector const & type is null", 0);
+    return 0;
+  } 
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword((SecureDataVector const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_StringPassword_getCopy(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  SecureString result;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  result = ((OpenTransactions::StringPassword const *)arg1)->getCopy();
+  jresult = new SecureString((const SecureString &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_StringPassword_getChars(void * jarg1) {
   char * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
   char *result = 0 ;
   
-  arg1 = (OTPassword *)jarg1; 
-  result = (char *)((OTPassword const *)arg1)->getPassword();
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  result = (char *)((OpenTransactions::StringPassword const *)arg1)->getChars();
   jresult = SWIG_csharp_string_callback((const char *)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_getPasswordWritable(void * jarg1) {
-  void * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t *result = 0 ;
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_StringPassword_length(void * jarg1) {
+  unsigned long jresult ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  size_t result;
   
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint8_t *)(arg1)->getPasswordWritable();
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  result = ((OpenTransactions::StringPassword const *)arg1)->length();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_StringPassword_resize(void * jarg1, unsigned long jarg2) {
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  size_t arg2 ;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  (arg1)->resize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_StringPassword_zero(void * jarg1) {
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  (arg1)->zero();
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_StringPassword_randomize__SWIG_0(void * jarg1, unsigned long jarg2) {
+  unsigned int jresult ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  size_t arg2 ;
+  bool result;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (bool)(arg1)->randomize(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_StringPassword_randomize__SWIG_1(void * jarg1) {
+  unsigned int jresult ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  bool result;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  result = (bool)(arg1)->randomize();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_StringPassword(void * jarg1) {
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  
+  arg1 = (OpenTransactions::StringPassword *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_BinaryPassword__SWIG_0() {
+  void * jresult ;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_OTPassword_getPasswordWritable_char(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_BinaryPassword__SWIG_1(void * jarg1) {
+  void * jresult ;
+  SecureDataVector *arg1 = 0 ;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  arg1 = (SecureDataVector *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "SecureDataVector const & type is null", 0);
+    return 0;
+  } 
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword((SecureDataVector const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_BinaryPassword_getCopy(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  SwigValueWrapper< std::vector< unsigned char,secure_allocator< unsigned char > > > result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->getCopy();
+  jresult = new SecureDataVector((const SecureDataVector &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_BinaryPassword__SWIG_2(void * jarg1, unsigned long jarg2) {
+  void * jresult ;
+  void *arg1 = (void *) (void *)0 ;
+  size_t arg2 ;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  arg1 = (void *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword((void const *)arg1,arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BinaryPassword_append(void * jarg1, void * jarg2, unsigned long jarg3) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *arg2 = (void *) (void *)0 ;
+  size_t arg3 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  arg2 = (void *)jarg2; 
+  arg3 = (size_t)jarg3; 
+  (arg1)->append((void const *)arg2,arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_BinaryPassword_getMemoryCopy__SWIG_0(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  VoidPointerPair result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopy();
+  jresult = new VoidPointerPair((const VoidPointerPair &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BinaryPassword_getMemoryCopy__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  arg2 = (void **)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "void *& type is null", 0);
+    return ;
+  } 
+  arg3 = (size_t *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "size_t & type is null", 0);
+    return ;
+  } 
+  ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopy(*arg2,*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BinaryPassword_getMemoryCopyOnto(void * jarg1, void * jarg2, unsigned long jarg3) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *arg2 = (void *) (void *)0 ;
+  size_t arg3 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  arg2 = (void *)jarg2; 
+  arg3 = (size_t)jarg3; 
+  ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopyOnto(arg2,arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_BinaryPassword_toString(void * jarg1) {
+  void * jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  SecureString result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  result = (arg1)->toString();
+  jresult = new SecureString((const SecureString &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_BinaryPassword_length(void * jarg1) {
+  unsigned long jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  size_t result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->length();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BinaryPassword_resize(void * jarg1, unsigned long jarg2) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  size_t arg2 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  (arg1)->resize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BinaryPassword_zero(void * jarg1) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  (arg1)->zero();
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_BinaryPassword_randomize__SWIG_0(void * jarg1, unsigned long jarg2) {
+  unsigned int jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  size_t arg2 ;
+  bool result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (bool)(arg1)->randomize(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_BinaryPassword_randomize__SWIG_1(void * jarg1) {
+  unsigned int jresult ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  bool result;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  result = (bool)(arg1)->randomize();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_BinaryPassword(void * jarg1) {
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  
+  arg1 = (OpenTransactions::BinaryPassword *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_OT_PW_DISPLAY_get() {
   char * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
   char *result = 0 ;
   
-  arg1 = (OTPassword *)jarg1; 
-  result = (char *)(arg1)->getPasswordWritable_char();
+  result = (char *)("Enter master passphrase for wallet.");
   jresult = SWIG_csharp_string_callback((const char *)result); 
   return jresult;
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_setPassword(void * jarg1, char * jarg2, int jarg3) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int32_t arg3 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (int32_t)jarg3; 
-  result = (int32_t)(arg1)->setPassword((char const *)arg2,arg3);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_setPassword_uint8(void * jarg1, void * jarg2, unsigned int jarg3) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t *arg2 = (uint8_t *) 0 ;
-  uint32_t arg3 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (uint8_t *)jarg2; 
-  arg3 = (uint32_t)jarg3; 
-  result = (int32_t)(arg1)->setPassword_uint8((uint8_t const *)arg2,arg3);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_addChar(void * jarg1, unsigned char jarg2) {
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizeData(void * jarg1) {
   unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t arg2 ;
+  SecureDataVector *arg1 = 0 ;
   bool result;
   
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (uint8_t)jarg2; 
-  result = (bool)(arg1)->addChar(arg2);
+  arg1 = (SecureDataVector *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "SecureDataVector & type is null", 0);
+    return 0;
+  } 
+  result = (bool)OTPassword::randomizeData(*arg1);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_randomizePassword__SWIG_0(void * jarg1, unsigned int jarg2) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (int32_t)(arg1)->randomizePassword(arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_randomizePassword__SWIG_1(void * jarg1) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (int32_t)(arg1)->randomizePassword();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizePassword_uint8(void * jarg1, unsigned int jarg2) {
-  unsigned int jresult ;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  bool result;
-  
-  arg1 = (uint8_t *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (bool)OTPassword::randomizePassword_uint8(arg1,arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizePassword__SWIG_2(char * jarg1, unsigned int jarg2) {
-  unsigned int jresult ;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  bool result;
-  
-  arg1 = (char *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (bool)OTPassword::randomizePassword(arg1,arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_isMemory(void * jarg1) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  bool result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (bool)((OTPassword const *)arg1)->isMemory();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_getMemory(void * jarg1) {
-  void * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *result = 0 ;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (void *)((OTPassword const *)arg1)->getMemory();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_getMemory_uint8(void * jarg1) {
-  void * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t *result = 0 ;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint8_t *)((OTPassword const *)arg1)->getMemory_uint8();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_getMemoryWritable(void * jarg1) {
-  void * jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *result = 0 ;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (void *)(arg1)->getMemoryWritable();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_setMemory(void * jarg1, void * jarg2, unsigned int jarg3) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *arg2 = (void *) 0 ;
-  uint32_t arg3 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (void *)jarg2; 
-  arg3 = (uint32_t)jarg3; 
-  result = (int32_t)(arg1)->setMemory((void const *)arg2,arg3);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_addMemory(void * jarg1, void * jarg2, unsigned int jarg3) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *arg2 = (void *) 0 ;
-  uint32_t arg3 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (void *)jarg2; 
-  arg3 = (uint32_t)jarg3; 
-  result = (int32_t)(arg1)->addMemory((void const *)arg2,arg3);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_randomizeMemory__SWIG_0(void * jarg1, unsigned int jarg2) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (int32_t)(arg1)->randomizeMemory(arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT int SWIGSTDCALL CSharp_OTPassword_randomizeMemory__SWIG_1(void * jarg1) {
-  int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  int32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (int32_t)(arg1)->randomizeMemory();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizeMemory_uint8(void * jarg1, unsigned int jarg2) {
-  unsigned int jresult ;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  bool result;
-  
-  arg1 = (uint8_t *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (bool)OTPassword::randomizeMemory_uint8(arg1,arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizeMemory__SWIG_2(void * jarg1, unsigned int jarg2) {
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_randomizeMemory(void * jarg1, unsigned long jarg2) {
   unsigned int jresult ;
   void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
+  size_t arg2 ;
   bool result;
   
   arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
+  arg2 = (size_t)jarg2; 
   result = (bool)OTPassword::randomizeMemory(arg1,arg2);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_getBlockSize(void * jarg1) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t result;
+SWIGEXPORT void SWIGSTDCALL CSharp_OTPassword_zeroMemory(void * jarg1, unsigned long jarg2) {
+  void *arg1 = (void *) 0 ;
+  size_t arg2 ;
   
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint32_t)((OTPassword const *)arg1)->getBlockSize();
-  jresult = result; 
-  return jresult;
+  arg1 = (void *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  OTPassword::zeroMemory(arg1,arg2);
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_Compare(void * jarg1, void * jarg2) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  OTPassword *arg2 = 0 ;
-  bool result;
+SWIGEXPORT void SWIGSTDCALL CSharp_OTPassword_copyMemory(void * jarg1, unsigned long jarg2, void * jarg3, void * jarg4) {
+  void *arg1 = (void *) (void *)0 ;
+  size_t *arg2 = 0 ;
+  void *arg3 = (void *) 0 ;
+  size_t *arg4 = 0 ;
+  size_t temp2 ;
   
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (OTPassword *)jarg2;
-  if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
-    return 0;
+  arg1 = (void *)jarg1; 
+  temp2 = (size_t)jarg2; 
+  arg2 = &temp2; 
+  arg3 = (void *)jarg3; 
+  arg4 = (size_t *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "size_t & type is null", 0);
+    return ;
   } 
-  result = (bool)((OTPassword const *)arg1)->Compare(*arg2);
-  jresult = result; 
-  return jresult;
+  OTPassword::copyMemory((void const *)arg1,(size_t const &)*arg2,arg3,*arg4);
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_getPasswordSize(void * jarg1) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint32_t)((OTPassword const *)arg1)->getPasswordSize();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_getMemorySize(void * jarg1) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  result = (uint32_t)((OTPassword const *)arg1)->getMemorySize();
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_OTPassword_zeroMemory__SWIG_0(void * jarg1) {
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  
-  arg1 = (OTPassword *)jarg1; 
-  (arg1)->zeroMemory();
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_OTPassword_zeroMemory__SWIG_1(void * jarg1, unsigned int jarg2) {
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  
-  arg1 = (uint8_t *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  OTPassword::zeroMemory(arg1,arg2);
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_OTPassword_zeroMemory__SWIG_2(void * jarg1, unsigned int jarg2) {
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  
-  arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  OTPassword::zeroMemory(arg1,arg2);
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_safe_memcpy__SWIG_0(void * jarg1, unsigned int jarg2, void * jarg3, unsigned int jarg4, unsigned int jarg5) {
-  void * jresult ;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  void *arg3 = (void *) 0 ;
-  uint32_t arg4 ;
-  bool arg5 ;
-  void *result = 0 ;
-  
-  arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  arg3 = (void *)jarg3; 
-  arg4 = (uint32_t)jarg4; 
-  arg5 = jarg5 ? true : false; 
-  result = (void *)OTPassword::safe_memcpy(arg1,arg2,(void const *)arg3,arg4,arg5);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_safe_memcpy__SWIG_1(void * jarg1, unsigned int jarg2, void * jarg3, unsigned int jarg4) {
-  void * jresult ;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  void *arg3 = (void *) 0 ;
-  uint32_t arg4 ;
-  void *result = 0 ;
-  
-  arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  arg3 = (void *)jarg3; 
-  arg4 = (uint32_t)jarg4; 
-  result = (void *)OTPassword::safe_memcpy(arg1,arg2,(void const *)arg3,arg4);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_OTPassword_CreateTextBuffer() {
-  void * jresult ;
-  OTPassword *result = 0 ;
-  
-  result = (OTPassword *)OTPassword::CreateTextBuffer();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTPassword_SetSize(void * jarg1, unsigned int jarg2) {
-  unsigned int jresult ;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
-  bool result;
-  
-  arg1 = (OTPassword *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (bool)(arg1)->SetSize(arg2);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_0(int jarg1) {
-  void * jresult ;
-  OTPassword::BlockSize arg1 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (OTPassword::BlockSize)jarg1; 
-  result = (OTPassword *)new OTPassword(arg1);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_1() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword() {
   void * jresult ;
   OTPassword *result = 0 ;
   
   result = (OTPassword *)new OTPassword();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_2(void * jarg1) {
-  void * jresult ;
-  OTPassword *arg1 = 0 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (OTPassword *)jarg1;
-  if (!arg1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword const & type is null", 0);
-    return 0;
-  } 
-  result = (OTPassword *)new OTPassword((OTPassword const &)*arg1);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_3(char * jarg1, unsigned int jarg2, int jarg3) {
-  void * jresult ;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (char *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  arg3 = (OTPassword::BlockSize)jarg3; 
-  result = (OTPassword *)new OTPassword((char const *)arg1,arg2,arg3);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_4(char * jarg1, unsigned int jarg2) {
-  void * jresult ;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (char *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (OTPassword *)new OTPassword((char const *)arg1,arg2);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_5(void * jarg1, unsigned int jarg2, int jarg3) {
-  void * jresult ;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (uint8_t *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  arg3 = (OTPassword::BlockSize)jarg3; 
-  result = (OTPassword *)new OTPassword((uint8_t const *)arg1,arg2,arg3);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_6(void * jarg1, unsigned int jarg2) {
-  void * jresult ;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (uint8_t *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (OTPassword *)new OTPassword((uint8_t const *)arg1,arg2);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_7(void * jarg1, unsigned int jarg2, int jarg3) {
-  void * jresult ;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  arg3 = (OTPassword::BlockSize)jarg3; 
-  result = (OTPassword *)new OTPassword((void const *)arg1,arg2,arg3);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_OTPassword__SWIG_8(void * jarg1, unsigned int jarg2) {
-  void * jresult ;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  OTPassword *result = 0 ;
-  
-  arg1 = (void *)jarg1; 
-  arg2 = (uint32_t)jarg2; 
-  result = (OTPassword *)new OTPassword((void const *)arg1,arg2);
   jresult = (void *)result; 
   return jresult;
 }
@@ -2013,65 +1935,85 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_OTCallback(void * jarg1) {
 
 SWIGEXPORT void SWIGSTDCALL CSharp_OTCallback_runOne(void * jarg1, char * jarg2, void * jarg3) {
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   
   arg1 = (OTCallback *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (OTPassword *)jarg3;
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  arg3 = (OpenTransactions::StringPassword *)jarg3;
   if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OpenTransactions::StringPassword & type is null", 0);
     return ;
   } 
-  (arg1)->runOne((char const *)arg2,*arg3);
+  (arg1)->runOne((std::string const &)*arg2,*arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_OTCallback_runOneSwigExplicitOTCallback(void * jarg1, char * jarg2, void * jarg3) {
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   
   arg1 = (OTCallback *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (OTPassword *)jarg3;
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  arg3 = (OpenTransactions::StringPassword *)jarg3;
   if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OpenTransactions::StringPassword & type is null", 0);
     return ;
   } 
-  (arg1)->OTCallback::runOne((char const *)arg2,*arg3);
+  (arg1)->OTCallback::runOne((std::string const &)*arg2,*arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_OTCallback_runTwo(void * jarg1, char * jarg2, void * jarg3) {
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   
   arg1 = (OTCallback *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (OTPassword *)jarg3;
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  arg3 = (OpenTransactions::StringPassword *)jarg3;
   if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OpenTransactions::StringPassword & type is null", 0);
     return ;
   } 
-  (arg1)->runTwo((char const *)arg2,*arg3);
+  (arg1)->runTwo((std::string const &)*arg2,*arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_OTCallback_runTwoSwigExplicitOTCallback(void * jarg1, char * jarg2, void * jarg3) {
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   
   arg1 = (OTCallback *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (OTPassword *)jarg3;
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  arg3 = (OpenTransactions::StringPassword *)jarg3;
   if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OpenTransactions::StringPassword & type is null", 0);
     return ;
   } 
-  (arg1)->OTCallback::runTwo((char const *)arg2,*arg3);
+  (arg1)->OTCallback::runTwo((std::string const &)*arg2,*arg3);
 }
 
 
@@ -2105,13 +2047,13 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_OTCaller(void * jarg1) {
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OTCaller_GetPassword(void * jarg1, void * jarg2) {
   unsigned int jresult ;
   OTCaller *arg1 = (OTCaller *) 0 ;
-  OTPassword *arg2 = 0 ;
+  OpenTransactions::Password *arg2 = 0 ;
   bool result;
   
   arg1 = (OTCaller *)jarg1; 
-  arg2 = (OTPassword *)jarg2;
+  arg2 = (OpenTransactions::Password *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OTPassword & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "OpenTransactions::Password & type is null", 0);
     return 0;
   } 
   result = (bool)((OTCaller const *)arg1)->GetPassword(*arg2);
@@ -2131,24 +2073,27 @@ SWIGEXPORT void SWIGSTDCALL CSharp_OTCaller_ZeroOutPassword(void * jarg1) {
 SWIGEXPORT char * SWIGSTDCALL CSharp_OTCaller_GetDisplay(void * jarg1) {
   char * jresult ;
   OTCaller *arg1 = (OTCaller *) 0 ;
-  char *result = 0 ;
+  std::string *result = 0 ;
   
   arg1 = (OTCaller *)jarg1; 
-  result = (char *)((OTCaller const *)arg1)->GetDisplay();
-  jresult = SWIG_csharp_string_callback((const char *)result); 
+  result = (std::string *) &((OTCaller const *)arg1)->GetDisplay();
+  jresult = SWIG_csharp_string_callback(result->c_str()); 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_OTCaller_SetDisplay(void * jarg1, char * jarg2, int jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_OTCaller_SetDisplay(void * jarg1, char * jarg2) {
   OTCaller *arg1 = (OTCaller *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int32_t arg3 ;
+  std::string *arg2 = 0 ;
   
   arg1 = (OTCaller *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (int32_t)jarg3; 
-  (arg1)->SetDisplay((char const *)arg2,arg3);
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  (arg1)->SetDisplay((std::string const &)*arg2);
 }
 
 
@@ -20937,6 +20882,14 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_OT_API_Set_PasswordCallback(void * ja
   return jresult;
 }
 
+
+SWIGEXPORT OpenTransactions::Password * SWIGSTDCALL CSharp_StringPassword_SWIGUpcast(OpenTransactions::StringPassword *jarg1) {
+    return (OpenTransactions::Password *)jarg1;
+}
+
+SWIGEXPORT OpenTransactions::Password * SWIGSTDCALL CSharp_BinaryPassword_SWIGUpcast(OpenTransactions::BinaryPassword *jarg1) {
+    return (OpenTransactions::Password *)jarg1;
+}
 
 SWIGEXPORT OTDB::Storable * SWIGSTDCALL CSharp_OTDBString_SWIGUpcast(OTDB::OTDBString *jarg1) {
     return (OTDB::Storable *)jarg1;

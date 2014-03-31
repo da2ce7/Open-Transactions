@@ -183,7 +183,6 @@ class OTMessage;
 class OTMint;
 class OTNumList;
 class OTNym_or_SymmetricKey;
-class OTPassword;
 class OTPasswordData;
 class OTPayment;
 class OTPaymentPlan;
@@ -195,6 +194,13 @@ class OTSettings;
 class OTString;
 class OTToken;
 class OTWallet;
+
+namespace OpenTransactions {
+    class Password;
+}
+
+namespace OT = OpenTransactions;
+
 
 
 // --------------------------------------------------------------------
@@ -395,7 +401,7 @@ public:
 	// ----------------------------------------------------
 	EXPORT	OTPseudonym * GetOrLoadPublicNym (const OTIdentifier & NYM_ID, const char * szFuncName=NULL);
 	EXPORT	OTPseudonym * GetOrLoadPrivateNym(const OTIdentifier & NYM_ID, const bool bChecking=false, const char * szFuncName=NULL,
-                                              OTPasswordData * pPWData=NULL, OTPassword * pImportPassword=NULL);
+                                              OTPasswordData * pPWData=NULL, OT::Password * pImportPassword=NULL);
 	EXPORT	OTPseudonym * GetOrLoadNym       (const OTIdentifier & NYM_ID, const bool bChecking=false, const char * szFuncName=NULL,
                                               OTPasswordData * pPWData=NULL);
 
@@ -436,7 +442,7 @@ public:
 	EXPORT	OTPseudonym * LoadPublicNym (const OTIdentifier & NYM_ID, const char * szFuncName=NULL);
 	EXPORT	OTPseudonym * LoadPrivateNym(const OTIdentifier & NYM_ID, const bool bChecking=false, const char * szFuncName=NULL,
                                          OTPasswordData * pPWData=NULL,
-                                         OTPassword   * pImportPassword=NULL);
+                                         OT::Password   * pImportPassword=NULL);
 
 	EXPORT	OTPseudonym * CreateNym(int32_t nKeySize=1024, const std::string str_id_source="", const std::string str_alt_location=""); // returns a new nym (with key pair) and files created. (Or NULL.) Adds to wallet.
 
@@ -685,7 +691,7 @@ public:
                                                                   const OTIdentifier & theAssetTypeID,
                                                                   const OTString     & strPurse,
                                                                   OTPurse      & thePurse,  // output
-                                                                  OTPassword   & thePassword, // Only used in the case of password-protected purses. Passed in so it won't go out of scope when return value has a member set to point to it.
+                                                                  OT::Password   & thePassword, // Only used in the case of password-protected purses. Passed in so it won't go out of scope when return value has a member set to point to it.
                                                                   const bool           bForEncrypting=true, // true==encrypting,false==decrypting.
                                                                   const OTIdentifier * pOWNER_ID=NULL, // This can be NULL, **IF** purse is password-protected. (It's just ignored in that case.) Otherwise MUST contain the NymID for the Purse owner.
                                                                   const OTString     * pstrDisplay1=NULL,
@@ -693,7 +699,7 @@ public:
     // --------------------------------------------
     EXPORT    OTNym_or_SymmetricKey * LoadPurseAndOwnerForMerge(const OTString     & strPurse,
                                                                 OTPurse      & thePurse, // output
-                                                                OTPassword   & thePassword, // Only used in the case of password-protected purses. Passed in so it won't go out of scope when pOwner is set to point to it.
+                                                                OT::Password   & thePassword, // Only used in the case of password-protected purses. Passed in so it won't go out of scope when pOwner is set to point to it.
                                                                 const bool           bCanBePublic=false, // true==private nym isn't mandatory. false==private nym IS mandatory. (Only relevant if there's an owner.)
                                                                 const OTIdentifier * pOWNER_ID=NULL,  // This can be NULL, **IF** purse is password-protected. (It's just ignored in that case.) Otherwise if it's Nym-protected, the purse will have a NymID on it already. If not (it's optional), then pOWNER_ID is the ID it will try next, before failing.
                                                                 const OTString     * pstrDisplay=NULL);

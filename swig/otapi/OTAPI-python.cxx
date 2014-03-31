@@ -3417,38 +3417,47 @@ namespace Swig {
 #define SWIGTYPE_p_OTVariable swig_types[36]
 #define SWIGTYPE_p_OT_API swig_types[37]
 #define SWIGTYPE_p_OT_ME swig_types[38]
-#define SWIGTYPE_p_WrapTimeT swig_types[39]
-#define SWIGTYPE_p_allocator_type swig_types[40]
-#define SWIGTYPE_p_char swig_types[41]
-#define SWIGTYPE_p_difference_type swig_types[42]
-#define SWIGTYPE_p_imaxdiv_t swig_types[43]
-#define SWIGTYPE_p_int swig_types[44]
-#define SWIGTYPE_p_key_type swig_types[45]
-#define SWIGTYPE_p_long_long swig_types[46]
-#define SWIGTYPE_p_mapped_type swig_types[47]
-#define SWIGTYPE_p_p_PyObject swig_types[48]
-#define SWIGTYPE_p_p_wchar_t swig_types[49]
-#define SWIGTYPE_p_short swig_types[50]
-#define SWIGTYPE_p_signed_char swig_types[51]
-#define SWIGTYPE_p_size_type swig_types[52]
-#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__string_t_t swig_types[53]
-#define SWIGTYPE_p_std__allocatorT_unsigned_char_t swig_types[54]
-#define SWIGTYPE_p_std__invalid_argument swig_types[55]
-#define SWIGTYPE_p_std__lessT_std__string_t swig_types[56]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t swig_types[57]
-#define SWIGTYPE_p_std__string swig_types[58]
-#define SWIGTYPE_p_std__vectorT__Tp__Alloc_t swig_types[59]
-#define SWIGTYPE_p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t swig_types[60]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[61]
-#define SWIGTYPE_p_unsigned_char swig_types[62]
-#define SWIGTYPE_p_unsigned_int swig_types[63]
-#define SWIGTYPE_p_unsigned_long_long swig_types[64]
-#define SWIGTYPE_p_unsigned_short swig_types[65]
-#define SWIGTYPE_p_value_type swig_types[66]
-#define SWIGTYPE_p_void swig_types[67]
-#define SWIGTYPE_p_wchar_t swig_types[68]
-static swig_type_info *swig_types[70];
-static swig_module_info swig_module = {swig_types, 69, 0, 0, 0, 0};
+#define SWIGTYPE_p_OpenTransactions__BinaryPassword swig_types[39]
+#define SWIGTYPE_p_OpenTransactions__Password swig_types[40]
+#define SWIGTYPE_p_OpenTransactions__StringPassword swig_types[41]
+#define SWIGTYPE_p_WrapTimeT swig_types[42]
+#define SWIGTYPE_p_allocator_type swig_types[43]
+#define SWIGTYPE_p_char swig_types[44]
+#define SWIGTYPE_p_difference_type swig_types[45]
+#define SWIGTYPE_p_imaxdiv_t swig_types[46]
+#define SWIGTYPE_p_int swig_types[47]
+#define SWIGTYPE_p_key_type swig_types[48]
+#define SWIGTYPE_p_long_long swig_types[49]
+#define SWIGTYPE_p_mapped_type swig_types[50]
+#define SWIGTYPE_p_p_PyObject swig_types[51]
+#define SWIGTYPE_p_p_void swig_types[52]
+#define SWIGTYPE_p_p_wchar_t swig_types[53]
+#define SWIGTYPE_p_short swig_types[54]
+#define SWIGTYPE_p_signed_char swig_types[55]
+#define SWIGTYPE_p_size_t swig_types[56]
+#define SWIGTYPE_p_size_type swig_types[57]
+#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__string_t_t swig_types[58]
+#define SWIGTYPE_p_std__allocatorT_unsigned_char_t swig_types[59]
+#define SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t swig_types[60]
+#define SWIGTYPE_p_std__invalid_argument swig_types[61]
+#define SWIGTYPE_p_std__lessT_std__string_t swig_types[62]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t swig_types[63]
+#define SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t swig_types[64]
+#define SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t swig_types[65]
+#define SWIGTYPE_p_std__string swig_types[66]
+#define SWIGTYPE_p_std__vectorT__Tp__Alloc_t swig_types[67]
+#define SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t swig_types[68]
+#define SWIGTYPE_p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t swig_types[69]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[70]
+#define SWIGTYPE_p_unsigned_char swig_types[71]
+#define SWIGTYPE_p_unsigned_int swig_types[72]
+#define SWIGTYPE_p_unsigned_long_long swig_types[73]
+#define SWIGTYPE_p_unsigned_short swig_types[74]
+#define SWIGTYPE_p_value_type swig_types[75]
+#define SWIGTYPE_p_void swig_types[76]
+#define SWIGTYPE_p_wchar_t swig_types[77]
+static swig_type_info *swig_types[79];
+static swig_module_info swig_module = {swig_types, 78, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5901,13 +5910,6 @@ SWIGINTERN PyObject *std_map_Sl_std_string_Sc_std_string_Sg__asdict(std::map< st
 SWIGINTERN void std_map_Sl_std_string_Sc_std_string_Sg__erase__SWIG_1(std::map< std::string,std::string > *self,std::map< std::string,std::string >::iterator position){ self->erase(position); }
 SWIGINTERN void std_map_Sl_std_string_Sc_std_string_Sg__erase__SWIG_2(std::map< std::string,std::string > *self,std::map< std::string,std::string >::iterator first,std::map< std::string,std::string >::iterator last){ self->erase(first, last); }
 
-SWIGINTERNINLINE PyObject * 
-SWIG_FromCharPtr(const char *cptr)
-{ 
-  return SWIG_FromCharPtrAndSize(cptr, (cptr ? strlen(cptr) : 0));
-}
-
-
 SWIGINTERNINLINE PyObject*
   SWIG_From_int  (int value)
 {
@@ -5915,43 +5917,10 @@ SWIGINTERNINLINE PyObject*
 }
 
 
-
-
-
-SWIGINTERN int
-SWIG_AsVal_unsigned_SS_int (PyObject * obj, unsigned int *val)
-{
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > UINT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< unsigned int >(v);
-    }
-  }  
-  return res;
-}
-
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_unsigned_SS_int  (unsigned int value)
-{
-  return PyInt_FromSize_t((size_t) value);
-}
-
-
-SWIGINTERN int
-SWIG_AsVal_bool (PyObject *obj, bool *val)
-{
-  int r;
-  if (!PyBool_Check(obj))
-    return SWIG_ERROR;
-  r = PyObject_IsTrue(obj);
-  if (r == -1)
-    return SWIG_ERROR;
-  if (val) *val = r ? true : false;
-  return SWIG_OK;
+SWIGINTERNINLINE PyObject * 
+SWIG_FromCharPtr(const char *cptr)
+{ 
+  return SWIG_FromCharPtrAndSize(cptr, (cptr ? strlen(cptr) : 0));
 }
 
 
@@ -5991,6 +5960,23 @@ SWIG_AsVal_unsigned_SS_long_SS_long (PyObject *obj, unsigned long long *val)
 }
 
 
+SWIGINTERN int
+SWIG_AsVal_bool (PyObject *obj, bool *val)
+{
+  int r;
+  if (!PyBool_Check(obj))
+    return SWIG_ERROR;
+  r = PyObject_IsTrue(obj);
+  if (r == -1)
+    return SWIG_ERROR;
+  if (val) *val = r ? true : false;
+  return SWIG_OK;
+}
+
+
+
+
+
 	using namespace OTDB;
 	
 
@@ -6011,11 +5997,11 @@ SwigDirector_OTCallback::SwigDirector_OTCallback(PyObject *self): OTCallback(), 
 SwigDirector_OTCallback::~SwigDirector_OTCallback() {
 }
 
-void SwigDirector_OTCallback::runOne(char const *szDisplay, OTPassword &theOutput) {
+void SwigDirector_OTCallback::runOne(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
   swig::SwigVar_PyObject obj0;
-  obj0 = SWIG_FromCharPtr((const char *)szDisplay);
+  obj0 = SWIG_From_std_string(static_cast< std::string >(strDisplay));
   swig::SwigVar_PyObject obj1;
-  obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(&theOutput), SWIGTYPE_p_OTPassword,  0 );
+  obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(&theOutput), SWIGTYPE_p_OpenTransactions__StringPassword,  0 );
   if (!swig_get_self()) {
     Swig::DirectorException::raise("'self' uninitialized, maybe you forgot to call OTCallback.__init__.");
   }
@@ -6036,11 +6022,11 @@ void SwigDirector_OTCallback::runOne(char const *szDisplay, OTPassword &theOutpu
 }
 
 
-void SwigDirector_OTCallback::runTwo(char const *szDisplay, OTPassword &theOutput) {
+void SwigDirector_OTCallback::runTwo(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
   swig::SwigVar_PyObject obj0;
-  obj0 = SWIG_FromCharPtr((const char *)szDisplay);
+  obj0 = SWIG_From_std_string(static_cast< std::string >(strDisplay));
   swig::SwigVar_PyObject obj1;
-  obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(&theOutput), SWIGTYPE_p_OTPassword,  0 );
+  obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(&theOutput), SWIGTYPE_p_OpenTransactions__StringPassword,  0 );
   if (!swig_get_self()) {
     Swig::DirectorException::raise("'self' uninitialized, maybe you forgot to call OTCallback.__init__.");
   }
@@ -10309,245 +10295,534 @@ SWIGINTERN PyObject *MapStringString_swigregister(PyObject *SWIGUNUSEDPARM(self)
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_OTPassword_m_theBlockSize_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap__SecureAllocateVoid(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
+  size_t arg1 ;
+  size_t arg2 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
-  OTPassword::BlockSize result;
+  PyObject * obj1 = 0 ;
+  void *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_m_theBlockSize_get",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_m_theBlockSize_get" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (OTPassword::BlockSize)(OTPassword::BlockSize) ((arg1)->m_theBlockSize);
-  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (!PyArg_ParseTuple(args,(char *)"OO:_SecureAllocateVoid",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "_SecureAllocateVoid" "', argument " "1"" of type '" "size_t""'");
+  } 
+  arg1 = static_cast< size_t >(val1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_SecureAllocateVoid" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  result = (void *)_SecureAllocateVoid(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_isPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap__SecureDeallocateVoid(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_isPassword",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_isPassword" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (bool)((OTPassword const *)arg1)->isPassword();
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getPassword_uint8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint8_t *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getPassword_uint8",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getPassword_uint8" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint8_t *)((OTPassword const *)arg1)->getPassword_uint8();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getPassword",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getPassword" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (char *)((OTPassword const *)arg1)->getPassword();
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getPasswordWritable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint8_t *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getPasswordWritable",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getPasswordWritable" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint8_t *)(arg1)->getPasswordWritable();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getPasswordWritable_char(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getPasswordWritable_char",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getPasswordWritable_char" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (char *)(arg1)->getPasswordWritable_char();
-  resultobj = SWIG_FromCharPtr((const char *)result);
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_setPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int32_t arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  size_t arg1 ;
+  size_t arg2 ;
+  void *arg3 = (void *) 0 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  int32_t result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:OTPassword_setPassword",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_setPassword" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTPassword_setPassword" "', argument " "2"" of type '" "char const *""'");
-  }
-  arg2 = reinterpret_cast< char * >(buf2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OTPassword_setPassword" "', argument " "3"" of type '" "int32_t""'");
+  if (!PyArg_ParseTuple(args,(char *)"OOO:_SecureDeallocateVoid",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "_SecureDeallocateVoid" "', argument " "1"" of type '" "size_t""'");
   } 
-  arg3 = static_cast< int32_t >(val3);
-  result = (int32_t)(arg1)->setPassword((char const *)arg2,arg3);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  arg1 = static_cast< size_t >(val1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_SecureDeallocateVoid" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "_SecureDeallocateVoid" "', argument " "3"" of type '" "void *""'"); 
+  }
+  _SecureDeallocateVoid(arg1,arg2,arg3);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_setPassword_uint8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Password_getType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t *arg2 = (uint8_t *) 0 ;
-  uint32_t arg3 ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  OpenTransactions::Password::TYPE result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_getType",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getType" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  result = (OpenTransactions::Password::TYPE)((OpenTransactions::Password const *)arg1)->getType();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SecureDataVector *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_getData",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getData" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  result = (SecureDataVector *) &((OpenTransactions::Password const *)arg1)->getData();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  OpenTransactions::Password *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  unsigned int val3 ;
-  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Password___eq__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password___eq__" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_OpenTransactions__Password,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Password___eq__" "', argument " "2"" of type '" "OpenTransactions::Password const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password___eq__" "', argument " "2"" of type '" "OpenTransactions::Password const &""'"); 
+  }
+  arg2 = reinterpret_cast< OpenTransactions::Password * >(argp2);
+  result = (bool)((OpenTransactions::Password const *)arg1)->operator ==((OpenTransactions::Password const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password___ne__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  OpenTransactions::Password *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Password___ne__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password___ne__" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_OpenTransactions__Password,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Password___ne__" "', argument " "2"" of type '" "OpenTransactions::Password const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password___ne__" "', argument " "2"" of type '" "OpenTransactions::Password const &""'"); 
+  }
+  arg2 = reinterpret_cast< OpenTransactions::Password * >(argp2);
+  result = (bool)((OpenTransactions::Password const *)arg1)->operator !=((OpenTransactions::Password const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Password(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Password",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Password" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getMemory__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SwigValueWrapper< std::pair< void *const,size_t const > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_getMemory",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getMemory" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  result = (arg1)->getMemory();
+  resultobj = SWIG_NewPointerObj((new VoidPointerPair(static_cast< const VoidPointerPair& >(result))), SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getMemory__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  int32_t result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:OTPassword_setPassword_uint8",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Password_getMemory",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_setPassword_uint8" "', argument " "1"" of type '" "OTPassword *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getMemory" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
   }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_p_void,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTPassword_setPassword_uint8" "', argument " "2"" of type '" "uint8_t const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Password_getMemory" "', argument " "2"" of type '" "void *&""'"); 
   }
-  arg2 = reinterpret_cast< uint8_t * >(argp2);
-  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OTPassword_setPassword_uint8" "', argument " "3"" of type '" "uint32_t""'");
-  } 
-  arg3 = static_cast< uint32_t >(val3);
-  result = (int32_t)(arg1)->setPassword_uint8((uint8_t const *)arg2,arg3);
-  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password_getMemory" "', argument " "2"" of type '" "void *&""'"); 
+  }
+  arg2 = reinterpret_cast< void ** >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_size_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Password_getMemory" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password_getMemory" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  arg3 = reinterpret_cast< size_t * >(argp3);
+  (arg1)->getMemory(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_addChar(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Password_getMemory(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__Password, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Password_getMemory__SWIG_0(self, args);
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__Password, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_void, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_size_t, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_Password_getMemory__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Password_getMemory'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::Password::getMemory()\n"
+    "    OpenTransactions::Password::getMemory(void *&,size_t &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getMemoryConst__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint8_t arg2 ;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned char val2 ;
+  PyObject * obj0 = 0 ;
+  SwigValueWrapper< std::pair< void const *const,size_t const > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_getMemoryConst",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getMemoryConst" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  result = ((OpenTransactions::Password const *)arg1)->getMemoryConst();
+  resultobj = SWIG_NewPointerObj((new ConstVoidPointerPair(static_cast< const ConstVoidPointerPair& >(result))), SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getMemoryConst__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Password_getMemoryConst",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_getMemoryConst" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_p_void,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Password_getMemoryConst" "', argument " "2"" of type '" "void const *&""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password_getMemoryConst" "', argument " "2"" of type '" "void const *&""'"); 
+  }
+  arg2 = reinterpret_cast< void ** >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_size_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Password_getMemoryConst" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Password_getMemoryConst" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  arg3 = reinterpret_cast< size_t * >(argp3);
+  ((OpenTransactions::Password const *)arg1)->getMemoryConst((void const *&)*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_getMemoryConst(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__Password, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Password_getMemoryConst__SWIG_0(self, args);
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__Password, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_void, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_size_t, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_Password_getMemoryConst__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Password_getMemoryConst'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::Password::getMemoryConst() const\n"
+    "    OpenTransactions::Password::getMemoryConst(void const *&,size_t &) const\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_length(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  size_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_length",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_length" "', argument " "1"" of type '" "OpenTransactions::Password const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  result = ((OpenTransactions::Password const *)arg1)->length();
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_resize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Password_resize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_resize" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Password_resize" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  (arg1)->resize(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_zero(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Password_zero",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_zero" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  (arg1)->zero();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Password_randomize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::Password *arg1 = (OpenTransactions::Password *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   bool result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_addChar",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:Password_randomize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__Password, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_addChar" "', argument " "1"" of type '" "OTPassword *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Password_randomize" "', argument " "1"" of type '" "OpenTransactions::Password *""'"); 
   }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+  arg1 = reinterpret_cast< OpenTransactions::Password * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_addChar" "', argument " "2"" of type '" "uint8_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Password_randomize" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint8_t >(val2);
-  result = (bool)(arg1)->addChar(arg2);
+  arg2 = static_cast< size_t >(val2);
+  result = (bool)(arg1)->randomize(arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10555,83 +10830,290 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *Password_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_OpenTransactions__Password, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_StringPassword__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_StringPassword")) SWIG_fail;
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__StringPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_StringPassword__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SecureString *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
+  PyObject * obj0 = 0 ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_StringPassword",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_StringPassword" "', argument " "1"" of type '" "SecureString const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_StringPassword" "', argument " "1"" of type '" "SecureString const &""'"); 
+  }
+  arg1 = reinterpret_cast< SecureString * >(argp1);
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword((SecureString const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__StringPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_StringPassword__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SecureDataVector *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  OpenTransactions::StringPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_StringPassword",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_StringPassword" "', argument " "1"" of type '" "SecureDataVector const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_StringPassword" "', argument " "1"" of type '" "SecureDataVector const &""'"); 
+  }
+  arg1 = reinterpret_cast< SecureDataVector * >(argp1);
+  result = (OpenTransactions::StringPassword *)new OpenTransactions::StringPassword((SecureDataVector const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__StringPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_StringPassword(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 1) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_StringPassword__SWIG_0(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_StringPassword__SWIG_1(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_StringPassword__SWIG_2(self, args);
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_StringPassword'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::StringPassword::StringPassword()\n"
+    "    OpenTransactions::StringPassword::StringPassword(SecureString const &)\n"
+    "    OpenTransactions::StringPassword::StringPassword(SecureDataVector const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_StringPassword___call__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  SecureString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:StringPassword___call__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword___call__" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "StringPassword___call__" "', argument " "2"" of type '" "SecureString const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "StringPassword___call__" "', argument " "2"" of type '" "SecureString const &""'"); 
+  }
+  arg2 = reinterpret_cast< SecureString * >(argp2);
+  (arg1)->operator ()((SecureString const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StringPassword_getCopy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SecureString result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:StringPassword_getCopy",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_getCopy" "', argument " "1"" of type '" "OpenTransactions::StringPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  result = ((OpenTransactions::StringPassword const *)arg1)->getCopy();
+  resultobj = SWIG_NewPointerObj((new SecureString(static_cast< const SecureString& >(result))), SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StringPassword_getChars(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:StringPassword_getChars",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_getChars" "', argument " "1"" of type '" "OpenTransactions::StringPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  result = (char *)((OpenTransactions::StringPassword const *)arg1)->getChars();
+  resultobj = SWIG_FromCharPtr((const char *)result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StringPassword_length(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  size_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:StringPassword_length",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_length" "', argument " "1"" of type '" "OpenTransactions::StringPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  result = ((OpenTransactions::StringPassword const *)arg1)->length();
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StringPassword_resize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  int32_t result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_randomizePassword",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:StringPassword_resize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizePassword" "', argument " "1"" of type '" "OTPassword *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_resize" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
   }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizePassword" "', argument " "2"" of type '" "uint32_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StringPassword_resize" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (int32_t)(arg1)->randomizePassword(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
+  arg2 = static_cast< size_t >(val2);
+  (arg1)->resize(arg2);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_StringPassword_zero(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  int32_t result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_randomizePassword",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"O:StringPassword_zero",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizePassword" "', argument " "1"" of type '" "OTPassword *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_zero" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
   }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (int32_t)(arg1)->randomizePassword();
-  resultobj = SWIG_From_int(static_cast< int >(result));
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  (arg1)->zero();
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword_uint8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_StringPassword_randomize__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   bool result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_randomizePassword_uint8",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:StringPassword_randomize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizePassword_uint8" "', argument " "1"" of type '" "uint8_t *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_randomize" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
   }
-  arg1 = reinterpret_cast< uint8_t * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizePassword_uint8" "', argument " "2"" of type '" "uint32_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StringPassword_randomize" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (bool)OTPassword::randomizePassword_uint8(arg1,arg2);
+  arg2 = static_cast< size_t >(val2);
+  result = (bool)(arg1)->randomize(arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10639,41 +11121,29 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_StringPassword_randomize__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
   bool result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_randomizePassword",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
+  if (!PyArg_ParseTuple(args,(char *)"O:StringPassword_randomize",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizePassword" "', argument " "1"" of type '" "char *""'");
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringPassword_randomize" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
   }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizePassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (bool)OTPassword::randomizePassword(arg1,arg2);
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  result = (bool)(arg1)->randomize();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj;
 fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_StringPassword_randomize(PyObject *self, PyObject *args) {
   int argc;
   PyObject *argv[3];
   int ii;
@@ -10686,67 +11156,632 @@ SWIGINTERN PyObject *_wrap_OTPassword_randomizePassword(PyObject *self, PyObject
   if (argc == 1) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OTPassword, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__StringPassword, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      return _wrap_OTPassword_randomizePassword__SWIG_1(self, args);
+      return _wrap_StringPassword_randomize__SWIG_1(self, args);
     }
   }
   if (argc == 2) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OTPassword, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__StringPassword, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
-        return _wrap_OTPassword_randomizePassword__SWIG_0(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_OTPassword_randomizePassword__SWIG_2(self, args);
+        return _wrap_StringPassword_randomize__SWIG_0(self, args);
       }
     }
   }
   
 fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'OTPassword_randomizePassword'.\n"
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'StringPassword_randomize'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    OTPassword::randomizePassword(uint32_t)\n"
-    "    OTPassword::randomizePassword()\n"
-    "    OTPassword::randomizePassword(char *,uint32_t)\n");
+    "    OpenTransactions::StringPassword::randomize(size_t)\n"
+    "    OpenTransactions::StringPassword::randomize()\n");
   return 0;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_isMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_StringPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
+  OpenTransactions::StringPassword *arg1 = (OpenTransactions::StringPassword *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_StringPassword",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__StringPassword, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_StringPassword" "', argument " "1"" of type '" "OpenTransactions::StringPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::StringPassword * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *StringPassword_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_OpenTransactions__StringPassword, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_BinaryPassword__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_BinaryPassword")) SWIG_fail;
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__BinaryPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_BinaryPassword__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SecureDataVector *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_BinaryPassword",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_BinaryPassword" "', argument " "1"" of type '" "SecureDataVector const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_BinaryPassword" "', argument " "1"" of type '" "SecureDataVector const &""'"); 
+  }
+  arg1 = reinterpret_cast< SecureDataVector * >(argp1);
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword((SecureDataVector const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__BinaryPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword___call____SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  SecureDataVector *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:BinaryPassword___call__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword___call__" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BinaryPassword___call__" "', argument " "2"" of type '" "SecureDataVector const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BinaryPassword___call__" "', argument " "2"" of type '" "SecureDataVector const &""'"); 
+  }
+  arg2 = reinterpret_cast< SecureDataVector * >(argp2);
+  (arg1)->operator ()((SecureDataVector const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_getCopy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SwigValueWrapper< std::vector< unsigned char,secure_allocator< unsigned char > > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_getCopy",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_getCopy" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->getCopy();
+  resultobj = SWIG_NewPointerObj((new SecureDataVector(static_cast< const SecureDataVector& >(result))), SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_BinaryPassword__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  void *arg1 = (void *) (void *)0 ;
+  size_t arg2 ;
+  int res1 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  OpenTransactions::BinaryPassword *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_BinaryPassword",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_BinaryPassword" "', argument " "1"" of type '" "void const *const""'"); 
+  }
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_BinaryPassword" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  result = (OpenTransactions::BinaryPassword *)new OpenTransactions::BinaryPassword((void const *)arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OpenTransactions__BinaryPassword, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_BinaryPassword(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[3];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_BinaryPassword__SWIG_0(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_BinaryPassword__SWIG_1(self, args);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *ptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_new_BinaryPassword__SWIG_2(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_BinaryPassword'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::BinaryPassword::BinaryPassword()\n"
+    "    OpenTransactions::BinaryPassword::BinaryPassword(SecureDataVector const &)\n"
+    "    OpenTransactions::BinaryPassword::BinaryPassword(void const *const,size_t const)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword___call____SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *arg2 = (void *) (void *)0 ;
+  size_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:BinaryPassword___call__",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword___call__" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BinaryPassword___call__" "', argument " "2"" of type '" "void const *const""'"); 
+  }
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "BinaryPassword___call__" "', argument " "3"" of type '" "size_t""'");
+  } 
+  arg3 = static_cast< size_t >(val3);
+  (arg1)->operator ()((void const *)arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword___call__(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_BinaryPassword___call____SWIG_0(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *ptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &ptr, 0, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          int res = SWIG_AsVal_size_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_BinaryPassword___call____SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'BinaryPassword___call__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::BinaryPassword::operator ()(SecureDataVector const &)\n"
+    "    OpenTransactions::BinaryPassword::operator ()(void const *const,size_t const)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_append(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *arg2 = (void *) (void *)0 ;
+  size_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:BinaryPassword_append",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_append" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BinaryPassword_append" "', argument " "2"" of type '" "void const *const""'"); 
+  }
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "BinaryPassword_append" "', argument " "3"" of type '" "size_t""'");
+  } 
+  arg3 = static_cast< size_t >(val3);
+  (arg1)->append((void const *)arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_getMemoryCopy__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SwigValueWrapper< std::pair< void *const,size_t const > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_getMemoryCopy",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_getMemoryCopy" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopy();
+  resultobj = SWIG_NewPointerObj((new VoidPointerPair(static_cast< const VoidPointerPair& >(result))), SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_getMemoryCopy__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void **arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:BinaryPassword_getMemoryCopy",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_getMemoryCopy" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_p_void,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BinaryPassword_getMemoryCopy" "', argument " "2"" of type '" "void *&""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BinaryPassword_getMemoryCopy" "', argument " "2"" of type '" "void *&""'"); 
+  }
+  arg2 = reinterpret_cast< void ** >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_size_t,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "BinaryPassword_getMemoryCopy" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BinaryPassword_getMemoryCopy" "', argument " "3"" of type '" "size_t &""'"); 
+  }
+  arg3 = reinterpret_cast< size_t * >(argp3);
+  ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopy(*arg2,*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_getMemoryCopy(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_BinaryPassword_getMemoryCopy__SWIG_0(self, args);
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_p_void, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_size_t, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_BinaryPassword_getMemoryCopy__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'BinaryPassword_getMemoryCopy'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::BinaryPassword::getMemoryCopy() const\n"
+    "    OpenTransactions::BinaryPassword::getMemoryCopy(void *&,size_t &) const\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_getMemoryCopyOnto(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *arg2 = (void *) (void *)0 ;
+  size_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:BinaryPassword_getMemoryCopyOnto",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_getMemoryCopyOnto" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BinaryPassword_getMemoryCopyOnto" "', argument " "2"" of type '" "void *const""'"); 
+  }
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "BinaryPassword_getMemoryCopyOnto" "', argument " "3"" of type '" "size_t""'");
+  } 
+  arg3 = static_cast< size_t >(val3);
+  ((OpenTransactions::BinaryPassword const *)arg1)->getMemoryCopyOnto(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_toString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  SecureString result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_toString",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_toString" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  result = (arg1)->toString();
+  resultobj = SWIG_NewPointerObj((new SecureString(static_cast< const SecureString& >(result))), SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_length(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  size_t result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_length",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_length" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword const *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  result = ((OpenTransactions::BinaryPassword const *)arg1)->length();
+  resultobj = SWIG_From_size_t(static_cast< size_t >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_resize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:BinaryPassword_resize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_resize" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "BinaryPassword_resize" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  (arg1)->resize(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_zero(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_zero",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_zero" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  (arg1)->zero();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_BinaryPassword_randomize__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
   bool result;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_isMemory",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"OO:BinaryPassword_randomize",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_isMemory" "', argument " "1"" of type '" "OTPassword const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_randomize" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
   }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (bool)((OTPassword const *)arg1)->isMemory();
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "BinaryPassword_randomize" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  result = (bool)(arg1)->randomize(arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10754,225 +11789,21 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_getMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_BinaryPassword_randomize__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  void *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getMemory",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getMemory" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (void *)((OTPassword const *)arg1)->getMemory();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getMemory_uint8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint8_t *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getMemory_uint8",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getMemory_uint8" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint8_t *)((OTPassword const *)arg1)->getMemory_uint8();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getMemoryWritable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  void *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getMemoryWritable",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getMemoryWritable" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (void *)(arg1)->getMemoryWritable();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_setMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *arg2 = (void *) 0 ;
-  uint32_t arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 ;
-  unsigned int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  int32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:OTPassword_setMemory",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_setMemory" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTPassword_setMemory" "', argument " "2"" of type '" "void const *""'"); 
-  }
-  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OTPassword_setMemory" "', argument " "3"" of type '" "uint32_t""'");
-  } 
-  arg3 = static_cast< uint32_t >(val3);
-  result = (int32_t)(arg1)->setMemory((void const *)arg2,arg3);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_addMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *arg2 = (void *) 0 ;
-  uint32_t arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 ;
-  unsigned int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  int32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:OTPassword_addMemory",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_addMemory" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTPassword_addMemory" "', argument " "2"" of type '" "void const *""'"); 
-  }
-  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OTPassword_addMemory" "', argument " "3"" of type '" "uint32_t""'");
-  } 
-  arg3 = static_cast< uint32_t >(val3);
-  result = (int32_t)(arg1)->addMemory((void const *)arg2,arg3);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_randomizeMemory",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizeMemory" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizeMemory" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (int32_t)(arg1)->randomizeMemory(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  int32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_randomizeMemory",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizeMemory" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (int32_t)(arg1)->randomizeMemory();
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory_uint8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
   bool result;
   
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_randomizeMemory_uint8",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_unsigned_char, 0 |  0 );
+  if (!PyArg_ParseTuple(args,(char *)"O:BinaryPassword_randomize",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizeMemory_uint8" "', argument " "1"" of type '" "uint8_t *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BinaryPassword_randomize" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
   }
-  arg1 = reinterpret_cast< uint8_t * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizeMemory_uint8" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (bool)OTPassword::randomizeMemory_uint8(arg1,arg2);
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  result = (bool)(arg1)->randomize();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10980,12 +11811,109 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_BinaryPassword_randomize(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[3];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_BinaryPassword_randomize__SWIG_1(self, args);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OpenTransactions__BinaryPassword, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_BinaryPassword_randomize__SWIG_0(self, args);
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'BinaryPassword_randomize'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    OpenTransactions::BinaryPassword::randomize(size_t)\n"
+    "    OpenTransactions::BinaryPassword::randomize()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_BinaryPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  OpenTransactions::BinaryPassword *arg1 = (OpenTransactions::BinaryPassword *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_BinaryPassword",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OpenTransactions__BinaryPassword, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_BinaryPassword" "', argument " "1"" of type '" "OpenTransactions::BinaryPassword *""'"); 
+  }
+  arg1 = reinterpret_cast< OpenTransactions::BinaryPassword * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *BinaryPassword_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_OpenTransactions__BinaryPassword, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_OTPassword_randomizeData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SecureDataVector *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_randomizeData",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizeData" "', argument " "1"" of type '" "SecureDataVector &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTPassword_randomizeData" "', argument " "1"" of type '" "SecureDataVector &""'"); 
+  }
+  arg1 = reinterpret_cast< SecureDataVector * >(argp1);
+  result = (bool)OTPassword::randomizeData(*arg1);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
+  size_t arg2 ;
   int res1 ;
-  unsigned int val2 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -10996,11 +11924,11 @@ SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory__SWIG_2(PyObject *SWIGUNUS
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_randomizeMemory" "', argument " "1"" of type '" "void *""'"); 
   }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizeMemory" "', argument " "2"" of type '" "uint32_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_randomizeMemory" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint32_t >(val2);
+  arg2 = static_cast< size_t >(val2);
   result = (bool)OTPassword::randomizeMemory(arg1,arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
@@ -11009,223 +11937,12 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_randomizeMemory(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[3];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OTPassword, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_OTPassword_randomizeMemory__SWIG_1(self, args);
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OTPassword, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_OTPassword_randomizeMemory__SWIG_0(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_OTPassword_randomizeMemory__SWIG_2(self, args);
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'OTPassword_randomizeMemory'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    OTPassword::randomizeMemory(uint32_t)\n"
-    "    OTPassword::randomizeMemory()\n"
-    "    OTPassword::randomizeMemory(void *,uint32_t)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getBlockSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getBlockSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getBlockSize" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint32_t)((OTPassword const *)arg1)->getBlockSize();
-  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_Compare(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  OTPassword *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_Compare",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_Compare" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_OTPassword,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTPassword_Compare" "', argument " "2"" of type '" "OTPassword &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTPassword_Compare" "', argument " "2"" of type '" "OTPassword &""'"); 
-  }
-  arg2 = reinterpret_cast< OTPassword * >(argp2);
-  result = (bool)((OTPassword const *)arg1)->Compare(*arg2);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getPasswordSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getPasswordSize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getPasswordSize" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint32_t)((OTPassword const *)arg1)->getPasswordSize();
-  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_getMemorySize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  uint32_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_getMemorySize",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_getMemorySize" "', argument " "1"" of type '" "OTPassword const *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (uint32_t)((OTPassword const *)arg1)->getMemorySize();
-  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:OTPassword_zeroMemory",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_zeroMemory" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  (arg1)->zeroMemory();
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_zeroMemory",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_zeroMemory" "', argument " "1"" of type '" "uint8_t *""'"); 
-  }
-  arg1 = reinterpret_cast< uint8_t * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_zeroMemory" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  OTPassword::zeroMemory(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
+  size_t arg2 ;
   int res1 ;
-  unsigned int val2 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -11235,11 +11952,11 @@ SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory__SWIG_2(PyObject *SWIGUNUSEDPAR
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_zeroMemory" "', argument " "1"" of type '" "void *""'"); 
   }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_zeroMemory" "', argument " "2"" of type '" "uint32_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_zeroMemory" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint32_t >(val2);
+  arg2 = static_cast< size_t >(val2);
   OTPassword::zeroMemory(arg1,arg2);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11248,310 +11965,56 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_zeroMemory(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[3];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_OTPassword, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_OTPassword_zeroMemory__SWIG_0(self, args);
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_unsigned_char, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_OTPassword_zeroMemory__SWIG_1(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_OTPassword_zeroMemory__SWIG_2(self, args);
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'OTPassword_zeroMemory'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    OTPassword::zeroMemory()\n"
-    "    OTPassword::zeroMemory(uint8_t *,uint32_t)\n"
-    "    OTPassword::zeroMemory(void *,uint32_t)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_safe_memcpy__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_OTPassword_copyMemory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
+  void *arg1 = (void *) (void *)0 ;
+  size_t *arg2 = 0 ;
   void *arg3 = (void *) 0 ;
-  uint32_t arg4 ;
-  bool arg5 ;
+  size_t *arg4 = 0 ;
   int res1 ;
-  unsigned int val2 ;
+  size_t temp2 ;
+  size_t val2 ;
   int ecode2 = 0 ;
   int res3 ;
-  unsigned int val4 ;
-  int ecode4 = 0 ;
-  bool val5 ;
-  int ecode5 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  void *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:OTPassword_safe_memcpy",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:OTPassword_copyMemory",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_safe_memcpy" "', argument " "1"" of type '" "void *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_copyMemory" "', argument " "1"" of type '" "void const *const""'"); 
   }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_safe_memcpy" "', argument " "2"" of type '" "uint32_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_copyMemory" "', argument " "2"" of type '" "size_t""'");
   } 
-  arg2 = static_cast< uint32_t >(val2);
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
   res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTPassword_safe_memcpy" "', argument " "3"" of type '" "void const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTPassword_copyMemory" "', argument " "3"" of type '" "void *""'"); 
   }
-  ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "OTPassword_safe_memcpy" "', argument " "4"" of type '" "uint32_t""'");
-  } 
-  arg4 = static_cast< uint32_t >(val4);
-  ecode5 = SWIG_AsVal_bool(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "OTPassword_safe_memcpy" "', argument " "5"" of type '" "bool""'");
-  } 
-  arg5 = static_cast< bool >(val5);
-  result = (void *)OTPassword::safe_memcpy(arg1,arg2,(void const *)arg3,arg4,arg5);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_size_t,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "OTPassword_copyMemory" "', argument " "4"" of type '" "size_t &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTPassword_copyMemory" "', argument " "4"" of type '" "size_t &""'"); 
+  }
+  arg4 = reinterpret_cast< size_t * >(argp4);
+  OTPassword::copyMemory((void const *)arg1,(size_t const &)*arg2,arg3,*arg4);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_OTPassword_safe_memcpy__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  void *arg3 = (void *) 0 ;
-  uint32_t arg4 ;
-  int res1 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  int res3 ;
-  unsigned int val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  void *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:OTPassword_safe_memcpy",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_safe_memcpy" "', argument " "1"" of type '" "void *""'"); 
-  }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_safe_memcpy" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTPassword_safe_memcpy" "', argument " "3"" of type '" "void const *""'"); 
-  }
-  ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "OTPassword_safe_memcpy" "', argument " "4"" of type '" "uint32_t""'");
-  } 
-  arg4 = static_cast< uint32_t >(val4);
-  result = (void *)OTPassword::safe_memcpy(arg1,arg2,(void const *)arg3,arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_safe_memcpy(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[6];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 5) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 4) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        void *ptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &ptr, 0, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          {
-            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v) {
-            return _wrap_OTPassword_safe_memcpy__SWIG_1(self, args);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 5) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        void *ptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &ptr, 0, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          {
-            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v) {
-            {
-              int res = SWIG_AsVal_bool(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
-            if (_v) {
-              return _wrap_OTPassword_safe_memcpy__SWIG_0(self, args);
-            }
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'OTPassword_safe_memcpy'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    OTPassword::safe_memcpy(void *,uint32_t,void const *,uint32_t,bool)\n"
-    "    OTPassword::safe_memcpy(void *,uint32_t,void const *,uint32_t)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_CreateTextBuffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":OTPassword_CreateTextBuffer")) SWIG_fail;
-  result = (OTPassword *)OTPassword::CreateTextBuffer();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_OTPassword_SetSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = (OTPassword *) 0 ;
-  uint32_t arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:OTPassword_SetSize",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTPassword, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTPassword_SetSize" "', argument " "1"" of type '" "OTPassword *""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "OTPassword_SetSize" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (bool)(arg1)->SetSize(arg2);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword::BlockSize arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_OTPassword",&obj0)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "OTPassword::BlockSize""'");
-  } 
-  arg1 = static_cast< OTPassword::BlockSize >(val1);
-  result = (OTPassword *)new OTPassword(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_OTPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   OTPassword *result = 0 ;
   
@@ -11561,400 +12024,6 @@ SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_1(PyObject *SWIGUNUSEDPARM(self)
   return resultobj;
 fail:
   return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  OTPassword *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_OTPassword",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_OTPassword,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "OTPassword const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_OTPassword" "', argument " "1"" of type '" "OTPassword const &""'"); 
-  }
-  arg1 = reinterpret_cast< OTPassword * >(argp1);
-  result = (OTPassword *)new OTPassword((OTPassword const &)*arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_OTPassword",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "char const *""'");
-  }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_OTPassword" "', argument " "3"" of type '" "OTPassword::BlockSize""'");
-  } 
-  arg3 = static_cast< OTPassword::BlockSize >(val3);
-  result = (OTPassword *)new OTPassword((char const *)arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return resultobj;
-fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  char *arg1 = (char *) 0 ;
-  uint32_t arg2 ;
-  int res1 ;
-  char *buf1 = 0 ;
-  int alloc1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_OTPassword",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "char const *""'");
-  }
-  arg1 = reinterpret_cast< char * >(buf1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (OTPassword *)new OTPassword((char const *)arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return resultobj;
-fail:
-  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_OTPassword",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "uint8_t const *""'"); 
-  }
-  arg1 = reinterpret_cast< uint8_t * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_OTPassword" "', argument " "3"" of type '" "OTPassword::BlockSize""'");
-  } 
-  arg3 = static_cast< OTPassword::BlockSize >(val3);
-  result = (OTPassword *)new OTPassword((uint8_t const *)arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  uint8_t *arg1 = (uint8_t *) 0 ;
-  uint32_t arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_OTPassword",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "uint8_t const *""'"); 
-  }
-  arg1 = reinterpret_cast< uint8_t * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (OTPassword *)new OTPassword((uint8_t const *)arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_7(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  OTPassword::BlockSize arg3 ;
-  int res1 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_OTPassword",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "void const *""'"); 
-  }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_OTPassword" "', argument " "3"" of type '" "OTPassword::BlockSize""'");
-  } 
-  arg3 = static_cast< OTPassword::BlockSize >(val3);
-  result = (OTPassword *)new OTPassword((void const *)arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword__SWIG_8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  uint32_t arg2 ;
-  int res1 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  OTPassword *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_OTPassword",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_OTPassword" "', argument " "1"" of type '" "void const *""'"); 
-  }
-  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_OTPassword" "', argument " "2"" of type '" "uint32_t""'");
-  } 
-  arg2 = static_cast< uint32_t >(val2);
-  result = (OTPassword *)new OTPassword((void const *)arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_OTPassword, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_OTPassword(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4];
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_OTPassword__SWIG_1(self, args);
-  }
-  if (argc == 1) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_OTPassword, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_OTPassword__SWIG_2(self, args);
-    }
-  }
-  if (argc == 1) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      return _wrap_new_OTPassword__SWIG_0(self, args);
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_unsigned_char, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_OTPassword__SWIG_6(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_OTPassword__SWIG_8(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_OTPassword__SWIG_4(self, args);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_unsigned_char, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_OTPassword__SWIG_5(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    void *ptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &ptr, 0, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_OTPassword__SWIG_7(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    int res = SWIG_AsCharPtrAndSize(argv[0], 0, NULL, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_int(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_OTPassword__SWIG_3(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_OTPassword'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    OTPassword::OTPassword(OTPassword::BlockSize)\n"
-    "    OTPassword::OTPassword()\n"
-    "    OTPassword::OTPassword(OTPassword const &)\n"
-    "    OTPassword::OTPassword(char const *,uint32_t,OTPassword::BlockSize)\n"
-    "    OTPassword::OTPassword(char const *,uint32_t)\n"
-    "    OTPassword::OTPassword(uint8_t const *,uint32_t,OTPassword::BlockSize)\n"
-    "    OTPassword::OTPassword(uint8_t const *,uint32_t)\n"
-    "    OTPassword::OTPassword(void const *,uint32_t,OTPassword::BlockSize)\n"
-    "    OTPassword::OTPassword(void const *,uint32_t)\n");
-  return 0;
 }
 
 
@@ -12032,13 +12101,11 @@ fail:
 SWIGINTERN PyObject *_wrap_OTCallback_runOne(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   PyObject * obj0 = 0 ;
@@ -12053,35 +12120,41 @@ SWIGINTERN PyObject *_wrap_OTCallback_runOne(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTCallback_runOne" "', argument " "1"" of type '" "OTCallback *""'"); 
   }
   arg1 = reinterpret_cast< OTCallback * >(argp1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCallback_runOne" "', argument " "2"" of type '" "char const *""'");
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCallback_runOne" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runOne" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
   }
-  arg2 = reinterpret_cast< char * >(buf2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_OTPassword,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_OpenTransactions__StringPassword,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTCallback_runOne" "', argument " "3"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTCallback_runOne" "', argument " "3"" of type '" "OpenTransactions::StringPassword &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runOne" "', argument " "3"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runOne" "', argument " "3"" of type '" "OpenTransactions::StringPassword &""'"); 
   }
-  arg3 = reinterpret_cast< OTPassword * >(argp3);
+  arg3 = reinterpret_cast< OpenTransactions::StringPassword * >(argp3);
   director = SWIG_DIRECTOR_CAST(arg1);
   upcall = (director && (director->swig_get_self()==obj0));
   try {
     if (upcall) {
-      (arg1)->OTCallback::runOne((char const *)arg2,*arg3);
+      (arg1)->OTCallback::runOne((std::string const &)*arg2,*arg3);
     } else {
-      (arg1)->runOne((char const *)arg2,*arg3);
+      (arg1)->runOne((std::string const &)*arg2,*arg3);
     }
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return NULL;
 }
 
@@ -12089,13 +12162,11 @@ fail:
 SWIGINTERN PyObject *_wrap_OTCallback_runTwo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   OTCallback *arg1 = (OTCallback *) 0 ;
-  char *arg2 = (char *) 0 ;
-  OTPassword *arg3 = 0 ;
+  std::string *arg2 = 0 ;
+  OpenTransactions::StringPassword *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   PyObject * obj0 = 0 ;
@@ -12110,35 +12181,41 @@ SWIGINTERN PyObject *_wrap_OTCallback_runTwo(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTCallback_runTwo" "', argument " "1"" of type '" "OTCallback *""'"); 
   }
   arg1 = reinterpret_cast< OTCallback * >(argp1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCallback_runTwo" "', argument " "2"" of type '" "char const *""'");
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCallback_runTwo" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runTwo" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
   }
-  arg2 = reinterpret_cast< char * >(buf2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_OTPassword,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_OpenTransactions__StringPassword,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTCallback_runTwo" "', argument " "3"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "OTCallback_runTwo" "', argument " "3"" of type '" "OpenTransactions::StringPassword &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runTwo" "', argument " "3"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCallback_runTwo" "', argument " "3"" of type '" "OpenTransactions::StringPassword &""'"); 
   }
-  arg3 = reinterpret_cast< OTPassword * >(argp3);
+  arg3 = reinterpret_cast< OpenTransactions::StringPassword * >(argp3);
   director = SWIG_DIRECTOR_CAST(arg1);
   upcall = (director && (director->swig_get_self()==obj0));
   try {
     if (upcall) {
-      (arg1)->OTCallback::runTwo((char const *)arg2,*arg3);
+      (arg1)->OTCallback::runTwo((std::string const &)*arg2,*arg3);
     } else {
-      (arg1)->runTwo((char const *)arg2,*arg3);
+      (arg1)->runTwo((std::string const &)*arg2,*arg3);
     }
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return NULL;
 }
 
@@ -12212,7 +12289,7 @@ fail:
 SWIGINTERN PyObject *_wrap_OTCaller_GetPassword(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   OTCaller *arg1 = (OTCaller *) 0 ;
-  OTPassword *arg2 = 0 ;
+  OpenTransactions::Password *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -12227,14 +12304,14 @@ SWIGINTERN PyObject *_wrap_OTCaller_GetPassword(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTCaller_GetPassword" "', argument " "1"" of type '" "OTCaller const *""'"); 
   }
   arg1 = reinterpret_cast< OTCaller * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_OTPassword,  0 );
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_OpenTransactions__Password,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCaller_GetPassword" "', argument " "2"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCaller_GetPassword" "', argument " "2"" of type '" "OpenTransactions::Password &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCaller_GetPassword" "', argument " "2"" of type '" "OTPassword &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCaller_GetPassword" "', argument " "2"" of type '" "OpenTransactions::Password &""'"); 
   }
-  arg2 = reinterpret_cast< OTPassword * >(argp2);
+  arg2 = reinterpret_cast< OpenTransactions::Password * >(argp2);
   result = (bool)((OTCaller const *)arg1)->GetPassword(*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
@@ -12270,7 +12347,7 @@ SWIGINTERN PyObject *_wrap_OTCaller_GetDisplay(PyObject *SWIGUNUSEDPARM(self), P
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  char *result = 0 ;
+  std::string *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:OTCaller_GetDisplay",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTCaller, 0 |  0 );
@@ -12278,8 +12355,8 @@ SWIGINTERN PyObject *_wrap_OTCaller_GetDisplay(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTCaller_GetDisplay" "', argument " "1"" of type '" "OTCaller const *""'"); 
   }
   arg1 = reinterpret_cast< OTCaller * >(argp1);
-  result = (char *)((OTCaller const *)arg1)->GetDisplay();
-  resultobj = SWIG_FromCharPtr((const char *)result);
+  result = (std::string *) &((OTCaller const *)arg1)->GetDisplay();
+  resultobj = SWIG_From_std_string(static_cast< std::string >(*result));
   return resultobj;
 fail:
   return NULL;
@@ -12289,41 +12366,36 @@ fail:
 SWIGINTERN PyObject *_wrap_OTCaller_SetDisplay(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   OTCaller *arg1 = (OTCaller *) 0 ;
-  char *arg2 = (char *) 0 ;
-  int32_t arg3 ;
+  std::string *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 ;
-  char *buf2 = 0 ;
-  int alloc2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOO:OTCaller_SetDisplay",&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OO:OTCaller_SetDisplay",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_OTCaller, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "OTCaller_SetDisplay" "', argument " "1"" of type '" "OTCaller *""'"); 
   }
   arg1 = reinterpret_cast< OTCaller * >(argp1);
-  res2 = SWIG_AsCharPtrAndSize(obj1, &buf2, NULL, &alloc2);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCaller_SetDisplay" "', argument " "2"" of type '" "char const *""'");
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OTCaller_SetDisplay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "OTCaller_SetDisplay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
   }
-  arg2 = reinterpret_cast< char * >(buf2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OTCaller_SetDisplay" "', argument " "3"" of type '" "int32_t""'");
-  } 
-  arg3 = static_cast< int32_t >(val3);
-  (arg1)->SetDisplay((char const *)arg2,arg3);
+  (arg1)->SetDisplay((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
-  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (SWIG_IsNewObj(res2)) delete arg2;
   return NULL;
 }
 
@@ -52670,33 +52742,47 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MapStringString_upper_bound", _wrap_MapStringString_upper_bound, METH_VARARGS, NULL},
 	 { (char *)"delete_MapStringString", _wrap_delete_MapStringString, METH_VARARGS, NULL},
 	 { (char *)"MapStringString_swigregister", MapStringString_swigregister, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_m_theBlockSize_get", _wrap_OTPassword_m_theBlockSize_get, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_isPassword", _wrap_OTPassword_isPassword, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getPassword_uint8", _wrap_OTPassword_getPassword_uint8, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getPassword", _wrap_OTPassword_getPassword, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getPasswordWritable", _wrap_OTPassword_getPasswordWritable, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getPasswordWritable_char", _wrap_OTPassword_getPasswordWritable_char, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_setPassword", _wrap_OTPassword_setPassword, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_setPassword_uint8", _wrap_OTPassword_setPassword_uint8, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_addChar", _wrap_OTPassword_addChar, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_randomizePassword_uint8", _wrap_OTPassword_randomizePassword_uint8, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_randomizePassword", _wrap_OTPassword_randomizePassword, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_isMemory", _wrap_OTPassword_isMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getMemory", _wrap_OTPassword_getMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getMemory_uint8", _wrap_OTPassword_getMemory_uint8, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getMemoryWritable", _wrap_OTPassword_getMemoryWritable, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_setMemory", _wrap_OTPassword_setMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_addMemory", _wrap_OTPassword_addMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_randomizeMemory_uint8", _wrap_OTPassword_randomizeMemory_uint8, METH_VARARGS, NULL},
+	 { (char *)"_SecureAllocateVoid", _wrap__SecureAllocateVoid, METH_VARARGS, NULL},
+	 { (char *)"_SecureDeallocateVoid", _wrap__SecureDeallocateVoid, METH_VARARGS, NULL},
+	 { (char *)"Password_getType", _wrap_Password_getType, METH_VARARGS, NULL},
+	 { (char *)"Password_getData", _wrap_Password_getData, METH_VARARGS, NULL},
+	 { (char *)"Password___eq__", _wrap_Password___eq__, METH_VARARGS, NULL},
+	 { (char *)"Password___ne__", _wrap_Password___ne__, METH_VARARGS, NULL},
+	 { (char *)"delete_Password", _wrap_delete_Password, METH_VARARGS, NULL},
+	 { (char *)"Password_getMemory", _wrap_Password_getMemory, METH_VARARGS, NULL},
+	 { (char *)"Password_getMemoryConst", _wrap_Password_getMemoryConst, METH_VARARGS, NULL},
+	 { (char *)"Password_length", _wrap_Password_length, METH_VARARGS, NULL},
+	 { (char *)"Password_resize", _wrap_Password_resize, METH_VARARGS, NULL},
+	 { (char *)"Password_zero", _wrap_Password_zero, METH_VARARGS, NULL},
+	 { (char *)"Password_randomize", _wrap_Password_randomize, METH_VARARGS, NULL},
+	 { (char *)"Password_swigregister", Password_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_StringPassword", _wrap_new_StringPassword, METH_VARARGS, NULL},
+	 { (char *)"StringPassword___call__", _wrap_StringPassword___call__, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_getCopy", _wrap_StringPassword_getCopy, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_getChars", _wrap_StringPassword_getChars, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_length", _wrap_StringPassword_length, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_resize", _wrap_StringPassword_resize, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_zero", _wrap_StringPassword_zero, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_randomize", _wrap_StringPassword_randomize, METH_VARARGS, NULL},
+	 { (char *)"delete_StringPassword", _wrap_delete_StringPassword, METH_VARARGS, NULL},
+	 { (char *)"StringPassword_swigregister", StringPassword_swigregister, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_getCopy", _wrap_BinaryPassword_getCopy, METH_VARARGS, NULL},
+	 { (char *)"new_BinaryPassword", _wrap_new_BinaryPassword, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword___call__", _wrap_BinaryPassword___call__, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_append", _wrap_BinaryPassword_append, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_getMemoryCopy", _wrap_BinaryPassword_getMemoryCopy, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_getMemoryCopyOnto", _wrap_BinaryPassword_getMemoryCopyOnto, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_toString", _wrap_BinaryPassword_toString, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_length", _wrap_BinaryPassword_length, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_resize", _wrap_BinaryPassword_resize, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_zero", _wrap_BinaryPassword_zero, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_randomize", _wrap_BinaryPassword_randomize, METH_VARARGS, NULL},
+	 { (char *)"delete_BinaryPassword", _wrap_delete_BinaryPassword, METH_VARARGS, NULL},
+	 { (char *)"BinaryPassword_swigregister", BinaryPassword_swigregister, METH_VARARGS, NULL},
+	 { (char *)"OTPassword_randomizeData", _wrap_OTPassword_randomizeData, METH_VARARGS, NULL},
 	 { (char *)"OTPassword_randomizeMemory", _wrap_OTPassword_randomizeMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getBlockSize", _wrap_OTPassword_getBlockSize, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_Compare", _wrap_OTPassword_Compare, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getPasswordSize", _wrap_OTPassword_getPasswordSize, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_getMemorySize", _wrap_OTPassword_getMemorySize, METH_VARARGS, NULL},
 	 { (char *)"OTPassword_zeroMemory", _wrap_OTPassword_zeroMemory, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_safe_memcpy", _wrap_OTPassword_safe_memcpy, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_CreateTextBuffer", _wrap_OTPassword_CreateTextBuffer, METH_VARARGS, NULL},
-	 { (char *)"OTPassword_SetSize", _wrap_OTPassword_SetSize, METH_VARARGS, NULL},
+	 { (char *)"OTPassword_copyMemory", _wrap_OTPassword_copyMemory, METH_VARARGS, NULL},
 	 { (char *)"new_OTPassword", _wrap_new_OTPassword, METH_VARARGS, NULL},
 	 { (char *)"delete_OTPassword", _wrap_delete_OTPassword, METH_VARARGS, NULL},
 	 { (char *)"OTPassword_swigregister", OTPassword_swigregister, METH_VARARGS, NULL},
@@ -53752,6 +53838,12 @@ static void *_p_OTDB__AskDataTo_p_OTDB__OfferDataMarket(void *x, int *SWIGUNUSED
 static void *_p_OTDB__BidDataTo_p_OTDB__OfferDataMarket(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((OTDB::OfferDataMarket *)  ((OTDB::BidData *) x));
 }
+static void *_p_OpenTransactions__StringPasswordTo_p_OpenTransactions__Password(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((OpenTransactions::Password *)  ((OpenTransactions::StringPassword *) x));
+}
+static void *_p_OpenTransactions__BinaryPasswordTo_p_OpenTransactions__Password(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((OpenTransactions::Password *)  ((OpenTransactions::BinaryPassword *) x));
+}
 static swig_type_info _swigt__p_OTAPI_Exec = {"_p_OTAPI_Exec", "OTAPI_Exec *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OTAPI_Wrap = {"_p_OTAPI_Wrap", "OTAPI_Wrap *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OTCallback = {"_p_OTCallback", "OTCallback *", 0, 0, (void*)0, 0};
@@ -53791,6 +53883,9 @@ static swig_type_info _swigt__p_OTPassword = {"_p_OTPassword", "OTPassword *", 0
 static swig_type_info _swigt__p_OTVariable = {"_p_OTVariable", "OTVariable *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OT_API = {"_p_OT_API", "OT_API *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_OT_ME = {"_p_OT_ME", "OT_ME *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenTransactions__BinaryPassword = {"_p_OpenTransactions__BinaryPassword", "OpenTransactions::BinaryPassword *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenTransactions__Password = {"_p_OpenTransactions__Password", "OpenTransactions::Password *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_OpenTransactions__StringPassword = {"_p_OpenTransactions__StringPassword", "OpenTransactions::StringPassword *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_WrapTimeT = {"_p_WrapTimeT", "WrapTimeT *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_allocator_type = {"_p_allocator_type", "allocator_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
@@ -53801,17 +53896,23 @@ static swig_type_info _swigt__p_key_type = {"_p_key_type", "key_type *", 0, 0, (
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int_least64_t *|int_fast64_t *|int64_t *|long long *|intmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mapped_type = {"_p_mapped_type", "mapped_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_PyObject = {"_p_p_PyObject", "PyObject **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_void = {"_p_p_void", "void **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_wchar_t = {"_p_p_wchar_t", "wchar_t **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "signed char *|int_least8_t *|int_fast8_t *|int8_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_size_t = {"_p_size_t", "size_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_size_type = {"_p_size_type", "size_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__allocatorT_std__pairT_std__string_const_std__string_t_t = {"_p_std__allocatorT_std__pairT_std__string_const_std__string_t_t", "std::map< std::string,std::string >::allocator_type *|std::allocator< std::pair< std::string const,std::string > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__allocatorT_unsigned_char_t = {"_p_std__allocatorT_unsigned_char_t", "std::vector< unsigned char >::allocator_type *|std::allocator< unsigned char > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t = {"_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t", "std::basic_string< char,std::char_traits< char >,secure_allocator< char > > *|SecureString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__lessT_std__string_t = {"_p_std__lessT_std__string_t", "std::less< std::string > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t = {"_p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t", "std::map< std::string,std::string > *|std::map< std::string,std::string,std::less< std::string >,std::allocator< std::pair< std::string const,std::string > > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__pairT_void_const_pconst_size_t_const_t = {"_p_std__pairT_void_const_pconst_size_t_const_t", "std::pair< void const *const,size_t const > *|ConstVoidPointerPair *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__pairT_void_pconst_size_t_const_t = {"_p_std__pairT_void_pconst_size_t_const_t", "std::pair< void *const,size_t const > *|VoidPointerPair *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT__Tp__Alloc_t = {"_p_std__vectorT__Tp__Alloc_t", "std::vector< _Tp,_Alloc > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t = {"_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t", "std::vector< unsigned char,secure_allocator< unsigned char > > *|SecureDataVector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t = {"_p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t", "std::vector< uint8_t,std::allocator< uint8_t > > *|std::vector< unsigned char > *|std::vector< unsigned char,std::allocator< unsigned char > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *|uint_least8_t *|uint_fast8_t *|uint8_t *", 0, 0, (void*)0, 0};
@@ -53862,6 +53963,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_OTVariable,
   &_swigt__p_OT_API,
   &_swigt__p_OT_ME,
+  &_swigt__p_OpenTransactions__BinaryPassword,
+  &_swigt__p_OpenTransactions__Password,
+  &_swigt__p_OpenTransactions__StringPassword,
   &_swigt__p_WrapTimeT,
   &_swigt__p_allocator_type,
   &_swigt__p_char,
@@ -53872,17 +53976,23 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_long_long,
   &_swigt__p_mapped_type,
   &_swigt__p_p_PyObject,
+  &_swigt__p_p_void,
   &_swigt__p_p_wchar_t,
   &_swigt__p_short,
   &_swigt__p_signed_char,
+  &_swigt__p_size_t,
   &_swigt__p_size_type,
   &_swigt__p_std__allocatorT_std__pairT_std__string_const_std__string_t_t,
   &_swigt__p_std__allocatorT_unsigned_char_t,
+  &_swigt__p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t,
   &_swigt__p_std__invalid_argument,
   &_swigt__p_std__lessT_std__string_t,
   &_swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t,
+  &_swigt__p_std__pairT_void_const_pconst_size_t_const_t,
+  &_swigt__p_std__pairT_void_pconst_size_t_const_t,
   &_swigt__p_std__string,
   &_swigt__p_std__vectorT__Tp__Alloc_t,
+  &_swigt__p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,
   &_swigt__p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t,
   &_swigt__p_swig__SwigPyIterator,
   &_swigt__p_unsigned_char,
@@ -53933,6 +54043,9 @@ static swig_cast_info _swigc__p_OTPassword[] = {  {&_swigt__p_OTPassword, 0, 0, 
 static swig_cast_info _swigc__p_OTVariable[] = {  {&_swigt__p_OTVariable, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OT_API[] = {  {&_swigt__p_OT_API, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OT_ME[] = {  {&_swigt__p_OT_ME, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenTransactions__BinaryPassword[] = {  {&_swigt__p_OpenTransactions__BinaryPassword, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenTransactions__Password[] = {  {&_swigt__p_OpenTransactions__Password, 0, 0, 0},  {&_swigt__p_OpenTransactions__StringPassword, _p_OpenTransactions__StringPasswordTo_p_OpenTransactions__Password, 0, 0},  {&_swigt__p_OpenTransactions__BinaryPassword, _p_OpenTransactions__BinaryPasswordTo_p_OpenTransactions__Password, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_OpenTransactions__StringPassword[] = {  {&_swigt__p_OpenTransactions__StringPassword, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_WrapTimeT[] = {  {&_swigt__p_WrapTimeT, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_allocator_type[] = {  {&_swigt__p_allocator_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -53943,17 +54056,23 @@ static swig_cast_info _swigc__p_key_type[] = {  {&_swigt__p_key_type, 0, 0, 0},{
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mapped_type[] = {  {&_swigt__p_mapped_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_PyObject[] = {  {&_swigt__p_p_PyObject, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_void[] = {  {&_swigt__p_p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_wchar_t[] = {  {&_swigt__p_p_wchar_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_size_t[] = {  {&_swigt__p_size_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_size_type[] = {  {&_swigt__p_size_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__allocatorT_std__pairT_std__string_const_std__string_t_t[] = {  {&_swigt__p_std__allocatorT_std__pairT_std__string_const_std__string_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__allocatorT_unsigned_char_t[] = {  {&_swigt__p_std__allocatorT_unsigned_char_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t[] = {  {&_swigt__p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__lessT_std__string_t[] = {  {&_swigt__p_std__lessT_std__string_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t[] = {  {&_swigt__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__pairT_void_const_pconst_size_t_const_t[] = {  {&_swigt__p_std__pairT_void_const_pconst_size_t_const_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__pairT_void_pconst_size_t_const_t[] = {  {&_swigt__p_std__pairT_void_pconst_size_t_const_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT__Tp__Alloc_t[] = {  {&_swigt__p_std__vectorT__Tp__Alloc_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t[] = {  {&_swigt__p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t[] = {  {&_swigt__p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -54004,6 +54123,9 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_OTVariable,
   _swigc__p_OT_API,
   _swigc__p_OT_ME,
+  _swigc__p_OpenTransactions__BinaryPassword,
+  _swigc__p_OpenTransactions__Password,
+  _swigc__p_OpenTransactions__StringPassword,
   _swigc__p_WrapTimeT,
   _swigc__p_allocator_type,
   _swigc__p_char,
@@ -54014,17 +54136,23 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_long_long,
   _swigc__p_mapped_type,
   _swigc__p_p_PyObject,
+  _swigc__p_p_void,
   _swigc__p_p_wchar_t,
   _swigc__p_short,
   _swigc__p_signed_char,
+  _swigc__p_size_t,
   _swigc__p_size_type,
   _swigc__p_std__allocatorT_std__pairT_std__string_const_std__string_t_t,
   _swigc__p_std__allocatorT_unsigned_char_t,
+  _swigc__p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t,
   _swigc__p_std__invalid_argument,
   _swigc__p_std__lessT_std__string_t,
   _swigc__p_std__mapT_std__string_std__string_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__string_t_t_t,
+  _swigc__p_std__pairT_void_const_pconst_size_t_const_t,
+  _swigc__p_std__pairT_void_pconst_size_t_const_t,
   _swigc__p_std__string,
   _swigc__p_std__vectorT__Tp__Alloc_t,
+  _swigc__p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t,
   _swigc__p_std__vectorT_unsigned_char_std__allocatorT_unsigned_char_t_t,
   _swigc__p_swig__SwigPyIterator,
   _swigc__p_unsigned_char,
@@ -54718,15 +54846,10 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
-  SWIG_Python_SetConstant(d, "OT_PW_DISPLAY",SWIG_FromCharPtr("Enter master passphrase for wallet."));
   SWIG_Python_SetConstant(d, "OTPASSWORD_BLOCKSIZE",SWIG_From_int(static_cast< int >(128)));
-  SWIG_Python_SetConstant(d, "OTPASSWORD_MEMSIZE",SWIG_From_int(static_cast< int >(129)));
-  SWIG_Python_SetConstant(d, "OT_LARGE_BLOCKSIZE",SWIG_From_int(static_cast< int >(32767)));
-  SWIG_Python_SetConstant(d, "OT_LARGE_MEMSIZE",SWIG_From_int(static_cast< int >(32768)));
-  SWIG_Python_SetConstant(d, "OT_DEFAULT_BLOCKSIZE",SWIG_From_int(static_cast< int >(128)));
-  SWIG_Python_SetConstant(d, "OT_DEFAULT_MEMSIZE",SWIG_From_int(static_cast< int >(129)));
-  SWIG_Python_SetConstant(d, "OTPassword_DEFAULT_SIZE",SWIG_From_int(static_cast< int >(OTPassword::DEFAULT_SIZE)));
-  SWIG_Python_SetConstant(d, "OTPassword_LARGER_SIZE",SWIG_From_int(static_cast< int >(OTPassword::LARGER_SIZE)));
+  SWIG_Python_SetConstant(d, "Password_STRING",SWIG_From_int(static_cast< int >(OpenTransactions::Password::STRING)));
+  SWIG_Python_SetConstant(d, "Password_BINARY",SWIG_From_int(static_cast< int >(OpenTransactions::Password::BINARY)));
+  SWIG_Python_SetConstant(d, "OT_PW_DISPLAY",SWIG_FromCharPtr("Enter master passphrase for wallet."));
   SWIG_Python_SetConstant(d, "PACK_MESSAGE_PACK",SWIG_From_int(static_cast< int >(OTDB::PACK_MESSAGE_PACK)));
   SWIG_Python_SetConstant(d, "PACK_PROTOCOL_BUFFERS",SWIG_From_int(static_cast< int >(OTDB::PACK_PROTOCOL_BUFFERS)));
   SWIG_Python_SetConstant(d, "PACK_TYPE_ERROR",SWIG_From_int(static_cast< int >(OTDB::PACK_TYPE_ERROR)));

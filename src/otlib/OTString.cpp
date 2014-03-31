@@ -336,7 +336,7 @@ errno_t strcpy_s(
                 const char * restrict src,
                 size_t size); // MAX SIZE of destination.
 
- extern "C" size_t strnlen(const char *s, size_t max); // Moved the definition of this function to OTPassword.cpp
+ extern "C" size_t strnlen(const char *s, size_t max); // Moved the definition of this function to OT::Password.cpp
  */
 // ---------------------------------------------------------
 
@@ -1036,22 +1036,18 @@ bool OTString::MemSet(const char * pMem, uint32_t theSize) // if theSize is 10..
 	if ((NULL == pMem) || (theSize < 1))
 		return true;
 	// -------------------
-	char * str_new = new char [theSize + 1]; // then we allocate 11 
-	OT_ASSERT(NULL != str_new);
-	// -------------------	
-    OTPassword::zeroMemory(str_new, theSize + 1);
+    char * str_new = NULL;
 	// -------------------
-//  void * OTPassword::safe_memcpy(void   * dest,
+//  void * OT::Password::safe_memcpy(void   * dest,
 //                                 uint32_t dest_size,
 //                                 const
 //                                 void   * src,
 //                                 uint32_t src_length,
 //                                 bool     bZeroSource/*=false*/)
 
-    OTPassword::safe_memcpy(static_cast<void*>(str_new),
-                            theSize + 1,
-                            pMem,
-                            theSize);
+    size_t outSize = 0;
+    OTPassword::copyMemory(pMem, theSize, str_new, outSize);
+
 //	memcpy(static_cast<void*>(str_new), pMem, theSize); // then we copy 10 bytes
 	
     // todo optimize: This is probably superfluous due to the zeroMemory above.

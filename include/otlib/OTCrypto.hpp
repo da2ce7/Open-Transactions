@@ -149,11 +149,15 @@ class OTIdentifier;
 class OTString;
 class OTAsymmetricKey;
 class OTSymmetricKey;
-class OTPassword;
 class OTPasswordData;
 class OTSignature;
 class OTPseudonym;
 
+namespace OpenTransactions {
+    class Password;
+}
+
+namespace OT = OpenTransactions;
 
 
 // -------------------------------------------------------------------------------------------
@@ -265,35 +269,23 @@ public:
 
 
 
-// Sometimes I want to decrypt into an OTPassword (for encrypted symmetric
+// Sometimes I want to decrypt into an OT::Password (for encrypted symmetric
 // keys being decrypted) and sometimes I want to decrypt into an OTPayload
 // (For most other types of data.) This class allows me to do it either way
 // without duplicating the static Decrypt() function, by wrapping both
 // types.
 //
-class OTCrypto_Decrypt_Output
-{
-private:
-	OTPassword * m_pPassword;
-	OTPayload  * m_pPayload;
 
-	OTCrypto_Decrypt_Output();
-public:
-EXPORT	~OTCrypto_Decrypt_Output();
+typedef std::pair<OT::Password *, OTPayload *> PasswordPayloadPair;
 
-EXPORT	OTCrypto_Decrypt_Output(const OTCrypto_Decrypt_Output & rhs);
+// this->first is Password, this->second is Payload.
+struct PassOrPayload : public PasswordPayloadPair {
 
-EXPORT	OTCrypto_Decrypt_Output(OTPassword & thePassword);
-EXPORT	OTCrypto_Decrypt_Output(OTPayload  & thePayload);
+    PassOrPayload(OT::Password * password) : PasswordPayloadPair(password, NULL) {}
+    PassOrPayload(OTPayload * payload)     : PasswordPayloadPair(NULL, payload) {}
 
-EXPORT	void swap(OTCrypto_Decrypt_Output & other);
-
-EXPORT	OTCrypto_Decrypt_Output & operator = (OTCrypto_Decrypt_Output other); // passed by value.
-
-EXPORT	bool Concatenate(const void * pAppendData, uint32_t lAppendSize);
-
-EXPORT	void Release(); // Someday make this virtual, if we ever subclass it.
-EXPORT	void Release_Envelope_Decrypt_Output();
+    EXPORT uint32_t Concatenate(const void * pAppendData, uint32_t lAppendSize);
+    EXPORT void Release();
 };
 
 // ------------------------------------------------------------------------
@@ -321,14 +313,14 @@ public:
     virtual ~OTCrypto();
     // ------------------------------------------------------------------------
     // InstantiateBinarySecret
-    // (To instantiate a text secret, just do this: OTPassword thePass;)
+    // (To instantiate a text secret, just do this: OT::Password thePass;)
     //
-    virtual OTPassword * InstantiateBinarySecret() const=0;
+    virtual OT::Password * InstantiateBinarySecret() const=0;
     // ------------------------------------------------------------------------
     // GET PASSPHRASE FROM CONSOLE
     //
-EXPORT    bool GetPasswordFromConsole        (OTPassword & theOutput, bool bRepeat=false   ) const;
-EXPORT    bool GetPasswordFromConsoleLowLevel(OTPassword & theOutput, const char * szPrompt) const;
+EXPORT    bool GetPasswordFromConsole        (OT::Password & theOutput, bool bRepeat=false   ) const;
+EXPORT    bool GetPasswordFromConsoleLowLevel(OT::Password & theOutput, const char * szPrompt) const;
     // ------------------------------------------------------------------------
     // RANDOM NUMBERS
     //
@@ -360,7 +352,7 @@ EXPORT    bool GetPasswordFromConsoleLowLevel(OTPassword & theOutput, const char
     //
     // DeriveKey derives a 128-bit symmetric key from a passphrase.
     //
-    // The OTPassword* returned is the actual derived key. (The result.)
+    // The OT::Password* returned is the actual derived key. (The result.)
     //
     // However, you would not use it directly for symmetric-key crypto, but
     // instead you'd use the OTSymmetricKey class. This is because you still
@@ -379,13 +371,13 @@ EXPORT    bool GetPasswordFromConsoleLowLevel(OTPassword & theOutput, const char
     // IS RESPONSIBLE TO DELETE!
     // Todo: return a smart pointer here.
     //
-    virtual OTPassword * DeriveKey(const OTPassword &   userPassword,
-                                   const OTPayload  &   dataSalt,
+    virtual OT::Password * DeriveKey(const OT::Password &   userPassword,
+                                   const OTPayload  &   dataSalt,    
                                    const uint32_t       uIterations,
 								   const OTPayload  &   dataCheckHash = OTPayload()) const=0;
 
-	virtual OTPassword * DeriveNewKey(const OTPassword &   userPassword,
-                                      const OTPayload  &   dataSalt,
+	virtual OT::Password * DeriveNewKey(const OT::Password &   userPassword,
+                                      const OTPayload  &   dataSalt,    
                                       const uint32_t       uIterations,
                                       OTPayload        &   dataCheckHash) const=0;
 
@@ -394,7 +386,7 @@ EXPORT    bool GetPasswordFromConsoleLowLevel(OTPassword & theOutput, const char
     //
     // Symmetric (secret key) encryption / decryption
     //
-    virtual bool Encrypt(const OTPassword & theRawSymmetricKey,  // The symmetric key, in clear form.
+    virtual bool Encrypt(const OT::Password & theRawSymmetricKey,  // The symmetric key, in clear form.
                          // -------------------------------
                          const char      *  szInput,             // This is the Plaintext.
                          const uint32_t     lInputLength,
@@ -403,14 +395,14 @@ EXPORT    bool GetPasswordFromConsoleLowLevel(OTPassword & theOutput, const char
                          // -------------------------------
                          OTPayload &  theEncryptedOutput) const=0; // OUTPUT. (Ciphertext.)
 
-    virtual bool Decrypt(const OTPassword & theRawSymmetricKey,  // The symmetric key, in clear form.
+    virtual bool Decrypt(const OT::Password & theRawSymmetricKey,  // The symmetric key, in clear form.
                          // -------------------------------
                          const char       * szInput,             // This is the Ciphertext.
                          const uint32_t     lInputLength,
                          // -------------------------------
                          const OTPayload  & theIV,               // (We assume this IV is already generated and passed in.)
                          // -------------------------------
-                         OTCrypto_Decrypt_Output theDecryptedOutput) const=0; // OUTPUT. (Recovered plaintext.) You can pass OTPassword& OR OTPayload& here (either will work.)
+                         PassOrPayload theDecryptedOutput) const = 0; // OUTPUT. (Recovered plaintext.) You can pass OT::Password& OR OTPayload& here (either will work.)
     // ------------------------------------------------------------------------
     // SEAL / OPEN (RSA envelopes...)
     //
@@ -529,8 +521,8 @@ protected:
 public:
     static tthread::mutex * s_arrayMutex;
     // ----------------------------------
-    // (To instantiate a text secret, just do this: OTPassword thePass;)
-    virtual OTPassword * InstantiateBinarySecret() const;
+    // (To instantiate a text secret, just do this: OT::Password thePass;)
+    virtual OT::Password * InstantiateBinarySecret() const;
     // ------------------------------------------------------------------------
     // RANDOM NUMBERS
     virtual bool RandomizeMemory(uint8_t * szDestination, uint32_t nNewSize) const;
@@ -556,19 +548,19 @@ public:
     // IS RESPONSIBLE TO DELETE!
     // Todo: return a smart pointer here.
     //
-    virtual OTPassword * DeriveKey(const OTPassword &   userPassword,
-                                   const OTPayload  &   dataSalt,
+    virtual OT::Password * DeriveKey(const OT::Password &   userPassword,
+                                   const OTPayload  &   dataSalt,    
                                    const uint32_t       uIterations,
 								   const OTPayload  &   dataCheckHash = OTPayload()) const;
 
-	virtual OTPassword * DeriveNewKey(const OTPassword &   userPassword,
-                                      const OTPayload  &   dataSalt,
+	virtual OT::Password * DeriveNewKey(const OT::Password &   userPassword,
+                                      const OTPayload  &   dataSalt,    
                                       const uint32_t       uIterations,
                                             OTPayload  &   dataCheckHash) const;
     // ------------------------------------------------------------------------
     // ENCRYPT / DECRYPT
     // Symmetric (secret key) encryption / decryption
-    virtual bool Encrypt(const OTPassword &  theRawSymmetricKey,  // The symmetric key, in clear form.
+    virtual bool Encrypt(const OT::Password &  theRawSymmetricKey,  // The symmetric key, in clear form.
                          // -------------------------------
                          const char       *  szInput,             // This is the Plaintext.
                          const uint32_t      lInputLength,
@@ -577,14 +569,14 @@ public:
                          // -------------------------------
                                OTPayload  &  theEncryptedOutput) const; // OUTPUT. (Ciphertext.)
 
-    virtual bool Decrypt(const OTPassword &  theRawSymmetricKey,  // The symmetric key, in clear form.
+    virtual bool Decrypt(const OT::Password &  theRawSymmetricKey,  // The symmetric key, in clear form.
                          // -------------------------------
                          const char       *  szInput,             // This is the Ciphertext.
                          const uint32_t      lInputLength,
                          // -------------------------------
                          const OTPayload  &  theIV,               // (We assume this IV is already generated and passed in.)
                          // -------------------------------
-                         OTCrypto_Decrypt_Output theDecryptedOutput) const; // OUTPUT. (Recovered plaintext.) You can pass OTPassword& OR OTPayload& here (either will work.)
+                         PassOrPayload theDecryptedOutput) const; // OUTPUT. (Recovered plaintext.) You can pass OT::Password& OR OTPayload& here (either will work.)
     // ------------------------------------------------------------------------
     // SEAL / OPEN
     // Asymmetric (public key) encryption / decryption

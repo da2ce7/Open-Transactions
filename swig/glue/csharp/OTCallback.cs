@@ -42,13 +42,13 @@ public class OTCallback : global::System.IDisposable {
     SwigDirectorConnect();
   }
 
-  public virtual void runOne(string szDisplay, OTPassword theOutput) {
-    if (SwigDerivedClassHasMethod("runOne", swigMethodTypes0)) otapiPINVOKE.OTCallback_runOneSwigExplicitOTCallback(swigCPtr, szDisplay, OTPassword.getCPtr(theOutput)); else otapiPINVOKE.OTCallback_runOne(swigCPtr, szDisplay, OTPassword.getCPtr(theOutput));
+  public virtual void runOne(string strDisplay, StringPassword theOutput) {
+    if (SwigDerivedClassHasMethod("runOne", swigMethodTypes0)) otapiPINVOKE.OTCallback_runOneSwigExplicitOTCallback(swigCPtr, strDisplay, StringPassword.getCPtr(theOutput)); else otapiPINVOKE.OTCallback_runOne(swigCPtr, strDisplay, StringPassword.getCPtr(theOutput));
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public virtual void runTwo(string szDisplay, OTPassword theOutput) {
-    if (SwigDerivedClassHasMethod("runTwo", swigMethodTypes1)) otapiPINVOKE.OTCallback_runTwoSwigExplicitOTCallback(swigCPtr, szDisplay, OTPassword.getCPtr(theOutput)); else otapiPINVOKE.OTCallback_runTwo(swigCPtr, szDisplay, OTPassword.getCPtr(theOutput));
+  public virtual void runTwo(string strDisplay, StringPassword theOutput) {
+    if (SwigDerivedClassHasMethod("runTwo", swigMethodTypes1)) otapiPINVOKE.OTCallback_runTwoSwigExplicitOTCallback(swigCPtr, strDisplay, StringPassword.getCPtr(theOutput)); else otapiPINVOKE.OTCallback_runTwo(swigCPtr, strDisplay, StringPassword.getCPtr(theOutput));
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -66,22 +66,22 @@ public class OTCallback : global::System.IDisposable {
     return hasDerivedMethod;
   }
 
-  private void SwigDirectorrunOne(string szDisplay, global::System.IntPtr theOutput) {
-    runOne(szDisplay, new OTPassword(theOutput, false));
+  private void SwigDirectorrunOne(string strDisplay, global::System.IntPtr theOutput) {
+    runOne(strDisplay, new StringPassword(theOutput, false));
   }
 
-  private void SwigDirectorrunTwo(string szDisplay, global::System.IntPtr theOutput) {
-    runTwo(szDisplay, new OTPassword(theOutput, false));
+  private void SwigDirectorrunTwo(string strDisplay, global::System.IntPtr theOutput) {
+    runTwo(strDisplay, new StringPassword(theOutput, false));
   }
 
-  public delegate void SwigDelegateOTCallback_0(string szDisplay, global::System.IntPtr theOutput);
-  public delegate void SwigDelegateOTCallback_1(string szDisplay, global::System.IntPtr theOutput);
+  public delegate void SwigDelegateOTCallback_0(string strDisplay, global::System.IntPtr theOutput);
+  public delegate void SwigDelegateOTCallback_1(string strDisplay, global::System.IntPtr theOutput);
 
   private SwigDelegateOTCallback_0 swigDelegate0;
   private SwigDelegateOTCallback_1 swigDelegate1;
 
-  private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(string), typeof(OTPassword) };
-  private static global::System.Type[] swigMethodTypes1 = new global::System.Type[] { typeof(string), typeof(OTPassword) };
+  private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(string), typeof(StringPassword) };
+  private static global::System.Type[] swigMethodTypes1 = new global::System.Type[] { typeof(string), typeof(StringPassword) };
 }
 
 }

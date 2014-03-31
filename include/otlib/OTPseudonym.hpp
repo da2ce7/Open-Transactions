@@ -147,7 +147,6 @@ class OTItem;
 class OTKeypair;
 class OTLedger;
 class OTMessage;
-class OTPassword;
 class OTPasswordData;
 class OTSubcredential;
 class OTTransaction;
@@ -416,7 +415,7 @@ EXPORT	static OTPseudonym * LoadPrivateNym(const OTIdentifier & NYM_ID,
                                                   OTString     * pstrName=NULL,
                                             const char         * szFuncName=NULL,
                                                 OTPasswordData * pPWData=NULL,
-                                                  OTPassword   * pImportPassword=NULL);
+                                                  OT::Password   * pImportPassword=NULL);
 	// ------------------------------------------
 EXPORT	bool HasPublicKey();
 EXPORT	bool HasPrivateKey();
@@ -442,11 +441,11 @@ EXPORT  void SaveCredentialsToString(OTString     & strOutput,
                                      mapOfStrings * pmapPriInfo=NULL);
 EXPORT  bool LoadCredentials(bool bLoadPrivate=false, // Loads public credentials by default. For private, pass true.
                              OTPasswordData * pPWData=NULL,
-                             OTPassword * pImportPassword=NULL);
+                             OT::Password * pImportPassword=NULL);
     // ------------------------------------------
     // Like for when you are exporting a Nym from the wallet.
 EXPORT  bool ReEncryptPrivateCredentials(bool bImporting, OTPasswordData * pPWData=NULL, //bImporting=true, or false if exporting.
-                                         OTPassword * pImportPassword=NULL);
+                                         OT::Password * pImportPassword=NULL);
     // ------------------------------
 	// The signer is whoever wanted to make sure these nym files haven't changed.
 	// Usually that means the server nym.  Most of the time, m_nymServer will be used as signer.
@@ -457,7 +456,7 @@ EXPORT	bool LoadNymfile(const char * szFilename=NULL);
 EXPORT	bool LoadFromString(const OTString & strNym,
                             mapOfStrings * pMapCredentials=NULL, //pMapCredentials can be passed, if you prefer to use a specific set, instead of just loading the actual set from storage (such as during registration, when the credentials have been sent inside a message.)
                             OTString     * pstrReason=NULL,
-                            OTPassword   * pImportPassword=NULL);
+                            OT::Password   * pImportPassword=NULL);
 	// ------------------------------------------
     // pstrID is an output parameter.
 EXPORT	bool Server_PubKeyExists(OTString * pstrID=NULL); // Only used on server side.
@@ -469,10 +468,10 @@ EXPORT  bool CertfileExists(); // on the client side, this means it's a private 
     // ------------------------------------------
 EXPORT	bool Loadx509CertAndPrivateKey(const bool bChecking=false,
                                        OTPasswordData * pPWData=NULL,
-                                       OTPassword * pImportPassword=NULL);
+                                       OT::Password * pImportPassword=NULL);
 EXPORT	bool Loadx509CertAndPrivateKeyFromString(const OTString & strInput,
                                                  OTPasswordData * pPWData=NULL,
-                                                 OTPassword * pImportPassword=NULL);
+                                                 OT::Password * pImportPassword=NULL);
     // ------------------------------------------
 EXPORT	bool Savex509CertAndPrivateKey(bool bCreateFile=true, const OTString * pstrReason=NULL);
 EXPORT  bool Savex509CertAndPrivateKeyToString(OTString & strOutput, const OTString * pstrReason=NULL);

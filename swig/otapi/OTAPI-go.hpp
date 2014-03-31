@@ -18,14 +18,14 @@ class SwigDirector_OTCallback : public OTCallback
  public:
   SwigDirector_OTCallback(void *swig_p);
   virtual ~SwigDirector_OTCallback();
-  void _swig_upcall_runOne(char const *szDisplay, OTPassword &theOutput) {
-    OTCallback::runOne(szDisplay,theOutput);
+  void _swig_upcall_runOne(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
+    OTCallback::runOne(strDisplay,theOutput);
   }
-  virtual void runOne(char const *szDisplay, OTPassword &theOutput);
-  void _swig_upcall_runTwo(char const *szDisplay, OTPassword &theOutput) {
-    OTCallback::runTwo(szDisplay,theOutput);
+  virtual void runOne(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput);
+  void _swig_upcall_runTwo(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput) {
+    OTCallback::runTwo(strDisplay,theOutput);
   }
-  virtual void runTwo(char const *szDisplay, OTPassword &theOutput);
+  virtual void runTwo(std::string const &strDisplay, OpenTransactions::StringPassword &theOutput);
  private:
   void *go_val;
 };

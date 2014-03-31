@@ -136,6 +136,8 @@
 
 #include "OTCommon.hpp"
 
+#include "OTPassword.hpp"
+
 #include "Timer.hpp"
 
 #include <list>
@@ -144,7 +146,6 @@
 class OTCaller;
 class OTKeypair;
 class OTString;
-class OTPassword;
 class OTIdentifier;
 class OTASCIIArmor;
 class OTSignatureMetadata;
@@ -363,7 +364,7 @@ EXPORT	virtual ~OTAsymmetricKey();
     // ***************************************************************
     // Load private or public key from local storage.
     //
-	bool LoadPrivateKey(const OTString & strFoldername, const OTString & strFilename, const OTString * pstrReason=NULL, OTPassword * pImportPassword=NULL);
+	bool LoadPrivateKey(const OTString & strFoldername, const OTString & strFilename, const OTString * pstrReason=NULL, OT::Password * pImportPassword=NULL);
 	bool LoadPublicKey (const OTString & strFoldername, const OTString & strFilename);
 
     virtual bool LoadPublicKeyFromPGPKey(const OTASCIIArmor & strKey)=0; // does NOT handle bookends.
@@ -374,22 +375,22 @@ EXPORT	virtual ~OTAsymmetricKey();
     //
     virtual bool LoadPrivateKeyFromCertString(const OTString   & strCert, bool bEscaped=true,
                                               const OTString   * pstrReason=NULL,
-                                                    OTPassword * pImportPassword=NULL)=0; // Used when importing an exported Nym into a wallet.
+                                                    OT::Password * pImportPassword=NULL)=0; // Used when importing an exported Nym into a wallet.
     // ***************************************************************
     // Load Public Key from Cert (file or string)
     //
 	virtual bool LoadPublicKeyFromCertString(const OTString   & strCert, bool bEscaped=true,
                                              const OTString   * pstrReason=NULL,
-                                                   OTPassword * pImportPassword=NULL)=0; // DOES handle bookends, AND escapes.
+                                                   OT::Password * pImportPassword=NULL)=0; // DOES handle bookends, AND escapes.
             bool LoadPublicKeyFromCertFile  (const OTString   & strFoldername,
                                              const OTString   & strFilename,
                                              const OTString   * pstrReason=NULL,
-                                                   OTPassword * pImportPassword=NULL); // DOES handle bookends.
+                                                   OT::Password * pImportPassword=NULL); // DOES handle bookends.
     // ---------------------------------------------------------------
-    virtual bool SaveCertToString      (OTString & strOutput, const OTString * pstrReason=NULL, OTPassword * pImportPassword=NULL)=0;
-    virtual bool SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason=NULL, OTPassword * pImportPassword=NULL)=0;
-    // ---------------------------------------------------------------
-    virtual bool ReEncryptPrivateKey   (OTPassword & theExportPassword, bool bImporting)=0;
+    virtual bool SaveCertToString      (OTString & strOutput, const OTString * pstrReason=NULL, OT::Password * pImportPassword=NULL)=0;
+    virtual bool SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason=NULL, OT::Password * pImportPassword=NULL)=0;
+    // ---------------------------------------------------------------    
+    virtual bool ReEncryptPrivateKey   (OT::Password & theExportPassword, bool bImporting)=0;
     // ***************************************************************************************
     // PUBLIC KEY
 
@@ -448,20 +449,20 @@ public:
     //
     virtual bool LoadPrivateKeyFromCertString(const OTString   & strCert, bool bEscaped=true,
                                               const OTString   * pstrReason=NULL,
-                                                    OTPassword * pImportPassword=NULL);
+                                                    OT::Password * pImportPassword=NULL);
     // ***************************************************************
     // Load Public Key from Cert String
     //
 	virtual bool LoadPublicKeyFromCertString(const OTString   & strCert, bool bEscaped=true,
                                              const OTString   * pstrReason=NULL,
-                                                   OTPassword * pImportPassword=NULL); // DOES handle bookends, AND escapes.
+                                                   OT::Password * pImportPassword=NULL); // DOES handle bookends, AND escapes.
     // ---------------------------------------------------------------
-    virtual bool SaveCertToString      (OTString & strOutput, const OTString * pstrReason=NULL, OTPassword * pImportPassword=NULL);
-    virtual bool SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason=NULL, OTPassword * pImportPassword=NULL);
+    virtual bool SaveCertToString      (OTString & strOutput, const OTString * pstrReason=NULL, OT::Password * pImportPassword=NULL);
+    virtual bool SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason=NULL, OT::Password * pImportPassword=NULL);
     // -------------------------------------
 	virtual bool LoadPublicKeyFromPGPKey(const OTASCIIArmor & strKey); // does NOT handle bookends.
 // -----------------------------------------------------
-    virtual bool ReEncryptPrivateKey(OTPassword & theExportPassword, bool bImporting);
+    virtual bool ReEncryptPrivateKey(OT::Password & theExportPassword, bool bImporting);
 private:
     // -----------------------------------------------------
     // STATIC METHODS
@@ -469,11 +470,11 @@ private:
     // Create base64-encoded version of an EVP_PKEY
     // (Without bookends.)
     //
-    static bool ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & ascKey, Timer & theTimer, OTPasswordData * pPWData=NULL, OTPassword * pImportPassword=NULL);
+    static bool ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & ascKey, Timer & theTimer, OTPasswordData * pPWData=NULL, OT::Password * pImportPassword=NULL);
     static bool ArmorPublicKey (EVP_PKEY & theKey, OTASCIIArmor & ascKey);
     // -------------------------------------
-    static EVP_PKEY *  CopyPublicKey (EVP_PKEY & theKey, OTPasswordData * pPWData=NULL, OTPassword * pImportPassword=NULL);  // CALLER must EVP_pkey_free!
-    static EVP_PKEY *  CopyPrivateKey(EVP_PKEY & theKey, OTPasswordData * pPWData=NULL, OTPassword * pImportPassword=NULL);  // CALLER must EVP_pkey_free!
+    static EVP_PKEY *  CopyPublicKey (EVP_PKEY & theKey, OTPasswordData * pPWData=NULL, OT::Password * pImportPassword=NULL);  // CALLER must EVP_pkey_free!
+    static EVP_PKEY *  CopyPrivateKey(EVP_PKEY & theKey, OTPasswordData * pPWData=NULL, OT::Password * pImportPassword=NULL);  // CALLER must EVP_pkey_free!  
 // ***************************************************************
 
     // INSTANCES...
@@ -492,8 +493,8 @@ private:
     // HIGH LEVEL (internal) METHODS
     //
 EXPORT const EVP_PKEY * GetKey(OTPasswordData * pPWData=NULL);
-
-	void SetKeyAsCopyOf(EVP_PKEY & theKey, bool bIsPrivateKey=false, OTPasswordData * pPWData=NULL, OTPassword * pImportPassword=NULL);
+    
+	void SetKeyAsCopyOf(EVP_PKEY & theKey, bool bIsPrivateKey=false, OTPasswordData * pPWData=NULL, OT::Password * pImportPassword=NULL);
     // ---------------------------------------------------------------
     // LOW LEVEL (internal) METHODS
     //

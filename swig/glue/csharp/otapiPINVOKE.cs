@@ -350,155 +350,143 @@ class otapiPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_delete_MapStringString")]
   public static extern void delete_MapStringString(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_PW_DISPLAY_get")]
-  public static extern string OT_PW_DISPLAY_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp__SecureAllocateVoid")]
+  public static extern global::System.IntPtr _SecureAllocateVoid(uint jarg1, uint jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp__SecureDeallocateVoid")]
+  public static extern void _SecureDeallocateVoid(uint jarg1, uint jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPASSWORD_BLOCKSIZE_get")]
   public static extern int OTPASSWORD_BLOCKSIZE_get();
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPASSWORD_MEMSIZE_get")]
-  public static extern int OTPASSWORD_MEMSIZE_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getType")]
+  public static extern int Password_getType(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_LARGE_BLOCKSIZE_get")]
-  public static extern int OT_LARGE_BLOCKSIZE_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getData")]
+  public static extern global::System.IntPtr Password_getData(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_LARGE_MEMSIZE_get")]
-  public static extern int OT_LARGE_MEMSIZE_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_delete_Password")]
+  public static extern void delete_Password(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_DEFAULT_BLOCKSIZE_get")]
-  public static extern int OT_DEFAULT_BLOCKSIZE_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getMemory__SWIG_0")]
+  public static extern global::System.IntPtr Password_getMemory__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_DEFAULT_MEMSIZE_get")]
-  public static extern int OT_DEFAULT_MEMSIZE_get();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getMemory__SWIG_1")]
+  public static extern void Password_getMemory__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_m_theBlockSize_get")]
-  public static extern int OTPassword_m_theBlockSize_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getMemoryConst__SWIG_0")]
+  public static extern global::System.IntPtr Password_getMemoryConst__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_isPassword")]
-  public static extern bool OTPassword_isPassword(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_getMemoryConst__SWIG_1")]
+  public static extern void Password_getMemoryConst__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getPassword_uint8")]
-  public static extern global::System.IntPtr OTPassword_getPassword_uint8(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_length")]
+  public static extern uint Password_length(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getPassword")]
-  public static extern string OTPassword_getPassword(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_resize")]
+  public static extern void Password_resize(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getPasswordWritable")]
-  public static extern global::System.IntPtr OTPassword_getPasswordWritable(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_zero")]
+  public static extern void Password_zero(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getPasswordWritable_char")]
-  public static extern string OTPassword_getPasswordWritable_char(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_Password_randomize")]
+  public static extern bool Password_randomize(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_setPassword")]
-  public static extern int OTPassword_setPassword(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, int jarg3);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_StringPassword__SWIG_0")]
+  public static extern global::System.IntPtr new_StringPassword__SWIG_0();
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_setPassword_uint8")]
-  public static extern int OTPassword_setPassword_uint8(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_StringPassword__SWIG_1")]
+  public static extern global::System.IntPtr new_StringPassword__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_addChar")]
-  public static extern bool OTPassword_addChar(global::System.Runtime.InteropServices.HandleRef jarg1, byte jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_StringPassword__SWIG_2")]
+  public static extern global::System.IntPtr new_StringPassword__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizePassword__SWIG_0")]
-  public static extern int OTPassword_randomizePassword__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_getCopy")]
+  public static extern global::System.IntPtr StringPassword_getCopy(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizePassword__SWIG_1")]
-  public static extern int OTPassword_randomizePassword__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_getChars")]
+  public static extern string StringPassword_getChars(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizePassword_uint8")]
-  public static extern bool OTPassword_randomizePassword_uint8(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_length")]
+  public static extern uint StringPassword_length(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizePassword__SWIG_2")]
-  public static extern bool OTPassword_randomizePassword__SWIG_2(string jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_resize")]
+  public static extern void StringPassword_resize(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_isMemory")]
-  public static extern bool OTPassword_isMemory(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_zero")]
+  public static extern void StringPassword_zero(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getMemory")]
-  public static extern global::System.IntPtr OTPassword_getMemory(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_randomize__SWIG_0")]
+  public static extern bool StringPassword_randomize__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getMemory_uint8")]
-  public static extern global::System.IntPtr OTPassword_getMemory_uint8(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_randomize__SWIG_1")]
+  public static extern bool StringPassword_randomize__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getMemoryWritable")]
-  public static extern global::System.IntPtr OTPassword_getMemoryWritable(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_delete_StringPassword")]
+  public static extern void delete_StringPassword(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_setMemory")]
-  public static extern int OTPassword_setMemory(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_BinaryPassword__SWIG_0")]
+  public static extern global::System.IntPtr new_BinaryPassword__SWIG_0();
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_addMemory")]
-  public static extern int OTPassword_addMemory(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_BinaryPassword__SWIG_1")]
+  public static extern global::System.IntPtr new_BinaryPassword__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeMemory__SWIG_0")]
-  public static extern int OTPassword_randomizeMemory__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_getCopy")]
+  public static extern global::System.IntPtr BinaryPassword_getCopy(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeMemory__SWIG_1")]
-  public static extern int OTPassword_randomizeMemory__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_BinaryPassword__SWIG_2")]
+  public static extern global::System.IntPtr new_BinaryPassword__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeMemory_uint8")]
-  public static extern bool OTPassword_randomizeMemory_uint8(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_append")]
+  public static extern void BinaryPassword_append(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeMemory__SWIG_2")]
-  public static extern bool OTPassword_randomizeMemory__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_getMemoryCopy__SWIG_0")]
+  public static extern global::System.IntPtr BinaryPassword_getMemoryCopy__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getBlockSize")]
-  public static extern uint OTPassword_getBlockSize(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_getMemoryCopy__SWIG_1")]
+  public static extern void BinaryPassword_getMemoryCopy__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_Compare")]
-  public static extern bool OTPassword_Compare(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_getMemoryCopyOnto")]
+  public static extern void BinaryPassword_getMemoryCopyOnto(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getPasswordSize")]
-  public static extern uint OTPassword_getPasswordSize(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_toString")]
+  public static extern global::System.IntPtr BinaryPassword_toString(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_getMemorySize")]
-  public static extern uint OTPassword_getMemorySize(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_length")]
+  public static extern uint BinaryPassword_length(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_zeroMemory__SWIG_0")]
-  public static extern void OTPassword_zeroMemory__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_resize")]
+  public static extern void BinaryPassword_resize(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_zeroMemory__SWIG_1")]
-  public static extern void OTPassword_zeroMemory__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_zero")]
+  public static extern void BinaryPassword_zero(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_zeroMemory__SWIG_2")]
-  public static extern void OTPassword_zeroMemory__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_randomize__SWIG_0")]
+  public static extern bool BinaryPassword_randomize__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_safe_memcpy__SWIG_0")]
-  public static extern global::System.IntPtr OTPassword_safe_memcpy__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, uint jarg4, bool jarg5);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_randomize__SWIG_1")]
+  public static extern bool BinaryPassword_randomize__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_safe_memcpy__SWIG_1")]
-  public static extern global::System.IntPtr OTPassword_safe_memcpy__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, uint jarg4);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_delete_BinaryPassword")]
+  public static extern void delete_BinaryPassword(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_CreateTextBuffer")]
-  public static extern global::System.IntPtr OTPassword_CreateTextBuffer();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_PW_DISPLAY_get")]
+  public static extern string OT_PW_DISPLAY_get();
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_SetSize")]
-  public static extern bool OTPassword_SetSize(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeData")]
+  public static extern bool OTPassword_randomizeData(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_0")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_0(int jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_randomizeMemory")]
+  public static extern bool OTPassword_randomizeMemory(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_1")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_1();
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_zeroMemory")]
+  public static extern void OTPassword_zeroMemory(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_2")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTPassword_copyMemory")]
+  public static extern void OTPassword_copyMemory(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
 
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_3")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_3(string jarg1, uint jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_4")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_4(string jarg1, uint jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_5")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_5(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_6")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_6(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_7")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_7(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword__SWIG_8")]
-  public static extern global::System.IntPtr new_OTPassword__SWIG_8(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_new_OTPassword")]
+  public static extern global::System.IntPtr new_OTPassword();
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_delete_OTPassword")]
   public static extern void delete_OTPassword(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -540,7 +528,7 @@ class otapiPINVOKE {
   public static extern string OTCaller_GetDisplay(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTCaller_SetDisplay")]
-  public static extern void OTCaller_SetDisplay(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, int jarg3);
+  public static extern void OTCaller_SetDisplay(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTCaller_delCallback")]
   public static extern void OTCaller_delCallback(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -3238,6 +3226,12 @@ class otapiPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OT_API_Set_PasswordCallback")]
   public static extern bool OT_API_Set_PasswordCallback(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_StringPassword_SWIGUpcast")]
+  public static extern global::System.IntPtr StringPassword_SWIGUpcast(global::System.IntPtr jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_BinaryPassword_SWIGUpcast")]
+  public static extern global::System.IntPtr BinaryPassword_SWIGUpcast(global::System.IntPtr jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("otapi-csharp", EntryPoint="CSharp_OTDBString_SWIGUpcast")]
   public static extern global::System.IntPtr OTDBString_SWIGUpcast(global::System.IntPtr jarg1);

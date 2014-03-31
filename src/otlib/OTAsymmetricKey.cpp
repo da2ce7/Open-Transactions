@@ -134,7 +134,6 @@
 
 #include <OTAsymmetricKey.hpp>
 
-#include <OTPassword.hpp>
 #include <OTAssert.hpp>
 #include <OTASCIIArmor.hpp>
 #include <OTLog.hpp>
@@ -423,7 +422,7 @@ void OTAsymmetricKey_OpenSSL::SetX509(X509 * x509)
 // -------------------------------------------------------------------------------------------
 
 
-void OTAsymmetricKey_OpenSSL::SetKeyAsCopyOf(EVP_PKEY & theKey, bool bIsPrivateKey/*=false*/, OTPasswordData * pPWData/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+void OTAsymmetricKey_OpenSSL::SetKeyAsCopyOf(EVP_PKEY & theKey, bool bIsPrivateKey/*=false*/, OTPasswordData * pPWData/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 { 
 	this->Release();
     OTPasswordData thePWData(NULL == pImportPassword ?
@@ -528,7 +527,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::InstantiateKey(OTPasswordData * pPWData/*=NU
 bool OTAsymmetricKey_OpenSSL::LoadPrivateKeyFromCertString(const OTString & strCert, // Contains certificate and private key.
                                                            bool bEscaped/*=true*/, // "escaped" means pre-pended with "- " as in:   - -----BEGIN CER....
                                                            const OTString * pstrReason/*=NULL*/,  // This reason is what displays on the passphrase dialog.
-                                                           OTPassword     * pImportPassword/*=NULL*/) // Used when importing an exported Nym into a wallet.
+                                                           OT::Password     * pImportPassword/*=NULL*/) // Used when importing an exported Nym into a wallet.
 {   
 	Release();
 	// --------------------------------------------------------------------	
@@ -602,8 +601,10 @@ bool OTAsymmetricKey_OpenSSL::LoadPrivateKeyFromCertString(const OTString & strC
         }
         else // Otherwise, use pImportPassword instead of the normal OTCachedKey system.
         {
+            ;
+
 //          OTLog::vOutput(0, "%s: READING using EXPORT password.\n", __FUNCTION__);
-            pkey = PEM_read_bio_PrivateKey( bio, NULL, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())) );
+            pkey = PEM_read_bio_PrivateKey(bio, NULL, 0, pImportPassword->getMemory().first);
         }
         // ------------------------------------------------------
 //      if (strWithBookends.GetLength() > 0)
@@ -614,7 +615,7 @@ bool OTAsymmetricKey_OpenSSL::LoadPrivateKeyFromCertString(const OTString & strC
 		{ 
 			OTLog::vError("%s: (pImportPassword size: %d) Error reading private key from string.\n\n",
 						  __FUNCTION__,
-                          NULL == pImportPassword ? 0 : pImportPassword->getPasswordSize());
+                          NULL == pImportPassword ? 0 : pImportPassword->length());
 //			OTLog::vError("%s: (pImportPassword is %s, size: %d) Error reading private key from string:\n%s\n\n",
 //						  __FUNCTION__, NULL == pImportPassword ? "NULL" : pImportPassword->getPassword(),
 //                          NULL == pImportPassword ? 0 : pImportPassword->getPasswordSize(),
@@ -645,7 +646,7 @@ bool OTAsymmetricKey_OpenSSL::LoadPrivateKeyFromCertString(const OTString & strC
 //
 bool OTAsymmetricKey_OpenSSL::LoadPublicKeyFromCertString(const OTString   & strCert, bool bEscaped/*=true*/,
                                                           const OTString   * pstrReason/*=NULL*/,
-                                                                OTPassword * pImportPassword/*=NULL*/)
+                                                                OT::Password * pImportPassword/*=NULL*/)
 {
 	Release();
     // ------------------------------
@@ -700,7 +701,7 @@ bool OTAsymmetricKey_OpenSSL::LoadPublicKeyFromCertString(const OTString   & str
     if (NULL == pImportPassword)
         x509 = PEM_read_bio_X509(keyBio, NULL, OTAsymmetricKey::GetPasswordCallback(), &thePWData);
     else
-        x509 = PEM_read_bio_X509(keyBio, NULL, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())));
+        x509 = PEM_read_bio_X509(keyBio, NULL, 0, pImportPassword->getMemory().first);
 		
 	// TODO security: At some point need to switch to using X509_AUX functions.
 	// The current x509 functions will read a trust certificate but discard the trust structure.
@@ -756,7 +757,7 @@ bool OTAsymmetricKey_OpenSSL::LoadPublicKeyFromCertString(const OTString   & str
 
 
 //static      // CALLER must EVP_pkey_free!
-EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPublicKey(EVP_PKEY & theKey, OTPasswordData * pPWData/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPublicKey(EVP_PKEY & theKey, OTPasswordData * pPWData/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     // ----------------------------------------
 	// Create a new memory buffer on the OpenSSL side
@@ -791,12 +792,10 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPublicKey(EVP_PKEY & theKey, OTPasswordD
 
             // Set the buffer size in our own memory.
             theData.SetPayloadSize(nSize);
-            
-            void * pv = 
-               OTPassword::safe_memcpy((static_cast<char*>(const_cast<void*>(theData.GetPayloadPointer()))), // destination
-                                    theData.GetSize(),    // size of destination buffer.
-                                    pChar,                // source
-                                    nSize);               // length of source.
+
+            theData.Assign(pChar, nSize);
+            const void* pv = theData.GetPayloadPointer();
+
             // bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
 
             if (NULL != pv)
@@ -853,12 +852,12 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPublicKey(EVP_PKEY & theKey, OTPasswordD
 // you pass to it. You CANNOT free that memory until you destroy the BIO.
 //
 // That's why you see me copying one bio into a payload, before copying it into
-// the next bio. Todo security: copy it into an OTPassword here, instead of an
+// the next bio. Todo security: copy it into an OT::Password here, instead of an
 // OTPayload, which is safer, and more appropriate for a private key. Make sure
-// OTPassword can accommodate a bit larger size than what it does now.
+// OT::Password can accommodate a bit larger size than what it does now.
 //
 //static      // CALLER must EVP_pkey_free!
-EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPrivateKey(EVP_PKEY & theKey, OTPasswordData * pPWData/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPrivateKey(EVP_PKEY & theKey, OTPasswordData * pPWData/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     const EVP_CIPHER * pCipher = EVP_des_ede3_cbc(); // todo should this algorithm be hardcoded?
     // ----------------------------------------
@@ -883,7 +882,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPrivateKey(EVP_PKEY & theKey, OTPassword
                                              NULL, 0, OTAsymmetricKey::GetPasswordCallback(), NULL == pPWData ? &thePWDataWrite : pPWData);
     else
         nWriteBio = PEM_write_bio_PrivateKey(bmem, &theKey, pCipher,
-                                             NULL, 0, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())));
+                                             NULL, 0, 0, pImportPassword->getMemory().first);
 	// ------------------------------------------------------------------------
 	if (0 == nWriteBio)
 	{
@@ -907,14 +906,9 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPrivateKey(EVP_PKEY & theKey, OTPassword
             
             // Set the buffer size in our own memory.
             theData.SetPayloadSize(nSize);
-            
-            void * pv = 
-               OTPassword::safe_memcpy((static_cast<char*>(const_cast<void*>(theData.GetPayloadPointer()))), // destination
-                                       theData.GetSize(),    // size of destination buffer.
-                                       pChar,                // source
-                                       nSize);               // length of source.
-            // bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
-            
+            theData.Assign(pChar, nSize);
+            const void * pv = theData.GetPayloadPointer();
+
             if (NULL != pv)
             {
                 // -----------------------------------------------
@@ -932,7 +926,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::CopyPrivateKey(EVP_PKEY & theKey, OTPassword
                 if (NULL == pImportPassword)
                     pReturnKey = PEM_read_bio_PrivateKey( keyBio, NULL, OTAsymmetricKey::GetPasswordCallback(), NULL == pPWData ? &thePWData : pPWData);
                 else
-                    pReturnKey = PEM_read_bio_PrivateKey( keyBio, NULL, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())));
+                    pReturnKey = PEM_read_bio_PrivateKey( keyBio, NULL, 0, pImportPassword->getMemory().first);
                 // -------------------------------------------
             }
             else 
@@ -1000,15 +994,8 @@ bool OTAsymmetricKey_OpenSSL::ArmorPublicKey(EVP_PKEY & theKey, OTASCIIArmor & a
 		{
 			// Set the buffer size in our own memory.
 			theData.SetPayloadSize(nSize);
+            theData.Assign(pChar, nSize);
             
-//            void * pv = 
-                OTPassword::safe_memcpy((static_cast<char*>(const_cast<void*>(theData.GetPayloadPointer()))), // destination
-                                    theData.GetSize(),    // size of destination buffer.
-                                    pChar,                // source
-                                    nSize);               // length of source.
-                                    // bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
-            
-            // ------------------------------------------------
 			// This base64 encodes the public key data
             //
 			ascKey.SetData(theData);
@@ -1093,7 +1080,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::InstantiatePublicKey(OTPasswordData * pPWDat
 
 // Used when importing / exporting Nym to/from the wallet.
 //
-bool OTAsymmetricKey_OpenSSL::ReEncryptPrivateKey(OTPassword & theExportPassword, bool bImporting)
+bool OTAsymmetricKey_OpenSSL::ReEncryptPrivateKey(OT::Password & theExportPassword, bool bImporting)
 {
     OT_ASSERT(m_p_ascKey != NULL);
     OT_ASSERT(IsPrivate());
@@ -1129,7 +1116,7 @@ bool OTAsymmetricKey_OpenSSL::ReEncryptPrivateKey(OTPassword & theExportPassword
         if (bImporting)
         {
 //          OTLog::vOutput(0, "RE-ENCRYPT PRIVATE KEY -- READING using special EXPORT password: %s\n", theExportPassword.getPassword());
-            pClearKey = PEM_read_bio_PrivateKey( keyBio, NULL, 0, const_cast<void*>(reinterpret_cast<const void*>(theExportPassword.getPassword())) );
+            pClearKey = PEM_read_bio_PrivateKey(keyBio, NULL, 0, theExportPassword.getMemory().first);
         }
         // --------------------------------------
         // Else if we're exporting, that means we're currently stored in the wallet (i.e. using the wallet's
@@ -1180,7 +1167,7 @@ bool OTAsymmetricKey_OpenSSL::ReEncryptPrivateKey(OTPassword & theExportPassword
 //              OTLog::vOutput(0, "RE-ENCRYPT PRIVATE KEY -- WRITING using special EXPORT password: %s  Size: %d\n", theExportPassword.getPassword(),
 //                             theExportPassword.getPasswordSize());
                 nWriteBio = PEM_write_bio_PrivateKey(bmem, pClearKey, pCipher,
-                                                     NULL, 0, 0, const_cast<void*>(reinterpret_cast<const void*>(theExportPassword.getPassword())));
+                    NULL, 0, 0, theExportPassword.getMemory().first);
             }
             // ----------------------------------------
             EVP_PKEY_free(pClearKey);
@@ -1205,13 +1192,7 @@ bool OTAsymmetricKey_OpenSSL::ReEncryptPrivateKey(OTPassword & theExportPassword
                 {
                     // Set the buffer size in our own memory.
                     theNewData.SetPayloadSize(nSize);
-                    
-//                  void * pv =
-                    OTPassword::safe_memcpy((static_cast<char*>(const_cast<void*>(theNewData.GetPayloadPointer()))), // destination
-                                            theNewData.GetSize(),    // size of destination buffer.
-                                            pChar,                // source
-                                            nSize);               // length of source.
-                                         // bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
+                    theNewData.Assign(pChar, nSize);
                     // ------------------------------------------------
                     // This base64 encodes the private key data, which
                     // is already encrypted to its passphase as well.
@@ -1315,7 +1296,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::InstantiatePrivateKey(OTPasswordData * pPWDa
 // -------------------------------------------------------------------------------------------
 
 //static
-bool OTAsymmetricKey_OpenSSL::ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & ascKey, Timer & theTimer, OTPasswordData * pPWData/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTAsymmetricKey_OpenSSL::ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & ascKey, Timer & theTimer, OTPasswordData * pPWData/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
 	bool bReturnVal = false;
     
@@ -1341,7 +1322,7 @@ bool OTAsymmetricKey_OpenSSL::ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & 
                                              NULL, 0, OTAsymmetricKey::GetPasswordCallback(), pPWData);
     else
         nWriteBio = PEM_write_bio_PrivateKey(bmem, &theKey, EVP_des_ede3_cbc(), // todo should this algorithm be hardcoded?
-                                             NULL, 0, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())));
+                                             NULL, 0, 0, pImportPassword->getMemory().first);
 	
 	if (0 == nWriteBio)
 	{
@@ -1373,13 +1354,7 @@ bool OTAsymmetricKey_OpenSSL::ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & 
 		{
 			// Set the buffer size in our own memory.
 			theData.SetPayloadSize(nSize);
-            
-//            void * pv = 
-                OTPassword::safe_memcpy((static_cast<char*>(const_cast<void*>(theData.GetPayloadPointer()))), // destination
-                                    theData.GetSize(),    // size of destination buffer.
-                                    pChar,                // source
-                                    nSize);               // length of source.
-            // bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
+            theData.Assign(pChar, nSize);
             
             // ------------------------------------------------
 			// This base64 encodes the private key data, which
@@ -1400,7 +1375,7 @@ bool OTAsymmetricKey_OpenSSL::ArmorPrivateKey(EVP_PKEY & theKey, OTASCIIArmor & 
 }
 
 //virtual
-bool OTAsymmetricKey_OpenSSL::SaveCertToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTAsymmetricKey_OpenSSL::SaveCertToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     X509 * x509 = this->GetX509();
     
@@ -1451,7 +1426,7 @@ bool OTAsymmetricKey_OpenSSL::SaveCertToString(OTString & strOutput, const OTStr
 // -------------------------------------------------------------------------------------------
 
 //virtual
-bool OTAsymmetricKey_OpenSSL::SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OTPassword * pImportPassword/*=NULL*/)
+bool OTAsymmetricKey_OpenSSL::SavePrivateKeyToString(OTString & strOutput, const OTString * pstrReason/*=NULL*/, OT::Password * pImportPassword/*=NULL*/)
 {
     const EVP_CIPHER * pCipher = EVP_des_ede3_cbc(); // todo security (revisit this mode...)
     // ---------------------------------------
@@ -1483,7 +1458,7 @@ bool OTAsymmetricKey_OpenSSL::SavePrivateKeyToString(OTString & strOutput, const
         PEM_write_bio_PrivateKey(bio_out_pri,
                                  pPrivateKey,
                                  pCipher,
-                                 NULL, 0, 0, const_cast<void*>(reinterpret_cast<const void*>(pImportPassword->getPassword())));
+                                 NULL, 0, 0, pImportPassword->getMemory().first);
     // ---------------------------------------
     bool bSuccess = false;
     
@@ -2131,12 +2106,9 @@ OPENSSL_CALLBACK_FUNC(default_pass_cb)
     const uint32_t theLength = static_cast<const uint32_t>(len);
     // ------------------------------------------------------
     
-    //void * pv = 
-    OTPassword::safe_memcpy(buf,        // destination
-                            theSize,    // size of destination buffer.
-                            tmp_passwd, // source
-                            theLength); // length of source.
-                            //bool bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
+    size_t nSize = theSize;
+    OTPassword::copyMemory(tmp_passwd, theLength, buf, nSize);
+
 	return len;
 }
 //#ifdef _WIN32
@@ -2172,7 +2144,7 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
     OTPasswordData * pPWData  = static_cast<OTPasswordData *>(userdata);
     const std::string str_userdata = pPWData->GetDisplayString();    
     // -----------------------------------------------------
-    OTPassword  thePassword;
+    OT::StringPassword  thePassword;
     bool        bGotPassword = false;
     // -------------------------------------
     _SharedPtr<OTCachedKey> pCachedKey(pPWData->GetCachedKey()); // Sometimes it's passed in, otherwise we use the global one.
@@ -2236,7 +2208,7 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
         // if necessary, and thus it forces an "ask twice" in that situation anyway. (It's that smart.)
         // Actually that's it. The master already asks twice when it's generating.
         
-//      bool   GetMasterPassword(      OTPassword & theOutput,
+//      bool   GetMasterPassword(      OT::Password & theOutput,
 //                               const char       * szDisplay=NULL,
 //                                     bool         bVerifyTwice=false);
 
@@ -2268,7 +2240,7 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
             // ---------------------------------------
             // The dialog should display this string (so the user knows what he is authorizing.)
             //
-            pCaller->SetDisplay(str_userdata.c_str(), static_cast<int32_t> (str_userdata.size()));
+            pCaller->SetDisplay(str_userdata);
             
             // ---------------------------------------
             if (1 == rwflag)
@@ -2288,14 +2260,14 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
             /*
              NOTICE: (For security...)
              
-             We are using an OTPassword object to collect the password from the caller. 
-             (We're not passing strings back and forth.) The OTPassword object is where we
+             We are using an OT::Password object to collect the password from the caller. 
+             (We're not passing strings back and forth.) The OT::Password object is where we
              can centralize our efforts to scrub the memory clean as soon as we're done with
              the password. It's also designed to be light (no baggage) and to be passed around
              easily, with a set-size array for the data.
 
-             Notice I am copying the password directly from the OTPassword object into the buffer
-             provided to me by OpenSSL. When the OTPassword object goes out of scope, then it cleans
+             Notice I am copying the password directly from the OT::Password object into the buffer
+             provided to me by OpenSSL. When the OT::Password object goes out of scope, then it cleans
              up automatically.
              */
             
@@ -2314,7 +2286,7 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
 	 http://openssl.org/docs/crypto/pem.html#
 	 "The callback must return the number of characters in the passphrase or 0 if an error occurred."
 	 */
-	int32_t len	= thePassword.isPassword() ? thePassword.getPasswordSize() : thePassword.getMemorySize();
+    int32_t len = thePassword.length();
 	
 	if (len < 0) 
 	{
@@ -2332,16 +2304,11 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
                        "returned from the API password callback. "
                        "Substituting default password 'test'.\n", __FUNCTION__); // todo: security: is this safe? Here's what's driving this: We can't return 0 length string, but users wanted to be able to "just hit enter" and use an empty passphrase. So for cases where the user has explicitly "hit enter" we will substitute "test" as their passphrase instead. They still have to do this explicitly--it only happens when they use an empty one. 
 		
-        if (thePassword.isPassword())
-            thePassword.setPassword(szDefault, static_cast<int32_t>(OTString::safe_strlen(szDefault, _PASSWORD_LEN)));
-        else
-            thePassword.setMemory(static_cast<const void *>(szDefault),
-                                  static_cast<uint32_t>(OTString::safe_strlen(szDefault, _PASSWORD_LEN)) + 1); // setMemory doesn't assume the null terminator like setPassword does.
-        
-        len	= thePassword.isPassword() ? thePassword.getPasswordSize() : thePassword.getMemorySize();
+        thePassword(szDefault);
+        len = thePassword.length();
 	}
     // -------------------------------------------------------
-    OTPassword * pMasterPW = pPWData->GetMasterPW();
+    OT::Password * pMasterPW = pPWData->GetMasterPW();
 
     if (pPWData->isForCachedKey() && (NULL != pMasterPW))
     {
@@ -2350,39 +2317,12 @@ OPENSSL_CALLBACK_FUNC(souped_up_pass_cb)
     // --------------------------------------	
     else if (NULL != buf)
     {
-        // if too int64_t, truncate
-        if (len > size) 
-            len = size;
-        
-        const uint32_t theSize   = static_cast<uint32_t>(size);
-        const uint32_t theLength = static_cast<uint32_t>(len);
+        SecureDataVector vPass = thePassword.getData();
+        vPass.resize(size);
+        vPass.back() = '\0'; // add null terminator, anyway.
 
-        if (thePassword.isPassword())
-        {
-//          OTLog::vError("%s: BEFORE TEXT PASSWORD: %s  LENGTH: %d\n", __FUNCTION__, thePassword.getPassword(), theLength);
-
-            OTPassword::safe_memcpy(buf,                   // destination
-                                    theSize,               // size of destination buffer.
-                                    thePassword.getPassword_uint8(), // source
-                                    theLength); // length of source.
-                                   //bool bZeroSource=false); // No need to set this true, since OTPassword (source) already zeros its memory automatically.
-            buf[theLength] = '\0'; // null terminator.
-            
-//          int32_t nSize = static_cast<int32_t>(thePassword.getPasswordSize());
-//          OTLog::vError("%s: AFTER TEXT PASSWORD: %s  LENGTH: %d\n", __FUNCTION__, buf, nSize);
-        }
-        else
-        {
-            OTPassword::safe_memcpy(buf,                   // destination
-                                    theSize,               // size of destination buffer.
-                                    thePassword.getMemory_uint8(), // source
-                                    theLength); // length of source.
-                                   //bool bZeroSource=false); // No need to set this true, since OTPassword (source) already zeros its memory automatically.
-            
-//          int32_t nSize = static_cast<int32_t>(thePassword.getMemorySize());
-//          OTLog::vError("%s: (BINARY PASSWORD)  LENGTH: %d\n", __FUNCTION__, nSize);
-        }
-        
+        OT::BinaryPassword bPass(vPass);
+        bPass.getMemoryCopyOnto(static_cast<void *>(buf), size);
     }
     // --------------------------------------	
     else // should never happen
@@ -2876,7 +2816,7 @@ void OTAsymmetricKey::Release()
 bool OTAsymmetricKey::LoadPrivateKey(const  OTString   & strFoldername, 
                                      const  OTString   & strFilename,
                                      const  OTString   * pstrReason/*=NULL*/,
-                                            OTPassword * pImportPassword/*=NULL*/) // This reason is what displays on the passphrase dialog.
+                                            OT::Password * pImportPassword/*=NULL*/) // This reason is what displays on the passphrase dialog.
 {    
 	Release();
 
@@ -2962,7 +2902,7 @@ bool OTAsymmetricKey::LoadPublicKey(const OTString & strFoldername, const OTStri
 //
 bool OTAsymmetricKey::LoadPublicKeyFromCertFile(const OTString   & strFoldername, const OTString & strFilename,
                                                 const OTString   * pstrReason/*=NULL*/,
-                                                      OTPassword * pImportPassword/*=NULL*/)
+                                                      OT::Password * pImportPassword/*=NULL*/)
 {
 	Release();
 	

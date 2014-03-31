@@ -11428,7 +11428,7 @@ std::string OTAPI_Exec::Purse_Pop(const std::string & SERVER_ID,
 	std::string strFunc = __FUNCTION__; //"OTAPI_Exec::Purse_Pop";
 	// -----------------------------------------------------
 	const OTString strReason("Popping a token off of a cash purse.");
-	OTPasswordData thePWData(strReason);
+	OTPasswordData thePWData(strReason.Get());
 	// -----------------------------------
 	const OTIdentifier theServerID(SERVER_ID),
 		theAssetTypeID(ASSET_TYPE_ID),
@@ -11508,7 +11508,7 @@ std::string OTAPI_Exec::Purse_Empty(const std::string & SERVER_ID,
 	std::string strFunc = __FUNCTION__; //"OTAPI_Exec::Purse_Empty";
 	// -----------------------------------------------------
 	const OTString strReason("Creating an empty copy of a cash purse.");
-	OTPasswordData thePWData(strReason);
+    OTPasswordData thePWData(strReason.Get());
 	// -----------------------------------
 	const OTIdentifier theServerID(SERVER_ID),
 		theAssetTypeID(ASSET_TYPE_ID),
@@ -11566,7 +11566,7 @@ std::string OTAPI_Exec::Purse_Push(const std::string & SERVER_ID,
 	std::string strFunc = __FUNCTION__; //"OTAPI_Exec::Purse_Push";
 	// -----------------------------------------------------
 	const OTString strReason("Pushing a token onto a cash purse.");
-	OTPasswordData thePWData(strReason);
+    OTPasswordData thePWData(strReason.Get());
 	// -----------------------------------
 	const bool & bDoesOwnerIDExist = (("" != OWNER_ID) && ('\0' != OWNER_ID[0])); // If bDoesOwnerIDExist is not true, then the purse MUST be password-protected.
 	// -----------------------------------

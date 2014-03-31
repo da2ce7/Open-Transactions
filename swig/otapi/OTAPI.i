@@ -557,7 +557,7 @@ OT_IS_ELEMENT_TYPE(TradeListNym)
 %newobject CreateStorageContext(StorageType eStoreType, PackType ePackType=OTDB_DEFAULT_PACKER);
 
 
-%ignore OTPassword::operator=(const OTPassword & rhs);
+%ignore OT::Password::operator=(const OT::Password & rhs);
 %ignore OTPasswordData;
 %ignore clone;
 %ignore Storable::Create(StoredObjectType eType, PackType thePackType);

@@ -239,9 +239,9 @@ bool OTEnvelope::SetFromBookendedString(const OTString & strArmorWithBookends, /
 // kept encrypted in an OTSymmetricKey (encrypted using another key derived from  
 // thePassword.)
 
-bool OTEnvelope::Encrypt(const OTString & theInput, OTSymmetricKey & theKey, const OTPassword & thePassword)
+bool OTEnvelope::Encrypt(const OTString & theInput, OTSymmetricKey & theKey, const OT::Password & thePassword)
 {
-    OT_ASSERT((thePassword.isPassword() && (thePassword.getPasswordSize() > 0)) || (thePassword.isMemory() && (thePassword.getMemorySize() > 0)));
+    OT_ASSERT(0 < thePassword.length());
     OT_ASSERT(theInput.Exists());
     // -----------------------------------------------
     // Generate a random initialization vector.
@@ -276,7 +276,7 @@ bool OTEnvelope::Encrypt(const OTString & theInput, OTSymmetricKey & theKey, con
 
 	OT_ASSERT(theKey.HasHashCheck());
 
-    OTPassword  theRawSymmetricKey;
+    OT::BinaryPassword  theRawSymmetricKey;
     
     if (false == theKey.GetRawKeyFromPassphrase(thePassword, theRawSymmetricKey))
     {
@@ -360,14 +360,14 @@ bool OTEnvelope::Encrypt(const OTString & theInput, OTSymmetricKey & theKey, con
 
 
 //
-bool OTEnvelope::Decrypt(OTString & theOutput, const OTSymmetricKey & theKey, const OTPassword & thePassword)
+bool OTEnvelope::Decrypt(OTString & theOutput, const OTSymmetricKey & theKey, const OT::Password & thePassword)
 {
     const char * szFunc = "OTEnvelope::Decrypt";
     // ------------------------------------------------
-    OT_ASSERT((thePassword.isPassword() && (thePassword.getPasswordSize() > 0)) || (thePassword.isMemory() && (thePassword.getMemorySize() > 0)));
+    OT_ASSERT(0 > thePassword.length());
     OT_ASSERT(theKey.IsGenerated());
     // -----------------------------------------------
-    OTPassword  theRawSymmetricKey;
+    OT::BinaryPassword  theRawSymmetricKey;
     
     if (false == theKey.GetRawKeyFromPassphrase(thePassword, theRawSymmetricKey))
     {
@@ -483,7 +483,7 @@ bool OTEnvelope::Decrypt(OTString & theOutput, const OTSymmetricKey & theKey, co
                                                     // -------------------------------
                                                     theIV,
                                                     // -------------------------------
-                                                    thePlaintext); // OUTPUT. (Recovered plaintext.) You can pass OTPassword& OR OTPayload& here (either will work.)
+                                                    &thePlaintext); // OUTPUT. (Recovered plaintext.) You can pass OT::Password& OR OTPayload& here (either will work.)
     // -----------------------------------------------
     // theOutput is where we'll put the decrypted data.
     //
@@ -594,10 +594,10 @@ OTNym_or_SymmetricKey::OTNym_or_SymmetricKey(const OTSymmetricKey & theKey, cons
     
 }
 
-OTNym_or_SymmetricKey::OTNym_or_SymmetricKey(const OTSymmetricKey & theKey, const OTPassword & thePassword, // construct with key and password.
+OTNym_or_SymmetricKey::OTNym_or_SymmetricKey(const OTSymmetricKey & theKey, const OT::Password & thePassword, // construct with key and password.
                                              const OTString * pstrDisplay/*=NULL*/) 
 : m_pNym(NULL), m_pKey(const_cast<OTSymmetricKey *>(&theKey)),
-  m_pPassword(const_cast<OTPassword *>(&thePassword)), m_bCleanupPassword(false), m_pstrDisplay(pstrDisplay)
+  m_pPassword(const_cast<OT::Password *>(&thePassword)), m_bCleanupPassword(false), m_pstrDisplay(pstrDisplay)
 {
     
 }
@@ -651,7 +651,7 @@ void OTNym_or_SymmetricKey::Release_Nym_or_SymmetricKey()
 
     if (NULL != m_pPassword)
     {
-        m_pPassword->zeroMemory();
+        m_pPassword->zero();
         // -------------
         if (m_bCleanupPassword) // Only in cases where *this is the actual owner of m_pPassword.
         {
@@ -731,7 +731,7 @@ bool OTNym_or_SymmetricKey::Open_or_Decrypt(const OTEnvelope & inputEnvelope,
     }
     else if (this->IsKey()) // *this is a symmetric key, possibly with a password already as well.
     {
-        OTPassword * pPassword = NULL;
+        OT::Password * pPassword = NULL;
         
         if (this->HasPassword()) // Password is already available. Let's use it.
             pPassword = this->GetPassword();
@@ -740,7 +740,7 @@ bool OTNym_or_SymmetricKey::Open_or_Decrypt(const OTEnvelope & inputEnvelope,
             const OTString strDisplay((NULL == pstrDisplay) ? szFunc : pstrDisplay->Get());
             // NOTE: m_pstrDisplay overrides this below.
             // -------------------------------------------
-            // returns a text OTPassword, or NULL.
+            // returns a text OT::Password, or NULL.
             //
             pPassword = OTSymmetricKey::GetPassphraseFromUser((NULL == m_pstrDisplay) ? &strDisplay : m_pstrDisplay);//bool bAskTwice=false
             
@@ -804,7 +804,7 @@ bool OTNym_or_SymmetricKey::Seal_or_Encrypt(      OTEnvelope & outputEnvelope,
     // -------------------------------------------
     else if (this->IsKey())
     {
-        OTPassword * pPassword = NULL;
+        OT::Password * pPassword = NULL;
         
         if (this->HasPassword()) // Password is already available. Let's use it.
             pPassword = this->GetPassword();
@@ -813,7 +813,7 @@ bool OTNym_or_SymmetricKey::Seal_or_Encrypt(      OTEnvelope & outputEnvelope,
             const OTString strDisplay((NULL == pstrDisplay) ? szFunc : pstrDisplay->Get());
             // NOTE: m_pstrDisplay overrides this below.
             // -------------------------------------------
-            // returns a text OTPassword, or NULL.
+            // returns a text OT::Password, or NULL.
             //
             pPassword = OTSymmetricKey::GetPassphraseFromUser((NULL == m_pstrDisplay) ? &strDisplay : m_pstrDisplay);//bool bAskTwice=false
             

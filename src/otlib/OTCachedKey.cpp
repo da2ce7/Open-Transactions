@@ -436,7 +436,7 @@ OTCachedKey::~OTCachedKey()
     // -----
     if (NULL != m_pMasterPassword)  // Only stored temporarily, the purpose of this class is to destoy it after a timer.
     {
-        OTPassword * pPassword = m_pMasterPassword;
+        OT::Password * pPassword = m_pMasterPassword;
 
         m_pMasterPassword = NULL;
 
@@ -601,7 +601,7 @@ bool OTCachedKey::GetIdentifier(OTString & strIdentifier) const
 
 // Caller must delete!
 //static
-_SharedPtr<OTCachedKey> OTCachedKey::CreateMasterPassword(OTPassword & theOutput,
+_SharedPtr<OTCachedKey> OTCachedKey::CreateMasterPassword(OT::Password & theOutput,
                                                         const char * szDisplay/*=NULL*/,
                                                         int32_t nTimeoutSeconds/*=OT_MASTER_KEY_TIMEOUT*/)
 {
@@ -626,7 +626,7 @@ _SharedPtr<OTCachedKey> OTCachedKey::CreateMasterPassword(OTPassword & theOutput
 // This will also generate the master password, if one does not already exist.
 //
 bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
-                                    OTPassword            & theOutput,
+                                    OT::Password            & theOutput,
 									const char            * szDisplay,
 									bool bVerifyTwice/*=false*/)
 {
@@ -698,8 +698,8 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
 	// m_pSymmetricKey is the encrypted form of the master key. Therefore we want to hash
 	// it, in order to get the ID for lookups on the keychain.
 	//
-	OTPassword * pDerivedKey = NULL;
-	OTCleanup<OTPassword> theDerivedAngel;
+	OT::Password * pDerivedKey = NULL;
+	OTCleanup<OT::Password> theDerivedAngel;
 	// ---------------------------------
 	if (NULL == m_pSymmetricKey)
 	{
@@ -808,10 +808,10 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
 		//
 
 		std::string default_password(OT_DEFAULT_PASSWORD); // default password
-		OTPassword passwordDefault; passwordDefault.zeroMemory();
-        passwordDefault.setPassword(default_password.c_str(), static_cast<int32_t>(default_password.length()));
+		OT::StringPassword passwordDefault; passwordDefault.zero();
+        passwordDefault(default_password.c_str());
 
-		OTPassword passUserInput;  passUserInput.zeroMemory(); // text mode.
+		OT::StringPassword passUserInput;  passUserInput.zero(); // text mode.
 		OTPasswordData  thePWData(str_display.c_str(), &passUserInput, mySharedPtr); // these pointers are only passed in the case where it's for a master key.
 //      OTLog::vOutput(2, "*********Begin OTCachedKey::GetMasterPassword: Calling souped-up password cb...\n * *  * *  * *  * *  * ");
 		// -----------------------------------------------------------------------
@@ -835,8 +835,7 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
 			// If the length of the user supplied password is less than 4 characters int64_t, we are going to use the default password!
 			bool bUsingDefaultPassword = false;
 			{
-				if (4 > std::string(passUserInput.getPassword()).length())
-				{
+                if (4 > passUserInput.length()) {
 					OTLog::vOutput(0, "\n Password entered was less than 4 characters int64_t! This is NOT secure!!\n"
 						"... Assuming password is for testing only... setting to default password: %s \n",
 						OT_DEFAULT_PASSWORD);
@@ -941,9 +940,7 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
 			// NOT be added to the system keyring, since it's still NULL back up here.
 			// (FYI.)
 			//
-			const bool bCachedKey = m_pSymmetricKey->GetRawKeyFromPassphrase(passUserInput,
-				*m_pMasterPassword,
-				pDerivedKey);
+			const bool bCachedKey = m_pSymmetricKey->GetRawKeyFromPassphrase(passUserInput, *m_pMasterPassword, pDerivedKey);
 			if (bCachedKey)
 			{
 				OTLog::vOutput(2, "%s: Finished calling m_pSymmetricKey->GetRawKeyFromPassphrase (Success.)\n", szFunc);
@@ -1032,7 +1029,7 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
 	{
 		if (NULL != m_pMasterPassword)
         {
-            OTPassword * pMasterPassword = m_pMasterPassword;
+            OT::Password * pMasterPassword = m_pMasterPassword;
 
             m_pMasterPassword = NULL;
 
@@ -1040,7 +1037,7 @@ bool OTCachedKey::GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
         }
 	}
 	// Since we have set the cleartext master password, We also have to fire up the thread
-	// so it can timeout and be destroyed. In the meantime, it'll be stored in an OTPassword
+	// so it can timeout and be destroyed. In the meantime, it'll be stored in an OT::Password
 	// which has these security precautions:
 	/*
 	1. Zeros memory in a secure and cross-platform way, in its destructor.
@@ -1121,8 +1118,8 @@ void OTCachedKey::DestroyMasterPassword()
         //
         if (NULL != m_pMasterPassword)
         {
-            OTPassword * pPassword = m_pMasterPassword;
-
+            OT::Password * pPassword = m_pMasterPassword;
+            
             m_pMasterPassword = NULL;
 
             delete pPassword; pPassword = NULL;
@@ -1172,7 +1169,7 @@ void OTCachedKey::ResetMasterPassword()
     // -----------------------------
     if (NULL != m_pMasterPassword)
     {
-        OTPassword * pPassword = m_pMasterPassword;
+        OT::Password * pPassword = m_pMasterPassword;
 
         m_pMasterPassword = NULL;
 

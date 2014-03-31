@@ -171,7 +171,7 @@ bool OTPurse::GetNymID(OTIdentifier & theOutput) const
 // Prompts the user to enter his actual passphrase, if necessary to unlock it.
 // (May not need unlocking yet -- there is a timeout.)
 //
-bool OTPurse::GetPassphrase(OTPassword & theOutput, const char * szDisplay/*=NULL*/)
+bool OTPurse::GetPassphrase(OT::Password & theOutput, const char * szDisplay/*=NULL*/)
 {
     const char * szFunc = "OTPurse::GetPassphrase";
     // -------------------------------------------
@@ -267,7 +267,8 @@ bool OTPurse::GenerateInternalKey()
     // We'll do the Master key first, since we need the passphrase from that, in order to
     // create the symmetric key.
     //
-    OTPassword  thePassphrase;
+    OT::StringPassword thePass;
+    OT::Password & thePassphrase = thePass;
     const OTString strDisplay("Enter the new passphrase for this new password-protected purse."); // todo internationalization / hardcoding.
     // ------------------------------------------------------------------------
     // thePassphrase and m_pCachedKey are BOTH output from the below function.

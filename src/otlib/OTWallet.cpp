@@ -963,11 +963,12 @@ OTPseudonym * OTWallet::GetOrLoadPrivateNym(const OTIdentifier & NYM_ID,
 											const bool bChecking/*=false*/,
                                             const char * szFuncName/*=NULL*/,
                                             OTPasswordData * pPWData/*=NULL*/,
-                                            OTPassword * pImportPassword/*=NULL*/)
+                                            OT::Password * pImportPassword/*=NULL*/)
 {
 	if (NYM_ID.IsEmpty()) { OTLog::vError("%s:%s: Error: NYM_ID passed in empty, returning null", __FUNCTION__,szFuncName); return NULL; }
 	// ---------------------------------------------------------
 	const OTString strNymID(NYM_ID);
+    std::string strPassDisplay = OT_PW_DISPLAY;
     OTPasswordData thePWData(OT_PW_DISPLAY);
     if (NULL == pPWData)
         pPWData = &thePWData;
@@ -1522,7 +1523,7 @@ bool OTWallet::LoadWallet(const char * szFilename/*=NULL*/)
 
 							if (!OTCachedKey::It()->HasHashCheck())
 							{
-								OTPassword tempPassword; tempPassword.zeroMemory();
+                                OT::StringPassword tempPassword; tempPassword.zero();
                                 
                                 _SharedPtr<OTCachedKey> sharedPtr(OTCachedKey::It());
                                 

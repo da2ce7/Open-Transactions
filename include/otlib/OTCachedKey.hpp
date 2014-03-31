@@ -144,17 +144,22 @@
 class OTString;
 class OTASCIIArmor;
 class OTSymmetricKey;
-class OTCachedKey;
-class OTPassword;
 class OTIdentifier;
+class OTCachedKey;
+
+namespace OpenTransactions {
+    class Password;
+}
+
+namespace OT = OpenTransactions;
 
 // ------------------------------------------------------------------------
 
 
 /// OTCachedKey
 /// This class handles the functionality of caching the master key for X seconds
-/// as an OTPassword, and then deleting it. It also caches the encrypted version
-/// in an OTSymmetricKey, which can be unlocked to an OTPassword again for X more
+/// as an OT::Password, and then deleting it. It also caches the encrypted version
+/// in an OTSymmetricKey, which can be unlocked to an OT::Password again for X more
 /// seconds (by entering the passphrase...)
 /**
 
@@ -197,7 +202,7 @@ class OTIdentifier;
 
  -- Adding the use of a standard protected memory API such as gpg-agent means there is no risk
     of swapping or core dumps revealing vital information from within OT itself. Nevertheless,
-    the OTPassword class takes pains to prevent core dumps and swapping, and also uses tricks
+    the OT::Password class takes pains to prevent core dumps and swapping, and also uses tricks
     to zero sensitive memory after it has been used.
 
  -- The protected memory API has no access to what it is storing, due to the session key. I will
@@ -262,7 +267,7 @@ class OTCachedKey
 private:
 	tthread::thread       *  m_pThread;         // The thread used for destroying the password after the timeout period.
 	int32_t                      m_nTimeoutSeconds; // The master password will be stored internally for X seconds, and then destroyed.
-	OTPassword            *  m_pMasterPassword; // Created when password is passed in; destroyed by Timer after X seconds.
+	OT::Password            *  m_pMasterPassword; // Created when password is passed in; destroyed by Timer after X seconds.
 
 	bool                     m_bUse_System_Keyring; // if set to true, then additionally use the local OS's standard API for storing/retrieving secrets. (Store the master key here whenever it's decrypted, and try to retrieve from here whenever it's needed, before resorting to asking the user to type his passphrase.) This is configurable in the config file.
 
@@ -327,11 +332,11 @@ public:
 	// instead use its own internal master key to get its passphrase (also retrieving from the user if
 	// necessary.)
 	EXPORT    bool   GetMasterPassword(_SharedPtr<OTCachedKey> & mySharedPtr,
-                                             OTPassword      & theOutput,
+                                             OT::Password      & theOutput,
                                        const char            * szDisplay=NULL,
                                              bool              bVerifyTwice=false);
 	// Caller must delete!
-	EXPORT  static _SharedPtr<OTCachedKey> CreateMasterPassword(OTPassword & theOutput,
+	EXPORT  static _SharedPtr<OTCachedKey> CreateMasterPassword(OT::Password & theOutput,
                                                               const char * szDisplay=NULL,
                                                               int32_t nTimeoutSeconds=OT_MASTER_KEY_TIMEOUT);
 	// --------------------------------

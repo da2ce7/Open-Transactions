@@ -1,7 +1,7 @@
 /**************************************************************
- *
- *  OTPassword.h
- *
+ *    
+ *  OTPassword.hpp
+ *  
  */
 
 /************************************************************
@@ -138,194 +138,191 @@
 #include "OTCachedKey.hpp"
 
 #include <string>
+#include <vector>
 
 
+namespace OpenTransactions {
+    class Password;
+}
 
-/*
- To use:
-
- OTPassword thePass;
- (Or...)
- OTPassword thePass(strPassword, strPassword.length());
-
- const char * szPassword	= thePass.getPassword();
- const int32_t    nPassLength	= thePass.getPasswordSize();
-
- If the instance of OTPassword is not going to be destroyed immediately
- after the password is used, then make sure to call zeroMemory() after
- using the password. (Otherwise the destructor will handle this anyway.)
-
- (The primary purpose of this class is that it zeros its memory out when
- it is destructed.)
-
- This class gives me a safe way to hand-off a password, and off-load the
- handling risk to the user.  This class will be included as part of the
- OT-API SWIG interface so that it's available inside other languages.
-
- */
-
-#define OT_PW_DISPLAY  "Enter master passphrase for wallet."
-
-#define OTPASSWORD_BLOCKSIZE    128		// (128 bytes max length for a password.)
-#define OTPASSWORD_MEMSIZE		129		// +1 for null terminator.
-
-// UPDATE: Increasing the size here, so we can accommodate private keys (in addition to passphrases.)
-//
-#define OT_LARGE_BLOCKSIZE	32767		// (32767 bytes max length for a password.)
-#define OT_LARGE_MEMSIZE	32768		// +1 for null terminator.
-// -------------------------------------------------------
-
-// Default is the smaller size.
-
-#define OT_DEFAULT_BLOCKSIZE  128
-#define OT_DEFAULT_MEMSIZE    129
-
-// -------------------------------------------
+namespace OT = OpenTransactions;
 
 
-// https://github.com/lorf/keepassx/blob/master/src/lib/SecString.cpp
+EXPORT void * _SecureAllocateVoid(const size_t _Count, const size_t _Size);
 
-// Done:  Although we have good memory ZEROING code (for destruction)
-// we don't have code yet that will keep the contents SECURE while they
-// are in memory. For example, that will prevent them from being paged
-// to the hard drive during swapping. Such code would make OTPassword much
-// more appropriate for use cases such as storing passphrases and private
-// keys, and would even allow timeout procedures...
-//
-// NOTE: For Windows, use VirtualLock instead of mlock.
-//
-/*
- #include <sys/mman.h>
+template<class _Ty> inline // convert into secure.
+_Ty *_SecureAllocate(size_t _Count, _Ty *) {
+    return static_cast<_Ty *>(_SecureAllocateVoid(_Count, sizeof (_Ty)));
+}
 
- void *locking_alloc(size_t numbytes)
- {
-    static short have_warned = 0;
+EXPORT void _SecureDeallocateVoid(const size_t _Count, const size_t _Size, void * _Ptr);
 
-    void *mem = malloc(numbytes);
-
-    if (mlock(mem, numbytes) && !have_warned)
-    {
-
-        // We probably do not have permission.
-        // Sometimes, it might not be possible to lock enough memory.
-
-        fprintf(stderr, "Warning: Using insecure memory!\n");
-
-        have_warned = 1;
-
-    }
-
-    return mem;
- }
-
-The mlock() call generally locks more memory than you want. Locking is done on a per-page basis. All of the pages the memory spans will be locked in RAM, and will not be swapped out under any circumstances, until the process unlocks something in the same page by using mlock().
-
-There are some potentially negative consequences here. First, If your process locks two buffers that happen to live on the same page, then unlocking either one will unlock the entire page, causing both buffers to unlock. Second, when locking lots of data, it is easy to lock more pages than necessary (the operating system doesn't move data around once it has been allocated), which can slow down machine performance significantly.
-
-Unlocking a chunk of memory looks exactly the same as locking it, except that you call munlock():
-        munlock(mem, numbytes);
-
-
- // TODO: Work in some usage of CryptProtectMemory and CryptUnprotectMemory (Windows only)
- // with sample code below.  Also should make some kind of UNIX version.
-
-
-#ifndef _WINDOWS_
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <windows.h>
-#endif
-#include <cstdio>
-#include <Wincrypt.h>
-
-#define SSN_STR_LEN 12  // includes null
-
-void main()
-{
-    HRESULT hr = S_OK;
-    LPWSTR pSensitiveText = NULL;
-    DWORD cbSensitiveText = 0;
-    DWORD cbPlainText = SSN_STR_LEN*sizeof(WCHAR);
-    DWORD dwMod = 0;
-
-    //  Memory to encrypt must be a multiple of CRYPTPROTECTMEMORY_BLOCK_SIZE.
-    if (dwMod = cbPlainText % CRYPTPROTECTMEMORY_BLOCK_SIZE)
-        cbSensitiveText = cbPlainText +
-		(CRYPTPROTECTMEMORY_BLOCK_SIZE - dwMod);
-    else
-        cbSensitiveText = cbPlainText;
-
-    pSensitiveText = (LPWSTR)LocalAlloc(LPTR, cbSensitiveText);
-    if (NULL == pSensitiveText)
-    {
-        wprintf(L"Memory allocation failed.\n");
-        return E_OUTOFMEMORY;
-    }
-
-    //  Place sensitive string to encrypt in pSensitiveText.
-
-    if (!CryptProtectMemory(pSensitiveText, cbSensitiveText,
-		CRYPTPROTECTMEMORY_SAME_PROCESS))
-    {
-        wprintf(L"CryptProtectMemory failed: %d\n", GetLastError());
-        SecureZeroMemory(pSensitiveText, cbSensitiveText);
-        LocalFree(pSensitiveText);
-        pSensitiveText = NULL;
-        return E_FAIL;
-    }
-
-    //  Call CryptUnprotectMemory to decrypt and use the memory.
-
-    SecureZeroMemory(pSensitiveText, cbSensitiveText);
-    LocalFree(pSensitiveText);
-    pSensitiveText = NULL;
-
-    return hr;
+template<class _Ty> inline // convert into secure.
+void _SecureDeallocate(size_t _Count, _Ty * _Ptr) {
+    return _SecureDeallocateVoid(_Count, sizeof (_Ty), static_cast<void *>(_Ptr));
 }
 
 
 
-
-#ifndef _WINDOWS_
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <windows.h>
-#endif
-#include <cstdio>
-#include <Wincrypt.h>
-#include <strsafe.h>
-#pragma comment(lib, "crypt32.lib")
-
-void main()
+template<class _Ty>
+class secure_allocator : public std::allocator<_Ty>
 {
-    LPWSTR pEncryptedText;  // contains the encrypted text
-    DWORD cbEncryptedText;  // number of bytes to which
-	                        // pEncryptedText points
-
-    if (CryptUnprotectMemory(pEncryptedText, cbEncryptedText,
-		CRYPTPROTECTMEMORY_SAME_PROCESS))
-    {
-        // Use the decrypted string.
-    }
-    else
-    {
-        wprintf(L"CryptUnprotectMemory failed: %d\n",
-			GetLastError());
+public:
+    template<class _Other>
+    secure_allocator<_Ty>& operator=(const secure_allocator<_Other>&)
+    {	// assign from a related LockedVirtualMemAllocator (do nothing)
+        return (*this);
     }
 
-    // Clear and free memory after using
-    // the decrypted string or if an error occurs.
-    SecureZeroMemory(pEncryptedText, cbEncryptedText);
-    LocalFree(pEncryptedText);
-    pEncryptedText = NULL;
+    template<class Other>
+    struct rebind {
+        typedef secure_allocator<Other> other;
+    };
+
+    typedef typename std::allocator<_Ty>::pointer pointer;
+    typedef typename std::allocator<_Ty>::size_type size_type;
+
+        pointer allocate(size_type _Count)
+    {	// allocate array of _Count elements
+        return (_SecureAllocate(_Count, (pointer)0));
+    }
+    pointer allocate(size_type _Count, const void *)
+    {	// allocate array of _Count elements, ignore hint
+        return (allocate(_Count));
+    }
+
+    void deallocate(pointer _Ptr, size_type _Count)
+    {	// deallocate object at _Ptr, ignore size
+        return (_SecureDeallocate(_Count, _Ptr));
+    }
+};
+
+
+typedef std::basic_string<char, std::char_traits<char>, secure_allocator<char> > SecureString;
+
+typedef std::vector<uint8_t, secure_allocator<uint8_t>> SecureDataVector;
+
+typedef std::pair<void * const, const size_t> VoidPointerPair;
+typedef std::pair<const void * const, const size_t> ConstVoidPointerPair;
+
+
+template <typename T>
+struct SecureVector {
+    typedef std::vector<T, secure_allocator<T>> type;
+};
+
+namespace OpenTransactions{
+
+#define OTPASSWORD_BLOCKSIZE    128
+
+    class Password{
+    public:
+        enum TYPE{
+            STRING,
+            BINARY
+        };
+    protected:
+        TYPE _type;
+        SecureDataVector _data;
+
+    public:
+        TYPE getType() const { return _type; }
+
+        // convertable to a uint8_t vector.
+        operator const SecureDataVector &() const { return this->_data; }
+        const SecureDataVector & getData() const  { return this->_data; }
+
+        bool operator ==(const Password & rhs) const {
+            if (this->_type != rhs.getType()) return false;
+
+            const SecureDataVector & a = rhs;
+            return this->_data == a;
+        }
+
+        bool operator !=(const Password & rhs) const { return !(this->operator==(rhs)); }
+
+        virtual Password & operator=(const Password & rhs) = 0;
+
+        virtual ~Password() {};
+
+        // do not pre-allocate!
+        EXPORT VoidPointerPair getMemory(); //unsafe
+        EXPORT void getMemory(void *& data, size_t & length); //unsafe
+
+        // do not pre-allocate!
+        EXPORT ConstVoidPointerPair getMemoryConst() const;
+        EXPORT void getMemoryConst(const void *& data, size_t & length) const;
+
+        virtual size_t length() const = 0;
+        virtual void resize(size_t) = 0;
+        virtual void zero() = 0;
+        virtual bool randomize(size_t) = 0;
+    };
+
+
+    class StringPassword : public Password{
+        SecureString _string;
+
+    public:
+        EXPORT StringPassword();
+        EXPORT StringPassword(const SecureString & data);
+        EXPORT StringPassword(const SecureDataVector & data);
+
+        EXPORT void operator()(const SecureString & data);
+        SecureString getCopy() const { return this->_string; }
+
+        const char * getChars() const;
+
+        operator const SecureString &() const { return this->_string; }
+
+        Password & operator=(const Password & rhs) {
+            this->zero();
+            this->operator()(StringPassword(rhs.getData()));
+            return *this;
+        }
+
+        // from Password.
+        size_t length() const { return this->_string.length(); }
+        EXPORT void resize(size_t nNewSize);
+        EXPORT void zero();
+        EXPORT bool randomize(size_t nNewSize = OTPASSWORD_BLOCKSIZE);
+    };
+
+    class BinaryPassword : public Password{
+
+    public:
+        EXPORT BinaryPassword();
+        EXPORT BinaryPassword(const SecureDataVector & data);
+        EXPORT void operator()(const SecureDataVector & data);
+        SecureDataVector getCopy() const { return this->_data; }
+
+        EXPORT BinaryPassword(const void * const data, const size_t length);
+        EXPORT void operator()(const void * const data, const size_t length);
+
+        EXPORT void append(const void * const data, const size_t length);
+
+        // do not pre-allocate!
+        EXPORT VoidPointerPair getMemoryCopy() const; // caller must delete
+        EXPORT void getMemoryCopy(void *& data, size_t & length) const;
+
+        // memory must be pre-allocated.
+        EXPORT void getMemoryCopyOnto(void * const data, const size_t length) const;
+
+        EXPORT SecureString toString();
+        
+        Password & operator=(const Password & rhs) {
+            this->zero();
+            this->operator()(rhs.getData());
+            return *this;
+        }
+
+        // from Password.
+        size_t length() const { return this->_data.size(); }
+        EXPORT void resize(size_t nNewSize);
+        EXPORT void zero();
+        EXPORT bool randomize(size_t nNewSize = OTPASSWORD_BLOCKSIZE);
+    };
 }
-
-
- */
-
-class OTString;
 
 
 /*
@@ -349,169 +346,53 @@ class OTString;
  the class will do the work of looking up the actual string based on that code.
  */
 
-class OTPassword;
+#define OT_PW_DISPLAY  "Enter master passphrase for wallet."
 
 class OTPasswordData
 {
 private:
-    OTPassword *        m_pMasterPW; // Used only when isForCachedKey is true, for output. Points to output value from original caller (not owned.)
+    OpenTransactions::Password * m_pMasterPW; // Used only when isForCachedKey is true, for output. Points to output value from original caller (not owned.)
     const std::string   m_strDisplay;
     bool                m_bUsingOldSystem; // "Do NOT use CachedKey if this is true."
 
     _SharedPtr<OTCachedKey> m_pCachedKey;  // If m_pMasterPW is set, this must be set as well.
 public:
     // --------------------------------
-EXPORT    bool            isForNormalNym()   const;
-EXPORT    bool            isForCachedKey()   const;
+    EXPORT    bool            isForNormalNym()   const;
+    EXPORT    bool            isForCachedKey()   const;
     // --------------------------------
-EXPORT    const char *    GetDisplayString() const;
+    EXPORT    const std::string & GetDisplayString() const;
     // --------------------------------
-EXPORT    bool            isUsingOldSystem() const;
-EXPORT    void            setUsingOldSystem(bool bUsing=true);
+    EXPORT    bool            isUsingOldSystem() const;
+    EXPORT    void            setUsingOldSystem(bool bUsing = true);
     // --------------------------------
-    OTPassword          * GetMasterPW () { return m_pMasterPW;  }
+    OpenTransactions::Password * GetMasterPW() { return m_pMasterPW; }
     _SharedPtr<OTCachedKey> GetCachedKey() { return m_pCachedKey; }
     // --------------------------------
-EXPORT    OTPasswordData(const char        *   szDisplay, OTPassword * pMasterPW=NULL, _SharedPtr<OTCachedKey> pCachedKey=_SharedPtr<OTCachedKey>());
-EXPORT    OTPasswordData(const std::string & str_Display, OTPassword * pMasterPW=NULL, _SharedPtr<OTCachedKey> pCachedKey=_SharedPtr<OTCachedKey>());
-EXPORT    OTPasswordData(const OTString    &  strDisplay, OTPassword * pMasterPW=NULL, _SharedPtr<OTCachedKey> pCachedKey=_SharedPtr<OTCachedKey>());
-EXPORT    ~OTPasswordData();
+    EXPORT    OTPasswordData(const std::string &  szDisplay, OpenTransactions::Password * pMasterPW = NULL, _SharedPtr<OTCachedKey> pCachedKey = _SharedPtr<OTCachedKey>());
+    EXPORT    ~OTPasswordData();
 };
 
 
 
-// Originally written for the safe storage of passwords.
-// Now used for symmetric keys as well.
-// Specifically: when the clear version of a password or key must be stored
-// usually for temporary reasons, it must be stored in memory locked from swapping
-// to disk, and in an object like OTPassword that zeros the memory as soon as we're done.
-//
+struct OTPassword{
+    static bool randomizeData(SecureDataVector & vData);
+    static bool randomizeMemory(void * pMemory, size_t theSize);
+    static void zeroMemory(void * pMemory, size_t theSize);
 
-class OTPassword
-{
-public:
-	enum BlockSize
-		{
-            DEFAULT_SIZE = OT_DEFAULT_BLOCKSIZE,  // (128 bytes max length for a password.)
-            LARGER_SIZE  = OT_LARGE_BLOCKSIZE     // Update: now 32767 bytes if you use this size.
-        };
-
-private:
-	uint32_t m_nPasswordSize; // [ 0..128 ]  Update: [ 0..9000 ]
-	uint8_t	 m_szPassword[OT_DEFAULT_MEMSIZE]; // a 129-byte block of char. (128 + 1 for null terminator)
-//	uint8_t  m_szPassword[OT_LARGE_MEMSIZE];   // 32767 bytes. (32768 + 1 for null terminator) todo: in optimization phase, revisit this array size.
-
-    // OTPassword tries to store a piece of data more securely.
-    // During the time I have to take a password from the user and pass it to OpenSSL,
-    // I want it stored as securely as possible, and that's what this class was written for.
-    // Now I'm adding the ability to store binary data in here, not just a text-based password.
-    // That way, OTSymmetricKey can store its plain key in an OTPassword. Well, it actually stores
-    // its key in an encrypted format, but whenever, for what brief moments that key is decrypted and
-    // USED, the decrypted form of it will be stored in an OTPassword (in binary mode.)
-    // This is basically just to save me from duplicating work that's already done here in OTPassword.
-    //
-    bool    m_bIsText;          // storing a text passphrase?
-    bool    m_bIsBinary;        // storing binary memory?
-    bool    m_bIsPageLocked;    // is the page locked to prevent us from swapping this secret memory to disk?
-
-public:
-		const		BlockSize	m_theBlockSize;
-    // -----------------
-EXPORT	bool		isPassword() const;
-EXPORT	const		uint8_t *	getPassword_uint8() const; // asserts if m_bIsText is false.
-
-EXPORT	const		char *		getPassword()	const; // asserts if m_bIsText is false.
-EXPORT				uint8_t *	getPasswordWritable(); // asserts if m_bIsText is false.
-EXPORT				char *		getPasswordWritable_char(); // asserts if m_bIsText is false.
-
-EXPORT				int32_t			setPassword(const char * szInput, int32_t nInputSize); // (FYI, truncates if nInputSize larger than getBlockSize.)
-EXPORT				int32_t		setPassword_uint8(const uint8_t * szInput, uint32_t nInputSize); // (FYI, truncates if nInputSize larger than getBlockSize.)
-EXPORT				bool		addChar(uint8_t theChar);
-    // ---------------------
-EXPORT				int32_t		randomizePassword(uint32_t nNewSize=DEFAULT_SIZE);
-    // -----------------
-EXPORT	static	    bool		randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize);
-EXPORT	static		bool		randomizePassword(char * szDestination, uint32_t nNewSize);
-    // -----------------
-EXPORT				bool		isMemory()	const;
-EXPORT	const		void *		getMemory() const; // asserts if m_bIsBinary is false.
-EXPORT	const		uint8_t *	getMemory_uint8() const; // asserts if m_bIsBinary is false.
-EXPORT				void *		getMemoryWritable(); // asserts if m_bIsBinary is false.
-EXPORT				int32_t		setMemory(const void * vInput,  uint32_t nInputSize);  // (FYI, truncates if nInputSize larger than getBlockSize.)
-EXPORT				int32_t		addMemory(const void * vAppend, uint32_t nAppendSize); // (FYI, truncates if nInputSize + getPasswordSize() is larger than getBlockSize.)
-    // ---------------------
-EXPORT				int32_t		randomizeMemory(uint32_t nNewSize=DEFAULT_SIZE);
-    // -----------------
-EXPORT	static		bool		randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize);
-    // -----------------
-EXPORT	static		bool		randomizeMemory(void * szDestination, uint32_t nNewSize);
-    // -----------------
-EXPORT				uint32_t	getBlockSize()    const;
-EXPORT				bool		Compare(OTPassword & rhs) const;
-    // ----------------------
-EXPORT				uint32_t	getPasswordSize() const; // asserts if m_bIsText is false.
-EXPORT				uint32_t	getMemorySize()   const; // asserts if m_bIsBinary is false.
-    // -----------------
-EXPORT				void		zeroMemory();
-    // -----------------
-EXPORT	static		void		zeroMemory(uint8_t * szMemory, uint32_t theSize);
-EXPORT	static		void		zeroMemory(void * vMemory,     uint32_t theSize);
-    // -----------------
-EXPORT	static		void *		safe_memcpy(void *			dest,
-											uint32_t		dest_size,
-											const void *	src,
-											uint32_t		src_length,
-											bool			bZeroSource=false); // if true, sets the source buffer to zero after copying is done.
-    // ---------------------------------------
-    // OTPassword thePass; will create a text password.
-    // But use the below function if you want one that has
-    // a text buffer of size (versus a 0 size.) This is for
-    // cases where you need the buffer to pre-exist so that
-    // some other function can populate that buffer directly.
-    // (Such as the OpenSSL password callback...)
-    // CALLER IS RESPONSIBLE TO DELETE.
-    //
-EXPORT  static OTPassword * CreateTextBuffer(); // asserts already.
-
-    // There are certain weird cases, like in OTSymmetricKey::GetPassphraseFromUser,
-    // where we set the password using the getPassword_writable, and it's properly
-    // null-terminated, yet this instance still doesn't know its actual size (even though
-    // the size is known.) Therefore I added this call in order to set the size in
-    // those odd cases where it's necessary. That being said, YOU should normally NEVER
-    // need to use this function, so just pretend it doesn't exist.
-EXPORT  bool SetSize(uint32_t uSize);
-    // ---------------------------------------
-EXPORT
-    OTPassword & operator=(const OTPassword & rhs);
-EXPORT	OTPassword(BlockSize theBlockSize=DEFAULT_SIZE);
-EXPORT	OTPassword(const OTPassword & rhs);
-EXPORT	OTPassword(const char    * szInput, uint32_t nInputSize, BlockSize theBlockSize=DEFAULT_SIZE);  // text   / password stored.
-EXPORT	OTPassword(const uint8_t * szInput, uint32_t nInputSize, BlockSize theBlockSize=DEFAULT_SIZE);  // text   / password stored.
-EXPORT	OTPassword(const void    * vInput,  uint32_t nInputSize, BlockSize theBlockSize=DEFAULT_SIZE);  // binary / symmetric key stored.
-    // -----------------
-EXPORT	~OTPassword();
+    // takes in pIn and nIn, and make a new array (no need to pre-allocate), caller deletes.
+    static void copyMemory(const void * const pIn, const size_t & nIn, void * pOut, size_t & nOut);
 };
 
-//#undef OTPASSWORD_BLOCKSIZE
-//#undef OTPASSWORD_MEMSIZE
-//
-//#undef OT_LARGE_BLOCKSIZE
-//#undef OT_LARGE_MEMSIZE
-//
-//#undef OT_DEFAULT_BLOCKSIZE
-//#undef OT_DEFAULT_MEMSIZE
 
-
-// ---------------------------------------------------------
-// Used for the password callback...
 
 class OTCallback
 {
 public:
-	OTCallback() {}
-EXPORT	virtual ~OTCallback();
-EXPORT	virtual void runOne(const char * szDisplay, OTPassword & theOutput); // Asks for password once. (For authentication when using nym.)
-EXPORT	virtual void runTwo(const char * szDisplay, OTPassword & theOutput); // Asks for password twice. (For confirmation when changing password or creating nym.)
+    OTCallback() {}
+    EXPORT	virtual ~OTCallback();
+    EXPORT	virtual void runOne(const std::string & strDisplay, OpenTransactions::StringPassword & theOutput); // Asks for password once. (For authentication when using nym.)
+    EXPORT	virtual void runTwo(const std::string & strDisplay, OpenTransactions::StringPassword & theOutput); // Asks for password twice. (For confirmation when changing password or creating nym.)
 };
 
 // ------------------------------------------------
@@ -519,185 +400,34 @@ EXPORT	virtual void runTwo(const char * szDisplay, OTPassword & theOutput); // A
 class OTCaller
 {
 protected:
-	OTPassword	m_Password;	// The password will be stored here by the Java dialog, so that the C callback can retrieve it and pass it to OpenSSL
-	OTPassword	m_Display;	// A display string is set here before the Java dialog is shown. (OTPassword used here only for convenience.)
 
-	OTCallback * _callback;
+    OpenTransactions::StringPassword	m_Password;	// The password will be stored here by the Java dialog, so that the C callback can retrieve it and pass it to OpenSSL
+    std::string	m_Display;	// A display string is set here before the Java dialog is shown. (OT::Password used here only for convenience.)
+
+
+    OTCallback * _callback;
 
 public:
-	OTCaller() : _callback(NULL) { }
-EXPORT	~OTCaller();
+    OTCaller() : _callback(NULL) { }
+    EXPORT	~OTCaller();
 
-EXPORT	bool	GetPassword(OTPassword & theOutput) const;	// Grab the password when it is needed.
-EXPORT	void	ZeroOutPassword();	// Then ZERO IT OUT so copies aren't floating around...
+    EXPORT	bool GetPassword(OpenTransactions::Password & theOutput) const;	// Grab the password when it is needed.
+    EXPORT	void ZeroOutPassword();	// Then ZERO IT OUT so copies aren't floating around...
 
-EXPORT	const char * GetDisplay() const;
-EXPORT	void SetDisplay(const char * szDisplay, int32_t nLength);
+    EXPORT	const std::string & GetDisplay() const;
+    EXPORT	void SetDisplay(const std::string & strDisplay);
 
-EXPORT	void delCallback();
-EXPORT	void setCallback(OTCallback *cb);
-EXPORT	bool isCallbackSet() const;
+    EXPORT	void delCallback();
+    EXPORT	void setCallback(OTCallback *cb);
+    EXPORT	bool isCallbackSet() const;
 
-EXPORT	void callOne(); // Asks for password once. (For authentication when using the Nym's private key.)
-EXPORT	void callTwo(); // Asks for password twice. (For confirmation during nym creation and password change.)
+    EXPORT	void callOne(); // Asks for password once. (For authentication when using the Nym's private key.)
+    EXPORT	void callTwo(); // Asks for password twice. (For confirmation during nym creation and password change.)
 };
 
 
 
 // ------------------------------------------------
-
-
-
-
-
-
-
-/*
-
-
- HOW TO PREVENT MEMORY FROM GOING INTO CORE DUMPS
-
-#include <sys/time.h>
-
-#include <sys/resource.h>
-
-#include <unistd.h>
-
-
-
-int32_t  main(int32_t argc, char **argv)
-
- {
-
-  struct rlimit rlim;
-
-
-
-  getrlimit(RLIMIT_CORE, &rlim);
-
-  rlim.rlim_max = rlim.rlim_cur = 0;
-
-  if(setrlimit(RLIMIT_CORE, &rlim)) {
-
-    exit(-1);
-
-  }
-
-  ...
-
-  return 0;
-
-}
-
-
-
- http://www.drdobbs.com/cpp/184401646
-
-
-
-
- MORE CODE FOR MEMLOCK:
-
- namespace Botan
- {
-
-    bool has_mlock();
-
-    bool lock_mem(void* addr, size_t length);
-
-    void unlock_mem(void* addr, size_t length);
- }
-
-
-//
-// Memory Locking Functions
-// (C) 1999-2007 Jack Lloyd
-//
-// Distributed under the terms of the Botan license
-//
-
-#include <botan/internal/mlock.h>
-
-#if defined(BOTAN_TARGET_OS_HAS_POSIX_MLOCK)
-  #include <sys/types.h>
-  #include <sys/mman.h>
-#elif defined(BOTAN_TARGET_OS_HAS_WIN32_VIRTUAL_LOCK)
-#ifndef _WINDOWS_
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#include <windows.h>
-#endif
-#endif
-
-namespace Botan {
-
-bool has_mlock()
-   {
-   byte buf[4096];
-   if(!lock_mem(&buf, sizeof(buf)))
-      return false;
-   unlock_mem(&buf, sizeof(buf));
-   return true;
-   }
-
-//
-// Lock an area of memory into RAM
-//
-bool lock_mem(void* ptr, size_t bytes)
-   {
-#if defined(BOTAN_TARGET_OS_HAS_POSIX_MLOCK)
-   return (::mlock(static_cast<char*>(ptr), bytes) == 0);
-#elif defined(BOTAN_TARGET_OS_HAS_WIN32_VIRTUAL_LOCK)
-   return (::VirtualLock(ptr, bytes) != 0);
-#else
-   return false;
-#endif
-   }
-
-//
-// Unlock a previously locked region of memory
-//
-void unlock_mem(void* ptr, size_t bytes)
-   {
-#if defined(BOTAN_TARGET_OS_HAS_POSIX_MLOCK)
-   ::munlock(static_cast<char*>(ptr), bytes);
-#elif defined(BOTAN_TARGET_OS_HAS_WIN32_VIRTUAL_LOCK)
-   ::VirtualUnlock(ptr, bytes);
-#endif
-   }
-
-}
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

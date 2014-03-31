@@ -245,8 +245,8 @@ OTPseudonym * OTPseudonym::LoadPrivateNym(const OTIdentifier & NYM_ID,
 										        OTString     * pstrName/*=NULL*/,
 										  const char         * szFuncName/*=NULL*/,
                                               OTPasswordData * pPWData/*=NULL*/,
-                                                OTPassword   * pImportPassword/*=NULL*/)
-{
+                                                OT::Password   * pImportPassword/*=NULL*/)
+{	
 	const char * szFunc = (NULL != szFuncName) ? szFuncName : "OTPseudonym::LoadPrivateNym";
 
 	if (NYM_ID.IsEmpty()) return NULL;
@@ -3783,11 +3783,11 @@ bool OTPseudonym::SavePseudonym(std::ofstream & ofs)
 // in the wallet.
 bool OTPseudonym::ReEncryptPrivateCredentials(bool bImporting, //bImporting=true, or false if exporting.
                                               OTPasswordData * pPWData/*=NULL*/,
-                                              OTPassword * pImportPassword/*=NULL*/)
+                                              OT::Password * pImportPassword/*=NULL*/)
 {
-    OTPassword * pExportPassphrase = NULL;
-    OTCleanup<OTPassword> thePasswordAngel;
-
+    OT::Password * pExportPassphrase = NULL;
+    OTCleanup<OT::Password> thePasswordAngel;
+    
     if (NULL == pImportPassword)
     {
         // ----------------------------------------------------
@@ -3979,7 +3979,7 @@ bool OTPseudonym::SaveCredentialList()
 //
 bool OTPseudonym::LoadCredentials(bool bLoadPrivate/*=false*/, // Loads public credentials by default. For private, pass true.
                                   OTPasswordData * pPWData/*=NULL*/,
-                                  OTPassword * pImportPassword/*=NULL*/)
+                                  OT::Password * pImportPassword/*=NULL*/)
 {
     OTString strReason(NULL == pPWData ? OT_PW_DISPLAY : pPWData->GetDisplayString());
 	// --------------------------------------------------------------------
@@ -4708,7 +4708,7 @@ const OTSubcredential * OTPseudonym::GetRevokedSubcred(const OTString & strRevok
 bool OTPseudonym::LoadFromString(const OTString & strNym,
                                  mapOfStrings * pMapCredentials/*=NULL*/, //pMapCredentials can be passed, if you prefer to use a specific set, instead of just loading the actual set from storage (such as during registration, when the credentials have been sent inside a message.)
                                  OTString     * pstrReason/*=NULL*/,
-                                 OTPassword   * pImportPassword/*=NULL*/)
+                                 OT::Password   * pImportPassword/*=NULL*/)
 {
 	bool bSuccess = false;
     // ------------------------------------
@@ -5725,7 +5725,7 @@ bool OTPseudonym::LoadNymfile(const char * szFilename/*=NULL*/)
 
 bool OTPseudonym::Loadx509CertAndPrivateKeyFromString(const OTString   & strInput,
                                                       OTPasswordData   * pPWData/*=NULL*/,
-                                                            OTPassword * pImportPassword/*=NULL*/)
+                                                            OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeypair);
 	// --------------------------------------------------------------------
@@ -5747,7 +5747,7 @@ bool OTPseudonym::Loadx509CertAndPrivateKeyFromString(const OTString   & strInpu
 
 bool OTPseudonym::Loadx509CertAndPrivateKey(const bool bChecking/*=false*/,
                                             OTPasswordData * pPWData/*=NULL*/,
-                                            OTPassword * pImportPassword/*=NULL*/)
+                                            OT::Password * pImportPassword/*=NULL*/)
 {
     OT_ASSERT(NULL != m_pkeypair);
     // ----------------------------

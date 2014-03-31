@@ -41,8 +41,8 @@ public class OTCaller : global::System.IDisposable {
   public OTCaller() : this(otapiPINVOKE.new_OTCaller(), true) {
   }
 
-  public bool GetPassword(OTPassword theOutput) {
-    bool ret = otapiPINVOKE.OTCaller_GetPassword(swigCPtr, OTPassword.getCPtr(theOutput));
+  public bool GetPassword(Password theOutput) {
+    bool ret = otapiPINVOKE.OTCaller_GetPassword(swigCPtr, Password.getCPtr(theOutput));
     if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
@@ -56,8 +56,9 @@ public class OTCaller : global::System.IDisposable {
     return ret;
   }
 
-  public void SetDisplay(string szDisplay, int nLength) {
-    otapiPINVOKE.OTCaller_SetDisplay(swigCPtr, szDisplay, nLength);
+  public void SetDisplay(string strDisplay) {
+    otapiPINVOKE.OTCaller_SetDisplay(swigCPtr, strDisplay);
+    if (otapiPINVOKE.SWIGPendingException.Pending) throw otapiPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void delCallback() {

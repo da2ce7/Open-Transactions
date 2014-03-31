@@ -226,7 +226,7 @@ public:
 	EXPORT    bool                    GenerateInternalKey(); // Create internal symmetric key for password-protected purse.
 	EXPORT    OTSymmetricKey        * GetInternalKey() { return m_pSymmetricKey; } // symmetric key for this purse.
 	EXPORT    _SharedPtr<OTCachedKey>   GetInternalMaster();  // stores the passphrase for the symmetric key.
-	EXPORT    bool                    GetPassphrase(OTPassword & theOutput, const char * szDisplay=NULL); // Retrieves the passphrase for this purse (which is cached by the master key.) Prompts the user to enter his actual passphrase, if necessary to unlock it. (May not need unlocking yet -- there is a timeout.)
+	EXPORT    bool                    GetPassphrase(OT::Password & theOutput, const char * szDisplay=NULL); // Retrieves the passphrase for this purse (which is cached by the master key.) Prompts the user to enter his actual passphrase, if necessary to unlock it. (May not need unlocking yet -- there is a timeout.)
 	// ----------------------------------------------
 	EXPORT    bool             IsNymIDIncluded() const { return m_bIsNymIDIncluded; } // NymID may be left blank, with user left guessing.
 	// ----------------------------------------------

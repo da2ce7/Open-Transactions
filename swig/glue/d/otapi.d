@@ -329,9 +329,13 @@ class MapStringString {
   }
 }
 
-char[] OT_PW_DISPLAY() {
-  char[] ret = tango.stdc.stringz.fromStringz(otapi_im.OT_PW_DISPLAY_get());
+void* _SecureAllocateVoid(size_t _Count, size_t _Size) {
+  auto ret = cast(void*)otapi_im._SecureAllocateVoid(_Count, _Size);
   return ret;
+}
+
+void _SecureDeallocateVoid(size_t _Count, size_t _Size, void* _Ptr) {
+  otapi_im._SecureDeallocateVoid(_Count, _Size, cast(void*)_Ptr);
 }
 
 int OTPASSWORD_BLOCKSIZE() {
@@ -339,28 +343,292 @@ int OTPASSWORD_BLOCKSIZE() {
   return ret;
 }
 
-int OTPASSWORD_MEMSIZE() {
-  auto ret = otapi_im.OTPASSWORD_MEMSIZE_get();
-  return ret;
+class Password {
+  private void* swigCPtr;
+  protected bool swigCMemOwn;
+
+  public this(void* cObject, bool ownCObject) {
+    swigCPtr = cObject;
+    swigCMemOwn = ownCObject;
+  }
+
+  public static void* swigGetCPtr(Password obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+
+  ~this() {
+    dispose();
+  }
+
+  public void dispose() {
+    synchronized(this) {
+      if (swigCPtr !is null) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          otapi_im.delete_Password(cast(void*)swigCPtr);
+        }
+        swigCPtr = null;
+      }
+    }
+  }
+
+  enum TYPE {
+    STRING,
+    BINARY
+  }
+
+  public Password.TYPE getType() {
+    Password.TYPE ret = cast(Password.TYPE)otapi_im.Password_getType(cast(void*)swigCPtr);
+    return ret;
+  }
+
+  public SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t getData() {
+    SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t ret = new SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t(otapi_im.Password_getData(cast(void*)swigCPtr), false);
+    return ret;
+  }
+
+  public bool swigOpEquals(Password rhs) {
+    bool ret = otapi_im.Password_swigOpEquals(cast(void*)swigCPtr, Password.swigGetCPtr(rhs)) ? true : false;
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+    return ret;
+  }
+
+  public SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t getMemory() {
+    SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t ret = new SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t(otapi_im.Password_getMemory__SWIG_0(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public void getMemory(void** data, size_t* length) {
+    otapi_im.Password_getMemory__SWIG_1(cast(void*)swigCPtr, cast(void*)data, cast(void*)length);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t getMemoryConst() {
+    SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t ret = new SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t(otapi_im.Password_getMemoryConst__SWIG_0(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public void getMemoryConst(void** data, size_t* length) {
+    otapi_im.Password_getMemoryConst__SWIG_1(cast(void*)swigCPtr, cast(void*)data, cast(void*)length);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public size_t length() {
+    auto ret = otapi_im.Password_length(cast(void*)swigCPtr);
+    return ret;
+  }
+
+  public void resize(size_t arg0) {
+    otapi_im.Password_resize(cast(void*)swigCPtr, arg0);
+  }
+
+  public void zero() {
+    otapi_im.Password_zero(cast(void*)swigCPtr);
+  }
+
+  public bool randomize(size_t arg0) {
+    bool ret = otapi_im.Password_randomize(cast(void*)swigCPtr, arg0) ? true : false;
+    return ret;
+  }
 }
 
-int OT_LARGE_BLOCKSIZE() {
-  auto ret = otapi_im.OT_LARGE_BLOCKSIZE_get();
-  return ret;
+class StringPassword : Password {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool ownCObject) {
+    super(otapi_im.StringPassword_Upcast(cObject), ownCObject);
+    swigCPtr = cObject;
+  }
+
+  public static void* swigGetCPtr(StringPassword obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+
+  ~this() {
+    dispose();
+  }
+
+  public override void dispose() {
+    synchronized(this) {
+      if (swigCPtr !is null) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          otapi_im.delete_StringPassword(cast(void*)swigCPtr);
+        }
+        swigCPtr = null;
+        super.dispose();
+      }
+    }
+  }
+
+  public this() {
+    this(otapi_im.new_StringPassword__SWIG_0(), true);
+  }
+
+  public this(SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t data) {
+    this(otapi_im.new_StringPassword__SWIG_1(SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t.swigGetCPtr(data)), true);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public this(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t data) {
+    this(otapi_im.new_StringPassword__SWIG_2(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t.swigGetCPtr(data)), true);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public void opCall(SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t data) {
+    otapi_im.StringPassword_opCall(cast(void*)swigCPtr, SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t.swigGetCPtr(data));
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t getCopy() {
+    SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t ret = new SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t(otapi_im.StringPassword_getCopy(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public char[] getChars() {
+    char[] ret = tango.stdc.stringz.fromStringz(otapi_im.StringPassword_getChars(cast(void*)swigCPtr));
+    return ret;
+  }
+
+  public override size_t length() {
+    auto ret = otapi_im.StringPassword_length(cast(void*)swigCPtr);
+    return ret;
+  }
+
+  public override void resize(size_t nNewSize) {
+    otapi_im.StringPassword_resize(cast(void*)swigCPtr, nNewSize);
+  }
+
+  public override void zero() {
+    otapi_im.StringPassword_zero(cast(void*)swigCPtr);
+  }
+
+  public override bool randomize(size_t nNewSize) {
+    bool ret = otapi_im.StringPassword_randomize__SWIG_0(cast(void*)swigCPtr, nNewSize) ? true : false;
+    return ret;
+  }
+
+  public bool randomize() {
+    bool ret = otapi_im.StringPassword_randomize__SWIG_1(cast(void*)swigCPtr) ? true : false;
+    return ret;
+  }
+
+  alias Password.randomize randomize;
 }
 
-int OT_LARGE_MEMSIZE() {
-  auto ret = otapi_im.OT_LARGE_MEMSIZE_get();
-  return ret;
+class BinaryPassword : Password {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool ownCObject) {
+    super(otapi_im.BinaryPassword_Upcast(cObject), ownCObject);
+    swigCPtr = cObject;
+  }
+
+  public static void* swigGetCPtr(BinaryPassword obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+
+  ~this() {
+    dispose();
+  }
+
+  public override void dispose() {
+    synchronized(this) {
+      if (swigCPtr !is null) {
+        if (swigCMemOwn) {
+          swigCMemOwn = false;
+          otapi_im.delete_BinaryPassword(cast(void*)swigCPtr);
+        }
+        swigCPtr = null;
+        super.dispose();
+      }
+    }
+  }
+
+  public this() {
+    this(otapi_im.new_BinaryPassword__SWIG_0(), true);
+  }
+
+  public this(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t data) {
+    this(otapi_im.new_BinaryPassword__SWIG_1(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t.swigGetCPtr(data)), true);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public void opCall(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t data) {
+    otapi_im.BinaryPassword_opCall__SWIG_0(cast(void*)swigCPtr, SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t.swigGetCPtr(data));
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t getCopy() {
+    SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t ret = new SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t(otapi_im.BinaryPassword_getCopy(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public this(void* data, size_t length) {
+    this(otapi_im.new_BinaryPassword__SWIG_2(cast(void*)data, length), true);
+  }
+
+  public void opCall(void* data, size_t length) {
+    otapi_im.BinaryPassword_opCall__SWIG_1(cast(void*)swigCPtr, cast(void*)data, length);
+  }
+
+  public void append(void* data, size_t length) {
+    otapi_im.BinaryPassword_append(cast(void*)swigCPtr, cast(void*)data, length);
+  }
+
+  public SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t getMemoryCopy() {
+    SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t ret = new SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t(otapi_im.BinaryPassword_getMemoryCopy__SWIG_0(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public void getMemoryCopy(void** data, size_t* length) {
+    otapi_im.BinaryPassword_getMemoryCopy__SWIG_1(cast(void*)swigCPtr, cast(void*)data, cast(void*)length);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
+  }
+
+  public void getMemoryCopyOnto(void* data, size_t length) {
+    otapi_im.BinaryPassword_getMemoryCopyOnto(cast(void*)swigCPtr, cast(void*)data, length);
+  }
+
+  public SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t toString() {
+    SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t ret = new SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t(otapi_im.BinaryPassword_toString(cast(void*)swigCPtr), true);
+    return ret;
+  }
+
+  public override size_t length() {
+    auto ret = otapi_im.BinaryPassword_length(cast(void*)swigCPtr);
+    return ret;
+  }
+
+  public override void resize(size_t nNewSize) {
+    otapi_im.BinaryPassword_resize(cast(void*)swigCPtr, nNewSize);
+  }
+
+  public override void zero() {
+    otapi_im.BinaryPassword_zero(cast(void*)swigCPtr);
+  }
+
+  public override bool randomize(size_t nNewSize) {
+    bool ret = otapi_im.BinaryPassword_randomize__SWIG_0(cast(void*)swigCPtr, nNewSize) ? true : false;
+    return ret;
+  }
+
+  public bool randomize() {
+    bool ret = otapi_im.BinaryPassword_randomize__SWIG_1(cast(void*)swigCPtr) ? true : false;
+    return ret;
+  }
+
+  alias Password.randomize randomize;
 }
 
-int OT_DEFAULT_BLOCKSIZE() {
-  auto ret = otapi_im.OT_DEFAULT_BLOCKSIZE_get();
-  return ret;
-}
-
-int OT_DEFAULT_MEMSIZE() {
-  auto ret = otapi_im.OT_DEFAULT_MEMSIZE_get();
+char[] OT_PW_DISPLAY() {
+  char[] ret = tango.stdc.stringz.fromStringz(otapi_im.OT_PW_DISPLAY_get());
   return ret;
 }
 
@@ -395,215 +663,28 @@ class OTPassword {
     }
   }
 
-  enum BlockSize {
-    DEFAULT_SIZE = 128,
-    LARGER_SIZE = 32767
-  }
-
-  public OTPassword.BlockSize m_theBlockSize() {
-    OTPassword.BlockSize ret = cast(OTPassword.BlockSize)otapi_im.OTPassword_m_theBlockSize_get(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public bool isPassword() {
-    bool ret = otapi_im.OTPassword_isPassword(cast(void*)swigCPtr) ? true : false;
-    return ret;
-  }
-
-  public ubyte* getPassword_uint8() {
-    auto ret = cast(ubyte*)otapi_im.OTPassword_getPassword_uint8(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public char[] getPassword() {
-    char[] ret = tango.stdc.stringz.fromStringz(otapi_im.OTPassword_getPassword(cast(void*)swigCPtr));
-    return ret;
-  }
-
-  public ubyte* getPasswordWritable() {
-    auto ret = cast(ubyte*)otapi_im.OTPassword_getPasswordWritable(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public char[] getPasswordWritable_char() {
-    char[] ret = tango.stdc.stringz.fromStringz(otapi_im.OTPassword_getPasswordWritable_char(cast(void*)swigCPtr));
-    return ret;
-  }
-
-  public int setPassword(char[] szInput, int nInputSize) {
-    auto ret = otapi_im.OTPassword_setPassword(cast(void*)swigCPtr, (szInput ? tango.stdc.stringz.toStringz(szInput) : null), nInputSize);
-    return ret;
-  }
-
-  public int setPassword_uint8(ubyte* szInput, uint nInputSize) {
-    auto ret = otapi_im.OTPassword_setPassword_uint8(cast(void*)swigCPtr, cast(void*)szInput, nInputSize);
-    return ret;
-  }
-
-  public bool addChar(ubyte theChar) {
-    bool ret = otapi_im.OTPassword_addChar(cast(void*)swigCPtr, theChar) ? true : false;
-    return ret;
-  }
-
-  public int randomizePassword(uint nNewSize) {
-    auto ret = otapi_im.OTPassword_randomizePassword__SWIG_0(cast(void*)swigCPtr, nNewSize);
-    return ret;
-  }
-
-  public int randomizePassword() {
-    auto ret = otapi_im.OTPassword_randomizePassword__SWIG_1(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public static bool randomizePassword_uint8(ubyte* szDestination, uint nNewSize) {
-    bool ret = otapi_im.OTPassword_randomizePassword_uint8(cast(void*)szDestination, nNewSize) ? true : false;
-    return ret;
-  }
-
-  public static bool randomizePassword(char[] szDestination, uint nNewSize) {
-    bool ret = otapi_im.OTPassword_randomizePassword__SWIG_2((szDestination ? tango.stdc.stringz.toStringz(szDestination) : null), nNewSize) ? true : false;
-    return ret;
-  }
-
-  public bool isMemory() {
-    bool ret = otapi_im.OTPassword_isMemory(cast(void*)swigCPtr) ? true : false;
-    return ret;
-  }
-
-  public void* getMemory() {
-    auto ret = cast(void*)otapi_im.OTPassword_getMemory(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public ubyte* getMemory_uint8() {
-    auto ret = cast(ubyte*)otapi_im.OTPassword_getMemory_uint8(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public void* getMemoryWritable() {
-    auto ret = cast(void*)otapi_im.OTPassword_getMemoryWritable(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public int setMemory(void* vInput, uint nInputSize) {
-    auto ret = otapi_im.OTPassword_setMemory(cast(void*)swigCPtr, cast(void*)vInput, nInputSize);
-    return ret;
-  }
-
-  public int addMemory(void* vAppend, uint nAppendSize) {
-    auto ret = otapi_im.OTPassword_addMemory(cast(void*)swigCPtr, cast(void*)vAppend, nAppendSize);
-    return ret;
-  }
-
-  public int randomizeMemory(uint nNewSize) {
-    auto ret = otapi_im.OTPassword_randomizeMemory__SWIG_0(cast(void*)swigCPtr, nNewSize);
-    return ret;
-  }
-
-  public int randomizeMemory() {
-    auto ret = otapi_im.OTPassword_randomizeMemory__SWIG_1(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public static bool randomizeMemory_uint8(ubyte* szDestination, uint nNewSize) {
-    bool ret = otapi_im.OTPassword_randomizeMemory_uint8(cast(void*)szDestination, nNewSize) ? true : false;
-    return ret;
-  }
-
-  public static bool randomizeMemory(void* szDestination, uint nNewSize) {
-    bool ret = otapi_im.OTPassword_randomizeMemory__SWIG_2(cast(void*)szDestination, nNewSize) ? true : false;
-    return ret;
-  }
-
-  public uint getBlockSize() {
-    auto ret = otapi_im.OTPassword_getBlockSize(cast(void*)swigCPtr);
-    return ret;
-  }
-
-  public bool Compare(OTPassword rhs) {
-    bool ret = otapi_im.OTPassword_Compare(cast(void*)swigCPtr, OTPassword.swigGetCPtr(rhs)) ? true : false;
+  public static bool randomizeData(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t vData) {
+    bool ret = otapi_im.OTPassword_randomizeData(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t.swigGetCPtr(vData)) ? true : false;
     if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
     return ret;
   }
 
-  public uint getPasswordSize() {
-    auto ret = otapi_im.OTPassword_getPasswordSize(cast(void*)swigCPtr);
+  public static bool randomizeMemory(void* pMemory, size_t theSize) {
+    bool ret = otapi_im.OTPassword_randomizeMemory(cast(void*)pMemory, theSize) ? true : false;
     return ret;
   }
 
-  public uint getMemorySize() {
-    auto ret = otapi_im.OTPassword_getMemorySize(cast(void*)swigCPtr);
-    return ret;
+  public static void zeroMemory(void* pMemory, size_t theSize) {
+    otapi_im.OTPassword_zeroMemory(cast(void*)pMemory, theSize);
   }
 
-  public void zeroMemory() {
-    otapi_im.OTPassword_zeroMemory__SWIG_0(cast(void*)swigCPtr);
-  }
-
-  public static void zeroMemory(ubyte* szMemory, uint theSize) {
-    otapi_im.OTPassword_zeroMemory__SWIG_1(cast(void*)szMemory, theSize);
-  }
-
-  public static void zeroMemory(void* vMemory, uint theSize) {
-    otapi_im.OTPassword_zeroMemory__SWIG_2(cast(void*)vMemory, theSize);
-  }
-
-  public static void* safe_memcpy(void* dest, uint dest_size, void* src, uint src_length, bool bZeroSource) {
-    auto ret = cast(void*)otapi_im.OTPassword_safe_memcpy__SWIG_0(cast(void*)dest, dest_size, cast(void*)src, src_length, bZeroSource);
-    return ret;
-  }
-
-  public static void* safe_memcpy(void* dest, uint dest_size, void* src, uint src_length) {
-    auto ret = cast(void*)otapi_im.OTPassword_safe_memcpy__SWIG_1(cast(void*)dest, dest_size, cast(void*)src, src_length);
-    return ret;
-  }
-
-  public static OTPassword CreateTextBuffer() {
-    void* cPtr = otapi_im.OTPassword_CreateTextBuffer();
-    OTPassword ret = (cPtr is null) ? null : new OTPassword(cPtr, false);
-    return ret;
-  }
-
-  public bool SetSize(uint uSize) {
-    bool ret = otapi_im.OTPassword_SetSize(cast(void*)swigCPtr, uSize) ? true : false;
-    return ret;
-  }
-
-  public this(OTPassword.BlockSize theBlockSize) {
-    this(otapi_im.new_OTPassword__SWIG_0(cast(int)theBlockSize), true);
+  public static void copyMemory(void* pIn, size_t nIn, void* pOut, size_t* nOut) {
+    otapi_im.OTPassword_copyMemory(cast(void*)pIn, nIn, cast(void*)pOut, cast(void*)nOut);
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
   }
 
   public this() {
-    this(otapi_im.new_OTPassword__SWIG_1(), true);
-  }
-
-  public this(OTPassword rhs) {
-    this(otapi_im.new_OTPassword__SWIG_2(OTPassword.swigGetCPtr(rhs)), true);
-    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
-  }
-
-  public this(char[] szInput, uint nInputSize, OTPassword.BlockSize theBlockSize) {
-    this(otapi_im.new_OTPassword__SWIG_3((szInput ? tango.stdc.stringz.toStringz(szInput) : null), nInputSize, cast(int)theBlockSize), true);
-  }
-
-  public this(char[] szInput, uint nInputSize) {
-    this(otapi_im.new_OTPassword__SWIG_4((szInput ? tango.stdc.stringz.toStringz(szInput) : null), nInputSize), true);
-  }
-
-  public this(ubyte* szInput, uint nInputSize, OTPassword.BlockSize theBlockSize) {
-    this(otapi_im.new_OTPassword__SWIG_5(cast(void*)szInput, nInputSize, cast(int)theBlockSize), true);
-  }
-
-  public this(ubyte* szInput, uint nInputSize) {
-    this(otapi_im.new_OTPassword__SWIG_6(cast(void*)szInput, nInputSize), true);
-  }
-
-  public this(void* vInput, uint nInputSize, OTPassword.BlockSize theBlockSize) {
-    this(otapi_im.new_OTPassword__SWIG_7(cast(void*)vInput, nInputSize, cast(int)theBlockSize), true);
-  }
-
-  public this(void* vInput, uint nInputSize) {
-    this(otapi_im.new_OTPassword__SWIG_8(cast(void*)vInput, nInputSize), true);
+    this(otapi_im.new_OTPassword(), true);
   }
 }
 
@@ -643,24 +724,24 @@ class OTCallback {
     swigDirectorConnect();
   }
 
-  public void runOne(char[] szDisplay, OTPassword theOutput) {
-    if (swigIsMethodOverridden!(void delegate(char[], OTPassword), void function(char[], OTPassword), runOne)()) otapi_im.OTCallback_runOneSwigExplicitOTCallback(cast(void*)swigCPtr, (szDisplay ? tango.stdc.stringz.toStringz(szDisplay) : null), OTPassword.swigGetCPtr(theOutput)); else otapi_im.OTCallback_runOne(cast(void*)swigCPtr, (szDisplay ? tango.stdc.stringz.toStringz(szDisplay) : null), OTPassword.swigGetCPtr(theOutput));
+  public void runOne(char[] strDisplay, StringPassword theOutput) {
+    if (swigIsMethodOverridden!(void delegate(char[], StringPassword), void function(char[], StringPassword), runOne)()) otapi_im.OTCallback_runOneSwigExplicitOTCallback(cast(void*)swigCPtr, (strDisplay ? tango.stdc.stringz.toStringz(strDisplay) : null), StringPassword.swigGetCPtr(theOutput)); else otapi_im.OTCallback_runOne(cast(void*)swigCPtr, (strDisplay ? tango.stdc.stringz.toStringz(strDisplay) : null), StringPassword.swigGetCPtr(theOutput));
     if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
   }
 
-  public void runTwo(char[] szDisplay, OTPassword theOutput) {
-    if (swigIsMethodOverridden!(void delegate(char[], OTPassword), void function(char[], OTPassword), runTwo)()) otapi_im.OTCallback_runTwoSwigExplicitOTCallback(cast(void*)swigCPtr, (szDisplay ? tango.stdc.stringz.toStringz(szDisplay) : null), OTPassword.swigGetCPtr(theOutput)); else otapi_im.OTCallback_runTwo(cast(void*)swigCPtr, (szDisplay ? tango.stdc.stringz.toStringz(szDisplay) : null), OTPassword.swigGetCPtr(theOutput));
+  public void runTwo(char[] strDisplay, StringPassword theOutput) {
+    if (swigIsMethodOverridden!(void delegate(char[], StringPassword), void function(char[], StringPassword), runTwo)()) otapi_im.OTCallback_runTwoSwigExplicitOTCallback(cast(void*)swigCPtr, (strDisplay ? tango.stdc.stringz.toStringz(strDisplay) : null), StringPassword.swigGetCPtr(theOutput)); else otapi_im.OTCallback_runTwo(cast(void*)swigCPtr, (strDisplay ? tango.stdc.stringz.toStringz(strDisplay) : null), StringPassword.swigGetCPtr(theOutput));
     if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
   }
 
   private void swigDirectorConnect() {
     otapi_im.SwigDirector_OTCallback_Callback0 callback0;
-    if (swigIsMethodOverridden!(void delegate(char[], OTPassword), void function(char[], OTPassword), runOne)()) {
+    if (swigIsMethodOverridden!(void delegate(char[], StringPassword), void function(char[], StringPassword), runOne)()) {
       callback0 = &swigDirectorCallback_OTCallback_runOne;
     }
 
     otapi_im.SwigDirector_OTCallback_Callback1 callback1;
-    if (swigIsMethodOverridden!(void delegate(char[], OTPassword), void function(char[], OTPassword), runTwo)()) {
+    if (swigIsMethodOverridden!(void delegate(char[], StringPassword), void function(char[], StringPassword), runTwo)()) {
       callback1 = &swigDirectorCallback_OTCallback_runTwo;
     }
 
@@ -677,12 +758,12 @@ class OTCallback {
   }
 }
 
-private extern(C) void swigDirectorCallback_OTCallback_runOne(void* dObject, char* szDisplay, void* theOutput) {
-  (cast(OTCallback)dObject).runOne(tango.stdc.stringz.fromStringz(szDisplay), new OTPassword(theOutput, false));
+private extern(C) void swigDirectorCallback_OTCallback_runOne(void* dObject, char* strDisplay, void* theOutput) {
+  (cast(OTCallback)dObject).runOne(tango.stdc.stringz.fromStringz(strDisplay), new StringPassword(theOutput, false));
 }
 
-private extern(C) void swigDirectorCallback_OTCallback_runTwo(void* dObject, char* szDisplay, void* theOutput) {
-  (cast(OTCallback)dObject).runTwo(tango.stdc.stringz.fromStringz(szDisplay), new OTPassword(theOutput, false));
+private extern(C) void swigDirectorCallback_OTCallback_runTwo(void* dObject, char* strDisplay, void* theOutput) {
+  (cast(OTCallback)dObject).runTwo(tango.stdc.stringz.fromStringz(strDisplay), new StringPassword(theOutput, false));
 }
 
 class OTCaller {
@@ -720,8 +801,8 @@ class OTCaller {
     this(otapi_im.new_OTCaller(), true);
   }
 
-  public bool GetPassword(OTPassword theOutput) {
-    bool ret = otapi_im.OTCaller_GetPassword(cast(void*)swigCPtr, OTPassword.swigGetCPtr(theOutput)) ? true : false;
+  public bool GetPassword(Password theOutput) {
+    bool ret = otapi_im.OTCaller_GetPassword(cast(void*)swigCPtr, Password.swigGetCPtr(theOutput)) ? true : false;
     if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
     return ret;
   }
@@ -735,8 +816,9 @@ class OTCaller {
     return ret;
   }
 
-  public void SetDisplay(char[] szDisplay, int nLength) {
-    otapi_im.OTCaller_SetDisplay(cast(void*)swigCPtr, (szDisplay ? tango.stdc.stringz.toStringz(szDisplay) : null), nLength);
+  public void SetDisplay(char[] strDisplay) {
+    otapi_im.OTCaller_SetDisplay(cast(void*)swigCPtr, (strDisplay ? tango.stdc.stringz.toStringz(strDisplay) : null));
+    if (otapi_im.SwigPendingException.isPending) throw otapi_im.SwigPendingException.retrieve();
   }
 
   public void delCallback() {
@@ -6822,6 +6904,42 @@ bool OT_API_Set_PasswordCallback(OTCaller theCaller) {
   return ret;
 }
 
+class SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_std__vectorT_unsigned_char_secure_allocatorT_unsigned_char_t_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_std__pairT_void_const_pconst_size_t_const_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+}
+
 class SWIGTYPE_p_OTVariable {
   private void* swigCPtr;
 
@@ -6840,6 +6958,24 @@ class SWIGTYPE_p_OTVariable {
   mixin otapi_im.SwigOperatorDefinitions;
 }
 
+class SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_std__pairT_void_pconst_size_t_const_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+}
+
 class SWIGTYPE_p_std__string {
   private void* swigCPtr;
 
@@ -6852,6 +6988,24 @@ class SWIGTYPE_p_std__string {
   }
 
   public static void* swigGetCPtr(SWIGTYPE_p_std__string obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin otapi_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_std__basic_stringT_char_std__char_traitsT_char_t_secure_allocatorT_char_t_t obj) {
     return (obj is null) ? null : obj.swigCPtr;
   }
 

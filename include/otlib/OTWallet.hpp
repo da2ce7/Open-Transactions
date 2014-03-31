@@ -143,7 +143,6 @@ class OTAssetContract;
 class OTContract;
 class OTIdentifier;
 class OTMessage;
-class OTPassword;
 class OTPasswordData;
 class OTPseudonym;
 class OTPurse;
@@ -191,7 +190,7 @@ EXPORT	OTPseudonym * GetOrLoadPrivateNym(const OTIdentifier & NYM_ID,
                                           const bool bChecking=false,
                                           const char * szFuncName=NULL,
                                           OTPasswordData * pPWData=NULL,
-                                          OTPassword * pImportPassword=NULL);
+                                          OT::Password * pImportPassword=NULL);
 	
 EXPORT	OTAccount	* LoadAccount(OTPseudonym & theNym, 
                                   const OTIdentifier & ACCT_ID, 

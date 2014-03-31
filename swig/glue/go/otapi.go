@@ -275,13 +275,543 @@ type MapStringString interface {
 	Has_key(arg2 string) bool
 }
 
-const OT_PW_DISPLAY string = "Enter master passphrase for wallet."
+func X_SecureAllocateVoid(int64, int64) uintptr
+func _swig_wrap__SecureDeallocateVoid(int64, int64, uintptr)
+
+func X_SecureDeallocateVoid(arg1 int64, arg2 int64, arg3 uintptr) {
+	_swig_wrap__SecureDeallocateVoid(arg1, arg2, arg3)
+}
+
 const OTPASSWORD_BLOCKSIZE int = 128
-const OTPASSWORD_MEMSIZE int = 129
-const OT_LARGE_BLOCKSIZE int = 32767
-const OT_LARGE_MEMSIZE int = 32768
-const OT_DEFAULT_BLOCKSIZE int = 128
-const OT_DEFAULT_MEMSIZE int = 129
+type SwigcptrPassword uintptr
+
+func (p SwigcptrPassword) Swigcptr() uintptr {
+	return (uintptr)(p)
+}
+
+func (p SwigcptrPassword) SwigIsPassword() {
+}
+
+type OpenTransactionsPasswordTYPE int
+func _swig_getPassword_STRING_Password() OpenTransactionsPasswordTYPE
+var PasswordSTRING OpenTransactionsPasswordTYPE = _swig_getPassword_STRING_Password()
+func _swig_getPassword_BINARY_Password() OpenTransactionsPasswordTYPE
+var PasswordBINARY OpenTransactionsPasswordTYPE = _swig_getPassword_BINARY_Password()
+func _swig_wrap_Password_getType(SwigcptrPassword) OpenTransactionsPasswordTYPE
+
+func (arg1 SwigcptrPassword) GetType() OpenTransactionsPasswordTYPE {
+	return _swig_wrap_Password_getType(arg1)
+}
+
+func _swig_wrap_Password_getData(SwigcptrPassword) SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+
+func (arg1 SwigcptrPassword) GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ {
+	return _swig_wrap_Password_getData(arg1)
+}
+
+func _swig_wrap_delete_Password(uintptr)
+
+func DeletePassword(arg1 Password) {
+	_swig_wrap_delete_Password(arg1.Swigcptr())
+}
+
+func _swig_wrap_Password_getMemory__SWIG_0(SwigcptrPassword) SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (arg1 SwigcptrPassword) GetMemory__SWIG_0() Std_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_Password_getMemory__SWIG_0(arg1)
+}
+
+func _swig_wrap_Password_getMemory__SWIG_1(SwigcptrPassword, *uintptr, *int64)
+
+func (arg1 SwigcptrPassword) GetMemory__SWIG_1(arg2 *uintptr, arg3 *int64) {
+	_swig_wrap_Password_getMemory__SWIG_1(arg1, arg2, arg3)
+}
+
+func (p SwigcptrPassword) GetMemory(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemory__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemory__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_Password_getMemoryConst__SWIG_0(SwigcptrPassword) SwigcptrStd_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (arg1 SwigcptrPassword) GetMemoryConst__SWIG_0() Std_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_Password_getMemoryConst__SWIG_0(arg1)
+}
+
+func _swig_wrap_Password_getMemoryConst__SWIG_1(SwigcptrPassword, *uintptr, *int64)
+
+func (arg1 SwigcptrPassword) GetMemoryConst__SWIG_1(arg2 *uintptr, arg3 *int64) {
+	_swig_wrap_Password_getMemoryConst__SWIG_1(arg1, arg2, arg3)
+}
+
+func (p SwigcptrPassword) GetMemoryConst(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemoryConst__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemoryConst__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_Password_length(SwigcptrPassword) int64
+
+func (arg1 SwigcptrPassword) Length() int64 {
+	return _swig_wrap_Password_length(arg1)
+}
+
+func _swig_wrap_Password_resize(SwigcptrPassword, int64)
+
+func (arg1 SwigcptrPassword) Resize(arg2 int64) {
+	_swig_wrap_Password_resize(arg1, arg2)
+}
+
+func _swig_wrap_Password_zero(SwigcptrPassword)
+
+func (arg1 SwigcptrPassword) Zero() {
+	_swig_wrap_Password_zero(arg1)
+}
+
+func _swig_wrap_Password_randomize(SwigcptrPassword, int64) bool
+
+func (arg1 SwigcptrPassword) Randomize(arg2 int64) bool {
+	return _swig_wrap_Password_randomize(arg1, arg2)
+}
+
+type Password interface {
+	Swigcptr() uintptr
+	SwigIsPassword()
+	GetType() OpenTransactionsPasswordTYPE
+	GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+	GetMemory(a ...interface{}) interface{}
+	GetMemoryConst(a ...interface{}) interface{}
+	Length() int64
+	Resize(arg2 int64)
+	Zero()
+	Randomize(arg2 int64) bool
+}
+
+type SwigcptrStringPassword uintptr
+
+func (p SwigcptrStringPassword) Swigcptr() uintptr {
+	return (uintptr)(p)
+}
+
+func (p SwigcptrStringPassword) SwigIsStringPassword() {
+}
+
+func _swig_wrap_new_StringPassword__SWIG_0() SwigcptrStringPassword
+
+func NewStringPassword__SWIG_0() StringPassword {
+	return _swig_wrap_new_StringPassword__SWIG_0()
+}
+
+func _swig_wrap_new_StringPassword__SWIG_1(uintptr) SwigcptrStringPassword
+
+func NewStringPassword__SWIG_1(arg1 Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_) StringPassword {
+	return _swig_wrap_new_StringPassword__SWIG_1(arg1.Swigcptr())
+}
+
+func _swig_wrap_new_StringPassword__SWIG_2(uintptr) SwigcptrStringPassword
+
+func NewStringPassword__SWIG_2(arg1 Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_) StringPassword {
+	return _swig_wrap_new_StringPassword__SWIG_2(arg1.Swigcptr())
+}
+
+func NewStringPassword(a ...interface{}) StringPassword {
+	argc := len(a)
+	if argc == 0 {
+		return NewStringPassword__SWIG_0()
+	}
+	if argc == 1 {
+		if _, ok := a[0].(SwigcptrStd_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_); !ok {
+			goto check_2
+		}
+		return NewStringPassword__SWIG_1(a[0].(Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_))
+	}
+check_2:
+	if argc == 1 {
+		return NewStringPassword__SWIG_2(a[0].(Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_))
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_StringPassword_getCopy(SwigcptrStringPassword) SwigcptrStd_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_
+
+func (arg1 SwigcptrStringPassword) GetCopy() Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_ {
+	return _swig_wrap_StringPassword_getCopy(arg1)
+}
+
+func _swig_wrap_StringPassword_getChars(SwigcptrStringPassword) string
+
+func (arg1 SwigcptrStringPassword) GetChars() string {
+	return _swig_wrap_StringPassword_getChars(arg1)
+}
+
+func _swig_wrap_StringPassword_length(SwigcptrStringPassword) int64
+
+func (arg1 SwigcptrStringPassword) Length() int64 {
+	return _swig_wrap_StringPassword_length(arg1)
+}
+
+func _swig_wrap_StringPassword_resize(SwigcptrStringPassword, int64)
+
+func (arg1 SwigcptrStringPassword) Resize(arg2 int64) {
+	_swig_wrap_StringPassword_resize(arg1, arg2)
+}
+
+func _swig_wrap_StringPassword_zero(SwigcptrStringPassword)
+
+func (arg1 SwigcptrStringPassword) Zero() {
+	_swig_wrap_StringPassword_zero(arg1)
+}
+
+func _swig_wrap_StringPassword_randomize__SWIG_0(SwigcptrStringPassword, int64) bool
+
+func (arg1 SwigcptrStringPassword) Randomize__SWIG_0(arg2 int64) bool {
+	return _swig_wrap_StringPassword_randomize__SWIG_0(arg1, arg2)
+}
+
+func _swig_wrap_StringPassword_randomize__SWIG_1(SwigcptrStringPassword) bool
+
+func (arg1 SwigcptrStringPassword) Randomize__SWIG_1() bool {
+	return _swig_wrap_StringPassword_randomize__SWIG_1(arg1)
+}
+
+func (p SwigcptrStringPassword) Randomize(a ...interface{}) bool {
+	argc := len(a)
+	if argc == 0 {
+		return p.Randomize__SWIG_1()
+	}
+	if argc == 1 {
+		return p.Randomize__SWIG_0(a[0].(int64))
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_delete_StringPassword(uintptr)
+
+func DeleteStringPassword(arg1 StringPassword) {
+	_swig_wrap_delete_StringPassword(arg1.Swigcptr())
+}
+
+func _swig_wrap_StringPassword_getType(SwigcptrStringPassword) OpenTransactionsPasswordTYPE
+
+func (_swig_base SwigcptrStringPassword) GetType() OpenTransactionsPasswordTYPE {
+	return _swig_wrap_StringPassword_getType(_swig_base)
+}
+
+func _swig_wrap_StringPassword_getData(SwigcptrStringPassword) SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+
+func (_swig_base SwigcptrStringPassword) GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ {
+	return _swig_wrap_StringPassword_getData(_swig_base)
+}
+
+func _swig_wrap_StringPassword_getMemory__SWIG_0(SwigcptrStringPassword) SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (_swig_base SwigcptrStringPassword) GetMemory__SWIG_0() Std_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_StringPassword_getMemory__SWIG_0(_swig_base)
+}
+
+func _swig_wrap_StringPassword_getMemory__SWIG_1(SwigcptrStringPassword, *uintptr, *int64)
+
+func (_swig_base SwigcptrStringPassword) GetMemory__SWIG_1(arg1 *uintptr, arg2 *int64) {
+	_swig_wrap_StringPassword_getMemory__SWIG_1(_swig_base, arg1, arg2)
+}
+
+func (p SwigcptrStringPassword) GetMemory(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemory__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemory__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_StringPassword_getMemoryConst__SWIG_0(SwigcptrStringPassword) SwigcptrStd_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (_swig_base SwigcptrStringPassword) GetMemoryConst__SWIG_0() Std_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_StringPassword_getMemoryConst__SWIG_0(_swig_base)
+}
+
+func _swig_wrap_StringPassword_getMemoryConst__SWIG_1(SwigcptrStringPassword, *uintptr, *int64)
+
+func (_swig_base SwigcptrStringPassword) GetMemoryConst__SWIG_1(arg1 *uintptr, arg2 *int64) {
+	_swig_wrap_StringPassword_getMemoryConst__SWIG_1(_swig_base, arg1, arg2)
+}
+
+func (p SwigcptrStringPassword) GetMemoryConst(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemoryConst__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemoryConst__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func (p SwigcptrStringPassword) SwigIsPassword() {
+}
+
+func (p SwigcptrStringPassword) SwigGetPassword() Password {
+	return SwigcptrPassword(p.Swigcptr())
+}
+
+type StringPassword interface {
+	Swigcptr() uintptr
+	SwigIsStringPassword()
+	GetCopy() Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_
+	GetChars() string
+	Length() int64
+	Resize(arg2 int64)
+	Zero()
+	Randomize(a ...interface{}) bool
+	GetType() OpenTransactionsPasswordTYPE
+	GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+	GetMemory(a ...interface{}) interface{}
+	GetMemoryConst(a ...interface{}) interface{}
+	SwigIsPassword()
+	SwigGetPassword() Password
+}
+
+type SwigcptrBinaryPassword uintptr
+
+func (p SwigcptrBinaryPassword) Swigcptr() uintptr {
+	return (uintptr)(p)
+}
+
+func (p SwigcptrBinaryPassword) SwigIsBinaryPassword() {
+}
+
+func _swig_wrap_new_BinaryPassword__SWIG_0() SwigcptrBinaryPassword
+
+func NewBinaryPassword__SWIG_0() BinaryPassword {
+	return _swig_wrap_new_BinaryPassword__SWIG_0()
+}
+
+func _swig_wrap_new_BinaryPassword__SWIG_1(uintptr) SwigcptrBinaryPassword
+
+func NewBinaryPassword__SWIG_1(arg1 Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_) BinaryPassword {
+	return _swig_wrap_new_BinaryPassword__SWIG_1(arg1.Swigcptr())
+}
+
+func _swig_wrap_BinaryPassword_getCopy(SwigcptrBinaryPassword) SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+
+func (arg1 SwigcptrBinaryPassword) GetCopy() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ {
+	return _swig_wrap_BinaryPassword_getCopy(arg1)
+}
+
+func _swig_wrap_new_BinaryPassword__SWIG_2(uintptr, int64) SwigcptrBinaryPassword
+
+func NewBinaryPassword__SWIG_2(arg1 uintptr, arg2 int64) BinaryPassword {
+	return _swig_wrap_new_BinaryPassword__SWIG_2(arg1, arg2)
+}
+
+func NewBinaryPassword(a ...interface{}) BinaryPassword {
+	argc := len(a)
+	if argc == 0 {
+		return NewBinaryPassword__SWIG_0()
+	}
+	if argc == 1 {
+		return NewBinaryPassword__SWIG_1(a[0].(Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_))
+	}
+	if argc == 2 {
+		return NewBinaryPassword__SWIG_2(a[0].(uintptr), a[1].(int64))
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_BinaryPassword_append(SwigcptrBinaryPassword, uintptr, int64)
+
+func (arg1 SwigcptrBinaryPassword) Append(arg2 uintptr, arg3 int64) {
+	_swig_wrap_BinaryPassword_append(arg1, arg2, arg3)
+}
+
+func _swig_wrap_BinaryPassword_getMemoryCopy__SWIG_0(SwigcptrBinaryPassword) SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (arg1 SwigcptrBinaryPassword) GetMemoryCopy__SWIG_0() Std_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_BinaryPassword_getMemoryCopy__SWIG_0(arg1)
+}
+
+func _swig_wrap_BinaryPassword_getMemoryCopy__SWIG_1(SwigcptrBinaryPassword, *uintptr, *int64)
+
+func (arg1 SwigcptrBinaryPassword) GetMemoryCopy__SWIG_1(arg2 *uintptr, arg3 *int64) {
+	_swig_wrap_BinaryPassword_getMemoryCopy__SWIG_1(arg1, arg2, arg3)
+}
+
+func (p SwigcptrBinaryPassword) GetMemoryCopy(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemoryCopy__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemoryCopy__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_BinaryPassword_getMemoryCopyOnto(SwigcptrBinaryPassword, uintptr, int64)
+
+func (arg1 SwigcptrBinaryPassword) GetMemoryCopyOnto(arg2 uintptr, arg3 int64) {
+	_swig_wrap_BinaryPassword_getMemoryCopyOnto(arg1, arg2, arg3)
+}
+
+func _swig_wrap_BinaryPassword_toString(SwigcptrBinaryPassword) SwigcptrStd_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_
+
+func (arg1 SwigcptrBinaryPassword) ToString() Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_ {
+	return _swig_wrap_BinaryPassword_toString(arg1)
+}
+
+func _swig_wrap_BinaryPassword_length(SwigcptrBinaryPassword) int64
+
+func (arg1 SwigcptrBinaryPassword) Length() int64 {
+	return _swig_wrap_BinaryPassword_length(arg1)
+}
+
+func _swig_wrap_BinaryPassword_resize(SwigcptrBinaryPassword, int64)
+
+func (arg1 SwigcptrBinaryPassword) Resize(arg2 int64) {
+	_swig_wrap_BinaryPassword_resize(arg1, arg2)
+}
+
+func _swig_wrap_BinaryPassword_zero(SwigcptrBinaryPassword)
+
+func (arg1 SwigcptrBinaryPassword) Zero() {
+	_swig_wrap_BinaryPassword_zero(arg1)
+}
+
+func _swig_wrap_BinaryPassword_randomize__SWIG_0(SwigcptrBinaryPassword, int64) bool
+
+func (arg1 SwigcptrBinaryPassword) Randomize__SWIG_0(arg2 int64) bool {
+	return _swig_wrap_BinaryPassword_randomize__SWIG_0(arg1, arg2)
+}
+
+func _swig_wrap_BinaryPassword_randomize__SWIG_1(SwigcptrBinaryPassword) bool
+
+func (arg1 SwigcptrBinaryPassword) Randomize__SWIG_1() bool {
+	return _swig_wrap_BinaryPassword_randomize__SWIG_1(arg1)
+}
+
+func (p SwigcptrBinaryPassword) Randomize(a ...interface{}) bool {
+	argc := len(a)
+	if argc == 0 {
+		return p.Randomize__SWIG_1()
+	}
+	if argc == 1 {
+		return p.Randomize__SWIG_0(a[0].(int64))
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_delete_BinaryPassword(uintptr)
+
+func DeleteBinaryPassword(arg1 BinaryPassword) {
+	_swig_wrap_delete_BinaryPassword(arg1.Swigcptr())
+}
+
+func _swig_wrap_BinaryPassword_getType(SwigcptrBinaryPassword) OpenTransactionsPasswordTYPE
+
+func (_swig_base SwigcptrBinaryPassword) GetType() OpenTransactionsPasswordTYPE {
+	return _swig_wrap_BinaryPassword_getType(_swig_base)
+}
+
+func _swig_wrap_BinaryPassword_getData(SwigcptrBinaryPassword) SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+
+func (_swig_base SwigcptrBinaryPassword) GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ {
+	return _swig_wrap_BinaryPassword_getData(_swig_base)
+}
+
+func _swig_wrap_BinaryPassword_getMemory__SWIG_0(SwigcptrBinaryPassword) SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (_swig_base SwigcptrBinaryPassword) GetMemory__SWIG_0() Std_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_BinaryPassword_getMemory__SWIG_0(_swig_base)
+}
+
+func _swig_wrap_BinaryPassword_getMemory__SWIG_1(SwigcptrBinaryPassword, *uintptr, *int64)
+
+func (_swig_base SwigcptrBinaryPassword) GetMemory__SWIG_1(arg1 *uintptr, arg2 *int64) {
+	_swig_wrap_BinaryPassword_getMemory__SWIG_1(_swig_base, arg1, arg2)
+}
+
+func (p SwigcptrBinaryPassword) GetMemory(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemory__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemory__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func _swig_wrap_BinaryPassword_getMemoryConst__SWIG_0(SwigcptrBinaryPassword) SwigcptrStd_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_
+
+func (_swig_base SwigcptrBinaryPassword) GetMemoryConst__SWIG_0() Std_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_ {
+	return _swig_wrap_BinaryPassword_getMemoryConst__SWIG_0(_swig_base)
+}
+
+func _swig_wrap_BinaryPassword_getMemoryConst__SWIG_1(SwigcptrBinaryPassword, *uintptr, *int64)
+
+func (_swig_base SwigcptrBinaryPassword) GetMemoryConst__SWIG_1(arg1 *uintptr, arg2 *int64) {
+	_swig_wrap_BinaryPassword_getMemoryConst__SWIG_1(_swig_base, arg1, arg2)
+}
+
+func (p SwigcptrBinaryPassword) GetMemoryConst(a ...interface{}) interface{} {
+	argc := len(a)
+	if argc == 0 {
+		return p.GetMemoryConst__SWIG_0()
+	}
+	if argc == 2 {
+		p.GetMemoryConst__SWIG_1(a[0].(*uintptr), a[1].(*int64))
+		return 0
+	}
+	panic("No match for overloaded function call")
+}
+
+func (p SwigcptrBinaryPassword) SwigIsPassword() {
+}
+
+func (p SwigcptrBinaryPassword) SwigGetPassword() Password {
+	return SwigcptrPassword(p.Swigcptr())
+}
+
+type BinaryPassword interface {
+	Swigcptr() uintptr
+	SwigIsBinaryPassword()
+	GetCopy() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+	Append(arg2 uintptr, arg3 int64)
+	GetMemoryCopy(a ...interface{}) interface{}
+	GetMemoryCopyOnto(arg2 uintptr, arg3 int64)
+	ToString() Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_
+	Length() int64
+	Resize(arg2 int64)
+	Zero()
+	Randomize(a ...interface{}) bool
+	GetType() OpenTransactionsPasswordTYPE
+	GetData() Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_
+	GetMemory(a ...interface{}) interface{}
+	GetMemoryConst(a ...interface{}) interface{}
+	SwigIsPassword()
+	SwigGetPassword() Password
+}
+
+const OT_PW_DISPLAY string = "Enter master passphrase for wallet."
 type SwigcptrOTPassword uintptr
 
 func (p SwigcptrOTPassword) Swigcptr() uintptr {
@@ -291,349 +821,29 @@ func (p SwigcptrOTPassword) Swigcptr() uintptr {
 func (p SwigcptrOTPassword) SwigIsOTPassword() {
 }
 
-type OTPasswordBlockSize int
-func _swig_getOTPassword_DEFAULT_SIZE_OTPassword() OTPasswordBlockSize
-var OTPasswordDEFAULT_SIZE OTPasswordBlockSize = _swig_getOTPassword_DEFAULT_SIZE_OTPassword()
-func _swig_getOTPassword_LARGER_SIZE_OTPassword() OTPasswordBlockSize
-var OTPasswordLARGER_SIZE OTPasswordBlockSize = _swig_getOTPassword_LARGER_SIZE_OTPassword()
-func _swig_wrap_OTPassword_m_theBlockSize_get(SwigcptrOTPassword) OTPasswordBlockSize
+func _swig_wrap_OTPassword_randomizeData(uintptr) bool
 
-func (arg1 SwigcptrOTPassword) GetM_theBlockSize() OTPasswordBlockSize {
-	return _swig_wrap_OTPassword_m_theBlockSize_get(arg1)
+func OTPasswordRandomizeData(arg1 Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_) bool {
+	return _swig_wrap_OTPassword_randomizeData(arg1.Swigcptr())
 }
 
-func _swig_wrap_OTPassword_isPassword(SwigcptrOTPassword) bool
+func OTPasswordRandomizeMemory(uintptr, int64) bool
+func _swig_wrap_OTPassword_zeroMemory(uintptr, int64)
 
-func (arg1 SwigcptrOTPassword) IsPassword() bool {
-	return _swig_wrap_OTPassword_isPassword(arg1)
+func OTPasswordZeroMemory(arg1 uintptr, arg2 int64) {
+	_swig_wrap_OTPassword_zeroMemory(arg1, arg2)
 }
 
-func _swig_wrap_OTPassword_getPassword_uint8(SwigcptrOTPassword) string
+func _swig_wrap_OTPassword_copyMemory(uintptr, int64, uintptr, *int64)
 
-func (arg1 SwigcptrOTPassword) GetPassword_uint8() string {
-	return _swig_wrap_OTPassword_getPassword_uint8(arg1)
+func OTPasswordCopyMemory(arg1 uintptr, arg2 int64, arg3 uintptr, arg4 *int64) {
+	_swig_wrap_OTPassword_copyMemory(arg1, arg2, arg3, arg4)
 }
 
-func _swig_wrap_OTPassword_getPassword(SwigcptrOTPassword) string
+func _swig_wrap_new_OTPassword() SwigcptrOTPassword
 
-func (arg1 SwigcptrOTPassword) GetPassword() string {
-	return _swig_wrap_OTPassword_getPassword(arg1)
-}
-
-func _swig_wrap_OTPassword_getPasswordWritable(SwigcptrOTPassword) string
-
-func (arg1 SwigcptrOTPassword) GetPasswordWritable() string {
-	return _swig_wrap_OTPassword_getPasswordWritable(arg1)
-}
-
-func _swig_wrap_OTPassword_getPasswordWritable_char(SwigcptrOTPassword) string
-
-func (arg1 SwigcptrOTPassword) GetPasswordWritable_char() string {
-	return _swig_wrap_OTPassword_getPasswordWritable_char(arg1)
-}
-
-func _swig_wrap_OTPassword_setPassword(SwigcptrOTPassword, string, int) int
-
-func (arg1 SwigcptrOTPassword) SetPassword(arg2 string, arg3 int) int {
-	return _swig_wrap_OTPassword_setPassword(arg1, arg2, arg3)
-}
-
-func _swig_wrap_OTPassword_setPassword_uint8(SwigcptrOTPassword, string, uint) int
-
-func (arg1 SwigcptrOTPassword) SetPassword_uint8(arg2 string, arg3 uint) int {
-	return _swig_wrap_OTPassword_setPassword_uint8(arg1, arg2, arg3)
-}
-
-func _swig_wrap_OTPassword_addChar(SwigcptrOTPassword, byte) bool
-
-func (arg1 SwigcptrOTPassword) AddChar(arg2 byte) bool {
-	return _swig_wrap_OTPassword_addChar(arg1, arg2)
-}
-
-func _swig_wrap_OTPassword_randomizePassword__SWIG_0(SwigcptrOTPassword, uint) int
-
-func (arg1 SwigcptrOTPassword) RandomizePassword__SWIG_0(arg2 uint) int {
-	return _swig_wrap_OTPassword_randomizePassword__SWIG_0(arg1, arg2)
-}
-
-func _swig_wrap_OTPassword_randomizePassword__SWIG_1(SwigcptrOTPassword) int
-
-func (arg1 SwigcptrOTPassword) RandomizePassword__SWIG_1() int {
-	return _swig_wrap_OTPassword_randomizePassword__SWIG_1(arg1)
-}
-
-func OTPasswordRandomizePassword_uint8(string, uint) bool
-func OTPasswordRandomizePassword__SWIG_2(string, uint) bool
-func OTPasswordRandomizePassword(a ...interface{}) interface{} {
-	argc := len(a)
-	if argc == 1 {
-		return a[0].(SwigcptrOTPassword).RandomizePassword__SWIG_1()
-	}
-	if argc == 2 {
-		if _, ok := a[0].(SwigcptrOTPassword); !ok {
-			goto check_2
-		}
-		return a[0].(SwigcptrOTPassword).RandomizePassword__SWIG_0(a[1].(uint))
-	}
-check_2:
-	if argc == 2 {
-		return OTPasswordRandomizePassword__SWIG_2(a[0].(string), a[1].(uint))
-	}
-	panic("No match for overloaded function call")
-}
-
-func _swig_wrap_OTPassword_isMemory(SwigcptrOTPassword) bool
-
-func (arg1 SwigcptrOTPassword) IsMemory() bool {
-	return _swig_wrap_OTPassword_isMemory(arg1)
-}
-
-func _swig_wrap_OTPassword_getMemory(SwigcptrOTPassword) uintptr
-
-func (arg1 SwigcptrOTPassword) GetMemory() uintptr {
-	return _swig_wrap_OTPassword_getMemory(arg1)
-}
-
-func _swig_wrap_OTPassword_getMemory_uint8(SwigcptrOTPassword) string
-
-func (arg1 SwigcptrOTPassword) GetMemory_uint8() string {
-	return _swig_wrap_OTPassword_getMemory_uint8(arg1)
-}
-
-func _swig_wrap_OTPassword_getMemoryWritable(SwigcptrOTPassword) uintptr
-
-func (arg1 SwigcptrOTPassword) GetMemoryWritable() uintptr {
-	return _swig_wrap_OTPassword_getMemoryWritable(arg1)
-}
-
-func _swig_wrap_OTPassword_setMemory(SwigcptrOTPassword, uintptr, uint) int
-
-func (arg1 SwigcptrOTPassword) SetMemory(arg2 uintptr, arg3 uint) int {
-	return _swig_wrap_OTPassword_setMemory(arg1, arg2, arg3)
-}
-
-func _swig_wrap_OTPassword_addMemory(SwigcptrOTPassword, uintptr, uint) int
-
-func (arg1 SwigcptrOTPassword) AddMemory(arg2 uintptr, arg3 uint) int {
-	return _swig_wrap_OTPassword_addMemory(arg1, arg2, arg3)
-}
-
-func _swig_wrap_OTPassword_randomizeMemory__SWIG_0(SwigcptrOTPassword, uint) int
-
-func (arg1 SwigcptrOTPassword) RandomizeMemory__SWIG_0(arg2 uint) int {
-	return _swig_wrap_OTPassword_randomizeMemory__SWIG_0(arg1, arg2)
-}
-
-func _swig_wrap_OTPassword_randomizeMemory__SWIG_1(SwigcptrOTPassword) int
-
-func (arg1 SwigcptrOTPassword) RandomizeMemory__SWIG_1() int {
-	return _swig_wrap_OTPassword_randomizeMemory__SWIG_1(arg1)
-}
-
-func OTPasswordRandomizeMemory_uint8(string, uint) bool
-func OTPasswordRandomizeMemory__SWIG_2(uintptr, uint) bool
-func OTPasswordRandomizeMemory(a ...interface{}) interface{} {
-	argc := len(a)
-	if argc == 1 {
-		return a[0].(SwigcptrOTPassword).RandomizeMemory__SWIG_1()
-	}
-	if argc == 2 {
-		if _, ok := a[0].(SwigcptrOTPassword); !ok {
-			goto check_2
-		}
-		return a[0].(SwigcptrOTPassword).RandomizeMemory__SWIG_0(a[1].(uint))
-	}
-check_2:
-	if argc == 2 {
-		return OTPasswordRandomizeMemory__SWIG_2(a[0].(uintptr), a[1].(uint))
-	}
-	panic("No match for overloaded function call")
-}
-
-func _swig_wrap_OTPassword_getBlockSize(SwigcptrOTPassword) uint
-
-func (arg1 SwigcptrOTPassword) GetBlockSize() uint {
-	return _swig_wrap_OTPassword_getBlockSize(arg1)
-}
-
-func _swig_wrap_OTPassword_Compare(SwigcptrOTPassword, uintptr) bool
-
-func (arg1 SwigcptrOTPassword) Compare(arg2 OTPassword) bool {
-	return _swig_wrap_OTPassword_Compare(arg1, arg2.Swigcptr())
-}
-
-func _swig_wrap_OTPassword_getPasswordSize(SwigcptrOTPassword) uint
-
-func (arg1 SwigcptrOTPassword) GetPasswordSize() uint {
-	return _swig_wrap_OTPassword_getPasswordSize(arg1)
-}
-
-func _swig_wrap_OTPassword_getMemorySize(SwigcptrOTPassword) uint
-
-func (arg1 SwigcptrOTPassword) GetMemorySize() uint {
-	return _swig_wrap_OTPassword_getMemorySize(arg1)
-}
-
-func _swig_wrap_OTPassword_zeroMemory__SWIG_0(SwigcptrOTPassword)
-
-func (arg1 SwigcptrOTPassword) ZeroMemory__SWIG_0() {
-	_swig_wrap_OTPassword_zeroMemory__SWIG_0(arg1)
-}
-
-func _swig_wrap_OTPassword_zeroMemory__SWIG_1(string, uint)
-
-func OTPasswordZeroMemory__SWIG_1(arg1 string, arg2 uint) {
-	_swig_wrap_OTPassword_zeroMemory__SWIG_1(arg1, arg2)
-}
-
-func _swig_wrap_OTPassword_zeroMemory__SWIG_2(uintptr, uint)
-
-func OTPasswordZeroMemory__SWIG_2(arg1 uintptr, arg2 uint) {
-	_swig_wrap_OTPassword_zeroMemory__SWIG_2(arg1, arg2)
-}
-
-func OTPasswordZeroMemory(a ...interface{}) {
-	argc := len(a)
-	if argc == 1 {
-		a[0].(SwigcptrOTPassword).ZeroMemory__SWIG_0()
-		return
-	}
-	if argc == 2 {
-		if _, ok := a[0].(uintptr); !ok {
-			goto check_2
-		}
-		OTPasswordZeroMemory__SWIG_2(a[0].(uintptr), a[1].(uint))
-		return
-	}
-check_2:
-	if argc == 2 {
-		OTPasswordZeroMemory__SWIG_1(a[0].(string), a[1].(uint))
-		return
-	}
-	panic("No match for overloaded function call")
-}
-
-func OTPasswordSafe_memcpy__SWIG_0(uintptr, uint, uintptr, uint, bool) uintptr
-func OTPasswordSafe_memcpy__SWIG_1(uintptr, uint, uintptr, uint) uintptr
-func OTPasswordSafe_memcpy(a ...interface{}) uintptr {
-	argc := len(a)
-	if argc == 4 {
-		return OTPasswordSafe_memcpy__SWIG_1(a[0].(uintptr), a[1].(uint), a[2].(uintptr), a[3].(uint))
-	}
-	if argc == 5 {
-		return OTPasswordSafe_memcpy__SWIG_0(a[0].(uintptr), a[1].(uint), a[2].(uintptr), a[3].(uint), a[4].(bool))
-	}
-	panic("No match for overloaded function call")
-}
-
-func _swig_wrap_OTPassword_CreateTextBuffer() SwigcptrOTPassword
-
-func OTPasswordCreateTextBuffer() OTPassword {
-	return _swig_wrap_OTPassword_CreateTextBuffer()
-}
-
-func _swig_wrap_OTPassword_SetSize(SwigcptrOTPassword, uint) bool
-
-func (arg1 SwigcptrOTPassword) SetSize(arg2 uint) bool {
-	return _swig_wrap_OTPassword_SetSize(arg1, arg2)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_0(OTPasswordBlockSize) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_0(arg1 OTPasswordBlockSize) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_0(arg1)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_1() SwigcptrOTPassword
-
-func NewOTPassword__SWIG_1() OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_1()
-}
-
-func _swig_wrap_new_OTPassword__SWIG_2(uintptr) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_2(arg1 OTPassword) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_2(arg1.Swigcptr())
-}
-
-func _swig_wrap_new_OTPassword__SWIG_3(string, uint, OTPasswordBlockSize) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_3(arg1 string, arg2 uint, arg3 OTPasswordBlockSize) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_3(arg1, arg2, arg3)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_4(string, uint) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_4(arg1 string, arg2 uint) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_4(arg1, arg2)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_5(string, uint, OTPasswordBlockSize) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_5(arg1 string, arg2 uint, arg3 OTPasswordBlockSize) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_5(arg1, arg2, arg3)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_6(string, uint) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_6(arg1 string, arg2 uint) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_6(arg1, arg2)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_7(uintptr, uint, OTPasswordBlockSize) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_7(arg1 uintptr, arg2 uint, arg3 OTPasswordBlockSize) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_7(arg1, arg2, arg3)
-}
-
-func _swig_wrap_new_OTPassword__SWIG_8(uintptr, uint) SwigcptrOTPassword
-
-func NewOTPassword__SWIG_8(arg1 uintptr, arg2 uint) OTPassword {
-	return _swig_wrap_new_OTPassword__SWIG_8(arg1, arg2)
-}
-
-func NewOTPassword(a ...interface{}) OTPassword {
-	argc := len(a)
-	if argc == 0 {
-		return NewOTPassword__SWIG_1()
-	}
-	if argc == 1 {
-		if _, ok := a[0].(OTPasswordBlockSize); !ok {
-			goto check_2
-		}
-		return NewOTPassword__SWIG_0(a[0].(OTPasswordBlockSize))
-	}
-check_2:
-	if argc == 1 {
-		return NewOTPassword__SWIG_2(a[0].(OTPassword))
-	}
-	if argc == 2 {
-		if _, ok := a[0].(uintptr); !ok {
-			goto check_4
-		}
-		return NewOTPassword__SWIG_8(a[0].(uintptr), a[1].(uint))
-	}
-check_4:
-	if argc == 2 {
-		return NewOTPassword__SWIG_6(a[0].(string), a[1].(uint))
-	}
-	if argc == 2 {
-		return NewOTPassword__SWIG_4(a[0].(string), a[1].(uint))
-	}
-	if argc == 3 {
-		if _, ok := a[0].(uintptr); !ok {
-			goto check_7
-		}
-		return NewOTPassword__SWIG_7(a[0].(uintptr), a[1].(uint), a[2].(OTPasswordBlockSize))
-	}
-check_7:
-	if argc == 3 {
-		return NewOTPassword__SWIG_3(a[0].(string), a[1].(uint), a[2].(OTPasswordBlockSize))
-	}
-	if argc == 3 {
-		return NewOTPassword__SWIG_5(a[0].(string), a[1].(uint), a[2].(OTPasswordBlockSize))
-	}
-	panic("No match for overloaded function call")
+func NewOTPassword() OTPassword {
+	return _swig_wrap_new_OTPassword()
 }
 
 func _swig_wrap_delete_OTPassword(uintptr)
@@ -645,26 +855,6 @@ func DeleteOTPassword(arg1 OTPassword) {
 type OTPassword interface {
 	Swigcptr() uintptr
 	SwigIsOTPassword()
-	GetM_theBlockSize() OTPasswordBlockSize
-	IsPassword() bool
-	GetPassword_uint8() string
-	GetPassword() string
-	GetPasswordWritable() string
-	GetPasswordWritable_char() string
-	SetPassword(arg2 string, arg3 int) int
-	SetPassword_uint8(arg2 string, arg3 uint) int
-	AddChar(arg2 byte) bool
-	IsMemory() bool
-	GetMemory() uintptr
-	GetMemory_uint8() string
-	GetMemoryWritable() uintptr
-	SetMemory(arg2 uintptr, arg3 uint) int
-	AddMemory(arg2 uintptr, arg3 uint) int
-	GetBlockSize() uint
-	Compare(arg2 OTPassword) bool
-	GetPasswordSize() uint
-	GetMemorySize() uint
-	SetSize(arg2 uint) bool
 }
 
 type _swig_DirectorOTCallback struct {
@@ -702,45 +892,45 @@ func Swiggo_DeleteDirector_OTCallback(p *_swig_DirectorOTCallback) {
 }
 
 type _swig_DirectorInterfaceOTCallbackRunOne interface {
-	RunOne(string, OTPassword)
+	RunOne(string, StringPassword)
 }
 
 func _swig_wrap__swig_DirectorOTCallback_upcall_RunOne(SwigcptrOTCallback, string, uintptr)
-func (swig_p *_swig_DirectorOTCallback) RunOne(szDisplay string, theOutput OTPassword) {
+func (swig_p *_swig_DirectorOTCallback) RunOne(strDisplay string, theOutput StringPassword) {
 	if swig_g, swig_ok := swig_p.v.(_swig_DirectorInterfaceOTCallbackRunOne); swig_ok {
-		swig_g.RunOne(szDisplay, theOutput)
+		swig_g.RunOne(strDisplay, theOutput)
 		return
 	}
-	_swig_wrap__swig_DirectorOTCallback_upcall_RunOne(swig_p.SwigcptrOTCallback, szDisplay, theOutput.Swigcptr())
+	_swig_wrap__swig_DirectorOTCallback_upcall_RunOne(swig_p.SwigcptrOTCallback, strDisplay, theOutput.Swigcptr())
 }
 
-func DirectorOTCallbackRunOne(p OTCallback, arg2 string, arg3 OTPassword) {
+func DirectorOTCallbackRunOne(p OTCallback, arg2 string, arg3 StringPassword) {
 	_swig_wrap__swig_DirectorOTCallback_upcall_RunOne(p.(*_swig_DirectorOTCallback).SwigcptrOTCallback, arg2, arg3.Swigcptr())
 }
 
 func Swig_DirectorOTCallback_callback_runOne(p *_swig_DirectorOTCallback, arg2 string, arg3 uintptr) {
-	p.RunOne(arg2, SwigcptrOTPassword(arg3))
+	p.RunOne(arg2, SwigcptrStringPassword(arg3))
 }
 
 type _swig_DirectorInterfaceOTCallbackRunTwo interface {
-	RunTwo(string, OTPassword)
+	RunTwo(string, StringPassword)
 }
 
 func _swig_wrap__swig_DirectorOTCallback_upcall_RunTwo(SwigcptrOTCallback, string, uintptr)
-func (swig_p *_swig_DirectorOTCallback) RunTwo(szDisplay string, theOutput OTPassword) {
+func (swig_p *_swig_DirectorOTCallback) RunTwo(strDisplay string, theOutput StringPassword) {
 	if swig_g, swig_ok := swig_p.v.(_swig_DirectorInterfaceOTCallbackRunTwo); swig_ok {
-		swig_g.RunTwo(szDisplay, theOutput)
+		swig_g.RunTwo(strDisplay, theOutput)
 		return
 	}
-	_swig_wrap__swig_DirectorOTCallback_upcall_RunTwo(swig_p.SwigcptrOTCallback, szDisplay, theOutput.Swigcptr())
+	_swig_wrap__swig_DirectorOTCallback_upcall_RunTwo(swig_p.SwigcptrOTCallback, strDisplay, theOutput.Swigcptr())
 }
 
-func DirectorOTCallbackRunTwo(p OTCallback, arg2 string, arg3 OTPassword) {
+func DirectorOTCallbackRunTwo(p OTCallback, arg2 string, arg3 StringPassword) {
 	_swig_wrap__swig_DirectorOTCallback_upcall_RunTwo(p.(*_swig_DirectorOTCallback).SwigcptrOTCallback, arg2, arg3.Swigcptr())
 }
 
 func Swig_DirectorOTCallback_callback_runTwo(p *_swig_DirectorOTCallback, arg2 string, arg3 uintptr) {
-	p.RunTwo(arg2, SwigcptrOTPassword(arg3))
+	p.RunTwo(arg2, SwigcptrStringPassword(arg3))
 }
 
 type SwigcptrOTCallback uintptr
@@ -770,13 +960,13 @@ func DeleteOTCallback(arg1 OTCallback) {
 
 func _swig_wrap_OTCallback_runOne(SwigcptrOTCallback, string, uintptr)
 
-func (arg1 SwigcptrOTCallback) RunOne(arg2 string, arg3 OTPassword) {
+func (arg1 SwigcptrOTCallback) RunOne(arg2 string, arg3 StringPassword) {
 	_swig_wrap_OTCallback_runOne(arg1, arg2, arg3.Swigcptr())
 }
 
 func _swig_wrap_OTCallback_runTwo(SwigcptrOTCallback, string, uintptr)
 
-func (arg1 SwigcptrOTCallback) RunTwo(arg2 string, arg3 OTPassword) {
+func (arg1 SwigcptrOTCallback) RunTwo(arg2 string, arg3 StringPassword) {
 	_swig_wrap_OTCallback_runTwo(arg1, arg2, arg3.Swigcptr())
 }
 
@@ -784,8 +974,8 @@ type OTCallback interface {
 	Swigcptr() uintptr
 	SwigIsOTCallback()
 	DirectorInterface() interface{}
-	RunOne(arg2 string, arg3 OTPassword)
-	RunTwo(arg2 string, arg3 OTPassword)
+	RunOne(arg2 string, arg3 StringPassword)
+	RunTwo(arg2 string, arg3 StringPassword)
 }
 
 type SwigcptrOTCaller uintptr
@@ -811,7 +1001,7 @@ func DeleteOTCaller(arg1 OTCaller) {
 
 func _swig_wrap_OTCaller_GetPassword(SwigcptrOTCaller, uintptr) bool
 
-func (arg1 SwigcptrOTCaller) GetPassword(arg2 OTPassword) bool {
+func (arg1 SwigcptrOTCaller) GetPassword(arg2 Password) bool {
 	return _swig_wrap_OTCaller_GetPassword(arg1, arg2.Swigcptr())
 }
 
@@ -827,10 +1017,10 @@ func (arg1 SwigcptrOTCaller) GetDisplay() string {
 	return _swig_wrap_OTCaller_GetDisplay(arg1)
 }
 
-func _swig_wrap_OTCaller_SetDisplay(SwigcptrOTCaller, string, int)
+func _swig_wrap_OTCaller_SetDisplay(SwigcptrOTCaller, string)
 
-func (arg1 SwigcptrOTCaller) SetDisplay(arg2 string, arg3 int) {
-	_swig_wrap_OTCaller_SetDisplay(arg1, arg2, arg3)
+func (arg1 SwigcptrOTCaller) SetDisplay(arg2 string) {
+	_swig_wrap_OTCaller_SetDisplay(arg1, arg2)
 }
 
 func _swig_wrap_OTCaller_delCallback(SwigcptrOTCaller)
@@ -866,10 +1056,10 @@ func (arg1 SwigcptrOTCaller) CallTwo() {
 type OTCaller interface {
 	Swigcptr() uintptr
 	SwigIsOTCaller()
-	GetPassword(arg2 OTPassword) bool
+	GetPassword(arg2 Password) bool
 	ZeroOutPassword()
 	GetDisplay() string
-	SetDisplay(arg2 string, arg3 int)
+	SetDisplay(arg2 string)
 	DelCallback()
 	SetCallback(arg2 OTCallback)
 	IsCallbackSet() bool
@@ -6478,6 +6668,14 @@ func (p SwigcptrOTVariable) Swigcptr() uintptr {
 	return uintptr(p)
 }
 
+type SwigcptrStd_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_ uintptr
+type Std_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_ interface {
+	Swigcptr() uintptr;
+}
+func (p SwigcptrStd_basic_string_Sl_char_Sc_std_char_traits_Sl_char_Sg__Sc_secure_allocator_Sl_char_Sg__Sg_) Swigcptr() uintptr {
+	return uintptr(p)
+}
+
 type SwigcptrOT_API uintptr
 type OT_API interface {
 	Swigcptr() uintptr;
@@ -6499,6 +6697,30 @@ type OTAPI_Exec interface {
 	Swigcptr() uintptr;
 }
 func (p SwigcptrOTAPI_Exec) Swigcptr() uintptr {
+	return uintptr(p)
+}
+
+type SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ uintptr
+type Std_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_ interface {
+	Swigcptr() uintptr;
+}
+func (p SwigcptrStd_vector_Sl_unsigned_SS_char_Sc_secure_allocator_Sl_unsigned_SS_char_Sg__Sg_) Swigcptr() uintptr {
+	return uintptr(p)
+}
+
+type SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ uintptr
+type Std_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_ interface {
+	Swigcptr() uintptr;
+}
+func (p SwigcptrStd_pair_Sl_void_Sm_const_Sc_size_t_SS_const_Sg_) Swigcptr() uintptr {
+	return uintptr(p)
+}
+
+type SwigcptrStd_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_ uintptr
+type Std_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_ interface {
+	Swigcptr() uintptr;
+}
+func (p SwigcptrStd_pair_Sl_void_SS_const_Sm_const_Sc_size_t_SS_const_Sg_) Swigcptr() uintptr {
 	return uintptr(p)
 }
 

@@ -1734,7 +1734,7 @@ bool OTServer::CreateMainFile()
 
 	if (!OTCachedKey::It()->HasHashCheck())
 	{
-		OTPassword tempPassword; tempPassword.zeroMemory();
+		OT::StringPassword tempPassword; tempPassword.zero();
         _SharedPtr<OTCachedKey> sharedPtr(OTCachedKey::It());
 		sharedPtr->GetMasterPassword(sharedPtr, tempPassword,
                                      "We do not have a check hash yet for this password, "
@@ -1923,7 +1923,7 @@ bool OTServer::LoadMainFile(bool bReadOnly/*=false*/)
 
 							if (!OTCachedKey::It()->HasHashCheck())
 							{
-								OTPassword tempPassword; tempPassword.zeroMemory();
+								OT::StringPassword tempPassword; tempPassword.zero();
                                 _SharedPtr<OTCachedKey> sharedPtr(OTCachedKey::It());
 								bNeedToSaveAgain = sharedPtr->GetMasterPassword(sharedPtr, tempPassword,
                                                                                 "We do not have a check hash yet for this password, "

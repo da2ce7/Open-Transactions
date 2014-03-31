@@ -143,7 +143,6 @@ class OTString;
 class OTASCIIArmor;
 class OTAsymmetricKey;
 class OTSymmetricKey;
-class OTPassword;
 class OTPasswordData;
 
 // ------------------------------------------------------------------------
@@ -158,7 +157,7 @@ private:
     OTPseudonym     * m_pNym;
     // ---------------------------------
     OTSymmetricKey  * m_pKey;
-    OTPassword      * m_pPassword; // optional. Goes with m_pKey.
+    OT::Password      * m_pPassword; // optional. Goes with m_pKey.
     // ---------------------------------
     bool              m_bCleanupPassword; // m_pPassword is usually not owned. But if we create it and keep it around to avoid (for example forcing the user to enter the PW 30 times in a row when exporting his purse...) then we want to set this to true (where it normally defaults to false) in order to make sure we cleanup on destruction.
     // ---------------------------------
@@ -170,7 +169,7 @@ public:
     // ---------------------------------
 	EXPORT	OTPseudonym    * GetNym()      const { return m_pNym;      }
 	EXPORT	OTSymmetricKey * GetKey()      const { return m_pKey;      }
-	EXPORT	OTPassword     * GetPassword() const { return m_pPassword; } // for symmetric key (optional)
+	EXPORT	OT::Password     * GetPassword() const { return m_pPassword; } // for symmetric key (optional)
 	// ---------------------------------
 	EXPORT	bool  IsNym()       const { return (NULL != m_pNym);      }
 	EXPORT	bool  IsKey()       const { return (NULL != m_pKey);      }
@@ -193,7 +192,7 @@ public:
 	// ---------------------------------
 	EXPORT	OTNym_or_SymmetricKey(const OTPseudonym     & theNym, const OTString  * pstrDisplay=NULL);
 	EXPORT	OTNym_or_SymmetricKey(const OTSymmetricKey  & theKey, const OTString  * pstrDisplay=NULL);
-	EXPORT	OTNym_or_SymmetricKey(const OTSymmetricKey  & theKey, const OTPassword & thePassword, const OTString * pstrDisplay=NULL);
+	EXPORT	OTNym_or_SymmetricKey(const OTSymmetricKey  & theKey, const OT::Password & thePassword, const OTString * pstrDisplay=NULL);
 	// ---------------------------------
 	EXPORT	void swap(OTNym_or_SymmetricKey & other);
 
@@ -208,63 +207,63 @@ public:
 
 class OTEnvelope     // <=============== OT ENVELOPE!
 {
-	friend class OTPayload;
+    friend class OTPayload;
 
-	OTData m_dataContents; // Stores only encrypted contents.
+    OTData m_dataContents; // Stores only encrypted contents.
 
 public:
     // ------------------------------------------------------------------------
-EXPORT	OTEnvelope();
-EXPORT	OTEnvelope(const OTASCIIArmor & theArmoredText);
-EXPORT	OTEnvelope(const OTString     & strArmorWithBookends);
-EXPORT	virtual ~OTEnvelope();
+    EXPORT	OTEnvelope();
+    EXPORT	OTEnvelope(const OTASCIIArmor & theArmoredText);
+    EXPORT	OTEnvelope(const OTString     & strArmorWithBookends);
+    EXPORT	virtual ~OTEnvelope();
 
     // ------------------------------------------------------------------------
-	// SYMMETRIC CRYPTO  (AES)
+    // SYMMETRIC CRYPTO  (AES)
 
-EXPORT    bool Encrypt(const OTString & theInput,        OTSymmetricKey & theKey, const OTPassword & thePassword);
-EXPORT    bool Decrypt(      OTString & theOutput, const OTSymmetricKey & theKey, const OTPassword & thePassword);
+    EXPORT    bool Encrypt(const OTString & theInput, OTSymmetricKey & theKey, const OT::Password & thePassword);
+    EXPORT    bool Decrypt(OTString & theOutput, const OTSymmetricKey & theKey, const OT::Password & thePassword);
 
-        // ------------------------------------------------------------------------
-        // ASYMMETRIC CRYPTO (RSA / AES)
+    // ------------------------------------------------------------------------
+    // ASYMMETRIC CRYPTO (RSA / AES)
 
-        // Single recipient:
-        //
-EXPORT	bool Seal(const OTPseudonym     & theRecipient, const OTString & theInput);  // Put data into this object with Seal().
-EXPORT	bool Seal(const OTAsymmetricKey & RecipPubKey,  const OTString & theInput);  // Currently supports strings only.
-        // ------------------------------------------------------------------------
-        // Multiple recipients:
-        //
-EXPORT	bool Seal(setOfNyms           & theRecipients,  const OTString & theInput);  // Same as above, except supports multiple recipients.
-EXPORT	bool Seal(mapOfAsymmetricKeys & RecipPubKeys,   const OTString & theInput);  // Same as above, except supports multiple recipients.
-        // ------------------------------------------------------------------------
-        // (Opposite of Seal.)
-        //
-EXPORT	bool Open(const OTPseudonym & theRecipient, OTString & theOutput, OTPasswordData * pPWData=NULL);
-        // ------------------------------------------------------------------------
-        //
-        // Should be called "Get Envelope's binary Ciphertext data into an Ascii-Armored output String."
-        //
-        // Presumably this Envelope contains encrypted data (in binary form.)
-        // If you would like an ASCII-armored version of that data, just call this
-        // function.
-        // (Bookends not included.)
-        //
-EXPORT	bool GetAsciiArmoredData (OTASCIIArmor & theArmoredText,       bool bLineBreaks = true  ) const;
-EXPORT	bool GetAsBookendedString(OTString     & strArmorWithBookends, bool bEscaped    = false ) const;
+    // Single recipient:
+    //
+    EXPORT	bool Seal(const OTPseudonym     & theRecipient, const OTString & theInput);  // Put data into this object with Seal().
+    EXPORT	bool Seal(const OTAsymmetricKey & RecipPubKey, const OTString & theInput);  // Currently supports strings only.
+    // ------------------------------------------------------------------------
+    // Multiple recipients:
+    //
+    EXPORT	bool Seal(setOfNyms           & theRecipients, const OTString & theInput);  // Same as above, except supports multiple recipients.
+    EXPORT	bool Seal(mapOfAsymmetricKeys & RecipPubKeys, const OTString & theInput);  // Same as above, except supports multiple recipients.
+    // ------------------------------------------------------------------------
+    // (Opposite of Seal.)
+    //
+    EXPORT	bool Open(const OTPseudonym & theRecipient, OTString & theOutput, OTPasswordData * pPWData = NULL);
+    // ------------------------------------------------------------------------
+    //
+    // Should be called "Get Envelope's binary Ciphertext data into an Ascii-Armored output String."
+    //
+    // Presumably this Envelope contains encrypted data (in binary form.)
+    // If you would like an ASCII-armored version of that data, just call this
+    // function.
+    // (Bookends not included.)
+    //
+    EXPORT	bool GetAsciiArmoredData(OTASCIIArmor & theArmoredText, bool bLineBreaks = true) const;
+    EXPORT	bool GetAsBookendedString(OTString     & strArmorWithBookends, bool bEscaped = false) const;
 
-        // ------------------------------------------------------------------------
-        //
-        // Should be called "Set This Envelope's binary ciphertext data, from an ascii-armored input string."
-        //
-        // Let's say you just retrieved the ASCII-armored contents of an encrypted envelope.
-        // Perhaps someone sent it to you, and you just read it out of his message.
-        // And let's say you want to get those contents back into binary form in an
-        // Envelope object again, so that they can be decrypted and extracted back as
-        // plaintext. Fear not, just call this function.
-        //
-EXPORT	bool SetAsciiArmoredData   (const OTASCIIArmor & theArmoredText,       bool bLineBreaks = true  );
-EXPORT	bool SetFromBookendedString(const OTString     & strArmorWithBookends, bool bEscaped    = false );
+    // ------------------------------------------------------------------------
+    //
+    // Should be called "Set This Envelope's binary ciphertext data, from an ascii-armored input string."
+    //
+    // Let's say you just retrieved the ASCII-armored contents of an encrypted envelope.
+    // Perhaps someone sent it to you, and you just read it out of his message.
+    // And let's say you want to get those contents back into binary form in an
+    // Envelope object again, so that they can be decrypted and extracted back as
+    // plaintext. Fear not, just call this function.
+    //
+    EXPORT	bool SetAsciiArmoredData(const OTASCIIArmor & theArmoredText, bool bLineBreaks = true);
+    EXPORT	bool SetFromBookendedString(const OTString     & strArmorWithBookends, bool bEscaped = false);
 
     // ------------------------------------------------------------------------
 };
