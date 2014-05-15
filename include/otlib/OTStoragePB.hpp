@@ -264,11 +264,11 @@ namespace OTDB
 		static Storable * Instantiate()
 		{ return dynamic_cast<Storable *>(new ProtobufSubclass<theBaseType, theInternalType, theObjectType>); }
 
-		ProtobufSubclass() : theBaseType(), IStorablePB() { m_Type = StoredObjectTypeStrings[static_cast<int32_t>(theObjectType)]; m_Type += "PB";
+		ProtobufSubclass() : theBaseType(), IStorablePB() { m_Type = StoredObjectTypeStrings::get().at(static_cast<int32_t>(theObjectType)) + "PB";
 		/*std::cout << m_Type.c_str() << " -- Constructor" << std::endl;*/ }
 
 		ProtobufSubclass(const ProtobufSubclass<theBaseType,theInternalType,theObjectType> & rhs) : theBaseType(), IStorablePB()
-		{ m_Type = StoredObjectTypeStrings[static_cast<int32_t>(theObjectType)]; m_Type += "PB";
+		{ m_Type = StoredObjectTypeStrings::get().at(static_cast<int32_t>(theObjectType)) + "PB";
 		/*std::cout << m_Type.c_str() << " -- Copy Constructor" << std::endl; */ rhs.CopyToObject(*this); }
 
 		ProtobufSubclass<theBaseType,theInternalType,theObjectType> &

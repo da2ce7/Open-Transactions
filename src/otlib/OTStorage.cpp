@@ -291,36 +291,42 @@ OTDB::Storage * OTDB::details::s_pStorage= NULL;
 
 OTDB::mapOfFunctions * OTDB::details::pFunctionMap=NULL; // This is a pointer so I can control what order it is created in, on startup.
 
+// static
+const std::vector<std::string> & OTDB::StoredObjectTypeStrings::get() {
+    static std::vector<std::string> * it = NULL;
 
-const char * OTDB::StoredObjectTypeStrings[] =
-{
-	"OTDBString",		// Just a string.
-	"Blob",				// Binary data of arbitrary size.
-	"StringMap",		// A StringMap is a list of Key/Value pairs, useful for storing nearly anything.
-	"WalletData",		// The GUI wallet's stored data
-	"BitcoinAcct",		// The GUI wallet's stored data about a Bitcoin acct
-	"BitcoinServer",	// The GUI wallet's stored data about a Bitcoin RPC port.
-	"RippleServer",		// The GUI wallet's stored data about a Ripple server.
-	"LoomServer",		// The GUI wallet's stored data about a Loom server.
-	"ServerInfo",		// A Nym has a list of these.
-	"ContactNym",		// This is a Nym record inside a contact of your address book.
-	"ContactAcct",		// This is an account record inside a contact of your address book.
-	"Contact",			// Your address book has a list of these.
-	"AddressBook",		// Your address book.
-	"MarketData",		// The description data for any given Market ID.
-	"MarketList",		// A list of MarketDatas.
-	"BidData",			// Offer details (doesn't contain private details)
-	"AskData",			// Offer details (doesn't contain private details)
-	"OfferListMarket",	// A list of offer details, for a specific market.
-	"TradeDataMarket",	// Trade details (doesn't contain private data)
-	"TradeListMarket",	// A list of trade details, for a specific market.
-	"OfferDataNym",		// Private offer details for a particular Nym and Offer.
-	"OfferListNym",		// A list of private offer details for a particular Nym.
-	"TradeDataNym",		// Private trade details for a particular Nym and Trade.
-	"TradeListNym",		// A list of private trade details for a particular Nym and Offer.
-	"StoredObjError"	// (Should never be.)
-};
+    if (NULL == it) {
+        it = new std::vector<std::string>();
 
+        it->push_back("OTDBString");		// Just a string.
+        it->push_back("Blob");			// Binary data of arbitrary size.
+        it->push_back("StringMap");		// A StringMap is a list of Key/Value pairs); useful for storing nearly anything.
+        it->push_back("WalletData");		// The GUI wallet's stored data
+        it->push_back("BitcoinAcct");		// The GUI wallet's stored data about a Bitcoin acct
+        it->push_back("BitcoinServer");	// The GUI wallet's stored data about a Bitcoin RPC port.
+        it->push_back("RippleServer");	// The GUI wallet's stored data about a Ripple server.
+        it->push_back("LoomServer");		// The GUI wallet's stored data about a Loom server.
+        it->push_back("ServerInfo");		// A Nym has a list of these.
+        it->push_back("ContactNym");		// This is a Nym record inside a contact of your address book.
+        it->push_back("ContactAcct");		// This is an account record inside a contact of your address book.
+        it->push_back("Contact");			// Your address book has a list of these.
+        it->push_back("AddressBook");		// Your address book.
+        it->push_back("MarketData");		// The description data for any given Market ID.
+        it->push_back("MarketList");		// A list of MarketDatas.
+        it->push_back("BidData");			// Offer details (doesn't contain private details)
+        it->push_back("AskData");			// Offer details (doesn't contain private details)
+        it->push_back("OfferListMarket");	// A list of offer details); for a specific market.
+        it->push_back("TradeDataMarket");	// Trade details (doesn't contain private data)
+        it->push_back("TradeListMarket");	// A list of trade details); for a specific market.
+        it->push_back("OfferDataNym");	// Private offer details for a particular Nym and Offer.
+        it->push_back("OfferListNym");	// A list of private offer details for a particular Nym.
+        it->push_back("TradeDataNym");	// Private trade details for a particular Nym and Trade.
+        it->push_back("TradeListNym");	// A list of private trade details for a particular Nym and Offer.
+        it->push_back("StoredObjError");	// (Should never be.)
+    }
+
+    return *it;
+}
 
 namespace OTDB
 {
@@ -976,62 +982,7 @@ namespace OTDB
 		return true;
 	}
 
-
-	// NOTICE!!! that when you add something to the list, it is CLONED. (Caller is still responsible to delete the argument.)
-	//
-
-#define IMPLEMENT_GET_ADD_REMOVE(scope, name) \
-	\
-	typedef stlplus::simple_ptr_clone<name> PointerTo##name; \
-	\
-	typedef std::deque< PointerTo##name > listOf##name##s; \
-	\
-	size_t  scope Get##name##Count() { return list_##name##s.size(); } \
-	\
-	name * scope Get##name(size_t nIndex) \
-	{ if ((nIndex >= 0) && (nIndex < list_##name##s.size())) \
-	{ PointerTo##name theP = list_##name##s.at(nIndex); return theP.pointer(); } return NULL; } \
-	\
-	bool scope Remove##name(size_t nIndex##name) \
-	{ if ((nIndex##name >= 0) && (nIndex##name < list_##name##s.size())) \
-	{ list_##name##s.erase(list_##name##s.begin() + nIndex##name); return true; } else return false; } \
-	\
-	bool scope Add##name(name & disownObject) \
-	{ PointerTo##name theP(disownObject.clone()); list_##name##s.push_back(theP); return true; }
-
-
-
-
-	IMPLEMENT_GET_ADD_REMOVE(WalletData::, BitcoinServer)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(WalletData::, BitcoinAcct)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(WalletData::, RippleServer)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(WalletData::, LoomServer)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(ContactNym::, ServerInfo)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(Contact::, ContactNym)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(Contact::, ContactAcct)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(AddressBook::, Contact)   // No semicolon on this one!
-
-
-	IMPLEMENT_GET_ADD_REMOVE(MarketList::, MarketData)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(OfferListMarket::, BidData)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(OfferListMarket::, AskData)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(TradeListMarket::, TradeDataMarket)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(OfferListNym::, OfferDataNym)   // No semicolon on this one!
-
-	IMPLEMENT_GET_ADD_REMOVE(TradeListNym::, TradeDataNym)   // No semicolon on this one!
-
-
+	// ********************************************************************
 
 	// Make sure SWIG "loses ownership" of any objects pushed onto these lists.
 	// (So I am safe to destruct them indiscriminately.)
@@ -1454,42 +1405,57 @@ namespace OTDB
 	 */
 	//
 
-
 #define OT_IMPLEMENT_PB_LIST_PACK(pb_name, element_type) \
-	__pb_obj.clear_##pb_name(); \
-	for (std::deque<PointerTo##element_type>::iterator ii = list_##element_type##s.begin(); ii != list_##element_type##s.end(); ++ii) \
-	{ \
-		PointerTo##element_type thePtr = (*ii); \
-		element_type##PB * pObject = dynamic_cast<element_type##PB *>(thePtr.pointer()); \
-			OT_ASSERT (NULL != pObject); \
-		::google::protobuf::MessageLite * pMessage = pObject->getPBMessage(); \
-			OT_ASSERT (NULL != pMessage); \
-		element_type##_InternalPB * pInternal = dynamic_cast<element_type##_InternalPB *>(pMessage); \
-			OT_ASSERT (NULL != pInternal); \
-		element_type##_InternalPB * pNewInternal = __pb_obj.add_##pb_name(); \
-			OT_ASSERT (NULL != pNewInternal); \
-		pObject->hookBeforePack(); \
-		pNewInternal->CopyFrom(*pInternal); \
-	}
-	// ---------------------------------------------------------------------
+    OT_IMPLEMENT_PB_LIST_PACK_T(pb_name, list_##element_type, element_type, element_type##PB, element_type##_InternalPB)
+
+#define OT_IMPLEMENT_PB_LIST_PACK_T(pb_name, list, Type, TypePB, TypeInternalPB) \
+    this->__pb_obj.clear_##pb_name(); \
+    \
+    for (std::deque<_SharedPtr<Type>>::iterator it = this->list.begin(); it != this->list.end(); ++it) \
+    { \
+    _SharedPtr<Type> thePtr = *it; \
+    \
+    TypePB * pObject = dynamic_cast<TypePB *>(thePtr.get()); \
+    OT_ASSERT(NULL != pObject); \
+    \
+    ::google::protobuf::MessageLite * pMessage = pObject->getPBMessage(); \
+    OT_ASSERT(NULL != pMessage); \
+    \
+    TypeInternalPB * pInternal = dynamic_cast<TypeInternalPB *>(pMessage); \
+    OT_ASSERT(NULL != pInternal); \
+    \
+    TypeInternalPB * pNewInternal = this->__pb_obj.add_##pb_name(); \
+    OT_ASSERT(NULL != pNewInternal); \
+    \
+    pObject->hookBeforePack(); \
+    pNewInternal->CopyFrom(*pInternal);\
+    };
+
 
 #define OT_IMPLEMENT_PB_LIST_UNPACK(pb_name, element_type, ELEMENT_ENUM) \
-	while (Get##element_type##Count() > 0) \
-		Remove##element_type(0); \
-	for (int32_t i = 0; i < __pb_obj.pb_name##_size(); i++) \
-	{ \
-		const element_type##_InternalPB & theInternal = __pb_obj.pb_name(i); \
-		element_type##PB * pNewWrapper = dynamic_cast<element_type##PB *>(Storable::Create(ELEMENT_ENUM, PACK_PROTOCOL_BUFFERS)); \
-			OT_ASSERT(NULL != pNewWrapper); \
-		::google::protobuf::MessageLite * pMessage = pNewWrapper->getPBMessage(); \
-			OT_ASSERT (NULL != pMessage); \
-		element_type##_InternalPB * pInternal = dynamic_cast< element_type##_InternalPB *>(pMessage); \
-			OT_ASSERT (NULL != pInternal); \
-		pInternal->CopyFrom(theInternal); \
-		pNewWrapper->hookAfterUnpack(); \
-		PointerTo##element_type thePtr(dynamic_cast< element_type *>(pNewWrapper)); \
-		list_##element_type##s.push_back(thePtr); \
-	}
+    OT_IMPLEMENT_PB_LIST_UNPACK_T(pb_name,ELEMENT_ENUM,list_##element_type, element_type, element_type##PB, element_type##_InternalPB)
+
+#define OT_IMPLEMENT_PB_LIST_UNPACK_T(pb_name, TypeEnum, list, Type, TypePB, TypeInternalPB) \
+    this->list.clear(); \
+    \
+    for (int32_t i = 0; i < this->__pb_obj.pb_name##_size(); i++) \
+    { \
+    const TypeInternalPB & theInternal = this->__pb_obj.pb_name(i); \
+    TypePB * pNewWrapper = dynamic_cast<TypePB *>(Storable::Create(TypeEnum, PACK_PROTOCOL_BUFFERS)); \
+    OT_ASSERT(NULL != pNewWrapper); \
+    \
+    ::google::protobuf::MessageLite * pMessage = pNewWrapper->getPBMessage(); \
+    OT_ASSERT(NULL != pMessage); \
+    \
+    TypeInternalPB * pInternal = dynamic_cast< TypeInternalPB *>(pMessage); \
+    OT_ASSERT(NULL != pInternal); \
+    \
+    pInternal->CopyFrom(theInternal); \
+    pNewWrapper->hookAfterUnpack(); \
+    \
+    _SharedPtr<Type> thePtr(dynamic_cast<Type *>(pNewWrapper)); \
+    this->list.push_back(thePtr); \
+    };
 	// ---------------------------------------------------------------------
 
 	template<>

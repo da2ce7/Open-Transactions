@@ -397,7 +397,9 @@ bool OTMarket::GetNym_OfferList(const OTIdentifier & NYM_ID, OTDB::OfferListNym 
 		// *pOfferData is CLONED at this time (I'm still responsible to delete.)
 		// That's also why I add it here, below: So the data is set right before the cloning occurs.
 		//
-		theOutputList.AddOfferDataNym(*pOfferData);	
+        
+        
+        OTDB::Storable::add(theOutputList.list_OfferDataNym, pOfferData);
         nNymOfferCount++;
 	}		
 		
@@ -425,7 +427,7 @@ bool OTMarket::GetRecentTradeList(OTASCIIArmor & ascOutput, int32_t & nTradeCoun
 	// The market already keeps a list of recent trades (informational only)
 	//
     
-    const size_t sizeList = m_pTradeList->GetTradeDataMarketCount();
+    const size_t sizeList = m_pTradeList->list_TradeDataMarket.size();
     nTradeCount = static_cast<int32_t> (sizeList);
     
     if (nTradeCount == 0)
@@ -531,7 +533,7 @@ bool OTMarket::GetOfferList(OTASCIIArmor & ascOutput, int64_t lDepth, int32_t & 
 		// *pOfferData is CLONED at this time (I'm still responsible to delete.)
 		// That's also why I add it here, below: So the data is set right before the cloning occurs.
 		//
-		pOfferList->AddBidData(*pOfferData);
+        OTDB::Storable::add(pOfferList->list_BidData, pOfferData);
         nOfferCount++;
 	}		
 	
@@ -565,7 +567,7 @@ bool OTMarket::GetOfferList(OTASCIIArmor & ascOutput, int64_t lDepth, int32_t & 
 		// *pOfferData is CLONED at this time (I'm still responsible to delete.)
 		// That's also why I add it here, below: So the data is set right before the cloning occurs.
 		//
-		pOfferList->AddAskData(*pOfferData);
+        OTDB::Storable::add(pOfferList->list_AskData, pOfferData);
         nOfferCount++;
 	}
 	// -------------------------------------------------------------
@@ -1681,12 +1683,12 @@ void OTMarket::ProcessTrade(OTTrade & theTrade, OTOffer & theOffer, OTOffer & th
 					// *pTradeData is CLONED at this time (I'm still responsible to delete.)
 					// That's also why I add it here, after all the above: So the data is set right BEFORE the cloning occurs.
 					//
-					m_pTradeList->AddTradeDataMarket(*pTradeData);
+                    OTDB::Storable::add(this->m_pTradeList->list_TradeDataMarket, pTradeData);
 					
 					// Here we erase the oldest elements so the list never exceeds 50 elements total.
 					//
-					while (m_pTradeList->GetTradeDataMarketCount() > MAX_MARKET_QUERY_DEPTH)
-						m_pTradeList->RemoveTradeDataMarket(0);
+                    while (this->m_pTradeList->list_TradeDataMarket.size() > MAX_MARKET_QUERY_DEPTH)
+						m_pTradeList->list_TradeDataMarket.pop_front();
 				}		
 				// -------------------------------------------------------------
 				// Account balances have changed based on these trades that we just processed.

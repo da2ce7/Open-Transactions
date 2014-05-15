@@ -353,7 +353,7 @@ bool OTCron::GetMarketList (OTASCIIArmor & ascOutput, int32_t & nMarketCount)
 		// *pMarketData is CLONED at this time (I'm still responsible to delete.)
 		// That's also why I add it here, below: So the data is set right before the cloning occurs.
 		//
-		pMarketList->AddMarketData(*pMarketData);
+        OTDB::Storable::add(pMarketList->list_MarketData, pMarketData);
         nMarketCount++;
 	}		
 	

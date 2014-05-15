@@ -144,7 +144,6 @@
 // we now include this file in swig
 // we need to tell swig what parts to skip over.
 
-#ifndef SWIG
 
 #include "OTAssert.hpp"
 
@@ -155,7 +154,7 @@
 
 
 // credit:stlplus library.
-#include "containers/simple_ptr.hpp"
+//#include "containers/simple_ptr.hpp"
 
 
 // Which storage mechanism are we building?
@@ -217,7 +216,6 @@ public: \
 #define FOR_EACH_CONST(ARG_OT_ONE, ARG_OT_TWO)	for(ARG_OT_ONE::const_iterator it = ARG_OT_TWO.begin(); it != ARG_OT_TWO.end(); ++ it)
 
 
-#endif // (not) SWIG
 
 
 namespace OTDB
@@ -245,13 +243,15 @@ namespace OTDB
 		STORE_TYPE_SUBCLASS		// (Subclass provided by API client via SWIG.)
 	};
 
-#ifndef SWIG
 	// -------------------------------------
 	//
 	// STORED OBJECT TYPES...
 	//
-	extern const char * StoredObjectTypeStrings[];
-#endif // (not) SWIG
+
+    class StoredObjectTypeStrings {
+    public:
+        static const std::vector<std::string> & get();
+    };
 
 	enum StoredObjectType
 	{
@@ -282,8 +282,7 @@ namespace OTDB
 		STORED_OBJ_ERROR			// (Should never be.)
 	};
 
-#ifndef SWIG
-
+	// ********************************************************************
 
 	// ABSTRACT BASE CLASSES
 	//
@@ -324,7 +323,9 @@ namespace OTDB
 	typedef std::pair<PackType, StoredObjectType> InstantiateFuncKey;	// Those methods are stored as function pointers here, and they are
 	// indexed by Pack Type and Stored Object Type. So if you know "LoomAcct" and
 	// "protocol buffers", those form the KEY for looking up the LoomAcctPB instantiator.
+#ifndef SWIG
 	typedef std::map<InstantiateFuncKey, InstantiateFunc*> mapOfFunctions; //...basically implementing my own vtable, eh?
+#endif
 
 
 
@@ -333,13 +334,14 @@ namespace OTDB
 	// OTDB Namespace PRIVATE MEMBERS
 	// this "details" naming is a common C++ idiom for "private" in a namespace.
 	//
+#ifndef SWIG
 	namespace details
 	{
 		extern OTDB::Storage * s_pStorage;
 
 		extern OTDB::mapOfFunctions * pFunctionMap; // This is a pointer so I can control what order it is created in, on startup.
 	}
-
+#endif
 
 
 
@@ -368,25 +370,24 @@ namespace OTDB
 	virtual void hookAfterUnpack() {} // This is called just after unpacking a storable. (Opportunity to copy values...)
 	EndInterface
 
-#endif // (not) SWIG
 
 	// ********************************************************************
 	//
 	// use this without a semicolon:
 	//
+#ifdef SWIG
 
-#ifdef SWIG // swig version
-#define DEFINE_OT_DYNAMIC_CAST(CLASS_NAME_A) \
-	CLASS_NAME_A * clone () const { std::cerr << "********* THIS SHOULD NEVER HAPPEN!!!!! *****************" << std::endl; return NULL; } \
-	static CLASS_NAME_A *		ot_dynamic_cast(		Storable *pObject) { return dynamic_cast<CLASS_NAME_A *>(pObject); }
-//	static const CLASS_NAME_A*	ot_dynamic_cast(const	Storable *pObject) { return dynamic_cast<const CLASS_NAME_A *>(pObject); }
-#endif // SWIG
-
-#ifndef SWIG // normal version
 #define DEFINE_OT_DYNAMIC_CAST(CLASS_NAME) \
-	virtual CLASS_NAME * clone () const { std::cout << "********* THIS SHOULD NEVER HAPPEN!!!!! *****************" << std::endl; OT_FAIL; } \
+    CLASS_NAME * clone_this () const { std::cout << "********* THIS SHOULD NEVER HAPPEN!!!!! *****************" << std::endl; OT_FAIL; } \
+    static CLASS_NAME *			ot_dynamic_cast(		Storable *pObject) { return dynamic_cast<CLASS_NAME *>(pObject); }
+
+#else
+
+#define DEFINE_OT_DYNAMIC_CAST(CLASS_NAME) \
+	virtual CLASS_NAME * clone_this () const { std::cout << "********* THIS SHOULD NEVER HAPPEN!!!!! *****************" << std::endl; OT_FAIL; } \
 	static CLASS_NAME *			ot_dynamic_cast(		Storable *pObject) { return dynamic_cast<CLASS_NAME *>(pObject); }
-#endif // (not) SWIG
+
+#endif
 
 	//	static const CLASS_NAME	*	ot_dynamic_cast(const	Storable *pObject) { return dynamic_cast<const T *>(pObject); }
 
@@ -412,10 +413,17 @@ namespace OTDB
 		// %ignore spam(uint16_t); API users don't need this function, it's for internal purposes.
 		EXPORT	static Storable * Create(StoredObjectType eType, PackType thePackType);
 
+        template<class T>
+        static void add(std::deque<_SharedPtr<T>> l, T * t) {
+            Displayable * d = t;
+            OT_ASSERT(NULL != d)
+            l.push_back(_SharedPtr<T>(t->clone_this()));
+        }
+
 		DEFINE_OT_DYNAMIC_CAST(Storable)
 	};
 
-#ifndef SWIG
+
 
 	// ********************************************************************
 
@@ -541,8 +549,6 @@ namespace OTDB
 	// ********************************************************************
 
 
-
-#endif
 	// ********************************************************************
 	//
 	// STORAGE  -- abstract base class
@@ -770,29 +776,15 @@ namespace OTDB
 	}
 	*/
 
-#ifdef SWIG // swig version
-#define DECLARE_GET_ADD_REMOVE(name) \
-	protected: \
-	std::deque< stlplus::simple_ptr_clone<name> > list_##name##s; \
-public: \
-	size_t Get##name##Count(); \
-	name * Get##name(size_t nIndex); \
-	bool Remove##name(size_t nIndex##name); \
-	bool Add##name(name & disownObject)
-
-#endif // SWIG
-#ifndef SWIG
-
-#define DECLARE_GET_ADD_REMOVE(name) \
-protected: \
-	std::deque< stlplus::simple_ptr_clone<name> > list_##name##s; \
-public: \
-	EXPORT	size_t Get##name##Count(); \
-	EXPORT	name * Get##name(size_t nIndex); \
-	EXPORT	bool Remove##name(size_t nIndex##name); \
-	EXPORT	bool Add##name(name & disownObject)
-#endif // (not) SWIG
-
+//
+//#define DECLARE_GET_ADD_REMOVE(name) \
+//protected: \
+//    std::deque< _SharedPtr<name> > list_##name##s; \
+//public: \
+//	EXPORT	size_t Get##name##Count(); \
+//	EXPORT	name * Get##name(size_t nIndex); \
+//	EXPORT	bool Remove##name(size_t nIndex##name); \
+//	EXPORT	bool Add##name(name & disownObject)
 
 	// Serialized types...
 	//
@@ -939,10 +931,9 @@ public: \
 
 	public:
 		virtual ~MarketList() {}
-
-		DECLARE_GET_ADD_REMOVE(MarketData);
-
-		DEFINE_OT_DYNAMIC_CAST(MarketList)
+        
+        std::deque<_SharedPtr<MarketData>> list_MarketData;
+        std::deque<_SharedPtr<MarketList>> list_MarketList;
 	};
 
 
@@ -1040,8 +1031,8 @@ public: \
 	public:
 		virtual ~OfferListMarket() {}
 
-		DECLARE_GET_ADD_REMOVE(BidData);
-		DECLARE_GET_ADD_REMOVE(AskData);
+        std::deque<_SharedPtr<BidData>> list_BidData;
+        std::deque<_SharedPtr<AskData>> list_AskData;
 
 		DEFINE_OT_DYNAMIC_CAST(OfferListMarket)
 	};
@@ -1082,7 +1073,7 @@ public: \
 	public:
 		virtual ~TradeListMarket() {}
 
-		DECLARE_GET_ADD_REMOVE(TradeDataMarket);
+        std::deque<_SharedPtr<TradeDataMarket>> list_TradeDataMarket;
 
 		DEFINE_OT_DYNAMIC_CAST(TradeListMarket)
 	};
@@ -1154,7 +1145,7 @@ public: \
 	public:
 		virtual ~OfferListNym() {}
 
-		DECLARE_GET_ADD_REMOVE(OfferDataNym);
+        std::deque<_SharedPtr<OfferDataNym>> list_OfferDataNym;
 
 		DEFINE_OT_DYNAMIC_CAST(OfferListNym)
 	};
@@ -1205,7 +1196,7 @@ public: \
 	public:
 		virtual ~TradeListNym() {}
 
-		DECLARE_GET_ADD_REMOVE(TradeDataNym);
+        std::deque<_SharedPtr<TradeDataNym>> list_TradeDataNym;
 
 		DEFINE_OT_DYNAMIC_CAST(TradeListNym)
 	};
@@ -1400,7 +1391,7 @@ public: \
 		std::string public_key;
 		std::string memo;
 
-		DECLARE_GET_ADD_REMOVE(ServerInfo);
+        std::deque<_SharedPtr<ServerInfo>> list_ServerInfo;
 
 		DEFINE_OT_DYNAMIC_CAST(ContactNym)
 	};
@@ -1422,11 +1413,11 @@ public: \
 		// List of Bitcoin accounts
 		// Loom, etc.
 
-		DECLARE_GET_ADD_REMOVE(BitcoinServer);
-		DECLARE_GET_ADD_REMOVE(BitcoinAcct);
+        std::deque<_SharedPtr<BitcoinServer>> list_BitcoinServer;
+        std::deque<_SharedPtr<BitcoinAcct>>   list_BitcoinAcct;
 
-		DECLARE_GET_ADD_REMOVE(RippleServer);
-		DECLARE_GET_ADD_REMOVE(LoomServer);
+        std::deque<_SharedPtr<RippleServer>>  list_RippleServer;
+        std::deque<_SharedPtr<LoomServer>>    list_LoomServer;
 
 		DEFINE_OT_DYNAMIC_CAST(WalletData)
 	};
@@ -1474,8 +1465,8 @@ public: \
 		std::string memo;
 		std::string public_key;
 
-		DECLARE_GET_ADD_REMOVE(ContactNym);
-		DECLARE_GET_ADD_REMOVE(ContactAcct);
+        std::deque<_SharedPtr<ContactNym>>  list_ContactNym;
+        std::deque<_SharedPtr<ContactAcct>> list_ContactAcct;
 
 		DEFINE_OT_DYNAMIC_CAST(Contact)
 	};
@@ -1491,14 +1482,13 @@ public: \
 	public:
 		virtual ~AddressBook();
 
-		DECLARE_GET_ADD_REMOVE(Contact);
+        std::deque<_SharedPtr<Contact>> list_Contact;
 
 		DEFINE_OT_DYNAMIC_CAST(AddressBook)
 	};
 } // Namespace OTDB
 
 
-#ifndef SWIG
 
 
 // StorageFS -- FILE-SYSTEM Storage Context
@@ -1587,8 +1577,10 @@ namespace OTDB
 		// -----------------------------------------
 		// lower level calls.
 
+#ifndef SWIG
 		bool ConfirmOrCreateFolder(const char * szFolderName, struct stat *pst=NULL); // local to data_folder
 		bool ConfirmFile(const char * szFileName, struct stat *pst=NULL); // local to data_folder
+#endif
 
 		/*
 		IN BASE CLASS:
@@ -1648,9 +1640,6 @@ namespace OTDB
 #define OT_USING_ISTORABLE_HOOKS \
 	using IStorable::hookBeforePack; \
 	using IStorable::hookAfterUnpack
-
-
-#endif // (not) SWIG
 
 
 #if __clang__
