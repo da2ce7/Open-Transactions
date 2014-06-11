@@ -140,6 +140,77 @@
 class OTPassword;
 
 
+
+EXPORT void * _SecureAllocateVoid(const size_t _Count, const size_t _Size);
+
+template<class _Ty> inline // convert into secure.
+_Ty *_SecureAllocate(size_t _Count, _Ty *) {
+    return static_cast<_Ty *>(_SecureAllocateVoid(_Count, sizeof (_Ty)));
+}
+
+EXPORT void _SecureDeallocateVoid(const size_t _Count, const size_t _Size, void * _Ptr);
+
+template<class _Ty> inline // convert into secure.
+void _SecureDeallocate(size_t _Count, _Ty * _Ptr) {
+    return _SecureDeallocateVoid(_Count, sizeof (_Ty), static_cast<void *>(_Ptr));
+}
+
+template<class _Ty>
+class secure_allocator : public std::allocator<_Ty>
+{
+public:
+    template<class _Other>
+    secure_allocator<_Ty>& operator=(const secure_allocator<_Other>&)
+    {	// assign from a related LockedVirtualMemAllocator (do nothing)
+        return (*this);
+    }
+
+    template<class Other>
+    struct rebind {
+        typedef secure_allocator<Other> other;
+    };
+
+    typedef typename std::allocator<_Ty>::pointer pointer;
+    typedef typename std::allocator<_Ty>::size_type size_type;
+
+    pointer allocate(size_type _Count)
+    {	// allocate array of _Count elements
+        return (_SecureAllocate(_Count, (pointer)0));
+    }
+    pointer allocate(size_type _Count, const void *)
+    {	// allocate array of _Count elements, ignore hint
+        return (allocate(_Count));
+    }
+
+    void deallocate(pointer _Ptr, size_type _Count)
+    {	// deallocate object at _Ptr, ignore size
+        return (_SecureDeallocate(_Count, _Ptr));
+    }
+};
+
+typedef std::basic_string<char, std::char_traits<char>, secure_allocator<char> > SecureString;
+
+typedef std::vector<uint8_t, secure_allocator<uint8_t> > SecureDataVector;
+
+typedef std::pair<void * const, const size_t> VoidPointerPair;
+typedef std::pair<const void * const, const size_t> ConstVoidPointerPair;
+
+
+template <typename T>
+struct SecureVector {
+    typedef std::vector<T, secure_allocator<T> > type;
+};
+
+
+
+
+
+
+
+
+
+
+
 /*
  To use:
 
