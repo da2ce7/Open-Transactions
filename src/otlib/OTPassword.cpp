@@ -1063,13 +1063,60 @@ OTPassword * OTPassword::CreateTextBuffer() // asserts already.
 
 
 
+//static
+bool OTPassword::randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize)
+{
+    OT_ASSERT(NULL != szDestination);
+    OT_ASSERT(nNewSize > 0);
+    // ---------------------------------
+    //  const char * szFunc = "OTPassword::randomizePassword(static)";
+    // ---------------------------------
+    if (OTPassword::randomizeMemory_uint8(szDestination, nNewSize))
+    {
+        // --------------------------------------------------
+        // This loop converts an array of binary bytes into the
+        // same array, where each byte is translated to a byte
+        // between the values of 33 and 122 (visible ASCII.)
+        //
+        for (uint32_t i = 0; i < nNewSize; ++i)
+        {
+            uint8_t temp = (((szDestination[i]) % 89) + 33);
+            szDestination[i] = temp;
+        }
+        // --------------------------------------------------
+        // Add the NULL terminator...
+        //
+        szDestination[nNewSize - 1] = '\0';
 
+        return true;
+    }
+    return false;
+}
 
 
 //static
-bool OTPassword::randomizeMemory(void * pMemory, size_t theSize){
-    return NewOTPassword::randomizeMemory(pMemory, theSize);
+bool OTPassword::randomizeMemory(void * szDestination, uint32_t nNewSize)
+{
+    return OTPassword::randomizeMemory_uint8(reinterpret_cast<uint8_t *>(szDestination), nNewSize);
 }
+
+
+//static
+bool OTPassword::randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize)
+{
+    return OTCrypto::It()->RandomizeMemory(szDestination, nNewSize);
+}
+
+//
+///
+///// ---------------------
+///
+//
+
+////static
+//bool OTPassword::randomizeMemory(void * pMemory, size_t theSize){
+//    return NewOTPassword::randomizeMemory(pMemory, theSize);
+//}
 
 
 

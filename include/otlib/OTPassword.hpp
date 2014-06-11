@@ -435,9 +435,9 @@ public:
 
     static OTPassword * CreateTextBuffer(); // asserts already.
 
-    static bool randomizeMemory(void * pMemory, size_t theSize);
-    static bool randomizePassword_uint8(uint8_t * pMemory, size_t theSize) { return randomizeMemory(pMemory, theSize); }
-    static bool randomizeMemory_uint8(void * pMemory, size_t theSize) { return randomizeMemory(pMemory, theSize); }
+    static bool randomizeMemory(void * szDestination, uint32_t nNewSize);
+    static bool randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize); // { return randomizeMemory(pMemory, theSize); }
+    static bool randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize); // { return randomizeMemory(pMemory, theSize); }
 
     static void zeroMemory(void * pMemory, size_t theSize);
 
