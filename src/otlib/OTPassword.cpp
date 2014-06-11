@@ -304,40 +304,6 @@ void OTPassword::zeroMemory()
     // -------------------
 }
 
-//
-////static
-//void OTPassword::zeroMemory(void * vMemory, uint32_t theSize)
-//{
-//    //  OT_ASSERT_MSG((NULL != vMemory) && (theSize > 0),"OTPassword::zeroMemory: ASSERT: vMemory is NULL or theSize is 0.");
-//
-//    if ((NULL != vMemory) && (theSize > 0))
-//    {
-//        uint8_t * szMemory = static_cast<uint8_t *>(vMemory);
-//        OTPassword::zeroMemory(szMemory, theSize);
-//    }
-//}
-//
-//
-////static
-//void OTPassword::zeroMemory(uint8_t * szMemory, uint32_t theSize)
-//{
-//#ifdef _WIN32
-//    // ------
-//    //
-//    SecureZeroMemory(szMemory, theSize);
-//
-//    // NOTE: Both SecureZeroMemory, and the pragma solution commented-out below,
-//    // are acceptable for Windows. I put both here for my notes.
-//    //
-//    //#pragma optimize("", off)
-//    //	memset(szMemory, 0, theSize);
-//    //#pragma optimize("", on)
-//    // -------------------------
-//    // Dr. UNIX, I presume? So, we meet again...
-//#else
-//    ot_secure_memset(szMemory, static_cast<uint8_t>(0), theSize);
-//#endif
-//}
 
 //
 ///* WINDOWS:
@@ -348,70 +314,7 @@ void OTPassword::zeroMemory()
 //void   * src,
 //size_t   count
 //);
-//
-//FT: Apparently numberOfElements is similar to strcpy_s (where it's the maximum size of destination buffer.)
-//"numberOfElements is the Maximum number of characters destination string can accomodate including the NULL character"
-//(Then count is the actual size being copied.)
-//*/
-//// UNIX:
-////    void * memcpy(void *restrict s1, const void *restrict s2, size_t n);
-////
-////static
-//void * OTPassword::safe_memcpy(void   * dest,
-//    uint32_t dest_size,
-//    const
-//    void   * src,
-//    uint32_t src_length,
-//    bool     bZeroSource/*=false*/) // if true, sets the source buffer to zero after copying is done.
-//{
-//    bool bSuccess = false;
-//
-//    // Make sure they aren't null.
-//    OT_ASSERT(NULL != dest);
-//    OT_ASSERT(NULL != src);
-//
-//    // Make sure they aren't the same pointer.
-//    OT_ASSERT(src != dest);
-//
-//    // Make sure it will fit.
-//    OT_ASSERT_MSG(src_length <= dest_size, "ASSERT: safe_memcpy: destination buffer too small.\n");
-//
-//    // Make sure they don't overlap.
-//    // First assert does the beginning of the string, makes sure it's not within the bounds of the destination
-//    // string. Second assert does the same thing for the end of the string. Finally a third is needed to make sure
-//    // we're not in a situation where the beginning is less than the dest beginning, yet the end is also more than
-//    // the dest ending!
-//    //
-//    OT_ASSERT_MSG(false == ((static_cast<const uint8_t *>(src) >   static_cast<uint8_t *>(dest)) &&
-//        (static_cast<const uint8_t *>(src) <  (static_cast<uint8_t *>(dest)+dest_size))),
-//        "ASSERT: safe_memcpy: Unexpected memory overlap, start of src.\n");
-//    OT_ASSERT_MSG(false == (((static_cast<const uint8_t *>(src)+src_length) >   static_cast<uint8_t *>(dest)) &&
-//        ((static_cast<const uint8_t *>(src)+src_length) <  (static_cast<uint8_t *>(dest)+dest_size))),
-//        "ASSERT: safe_memcpy: Unexpected memory overlap, end of src.\n");
-//    OT_ASSERT(false == ((static_cast<const uint8_t *>(src) <= static_cast<uint8_t *>(dest)) &&
-//        ((static_cast<const uint8_t *>(src)+src_length) >= (static_cast<uint8_t *>(dest)+dest_size))));
-//
-//#ifdef _WIN32
-//    bSuccess = (0 == memcpy_s(dest,         // destination
-//        static_cast<size_t>(dest_size),    // size of destination buffer.
-//        src,          // source
-//        static_cast<size_t>(src_length))); // length of source.
-//#else
-//    bSuccess = (memcpy(dest, src, static_cast<size_t>(src_length)) == dest);
-//#endif
-//
-//    if (bSuccess)
-//    {
-//        if (bZeroSource)
-//        {
-//            OTPassword::zeroMemory(const_cast<void *>(src), src_length);
-//        }
-//        // ------------------------
-//        return dest;
-//    }
-//
-//    return NULL;
-//}
+
 
 
 
@@ -759,44 +662,6 @@ bool OTPassword::SetSize(uint32_t uSize)
     return false;
 }
 
-//
-////static
-//bool OTPassword::randomizePassword(char * szDestination, uint32_t nNewSize)
-//{
-//    return OTPassword::randomizePassword_uint8(reinterpret_cast<uint8_t *>(szDestination), nNewSize);
-//}
-//
-//
-////static
-//bool OTPassword::randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize)
-//{
-//    OT_ASSERT(NULL != szDestination);
-//    OT_ASSERT(nNewSize > 0);
-//    // ---------------------------------
-//    //  const char * szFunc = "OTPassword::randomizePassword(static)";
-//    // ---------------------------------
-//    if (OTPassword::randomizeMemory_uint8(szDestination, nNewSize))
-//    {
-//        // --------------------------------------------------
-//        // This loop converts an array of binary bytes into the
-//        // same array, where each byte is translated to a byte
-//        // between the values of 33 and 122 (visible ASCII.)
-//        //
-//        for (uint32_t i = 0; i < nNewSize; ++i)
-//        {
-//            uint8_t temp = (((szDestination[i]) % 89) + 33);
-//            szDestination[i] = temp;
-//        }
-//        // --------------------------------------------------
-//        // Add the NULL terminator...
-//        //
-//        szDestination[nNewSize - 1] = '\0';
-//
-//        return true;
-//    }
-//    return false;
-//}
-
 
 // Returns size of memory (in case truncation is necessary.)
 // Returns -1 in case of error.
@@ -849,20 +714,6 @@ int32_t OTPassword::randomizePassword(uint32_t nNewSize/*=DEFAULT_SIZE*/)
 
     return m_nPasswordSize;
 }
-
-//
-////static
-//bool OTPassword::randomizeMemory(void * szDestination, uint32_t nNewSize)
-//{
-//    return OTPassword::randomizeMemory_uint8(reinterpret_cast<uint8_t *>(szDestination), nNewSize);
-//}
-//
-//
-////static
-//bool OTPassword::randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize)
-//{
-//    return OTCrypto::It()->RandomizeMemory(szDestination, nNewSize);
-//}
 
 
 // Returns size of memory (in case truncation is necessary.)
@@ -1107,6 +958,54 @@ bool OTPassword::randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSiz
     return OTCrypto::It()->RandomizeMemory(szDestination, nNewSize);
 }
 
+
+
+
+
+
+
+
+
+//static
+void OTPassword::zeroMemory(void * vMemory, uint32_t theSize)
+{
+    //  OT_ASSERT_MSG((NULL != vMemory) && (theSize > 0),"OTPassword::zeroMemory: ASSERT: vMemory is NULL or theSize is 0.");
+
+    if ((NULL != vMemory) && (theSize > 0))
+    {
+        uint8_t * szMemory = static_cast<uint8_t *>(vMemory);
+        OTPassword::zeroMemory(szMemory, theSize);
+    }
+}
+
+
+//static
+void OTPassword::zeroMemory(uint8_t * szMemory, uint32_t theSize)
+{
+#ifdef _WIN32
+    // ------
+    //
+    SecureZeroMemory(szMemory, theSize);
+
+    // NOTE: Both SecureZeroMemory, and the pragma solution commented-out below,
+    // are acceptable for Windows. I put both here for my notes.
+    //
+    //#pragma optimize("", off)
+    //	memset(szMemory, 0, theSize);
+    //#pragma optimize("", on)
+    // -------------------------
+    // Dr. UNIX, I presume? So, we meet again...
+#else
+    ot_secure_memset(szMemory, static_cast<uint8_t>(0), theSize);
+#endif
+}
+
+
+
+
+
+
+
 //
 ///
 ///// ---------------------
@@ -1120,11 +1019,18 @@ bool OTPassword::randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSiz
 
 
 
-//static
-void OTPassword::zeroMemory(void * pMemory, size_t theSize)
-{
-    return NewOTPassword::zeroMemory(pMemory, theSize);
-}
+////static
+//void OTPassword::zeroMemory(void * pMemory, size_t theSize)
+//{
+//    return NewOTPassword::zeroMemory(pMemory, theSize);
+//}
+
+
+
+
+
+
+
 
 //static
 void * OTPassword::safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, const uint32_t nIn) {
@@ -1136,7 +1042,7 @@ void * OTPassword::safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, con
 // static
 void OTPassword::copyMemory(const void * const pIn, const size_t & nIn, void * pOut, size_t & nOut) {
 
-    return NewOTPassword::copyMemory(pIn, nIn, pOut, nOut);
+    return NewOTPassword::copyMemory(pOut, nOut, pIn, nIn);
 }
 
 
@@ -1211,11 +1117,11 @@ void _SecureDeallocateVoid(const size_t _Count, const size_t _Size, void * _Ptr)
 #else
         // This section securely overwrites the contents of a memory buffer
         // (which can otherwise be optimized out by an overzealous compiler...)
-        volatile uint8_t * _Ptr = static_cast<volatile uint8_t *>(_Ptr);
+        volatile uint8_t * _vPtr = static_cast<volatile uint8_t *>(_Ptr);
         {
             size_t count = _Count * (_Size/sizeof(uint8_t));
             while (count--)
-                *_Ptr++ = 0;
+                *_vPtr++ = 0;
         }
 #endif
 
@@ -1267,64 +1173,82 @@ void NewOTPassword::zeroMemory(void * pMemory, size_t theSize)
 #else
         // This section securely overwrites the contents of a memory buffer
         // (which can otherwise be optimized out by an overzealous compiler...)
-        volatile uint8_t * pMemory = static_cast<volatile uint8_t *>(pMemory);
+        volatile uint8_t * pvMemory = static_cast<volatile uint8_t *>(pMemory);
         while (theSize--)
-            *pMemory++ = 0;
+            *pvMemory++ = 0;
 #endif
     }
 }
 
 //static
-void * NewOTPassword::safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, const uint32_t nIn) {
+void * NewOTPassword::safe_memcpy(void * dest, uint32_t dest_size, const void * src, const uint32_t src_length) {
 
-    if ((NULL != pOut) || (0 != nOut)) OT_FAIL;
+    // Make sure they aren't null.
+    OT_ASSERT(NULL != dest);
+    OT_ASSERT(NULL != src);
 
-    if ((NULL == pIn) || (0 >= nIn)) {
-        pOut = NULL;
-        nOut = 0;
-        return NULL;
-    }
+    // Make sure they aren't the same pointer.
+    OT_ASSERT(src != dest);
 
-    // make an extra copy here.
-    std::vector<uint8_t> v(static_cast<const uint8_t *>(pIn), static_cast<const uint8_t *>(pIn)+nIn);
+    // Make sure it will fit.
+    OT_ASSERT_MSG(src_length <= dest_size, "ASSERT: safe_memcpy: destination buffer too small.\n");
 
-    if (v.size() > nOut) return NULL;
+    // Make sure they don't overlap.
+    // First assert does the beginning of the string, makes sure it's not within the bounds of the destination
+    // string. Second assert does the same thing for the end of the string. Finally a third is needed to make sure
+    // we're not in a situation where the beginning is less than the dest beginning, yet the end is also more than
+    // the dest ending!
+    //
+    OT_ASSERT_MSG(false == ((static_cast<const uint8_t *>(src) > static_cast<uint8_t *>(dest)) &&
+        (static_cast<const uint8_t *>(src) <  (static_cast<uint8_t *>(dest)+dest_size))),
+        "ASSERT: safe_memcpy: Unexpected memory overlap, start of src.\n");
+    OT_ASSERT_MSG(false == (((static_cast<const uint8_t *>(src)+src_length) >   static_cast<uint8_t *>(dest)) &&
+        ((static_cast<const uint8_t *>(src)+src_length) < (static_cast<uint8_t *>(dest)+dest_size))),
+        "ASSERT: safe_memcpy: Unexpected memory overlap, end of src.\n");
+    OT_ASSERT(false == ((static_cast<const uint8_t *>(src) <= static_cast<uint8_t *>(dest)) &&
+        ((static_cast<const uint8_t *>(src)+src_length) >= (static_cast<uint8_t *>(dest)+dest_size))));
 
-#ifdef _WIN32
-    std::copy(v.begin(), v.end(), stdext::make_checked_array_iterator(static_cast<uint8_t *>(pOut), nOut));
+
+    NewOTPassword::zeroMemory(dest, dest_size);
+
+
+#ifndef _WIN32
+
+        std::copy(
+            static_cast<const uint8_t *>(src),
+            static_cast<const uint8_t *>(src)+src_length,
+            static_cast<      uint8_t *>(dest));
+
 #else
-    std::copy(v.begin(), v.end(), static_cast<uint8_t *>(pOut));
+
+        std::copy(
+            static_cast<const uint8_t *>(src),
+            static_cast<const uint8_t *>(src)+src_length,
+            stdext::make_checked_array_iterator(static_cast<uint8_t *>(dest), dest_size));
+
 #endif
 
-    return pOut;
+    return dest;
+
 }
 
 
 // static
-void NewOTPassword::copyMemory(const void * const pIn, const size_t & nIn, void * pOut, size_t & nOut) {
+void NewOTPassword::copyMemory(void *& dest, size_t & dest_size, const void * src, const size_t src_length) {
 
-    if ((NULL != pOut) || (0 != nOut)) OT_FAIL;
+    dest = NULL;
+    dest_size = 0;
 
-    if ((NULL == pIn) || (0 >= nIn)) {
-        pOut = NULL;
-        nOut = 0;
-        return;
-    }
+    OT_ASSERT(0 < src_length);
 
-    SecureDataVector v(static_cast<const uint8_t *>(pIn), static_cast<const uint8_t *>(pIn)+nIn);
+    uint8_t * buf = new uint8_t[src_length];
 
-    uint8_t * v_copy = new uint8_t[v.size()];
-    NewOTPassword::zeroMemory(static_cast<void *>(v_copy), v.size());
+    NewOTPassword::safe_memcpy(buf, src_length, src, src_length);
 
+    dest = buf;
+    dest_size = src_length;
 
-#ifdef _WIN32
-    std::copy(v.begin(), v.end(), stdext::make_checked_array_iterator(v_copy, v.size()));
-#else
-    std::copy(v.begin(), v.end(), v_copy);
-#endif
-
-    pOut = static_cast<void *>(v_copy);
-    nOut = sizeof(v.at(0)) * v.size();
+    return;
 }
 
 

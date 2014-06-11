@@ -432,7 +432,7 @@ EVP_PKEY * OTAsymmetricKey_OpenSSL::OTAsymmetricKey_OpenSSLPrivdp::CopyPrivateKe
                 // -------------------------------------------
             }
             else 
-                OTLog::vError("%s: Error: Failed copying memory from BIO into OTPayload.\n");
+                OTLog::vError("%s: Error: Failed copying memory from BIO into OTPayload.\n",__FUNCTION__);
             // -------------------------------------------            
         }
 		else 

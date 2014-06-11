@@ -438,8 +438,11 @@ public:
     static bool randomizeMemory(void * szDestination, uint32_t nNewSize);
     static bool randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize); // { return randomizeMemory(pMemory, theSize); }
     static bool randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize); // { return randomizeMemory(pMemory, theSize); }
+    
+    /// -^ not
 
-    static void zeroMemory(void * pMemory, size_t theSize);
+    static void zeroMemory(void * vMemory, uint32_t theSize);
+    static void zeroMemory(uint8_t * szMemory, uint32_t theSize);
 
     // to remove in the future (not secure).
     static void * safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, const uint32_t nIn);
@@ -707,11 +710,11 @@ public:
     static bool randomizeMemory(void * pMemory, size_t theSize);
     static void zeroMemory(void * pMemory, size_t theSize);
 
-    // to remove in the future (not secure).
-    static void * safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, const uint32_t nIn);
+    // safe C++ version of memcpy (caller supplies pre-allocated data)
+    static void * safe_memcpy(void * dest, size_t dest_size, const void * src, const size_t src_length);
 
-    // takes in pIn and nIn, and make a new array (no need to pre-allocate), caller deletes.
-    static void copyMemory(const void * const pIn, const size_t & nIn, void * pOut, size_t & nOut);
+    // copy memory to new buffer (caller responcible to call 'delete []', not 'free').
+    static void copyMemory(void *& dest, size_t & dest_size, const void * src, const size_t src_length);
 
 };
 
