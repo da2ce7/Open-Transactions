@@ -371,8 +371,8 @@ public:
     // ---------------------
     EXPORT				int32_t		randomizePassword(uint32_t nNewSize = DEFAULT_SIZE);
     // -----------------
-    EXPORT	static	    bool		randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize);
-    EXPORT	static		bool		randomizePassword(char * szDestination, uint32_t nNewSize);
+    //EXPORT	static	    bool		randomizePassword_uint8(uint8_t * szDestination, uint32_t nNewSize);
+    //EXPORT	static		bool		randomizePassword(char * szDestination, uint32_t nNewSize);
     // -----------------
     EXPORT				bool		isMemory()	const;
     EXPORT	const		void *		getMemory() const; // asserts if m_bIsBinary is false.
@@ -383,9 +383,9 @@ public:
     // ---------------------
     EXPORT				int32_t		randomizeMemory(uint32_t nNewSize = DEFAULT_SIZE);
     // -----------------
-    EXPORT	static		bool		randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize);
-    // -----------------
-    EXPORT	static		bool		randomizeMemory(void * szDestination, uint32_t nNewSize);
+    //EXPORT	static		bool		randomizeMemory_uint8(uint8_t * szDestination, uint32_t nNewSize);
+    //// -----------------
+    //EXPORT	static		bool		randomizeMemory(void * szDestination, uint32_t nNewSize);
     // -----------------
     EXPORT				uint32_t	getBlockSize()    const;
     EXPORT				bool		Compare(OTPassword & rhs) const;
@@ -395,14 +395,14 @@ public:
     // -----------------
     EXPORT				void		zeroMemory();
     // -----------------
-    EXPORT	static		void		zeroMemory(uint8_t * szMemory, uint32_t theSize);
-    EXPORT	static		void		zeroMemory(void * vMemory, uint32_t theSize);
-    // -----------------
-    EXPORT	static		void *		safe_memcpy(void *			dest,
-        uint32_t		dest_size,
-        const void *	src,
-        uint32_t		src_length,
-        bool			bZeroSource = false); // if true, sets the source buffer to zero after copying is done.
+    //EXPORT	static		void		zeroMemory(uint8_t * szMemory, uint32_t theSize);
+    //EXPORT	static		void		zeroMemory(void * vMemory, uint32_t theSize);
+    //// -----------------
+    //EXPORT	static		void *		safe_memcpy(void *			dest,
+    //    uint32_t		dest_size,
+    //    const void *	src,
+    //    uint32_t		src_length,
+    //    bool			bZeroSource = false); // if true, sets the source buffer to zero after copying is done.
     // ---------------------------------------
     // OTPassword thePass; will create a text password.
     // But use the below function if you want one that has
@@ -412,7 +412,7 @@ public:
     // (Such as the OpenSSL password callback...)
     // CALLER IS RESPONSIBLE TO DELETE.
     //
-    EXPORT  static OTPassword * CreateTextBuffer(); // asserts already.
+    
 
     // There are certain weird cases, like in OTSymmetricKey::GetPassphraseFromUser,
     // where we set the password using the getPassword_writable, and it's properly
@@ -431,6 +431,26 @@ public:
     EXPORT	OTPassword(const void    * vInput, uint32_t nInputSize, BlockSize theBlockSize = DEFAULT_SIZE);  // binary / symmetric key stored.
     // -----------------
     EXPORT	~OTPassword();
+
+
+    static OTPassword * CreateTextBuffer(); // asserts already.
+
+    static bool randomizeMemory(void * pMemory, size_t theSize);
+    static bool randomizePassword_uint8(uint8_t * pMemory, size_t theSize) { return randomizeMemory(pMemory, theSize); }
+    static bool randomizeMemory_uint8(void * pMemory, size_t theSize) { return randomizeMemory(pMemory, theSize); }
+
+    static void zeroMemory(void * pMemory, size_t theSize);
+
+    // to remove in the future (not secure).
+    static void * safe_memcpy(void * pOut, uint32_t nOut, const void * pIn, const uint32_t nIn);
+
+    // takes in pIn and nIn, and make a new array (no need to pre-allocate), caller deletes.
+    static void copyMemory(const void * const pIn, const size_t & nIn, void * pOut, size_t & nOut);
+
+
+
+
+
 };
 
 
